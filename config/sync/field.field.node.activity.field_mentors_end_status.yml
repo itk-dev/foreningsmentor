@@ -1,0 +1,29 @@
+uuid: 91e84848-f4a1-4a00-a670-d81e5a04792f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mentors_end_status
+    - node.type.activity
+    - taxonomy.vocabulary.mentors_end_status
+id: node.activity.field_mentors_end_status
+field_name: field_mentors_end_status
+entity_type: node
+bundle: activity
+label: 'Mentors afslutning'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mentors_end_status: mentors_end_status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

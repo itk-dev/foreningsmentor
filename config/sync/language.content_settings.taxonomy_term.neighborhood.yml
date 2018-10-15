@@ -1,0 +1,11 @@
+uuid: 5a6e35b2-3735-4a06-80d3-df651c764d1e
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.neighborhood
+id: taxonomy_term.neighborhood
+target_entity_type_id: taxonomy_term
+target_bundle: neighborhood
+default_langcode: site_default
+language_alterable: false

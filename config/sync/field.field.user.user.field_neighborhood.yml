@@ -1,0 +1,30 @@
+uuid: fa50d274-6e5a-48ca-8163-4b38cf5f6993
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_neighborhood
+    - taxonomy.vocabulary.neighborhood
+  module:
+    - user
+id: user.user.field_neighborhood
+field_name: field_neighborhood
+entity_type: user
+bundle: user
+label: Bydele
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      neighborhood: neighborhood
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

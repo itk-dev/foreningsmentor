@@ -1,0 +1,18 @@
+uuid: 6f9002ad-ca55-4651-839f-44595ec347d3
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Barn
+type: child
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

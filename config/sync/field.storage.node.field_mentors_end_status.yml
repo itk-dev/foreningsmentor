@@ -1,0 +1,20 @@
+uuid: 46c37379-16b2-4587-ab02-3221e429fad0
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_mentors_end_status
+field_name: field_mentors_end_status
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

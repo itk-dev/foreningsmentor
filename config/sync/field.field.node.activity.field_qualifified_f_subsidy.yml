@@ -1,0 +1,23 @@
+uuid: 6c13499e-8080-41ae-bac8-37fab4fb7b00
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_qualifified_f_subsidy
+    - node.type.activity
+id: node.activity.field_qualifified_f_subsidy
+field_name: field_qualifified_f_subsidy
+entity_type: node
+bundle: activity
+label: 'Er familien kvalificeret til fritidspas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

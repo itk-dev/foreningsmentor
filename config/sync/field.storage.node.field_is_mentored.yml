@@ -1,0 +1,18 @@
+uuid: 1604d0d4-b2cb-4c71-ab0f-099c97a65a29
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_is_mentored
+field_name: field_is_mentored
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

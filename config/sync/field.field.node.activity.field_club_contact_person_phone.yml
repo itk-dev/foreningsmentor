@@ -1,0 +1,21 @@
+uuid: 69218acf-76ad-4a85-9d44-08d8473574d2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_club_contact_person_phone
+    - node.type.activity
+  module:
+    - telephone
+id: node.activity.field_club_contact_person_phone
+field_name: field_club_contact_person_phone
+entity_type: node
+bundle: activity
+label: 'Kontaktperson tlf'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

@@ -1,0 +1,21 @@
+uuid: e4a1907b-1be3-4a2b-a090-12676df78a82
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_active
+  module:
+    - options
+    - user
+id: user.user.field_active
+field_name: field_active
+entity_type: user
+bundle: user
+label: Aktiv
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

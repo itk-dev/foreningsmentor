@@ -1,0 +1,19 @@
+uuid: 93417504-de44-4195-898a-956af1d16ba3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_referer_email
+    - node.type.child
+id: node.child.field_referer_email
+field_name: field_referer_email
+entity_type: node
+bundle: child
+label: 'Henviser e-mail'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

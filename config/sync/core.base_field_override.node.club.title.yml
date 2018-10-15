@@ -1,0 +1,18 @@
+uuid: 8d66bb17-8fc0-4452-8881-eee1957786eb
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.club
+id: node.club.title
+field_name: title
+entity_type: node
+bundle: club
+label: Navn
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

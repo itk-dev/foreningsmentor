@@ -1,0 +1,9 @@
+uuid: 9972fa12-da0f-459e-a9fb-df7011ff16a2
+langcode: da
+status: true
+dependencies: {  }
+name: 'Mentors afslutning'
+vid: mentors_end_status
+description: ''
+hierarchy: 0
+weight: 0

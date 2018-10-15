@@ -1,0 +1,8 @@
+uuid: ca10eb6e-11e1-45c2-ba4a-cd9cc6ac047c
+langcode: da
+status: true
+dependencies: {  }
+id: intranet
+label: Intranet
+description: ''
+locked: false

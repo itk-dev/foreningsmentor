@@ -1,0 +1,23 @@
+uuid: a78928b5-a049-4b71-bf9a-7bc63da70e83
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subsidy_recieved
+    - node.type.activity
+id: node.activity.field_subsidy_recieved
+field_name: field_subsidy_recieved
+entity_type: node
+bundle: activity
+label: 'Har familien modtaget fritidspas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

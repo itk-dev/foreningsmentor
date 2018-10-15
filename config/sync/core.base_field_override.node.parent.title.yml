@@ -1,0 +1,18 @@
+uuid: fe0dc81f-5d85-42ee-acb2-61dd50c7731a
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.parent
+id: node.parent.title
+field_name: title
+entity_type: node
+bundle: parent
+label: Navn
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,18 @@
+uuid: 251913fc-5407-4e83-b0ed-0cbe4b428801
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.journal_entry
+id: node.journal_entry.title
+field_name: title
+entity_type: node
+bundle: journal_entry
+label: Overskrift
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: 8d7bf607-d460-452a-b545-ecf377562425
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_comment
+  module:
+    - text
+    - user
+id: user.user.field_comment
+field_name: field_comment
+entity_type: user
+bundle: user
+label: Kommentar
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

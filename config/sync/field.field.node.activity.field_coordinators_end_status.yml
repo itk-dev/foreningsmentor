@@ -1,0 +1,29 @@
+uuid: 641925e1-346c-4224-a957-6557b9c1bc97
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_coordinators_end_status
+    - node.type.activity
+    - taxonomy.vocabulary.coordinators_end_status
+id: node.activity.field_coordinators_end_status
+field_name: field_coordinators_end_status
+entity_type: node
+bundle: activity
+label: 'Koordinatorens afslutning'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      coordinators_end_status: coordinators_end_status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

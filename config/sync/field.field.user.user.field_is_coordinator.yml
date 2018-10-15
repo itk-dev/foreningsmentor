@@ -1,0 +1,24 @@
+uuid: 379081b3-a667-4145-9e23-b8c5bcf7ba7a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_is_coordinator
+  module:
+    - user
+id: user.user.field_is_coordinator
+field_name: field_is_coordinator
+entity_type: user
+bundle: user
+label: Koordinator
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Er koordinator'
+  off_label: 'Ikke koordinator'
+field_type: boolean

@@ -1,0 +1,59 @@
+uuid: fadeceb1-f302-42af-855b-b5279ac16cd7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.journal_entry.body
+    - field.field.node.journal_entry.field_child
+    - field.field.node.journal_entry.field_date
+    - field.field.node.journal_entry.field_reminder_date
+    - node.type.journal_entry
+  module:
+    - datetime
+    - text
+    - user
+id: node.journal_entry.default
+targetEntityType: node
+bundle: journal_entry
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_child:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_date:
+    weight: 102
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_reminder_date:
+    weight: 103
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

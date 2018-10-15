@@ -1,0 +1,9 @@
+uuid: 8309acf3-6085-415c-8b87-03254bd0e825
+langcode: da
+status: true
+dependencies: {  }
+name: Kontingentstøtte
+vid: membership_fee_subsidy_type
+description: ''
+hierarchy: 0
+weight: 0

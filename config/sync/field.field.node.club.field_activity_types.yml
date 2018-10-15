@@ -1,0 +1,29 @@
+uuid: c8c73e68-1aa8-4373-b6d8-a6f6a8d47f91
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activity_types
+    - node.type.club
+    - taxonomy.vocabulary.activity_type
+id: node.club.field_activity_types
+field_name: field_activity_types
+entity_type: node
+bundle: club
+label: Aktivitetstyper
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      activity_type: activity_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

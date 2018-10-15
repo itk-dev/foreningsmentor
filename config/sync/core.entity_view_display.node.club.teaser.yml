@@ -1,0 +1,21 @@
+uuid: 6bdc738c-3f57-4f76-a712-67310442386c
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.club
+  module:
+    - user
+id: node.club.teaser
+targetEntityType: node
+bundle: club
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

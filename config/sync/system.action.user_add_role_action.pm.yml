@@ -1,0 +1,14 @@
+uuid: 8bf23a5b-69fd-44df-95f2-6a3c5c721f9f
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.pm
+  module:
+    - user
+id: user_add_role_action.pm
+label: 'Add the Projektleder role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: pm

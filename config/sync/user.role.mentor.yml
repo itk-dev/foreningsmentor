@@ -1,0 +1,11 @@
+uuid: 43be5db7-5f51-4feb-967c-5ecbb29147c1
+langcode: da
+status: true
+dependencies: {  }
+id: mentor
+label: Mentor
+weight: 2
+is_admin: null
+permissions:
+  - 'view own field_children'
+  - 'view own field_neighborhood'

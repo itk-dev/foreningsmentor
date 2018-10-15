@@ -1,0 +1,11 @@
+uuid: 5c83153d-4a37-40a7-b25c-c367bed33ff7
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.mentors_end_status
+id: taxonomy_term.mentors_end_status
+target_entity_type_id: taxonomy_term
+target_bundle: mentors_end_status
+default_langcode: site_default
+language_alterable: false

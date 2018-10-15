@@ -1,0 +1,21 @@
+uuid: 708a7ac3-cece-457c-b0ef-2f48792a5524
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_own_mobile
+  module:
+    - telephone
+    - user
+id: user.user.field_own_mobile
+field_name: field_own_mobile
+entity_type: user
+bundle: user
+label: 'Egen Mobil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

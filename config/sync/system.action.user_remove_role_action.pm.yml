@@ -1,0 +1,14 @@
+uuid: ff5555db-9b65-45ce-be06-08dcb68baada
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.pm
+  module:
+    - user
+id: user_remove_role_action.pm
+label: 'Remove the Projektleder role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: pm

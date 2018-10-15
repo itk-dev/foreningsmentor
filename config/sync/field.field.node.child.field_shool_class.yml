@@ -1,0 +1,21 @@
+uuid: dc82c409-3ee2-4aea-a336-5f7955d76c29
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shool_class
+    - node.type.child
+  module:
+    - options
+id: node.child.field_shool_class
+field_name: field_shool_class
+entity_type: node
+bundle: child
+label: Klassetrin
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

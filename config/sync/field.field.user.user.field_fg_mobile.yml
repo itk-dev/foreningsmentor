@@ -1,0 +1,21 @@
+uuid: 49a8d5cb-eef9-4893-83a4-8e696db54275
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_fg_mobile
+  module:
+    - telephone
+    - user
+id: user.user.field_fg_mobile
+field_name: field_fg_mobile
+entity_type: user
+bundle: user
+label: 'FG Mobil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

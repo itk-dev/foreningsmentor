@@ -1,0 +1,21 @@
+uuid: 544bb614-734c-4287-bedb-1f0249a1d9c1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone
+    - node.type.parent
+  module:
+    - telephone
+id: node.parent.field_phone
+field_name: field_phone
+entity_type: node
+bundle: parent
+label: Tlf
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

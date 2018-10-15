@@ -1,0 +1,14 @@
+uuid: 81d8f551-910a-4c93-be07-e6effb0dc44c
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.coordinator
+  module:
+    - user
+id: user_remove_role_action.coordinator
+label: 'Remove the Koordinator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: coordinator

@@ -1,0 +1,21 @@
+uuid: 4aecbc41-c1ef-498c-83b3-bbef55e1e8e8
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_club_contact_person
+field_name: field_club_contact_person
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

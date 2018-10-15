@@ -1,0 +1,19 @@
+uuid: 34ec1dce-84cc-4521-b3a5-0855e58fbc51
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - telephone
+id: node.field_club_contact_person_phone
+field_name: field_club_contact_person_phone
+entity_type: node
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

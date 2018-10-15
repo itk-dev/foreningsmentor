@@ -1,0 +1,19 @@
+uuid: 73c0a2d4-e5eb-48fc-aad0-9dee1bb4118f
+langcode: da
+status: true
+dependencies:
+  module:
+    - address_dawa
+    - node
+id: node.field_address
+field_name: field_address
+entity_type: node
+type: address_dawa
+settings: {  }
+module: address_dawa
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,11 @@
+uuid: 4f5bee61-6d0e-47d5-a8a1-b09b16bc941b
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.journal_entry
+id: node.journal_entry
+target_entity_type_id: node
+target_bundle: journal_entry
+default_langcode: site_default
+language_alterable: false

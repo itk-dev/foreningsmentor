@@ -1,0 +1,18 @@
+uuid: f50c9c2b-ff31-4cb9-b8e9-917008f7e32f
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_club_contact_person_email
+field_name: field_club_contact_person_email
+entity_type: node
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 97c351fb-100f-4120-80ad-ab56cb4bda4d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_comments
+    - node.type.child
+  module:
+    - text
+id: node.child.field_comments
+field_name: field_comments
+entity_type: node
+bundle: child
+label: Bemærkninger
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,24 @@
+uuid: 38127b61-6f36-4162-a328-f3e9272ed888
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_address
+  module:
+    - address_dawa
+    - user
+id: user.user.field_address
+field_name: field_address
+entity_type: user
+bundle: user
+label: Addresse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  address_type: adresse
+  allow_non_unique_address: 0
+  allow_non_danish_address: 0
+field_type: address_dawa

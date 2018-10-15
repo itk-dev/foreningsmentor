@@ -1,0 +1,9 @@
+uuid: 008d1429-c07c-4cc0-a003-0a2f4d5260bb
+langcode: da
+status: true
+dependencies: {  }
+name: 'Koordinatorens afslutning'
+vid: coordinators_end_status
+description: ''
+hierarchy: 0
+weight: 0

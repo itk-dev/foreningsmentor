@@ -1,0 +1,28 @@
+uuid: 0a4f3704-11da-469a-be69-f6e0c24108c4
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_siblings
+    - node.type.child
+id: node.child.field_siblings
+field_name: field_siblings
+entity_type: node
+bundle: child
+label: Søskende
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      child: child
+    sort:
+      field: title
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

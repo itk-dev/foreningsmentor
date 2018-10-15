@@ -1,0 +1,14 @@
+uuid: 70c7976b-05e3-4380-af29-4a08a96f6c9e
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.mentor
+  module:
+    - user
+id: user_remove_role_action.mentor
+label: 'Remove the Mentor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: mentor

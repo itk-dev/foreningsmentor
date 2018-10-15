@@ -1,0 +1,13 @@
+uuid: d0368d71-3883-4921-a5f5-9d62c0ec17d6
+langcode: da
+status: true
+dependencies: {  }
+id: journal_entry_child
+label: 'Dagbog - Barn'
+enabled: true
+first_field: field_diary
+second_field: field_child
+bundles:
+  node:
+    - child
+    - journal_entry

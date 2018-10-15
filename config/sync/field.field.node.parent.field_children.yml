@@ -1,0 +1,28 @@
+uuid: ed7f71b9-e031-41e3-b3dd-e32d670c57f5
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_children
+    - node.type.child
+    - node.type.parent
+id: node.parent.field_children
+field_name: field_children
+entity_type: node
+bundle: parent
+label: Børn
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      child: child
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

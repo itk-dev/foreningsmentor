@@ -1,0 +1,9 @@
+uuid: 32e5c5bb-b059-4b4e-b037-bb2089095d40
+langcode: da
+status: true
+dependencies: {  }
+name: Relation
+vid: relation
+description: ''
+hierarchy: 0
+weight: 0

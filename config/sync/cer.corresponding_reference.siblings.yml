@@ -1,0 +1,12 @@
+uuid: d09777e9-6a0f-482d-a2c9-46ca839aac82
+langcode: da
+status: true
+dependencies: {  }
+id: siblings
+label: Søskende
+enabled: true
+first_field: field_siblings
+second_field: field_siblings
+bundles:
+  node:
+    - child

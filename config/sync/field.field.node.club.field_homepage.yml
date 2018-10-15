@@ -1,0 +1,23 @@
+uuid: fa0f38bd-f7fe-4f53-b01e-18c56f78cb76
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage
+    - node.type.club
+  module:
+    - link
+id: node.club.field_homepage
+field_name: field_homepage
+entity_type: node
+bundle: club
+label: Hjemmeside
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

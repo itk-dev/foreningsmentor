@@ -1,0 +1,19 @@
+uuid: 601a9aeb-ab39-4b15-b4fa-87854e4307ac
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_club_contact_person
+    - node.type.activity
+id: node.activity.field_club_contact_person
+field_name: field_club_contact_person
+entity_type: node
+bundle: activity
+label: 'Kontaktperson i foreningen'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,57 @@
+uuid: 1c9c93e2-c615-48c3-b9dc-dbf682fb782a
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_shool_class
+field_name: field_shool_class
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '0. klasse'
+      label: '0. klasse'
+    -
+      value: '1. klasse'
+      label: '1. klasse'
+    -
+      value: '2. klasse'
+      label: '2. klasse'
+    -
+      value: '3. klasse'
+      label: '3. klasse'
+    -
+      value: '4. klasse'
+      label: '4. klasse'
+    -
+      value: '5. klasse'
+      label: '5. klasse'
+    -
+      value: '6. klasse'
+      label: '6. klasse'
+    -
+      value: '7. klasse'
+      label: '7. klasse'
+    -
+      value: '8. klasse'
+      label: '8. klasse'
+    -
+      value: '9. klasse'
+      label: '9. klasse'
+    -
+      value: '10. klasse'
+      label: '10. klasse'
+    -
+      value: Andet
+      label: Andet
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

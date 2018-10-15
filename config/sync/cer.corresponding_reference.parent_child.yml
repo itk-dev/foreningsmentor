@@ -1,0 +1,13 @@
+uuid: b203e975-1df6-4155-b69a-a1ab5e89bafa
+langcode: da
+status: true
+dependencies: {  }
+id: parent_child
+label: 'Forælder - Barn'
+enabled: true
+first_field: field_parents
+second_field: field_children
+bundles:
+  node:
+    - child
+    - parent

@@ -1,0 +1,19 @@
+uuid: e00eb5b0-78be-404c-9f6e-ecaee7fd1f9b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_club_contact_person_email
+    - node.type.activity
+id: node.activity.field_club_contact_person_email
+field_name: field_club_contact_person_email
+entity_type: node
+bundle: activity
+label: 'Kontaktperson email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

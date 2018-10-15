@@ -1,0 +1,25 @@
+uuid: 35f027d6-e33c-4922-b65f-d0700992f003
+langcode: da
+status: true
+dependencies: {  }
+id: rb_coordinator
+label: 'Red Barnet koordinator'
+weight: 5
+is_admin: null
+permissions:
+  - 'edit field_active'
+  - 'edit field_children'
+  - 'edit field_comment'
+  - 'edit field_date_child_cert'
+  - 'edit field_end_interview'
+  - 'edit field_is_coordinator'
+  - 'edit field_neighborhood'
+  - 'edit field_start_interview'
+  - 'view field_active'
+  - 'view field_children'
+  - 'view field_comment'
+  - 'view field_date_child_cert'
+  - 'view field_end_interview'
+  - 'view field_is_coordinator'
+  - 'view field_neighborhood'
+  - 'view field_start_interview'

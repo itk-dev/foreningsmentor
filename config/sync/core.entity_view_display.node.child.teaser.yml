@@ -1,0 +1,21 @@
+uuid: 6a3a623b-51b6-449b-9a6e-4c82d43f8bf4
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.child
+  module:
+    - user
+id: node.child.teaser
+targetEntityType: node
+bundle: child
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

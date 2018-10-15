@@ -1,0 +1,28 @@
+uuid: d026828e-9de2-489a-8097-c7c931fde882
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_child
+    - node.type.child
+    - node.type.journal_entry
+id: node.journal_entry.field_child
+field_name: field_child
+entity_type: node
+bundle: journal_entry
+label: Barn
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      child: child
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

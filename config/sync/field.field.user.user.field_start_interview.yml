@@ -1,0 +1,21 @@
+uuid: 2ab02de8-39ed-42de-ba16-0e962e0c567a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_start_interview
+  module:
+    - text
+    - user
+id: user.user.field_start_interview
+field_name: field_start_interview
+entity_type: user
+bundle: user
+label: 'Indledende Samtale'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

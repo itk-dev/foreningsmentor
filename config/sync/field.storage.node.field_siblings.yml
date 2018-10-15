@@ -1,0 +1,19 @@
+uuid: 8cee2670-3125-47f3-bbab-0e6c78404a8f
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_siblings
+field_name: field_siblings
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

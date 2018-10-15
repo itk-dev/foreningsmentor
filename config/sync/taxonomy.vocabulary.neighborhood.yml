@@ -1,0 +1,9 @@
+uuid: 7242b4ee-d5d7-43f8-923a-45a70aec9385
+langcode: da
+status: true
+dependencies: {  }
+name: Bydel
+vid: neighborhood
+description: ''
+hierarchy: 0
+weight: 0

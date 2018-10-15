@@ -1,0 +1,22 @@
+uuid: d0c62d66-26d4-4eb6-ad53-17876afefcd9
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.journal_entry
+  module:
+    - text
+id: node.journal_entry.body
+field_name: body
+entity_type: node
+bundle: journal_entry
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

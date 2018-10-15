@@ -1,0 +1,11 @@
+uuid: 8b1f447c-5b28-4050-ac7e-527e7e8c57d1
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.club
+id: node.club
+target_entity_type_id: node
+target_bundle: club
+default_langcode: site_default
+language_alterable: false

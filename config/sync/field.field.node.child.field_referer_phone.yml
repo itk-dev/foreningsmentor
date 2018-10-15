@@ -1,0 +1,21 @@
+uuid: 1f1fc7ea-5e0c-44d9-9468-bc2c4d517ff7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_referer_phone
+    - node.type.child
+  module:
+    - telephone
+id: node.child.field_referer_phone
+field_name: field_referer_phone
+entity_type: node
+bundle: child
+label: 'Henviser tlf'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

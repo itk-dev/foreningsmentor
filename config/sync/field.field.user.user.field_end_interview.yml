@@ -1,0 +1,21 @@
+uuid: 3ec35e2e-bb64-4cc8-80d1-33775f78c11f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_end_interview
+  module:
+    - text
+    - user
+id: user.user.field_end_interview
+field_name: field_end_interview
+entity_type: user
+bundle: user
+label: 'Afsluttende Samtale'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
