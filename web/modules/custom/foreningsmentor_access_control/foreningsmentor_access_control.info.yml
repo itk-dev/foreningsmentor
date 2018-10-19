@@ -1,0 +1,5 @@
+name: 'Foreningsmentor Access Control'
+type: module
+description: 'Control custom acces rules for the "foreningsmentor" intranet'
+core: 8.x
+package: 'Foreningsmentor'
