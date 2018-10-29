@@ -28,4 +28,9 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_address: true
+  field_children: true
+  field_email: true
+  field_phone: true
+  field_relation: true
   langcode: true

@@ -28,4 +28,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_child: true
+  field_date: true
+  field_reminder_date: true
   langcode: true

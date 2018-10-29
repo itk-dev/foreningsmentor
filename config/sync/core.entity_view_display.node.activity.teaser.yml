@@ -18,4 +18,14 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_activity_type: true
+  field_club: true
+  field_club_contact_person: true
+  field_club_contact_person_email: true
+  field_club_contact_person_phone: true
+  field_coordinators_end_status: true
+  field_mentors_end_status: true
+  field_other_subsidy_recieved: true
+  field_qualifified_f_subsidy: true
+  field_subsidy_recieved: true
   langcode: true

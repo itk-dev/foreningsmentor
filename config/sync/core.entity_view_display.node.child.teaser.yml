@@ -18,4 +18,21 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_activity: true
+  field_activity_wishes: true
+  field_birthday: true
+  field_comments: true
+  field_date_registered: true
+  field_diary: true
+  field_is_mentored: true
+  field_mentor: true
+  field_neighborhood: true
+  field_parents: true
+  field_referer: true
+  field_referer_email: true
+  field_referer_phone: true
+  field_school: true
+  field_sex: true
+  field_shool_class: true
+  field_siblings: true
   langcode: true
