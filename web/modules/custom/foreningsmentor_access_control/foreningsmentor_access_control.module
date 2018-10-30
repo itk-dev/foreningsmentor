@@ -12,7 +12,8 @@ use Drupal\node\NodeInterface;
 /**
  * Implements hook_node_access_records().
  */
-function foreningsmentor_access_control_node_access_records(NodeInterface $node) {
+function foreningsmentor_access_control_node_access_records(NodeInterface $node
+) {
   $grants = [];
 
   if ($node->getType() === 'child') {
@@ -26,7 +27,7 @@ function foreningsmentor_access_control_node_access_records(NodeInterface $node)
       'priority' => 0,
     ];
 
-    // Define a general grant for all children using GID = 0
+    // Define a general grant for all children using GID = 0.
     $grants[] = [
       'realm' => 'foreningsmentor_access_control',
       'gid' => 0,
@@ -38,23 +39,28 @@ function foreningsmentor_access_control_node_access_records(NodeInterface $node)
   }
 
   return $grants;
-
 }
 
 /**
  * Implements hook_node_grants().
  */
-function foreningsmentor_access_control_node_grants(AccountInterface $account, $op) {
+function foreningsmentor_access_control_node_grants(
+  AccountInterface $account,
+  $op
+) {
   $grants = [];
 
   $all_access_roles = ['pm', 'coordinator', 'rb_coordinator'];
 
-  if(array_intersect($all_access_roles, $account->getRoles())) {
+  if (array_intersect($all_access_roles, $account->getRoles())) {
     // For 'all access' roles we give the general '0' GID
     $grants['foreningsmentor_access_control'][] = 0;
-  } elseif (in_array('mentor', $account->getRoles(), TRUE)) {
+  }
+  elseif (in_array('mentor', $account->getRoles(), TRUE)) {
     // For mentors we only grant access on a 'pr. child' basis so we need to
     // find all children with the logged in user as mentor.
+    // Disable access check to avoid triggering infinite loop, since access
+    // checks apply to entity queries.
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'child')
@@ -72,13 +78,16 @@ function foreningsmentor_access_control_node_grants(AccountInterface $account, $
 /**
  * Implements hook_help().
  */
-function foreningsmentor_access_control_help($route_name, RouteMatchInterface $route_match) {
+function foreningsmentor_access_control_help(
+  $route_name,
+  RouteMatchInterface $route_match
+) {
   switch ($route_name) {
     // Main module help for the foreningsmentor_access_control module.
     case 'help.page.foreningsmentor_access_control':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Control custom acces rules for the &#039;foreningsmentor&#039; intranet') . '</p>';
+      $output .= '<p>' . t('Custom access rules for the Foreningsmentor intranet.') . '</p>';
       return $output;
 
     default:
