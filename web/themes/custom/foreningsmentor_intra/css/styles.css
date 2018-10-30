@@ -1,0 +1,30 @@
+ul.menu.foreningsmentor-intra--menu--intranet  {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
+  list-style-type: none;
+}
+
+.foreningsmentor-intra--menu--intranet li {
+  float: left;
+}
+
+.foreningsmentor-intra--menu--intranet li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.foreningsmentor-intra--menu--intranet li a:hover {
+  background-color: #222;
+}
+
+.foreningsmentor-intra--menu--intranet li a.is-active {
+  color: white;
+  background-color: #444;
+}

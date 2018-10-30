@@ -8,6 +8,8 @@ dependencies:
     - field.storage.node.field_date_registered
     - node.type.child
     - taxonomy.vocabulary.neighborhood
+    - user.role.coordinator
+    - user.role.pm
   module:
     - datetime
     - node
@@ -30,9 +32,11 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            pm: pm
+            coordinator: coordinator
       cache:
         type: tag
         options: {  }
@@ -456,7 +460,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_activity_wishes'
         - 'config:field.storage.node.field_comments'
@@ -478,7 +482,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_activity_wishes'
         - 'config:field.storage.node.field_comments'

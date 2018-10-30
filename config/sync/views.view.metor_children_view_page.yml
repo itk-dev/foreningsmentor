@@ -228,6 +228,15 @@ display:
     display_options:
       display_extenders: {  }
       path: mentor/born
+      menu:
+        type: none
+        title: 'Mine børn'
+        description: 'Liste over børn der er tilknyttet mig'
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: intranet
     cache_metadata:
       max-age: -1
       contexts:

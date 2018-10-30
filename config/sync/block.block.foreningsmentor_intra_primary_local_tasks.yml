@@ -1,13 +1,13 @@
-uuid: 1a7f8638-86c6-4e53-aa9e-4074a224774c
+uuid: 52875f9c-204b-47a3-9869-8f412a32a7f0
 langcode: da
 status: true
 dependencies:
   theme:
-    - adminimal_theme
+    - foreningsmentor_intra
 _core:
   default_config_hash: CyX_aDKAka2_eihevNLscCHDYrzDgIqwWzFVEFRKIww
-id: adminimal_theme_primary_local_tasks
-theme: adminimal_theme
+id: foreningsmentor_intra_primary_local_tasks
+theme: foreningsmentor_intra
 region: header
 weight: 0
 provider: null

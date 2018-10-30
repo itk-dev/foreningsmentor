@@ -1,0 +1,20 @@
+uuid: 5dd36fd9-5393-49b6-bdc3-719cadabf2e6
+langcode: da
+status: true
+dependencies:
+  theme:
+    - foreningsmentor_intra
+_core:
+  default_config_hash: ik4PTMlBD0MWansnSMpSXq5SUlWRJ1IVVt6C7AIbQmc
+id: foreningsmentor_intra_local_actions
+theme: foreningsmentor_intra
+region: content
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
