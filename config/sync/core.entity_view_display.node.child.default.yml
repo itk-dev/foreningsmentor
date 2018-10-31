@@ -24,6 +24,7 @@ dependencies:
   module:
     - datetime
     - options
+    - telephone
     - text
     - user
 id: node.child.default
@@ -75,9 +76,10 @@ content:
     weight: 116
     label: above
     settings:
-      link: true
+      view_mode: teaser
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_is_mentored:
     weight: 101
@@ -131,9 +133,10 @@ content:
   field_referer_phone:
     weight: 110
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
   field_school:
     weight: 105
@@ -167,8 +170,8 @@ content:
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

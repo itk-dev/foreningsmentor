@@ -28,3 +28,8 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
   color: white;
   background-color: #444;
 }
+
+.foreningsmentor-intra--journal-entry {
+  margin-right: 1em;
+  border-bottom: 1px solid #bbb;
+}

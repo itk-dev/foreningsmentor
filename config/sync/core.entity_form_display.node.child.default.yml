@@ -23,6 +23,7 @@ dependencies:
     - node.type.child
   module:
     - datetime
+    - inline_entity_form
     - path
     - telephone
     - text
@@ -77,11 +78,18 @@ content:
   field_diary:
     weight: 136
     settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: false
       match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      allow_duplicate: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: inline_entity_form_complex
     region: content
   field_is_mentored:
     weight: 121

@@ -22,7 +22,8 @@ settings:
     target_bundles:
       journal_entry: journal_entry
     sort:
-      field: _none
-    auto_create: true
-    auto_create_bundle: activity
+      field: nid
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

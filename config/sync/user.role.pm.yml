@@ -6,4 +6,6 @@ id: pm
 label: Projektleder
 weight: 3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'edit field_diary'
+  - 'view field_diary'
