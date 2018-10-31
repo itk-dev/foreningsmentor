@@ -1,1 +1,6 @@
 <?php
+
+function foreningsmentor_intra_preprocess_page_title(&$variables) {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+}

@@ -1,31 +1,34 @@
-uuid: 4e7f6eb5-31b2-4af3-a4dc-7580df28967d
+uuid: 227fc3fa-949f-47cf-87df-95a29ada62ac
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_activity_wishes
-    - field.storage.node.field_comments
-    - field.storage.node.field_date_registered
-    - field.storage.node.field_is_mentored
-    - field.storage.node.field_neighborhood
-    - node.type.child
+    - field.storage.user.field_active
+    - field.storage.user.field_comment
+    - field.storage.user.field_date_child_cert
+    - field.storage.user.field_end_interview
+    - field.storage.user.field_neighborhood
+    - field.storage.user.field_own_mobile
+    - field.storage.user.field_start_interview
     - taxonomy.vocabulary.neighborhood
     - user.role.coordinator
+    - user.role.mentor
     - user.role.pm
     - user.role.rb_coordinator
   module:
     - datetime
-    - node
+    - options
     - taxonomy
+    - telephone
     - text
     - user
-id: children_view_page
-label: 'Alle børn'
+id: volunteers
+label: Frivillige
 module: views
-description: 'Liste med alle børn'
+description: 'Liste over frivillige'
 tag: ''
-base_table: node_field_data
-base_field: nid
+base_table: users_field_data
+base_field: uid
 core: 8.x
 display:
   default:
@@ -82,58 +85,15 @@ display:
             next: ››
       style:
         type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            title: title
-            field_activity_wishes: field_activity_wishes
-            field_comments: field_comments
-            field_date_registered: field_date_registered
-          info:
-            title:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_activity_wishes:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_comments:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_date_registered:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: title
-          empty_table: false
       row:
         type: fields
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          entity_type: user
+          entity_field: name
           alter:
             alter_text: false
             make_link: false
@@ -145,13 +105,11 @@ display:
             html: false
           hide_empty: false
           empty_zero: false
-          settings:
-            link_to_entity: true
           plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
-          label: Titel
+          label: Navn
           exclude: false
           element_type: ''
           element_class: ''
@@ -164,7 +122,8 @@ display:
           empty: ''
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: user_name
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -175,14 +134,14 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_activity_wishes:
-          id: field_activity_wishes
-          table: node__field_activity_wishes
-          field: field_activity_wishes
+        mail:
+          id: mail
+          table: users_field_data
+          field: mail
           relationship: none
           group_type: group
           admin_label: ''
-          label: Aktivitetsønsker
+          label: E-mail
           exclude: false
           alter:
             alter_text: false
@@ -236,15 +195,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: user
+          entity_field: mail
           plugin_id: field
-        field_date_registered:
-          id: field_date_registered
-          table: node__field_date_registered
-          field: field_date_registered
+        field_own_mobile:
+          id: field_own_mobile
+          table: user__field_own_mobile
+          field: field_own_mobile
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Dato f. registrering'
+          label: 'Egen Mobil'
           exclude: false
           alter:
             alter_text: false
@@ -286,138 +247,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_default
+          type: telephone_link
           settings:
-            timezone_override: ''
-            format_type: html_date
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_comments:
-          id: field_comments
-          table: node__field_comments
-          field: field_comments
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Bemærkninger
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_trimmed
-          settings:
-            trim_length: 100
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_is_mentored:
-          id: field_is_mentored
-          table: node__field_is_mentored
-          field: field_is_mentored
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Er i Mentorforløb'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: default
-            format_custom_true: ''
-            format_custom_false: ''
+            title: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -431,12 +263,12 @@ display:
           plugin_id: field
         field_neighborhood:
           id: field_neighborhood
-          table: node__field_neighborhood
+          table: user__field_neighborhood
           field: field_neighborhood
           relationship: none
           group_type: group
           admin_label: ''
-          label: Bydel
+          label: Bydele
           exclude: false
           alter:
             alter_text: false
@@ -492,30 +324,433 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        roles_target_id:
+          id: roles_target_id
+          table: user__roles
+          field: roles_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Roller
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          type: separator
+          separator: ', '
+          entity_type: user
+          entity_field: roles
+          plugin_id: user_roles
+        field_date_child_cert:
+          id: field_date_child_cert
+          table: user__field_date_child_cert
+          field: field_date_child_cert
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Dato f. børneattest'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: medium
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_comment:
+          id: field_comment
+          table: user__field_comment
+          field: field_comment
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Kommentar
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_start_interview:
+          id: field_start_interview
+          table: user__field_start_interview
+          field: field_start_interview
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Indledende Samtale'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_end_interview:
+          id: field_end_interview
+          table: user__field_end_interview
+          field: field_end_interview
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Afsluttende Samtale'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_active:
+          id: field_active
+          table: user__field_active
+          field: field_active
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Status
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
-          table: node_field_data
+          table: users_field_data
           field: status
           plugin_id: boolean
-          entity_type: node
+          entity_type: user
           entity_field: status
           id: status
           expose:
             operator: ''
           group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
+        field_active_value:
+          id: field_active_value
+          table: user__field_active
+          field: field_active_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
           value:
-            child: child
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
+            all: all
+            Aktiv: Aktiv
+            Inaktiv: Inaktiv
+            Stoppet: Stoppet
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_active_value_op
+            label: Status
+            description: ''
+            use_operator: false
+            operator: field_active_value_op
+            identifier: field_active_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              pm: '0'
+              coordinator: '0'
+              rb_coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
         field_neighborhood_target_id:
           id: field_neighborhood_target_id
-          table: node__field_neighborhood
+          table: user__field_neighborhood
           field: field_neighborhood_target_id
           relationship: none
           group_type: group
@@ -526,7 +761,7 @@ display:
           exposed: true
           expose:
             operator_id: field_neighborhood_target_id_op
-            label: Bydel
+            label: Bydele
             description: ''
             use_operator: false
             operator: field_neighborhood_target_id_op
@@ -561,22 +796,58 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-      sorts:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          order: ASC
-          entity_type: node
-          entity_field: title
-          plugin_id: standard
+        roles_target_id:
+          id: roles_target_id
+          table: user__roles
+          field: roles_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          exposed: false
+          operator: or
+          value:
+            all: all
+            mentor: mentor
+            pm: pm
+            coordinator: coordinator
+            rb_coordinator: rb_coordinator
+          group: 1
+          exposed: true
           expose:
+            operator_id: roles_target_id_op
+            label: Roller
+            description: ''
+            use_operator: false
+            operator: roles_target_id_op
+            identifier: roles_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              pm: '0'
+              coordinator: '0'
+              rb_coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
             label: ''
-      title: 'Alle børn'
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          entity_type: user
+          entity_field: roles
+          plugin_id: user_roles
+      sorts: {  }
+      title: Frivillige
       header: {  }
       footer: {  }
       empty: {  }
@@ -591,14 +862,15 @@ display:
         - url
         - url.query_args
         - user
-        - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_activity_wishes'
-        - 'config:field.storage.node.field_comments'
-        - 'config:field.storage.node.field_date_registered'
-        - 'config:field.storage.node.field_is_mentored'
-        - 'config:field.storage.node.field_neighborhood'
+        - 'config:field.storage.user.field_active'
+        - 'config:field.storage.user.field_comment'
+        - 'config:field.storage.user.field_date_child_cert'
+        - 'config:field.storage.user.field_end_interview'
+        - 'config:field.storage.user.field_neighborhood'
+        - 'config:field.storage.user.field_own_mobile'
+        - 'config:field.storage.user.field_start_interview'
   page_1:
     display_plugin: page
     id: page_1
@@ -606,7 +878,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: born
+      path: frivillige
     cache_metadata:
       max-age: -1
       contexts:
@@ -615,11 +887,12 @@ display:
         - url
         - url.query_args
         - user
-        - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_activity_wishes'
-        - 'config:field.storage.node.field_comments'
-        - 'config:field.storage.node.field_date_registered'
-        - 'config:field.storage.node.field_is_mentored'
-        - 'config:field.storage.node.field_neighborhood'
+        - 'config:field.storage.user.field_active'
+        - 'config:field.storage.user.field_comment'
+        - 'config:field.storage.user.field_date_child_cert'
+        - 'config:field.storage.user.field_end_interview'
+        - 'config:field.storage.user.field_neighborhood'
+        - 'config:field.storage.user.field_own_mobile'
+        - 'config:field.storage.user.field_start_interview'

@@ -1,28 +1,29 @@
-uuid: 44e70b75-b4a3-4189-841c-0ae75ba05b2f
+uuid: 06f335c3-8dae-4092-9095-330d288ecab3
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.user.field_active
-    - field.storage.user.field_fg_mobile
-    - field.storage.user.field_own_mobile
+    - field.storage.node.field_activity_wishes
+    - field.storage.node.field_comments
+    - field.storage.node.field_date_registered
+    - node.type.child
     - taxonomy.vocabulary.neighborhood
     - user.role.coordinator
-    - user.role.mentor
     - user.role.pm
     - user.role.rb_coordinator
   module:
-    - options
+    - datetime
+    - node
     - taxonomy
-    - telephone
+    - text
     - user
-id: mentors
-label: Mentorer
+id: waiting_list
+label: Venteliste
 module: views
-description: ''
+description: 'Liste med alle børn'
 tag: ''
-base_table: users_field_data
-base_field: uid
+base_table: node_field_data
+base_field: nid
 core: 8.x
 display:
   default:
@@ -52,13 +53,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Udfør
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       pager:
         type: mini
         options:
@@ -68,12 +69,12 @@ display:
           total_pages: null
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Antal elementer'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Forskydning
           tags:
             previous: ‹‹
             next: ››
@@ -84,64 +85,53 @@ display:
           row_class: ''
           default_row_class: true
           override: true
-          sticky: true
+          sticky: false
           caption: ''
           summary: ''
           description: ''
           columns:
-            name: name
-            field_active: field_active
-            mail: mail
-            field_own_mobile: field_own_mobile
-            field_fg_mobile: field_fg_mobile
+            title: title
+            field_activity_wishes: field_activity_wishes
+            field_comments: field_comments
+            field_date_registered: field_date_registered
           info:
-            name:
+            title:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_active:
+            field_activity_wishes:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_comments:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date_registered:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            mail:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_own_mobile:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_fg_mobile:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: name
-          empty_table: true
+          default: title
+          empty_table: false
       row:
         type: fields
       fields:
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          entity_type: user
-          entity_field: name
-          label: ''
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
           alter:
             alter_text: false
             make_link: false
@@ -153,10 +143,13 @@ display:
             html: false
           hide_empty: false
           empty_zero: false
+          settings:
+            link_to_entity: true
           plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
+          label: Titel
           exclude: false
           element_type: ''
           element_class: ''
@@ -169,8 +162,7 @@ display:
           empty: ''
           hide_alter_empty: true
           click_sort_column: value
-          type: user_name
-          settings: {  }
+          type: string
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -181,76 +173,14 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_active:
-          id: field_active
-          table: user__field_active
-          field: field_active
+        field_activity_wishes:
+          id: field_activity_wishes
+          table: node__field_activity_wishes
+          field: field_activity_wishes
           relationship: none
           group_type: group
           admin_label: ''
-          label: Aktiv
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        mail:
-          id: mail
-          table: users_field_data
-          field: mail
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: E-mail
+          label: Aktivitetsønsker
           exclude: false
           alter:
             alter_text: false
@@ -304,17 +234,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: user
-          entity_field: mail
           plugin_id: field
-        field_own_mobile:
-          id: field_own_mobile
-          table: user__field_own_mobile
-          field: field_own_mobile
+        field_comments:
+          id: field_comments
+          table: node__field_comments
+          field: field_comments
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Egen Mobil'
+          label: Bemærkninger
           exclude: false
           alter:
             alter_text: false
@@ -356,9 +284,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: telephone_link
+          type: text_trimmed
           settings:
-            title: ''
+            trim_length: 100
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -370,67 +298,94 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_fg_mobile:
-          id: field_fg_mobile
-          table: user__field_fg_mobile
-          field: field_fg_mobile
+        field_date_registered:
+          id: field_date_registered
+          table: node__field_date_registered
+          field: field_date_registered
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Dato f. registrering'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: html_date
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
           plugin_id: field
       filters:
         status:
           value: '1'
-          table: users_field_data
+          table: node_field_data
           field: status
           plugin_id: boolean
-          entity_type: user
+          entity_type: node
           entity_field: status
           id: status
           expose:
             operator: ''
           group: 1
-        roles_target_id:
-          id: roles_target_id
-          table: user__roles
-          field: roles_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
+        type:
+          id: type
+          table: node_field_data
+          field: type
           value:
-            mentor: mentor
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          entity_type: user
-          entity_field: roles
-          plugin_id: user_roles
+            child: child
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
         field_neighborhood_target_id:
           id: field_neighborhood_target_id
-          table: user__field_neighborhood
+          table: node__field_neighborhood
           field: field_neighborhood_target_id
           relationship: none
           group_type: group
@@ -476,8 +431,58 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-      sorts: {  }
-      title: Mentorer
+        field_is_mentored_value:
+          id: field_is_mentored_value
+          table: node__field_is_mentored
+          field: field_is_mentored_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+      sorts:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          order: ASC
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+      title: 'Alle børn'
       header: {  }
       footer: {  }
       empty: {  }
@@ -492,19 +497,20 @@ display:
         - url
         - url.query_args
         - user
+        - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.user.field_active'
-        - 'config:field.storage.user.field_fg_mobile'
-        - 'config:field.storage.user.field_own_mobile'
-  mentor_view_page:
+        - 'config:field.storage.node.field_activity_wishes'
+        - 'config:field.storage.node.field_comments'
+        - 'config:field.storage.node.field_date_registered'
+  page_1:
     display_plugin: page
-    id: mentor_view_page
+    id: page_1
     display_title: Page
     position: 1
     display_options:
       display_extenders: {  }
-      path: mentorer
+      path: venteliste
     cache_metadata:
       max-age: -1
       contexts:
@@ -513,8 +519,9 @@ display:
         - url
         - url.query_args
         - user
+        - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.user.field_active'
-        - 'config:field.storage.user.field_fg_mobile'
-        - 'config:field.storage.user.field_own_mobile'
+        - 'config:field.storage.node.field_activity_wishes'
+        - 'config:field.storage.node.field_comments'
+        - 'config:field.storage.node.field_date_registered'

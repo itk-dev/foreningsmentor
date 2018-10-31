@@ -12,7 +12,7 @@ dependencies:
 id: metor_children_view_page
 label: 'Tilknyttede børn'
 module: views
-description: ''
+description: 'Liste med alle børn der er tilknyttet brugeren'
 tag: ''
 base_table: node_field_data
 base_field: nid
