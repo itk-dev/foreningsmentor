@@ -10,6 +10,7 @@ dependencies:
     - taxonomy.vocabulary.neighborhood
     - user.role.coordinator
     - user.role.pm
+    - user.role.rb_coordinator
   module:
     - datetime
     - node
@@ -37,6 +38,7 @@ display:
           role:
             pm: pm
             coordinator: coordinator
+            rb_coordinator: rb_coordinator
       cache:
         type: tag
         options: {  }
