@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.journal
     - field.field.node.child.field_activity
     - field.field.node.child.field_activity_wishes
     - field.field.node.child.field_birthday
@@ -78,18 +79,14 @@ content:
   field_diary:
     weight: 136
     settings:
-      form_mode: default
+      form_mode: journal
       label_singular: ''
       label_plural: ''
       override_labels: false
       collapsible: false
       collapsed: false
-      allow_new: true
-      allow_existing: false
-      match_operator: CONTAINS
-      allow_duplicate: false
     third_party_settings: {  }
-    type: inline_entity_form_complex
+    type: inline_entity_form_simple
     region: content
   field_is_mentored:
     weight: 121

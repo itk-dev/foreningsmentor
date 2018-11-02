@@ -7,5 +7,8 @@ label: Projektleder
 weight: 3
 is_admin: null
 permissions:
-  - 'edit field_diary'
-  - 'view field_diary'
+  - 'access content'
+  - 'view field_activity'
+  - 'view field_activity_wishes'
+  - 'view field_comments'
+  - 'view field_neighborhood'

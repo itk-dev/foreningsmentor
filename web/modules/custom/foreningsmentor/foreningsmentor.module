@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Contains foreningsmentor.module.
+ */
+
+function foreningsmentor_preprocess_node(&$variables) {
+  $nodeType = $variables["node"]->getType();
+
+  if ($nodeType == 'child') {
+    $variables['journal_form'] = \Drupal::formBuilder()->getForm(\Drupal\foreningsmentor\Form\JournalForm::class, $variables["node"]);
+  }
+}

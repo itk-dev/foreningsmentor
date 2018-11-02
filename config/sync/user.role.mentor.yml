@@ -7,7 +7,12 @@ label: Mentor
 weight: 2
 is_admin: null
 permissions:
-  - 'edit field_diary'
-  - 'view field_diary'
+  - 'access content'
+  - 'create journal_entry content'
+  - 'delete own journal_entry content'
+  - 'edit any child content'
+  - 'edit own journal_entry content'
+  - 'view any child content'
+  - 'view field_neighborhood'
   - 'view own field_children'
-  - 'view own field_neighborhood'
+  - 'view own journal_entry content'
