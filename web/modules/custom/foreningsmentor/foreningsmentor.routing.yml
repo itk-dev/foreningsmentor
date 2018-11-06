@@ -1,9 +1,0 @@
-
-foreningsmentor.foreningsmentor_journal_form:
-  path: '/foreningsmentor/form/journal'
-  defaults:
-    _form: '\Drupal\foreningsmentor\Form\JournalForm'
-    _title: 'JournalForm'
-  requirements:
-    _access: 'TRUE'
-  
