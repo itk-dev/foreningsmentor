@@ -12,5 +12,6 @@ permissions:
   - 'delete own journal_entry content'
   - 'edit own journal_entry content'
   - 'view field_neighborhood'
+  - 'view field_parents'
   - 'view own field_children'
   - 'view own journal_entry content'
