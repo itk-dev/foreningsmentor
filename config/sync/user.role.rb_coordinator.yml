@@ -15,6 +15,7 @@ permissions:
   - 'edit field_end_interview'
   - 'edit field_is_coordinator'
   - 'edit field_start_interview'
+  - 'view any child content'
   - 'view field_active'
   - 'view field_activity'
   - 'view field_activity_wishes'

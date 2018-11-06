@@ -91,6 +91,9 @@
   {% endif %}
   {{ title_suffix }}
 
+  <h2>{{ label }}</h2>
+
+{#
   {% if display_submitted %}
     <footer class="node__meta">
       {{ author_picture }}
@@ -100,11 +103,14 @@
       </div>
     </footer>
   {% endif %}
-
+#}
   <div{{ content_attributes.addClass('node__content') }}>
     {{ content }}
   </div>
 
-  {{ journal_form }}
+  <div class="foreningsmentor-intra--journal-add-entry">
+    <h2>{{ 'Add new journal entry' | trans }}</h2>
+    {{ journal_form }}
+  </div>
 
 </article>

@@ -9,6 +9,9 @@ dependencies:
     - field.storage.node.field_homepage
     - field.storage.node.field_phone
     - node.type.club
+    - user.role.coordinator
+    - user.role.pm
+    - user.role.rb_coordinator
   module:
     - address_dawa
     - link
@@ -31,9 +34,12 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            pm: pm
+            coordinator: coordinator
+            rb_coordinator: rb_coordinator
       cache:
         type: tag
         options: {  }
@@ -537,7 +543,7 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_activity_types'
         - 'config:field.storage.node.field_address'
@@ -559,7 +565,7 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_activity_types'
         - 'config:field.storage.node.field_address'

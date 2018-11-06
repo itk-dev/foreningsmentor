@@ -33,3 +33,20 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
   margin-right: 1em;
   border-bottom: 1px solid #bbb;
 }
+
+.foreningsmentor-intra--journal {
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  padding: 1em;
+}
+
+.foreningsmentor-intra--journal-add-entry {
+  border: 1px solid #ccc;
+  border-top: 0;
+  padding: 1em;
+}
+
+.foreningsmentor-intra--journal-entry > .node__meta {
+  font-size: 0.8em;
+  font-style: italic;
+}
