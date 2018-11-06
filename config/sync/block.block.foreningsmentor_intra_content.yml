@@ -1,0 +1,22 @@
+uuid: 61b17bd4-66bd-4a15-a324-7411dd9458bd
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - foreningsmentor_intra
+_core:
+  default_config_hash: 80N66GdzEvwqi1m-_GZ-ulkk8AJG9beoXcZ4-pMVKjI
+id: foreningsmentor_intra_content
+theme: foreningsmentor_intra
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 6edb7556-7c6f-468b-a741-556dae3b69bd
+langcode: da
+status: true
+dependencies:
+  theme:
+    - foreningsmentor_intra
+_core:
+  default_config_hash: Z3nlZUh2mSJP3apMrJWt-duS-aLyP79rcfu_0wpPmDs
+id: foreningsmentor_intra_page_title
+theme: foreningsmentor_intra
+region: header
+weight: -2
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

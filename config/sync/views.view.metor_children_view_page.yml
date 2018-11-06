@@ -3,16 +3,15 @@ langcode: da
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
     - node.type.child
     - user.role.mentor
   module:
     - node
     - user
 id: metor_children_view_page
-label: 'Mentor / Børn'
+label: 'Tilknyttede børn'
 module: views
-description: ''
+description: 'Liste med alle børn der er tilknyttet brugeren'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -69,47 +68,72 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: grid
+        type: table
         options:
           grouping: {  }
-          columns: 4
-          automatic_width: true
-          alignment: horizontal
-          col_class_default: true
-          col_class_custom: ''
-          row_class_default: true
-          row_class_custom: ''
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
-        type: 'entity:node'
+        type: fields
         options:
-          relationship: none
-          view_mode: teaser
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
         title:
           id: title
           table: node_field_data
           field: title
-          entity_type: node
-          entity_field: title
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
-          label: Titel
+          label: Navn
           exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -119,9 +143,13 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -132,6 +160,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -153,6 +184,7 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          group: 1
       sorts:
         title:
           id: title
@@ -168,7 +200,7 @@ display:
           exposed: false
           expose:
             label: ''
-      title: 'Mentor / Børn'
+      title: 'Tilknyttede børn'
       header: {  }
       footer: {  }
       empty: {  }
@@ -209,6 +241,10 @@ display:
           not: false
           plugin_id: numeric
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -228,6 +264,15 @@ display:
     display_options:
       display_extenders: {  }
       path: mentor/born
+      menu:
+        type: none
+        title: 'Mine børn'
+        description: 'Liste over børn der er tilknyttet mig'
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: intranet
     cache_metadata:
       max-age: -1
       contexts:

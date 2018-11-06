@@ -10,7 +10,6 @@ dependencies:
     - field.field.user.user.field_date_child_cert
     - field.field.user.user.field_end_interview
     - field.field.user.user.field_fg_mobile
-    - field.field.user.user.field_is_coordinator
     - field.field.user.user.field_name
     - field.field.user.user.field_neighborhood
     - field.field.user.user.field_own_mobile
@@ -77,16 +76,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
-  field_is_coordinator:
-    weight: 11
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
     region: content
   field_name:
     weight: 21

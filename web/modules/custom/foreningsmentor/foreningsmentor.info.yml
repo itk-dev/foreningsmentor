@@ -1,0 +1,5 @@
+name: 'Foreningsmentor'
+type: module
+description: 'Foreningsmentor custom code'
+core: 8.x
+package: 'Foreningsmentor'

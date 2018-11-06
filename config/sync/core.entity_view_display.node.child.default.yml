@@ -24,6 +24,7 @@ dependencies:
   module:
     - datetime
     - options
+    - telephone
     - text
     - user
 id: node.child.default
@@ -32,7 +33,7 @@ bundle: child
 mode: default
 content:
   field_activity:
-    weight: 117
+    weight: 16
     label: above
     settings:
       link: true
@@ -40,14 +41,14 @@ content:
     type: entity_reference_label
     region: content
   field_activity_wishes:
-    weight: 102
+    weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_birthday:
-    weight: 103
+    weight: 3
     label: above
     settings:
       format_type: medium
@@ -56,14 +57,14 @@ content:
     type: datetime_default
     region: content
   field_comments:
-    weight: 108
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_date_registered:
-    weight: 107
+    weight: 7
     label: above
     settings:
       format_type: medium
@@ -72,15 +73,16 @@ content:
     type: datetime_default
     region: content
   field_diary:
-    weight: 116
+    weight: 17
     label: above
     settings:
-      link: true
+      view_mode: teaser
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_is_mentored:
-    weight: 101
+    weight: 1
     label: above
     settings:
       format: default
@@ -90,7 +92,7 @@ content:
     type: boolean
     region: content
   field_mentor:
-    weight: 114
+    weight: 14
     label: above
     settings:
       link: true
@@ -98,7 +100,7 @@ content:
     type: entity_reference_label
     region: content
   field_neighborhood:
-    weight: 115
+    weight: 15
     label: above
     settings:
       link: true
@@ -106,7 +108,7 @@ content:
     type: entity_reference_label
     region: content
   field_parents:
-    weight: 113
+    weight: 13
     label: above
     settings:
       link: true
@@ -114,7 +116,7 @@ content:
     type: entity_reference_label
     region: content
   field_referer:
-    weight: 109
+    weight: 9
     label: above
     settings:
       link_to_entity: false
@@ -122,21 +124,22 @@ content:
     type: string
     region: content
   field_referer_email:
-    weight: 111
+    weight: 11
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_referer_phone:
-    weight: 110
+    weight: 10
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
   field_school:
-    weight: 105
+    weight: 5
     label: above
     settings:
       link_to_entity: false
@@ -144,21 +147,21 @@ content:
     type: string
     region: content
   field_sex:
-    weight: 104
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_shool_class:
-    weight: 106
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_siblings:
-    weight: 112
+    weight: 12
     label: above
     settings:
       link: true
@@ -166,9 +169,9 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

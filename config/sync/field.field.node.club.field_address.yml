@@ -11,7 +11,7 @@ id: node.club.field_address
 field_name: field_address
 entity_type: node
 bundle: club
-label: Addresse
+label: Adresse
 description: ''
 required: false
 translatable: true

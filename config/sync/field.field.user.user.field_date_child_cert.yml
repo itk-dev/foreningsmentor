@@ -11,7 +11,7 @@ id: user.user.field_date_child_cert
 field_name: field_date_child_cert
 entity_type: user
 bundle: user
-label: 'Dato f. børneattest'
+label: 'Dato for børneattest'
 description: ''
 required: false
 translatable: false

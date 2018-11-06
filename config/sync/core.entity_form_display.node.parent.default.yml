@@ -45,12 +45,9 @@ content:
     region: content
   field_children:
     weight: 125
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_email:
     weight: 123
@@ -69,12 +66,9 @@ content:
     region: content
   field_relation:
     weight: 126
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   langcode:
     type: language_select

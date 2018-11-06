@@ -6,4 +6,9 @@ id: pm
 label: Projektleder
 weight: 3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access content'
+  - 'view field_activity'
+  - 'view field_activity_wishes'
+  - 'view field_comments'
+  - 'view field_neighborhood'
