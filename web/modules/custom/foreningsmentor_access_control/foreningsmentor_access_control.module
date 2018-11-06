@@ -78,11 +78,13 @@ function foreningsmentor_access_control_node_grants(
   elseif (in_array('mentor', $account->getRoles(), TRUE)) {
     // For mentors we only grant access on a 'pr. child' basis so we need to
     // find all children with the logged in user as mentor.
+    // Only show children that are marked as being mentored.
     // Disable access check to avoid triggering infinite loop, since access
     // checks apply to entity queries.
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'child')
+      ->condition('field_is_mentored', 1)
       ->condition('field_mentor.target_id', $account->id())
       ->accessCheck(FALSE);
     $ids = $query->execute();
