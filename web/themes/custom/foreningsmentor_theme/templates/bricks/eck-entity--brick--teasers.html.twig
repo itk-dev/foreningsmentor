@@ -1,0 +1,6 @@
+<div{{ attributes.addClass('row','teasers','bg-orange') }}>
+  <div class="col-12">
+    <h2 class="text-center mt-5 mb-3">{{ content.title }}</h2>
+  </div>
+  {{ content|without('title') }}
+</div>
