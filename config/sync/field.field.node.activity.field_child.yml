@@ -1,18 +1,19 @@
-uuid: 0a4f3704-11da-469a-be69-f6e0c24108c4
+uuid: 78770245-91ca-4016-b41f-8f64449bb6e2
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_siblings
+    - field.storage.node.field_child
+    - node.type.activity
     - node.type.child
-id: node.child.field_siblings
-field_name: field_siblings
+id: node.activity.field_child
+field_name: field_child
 entity_type: node
-bundle: child
-label: Søskende
+bundle: activity
+label: Barn
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -21,8 +22,7 @@ settings:
     target_bundles:
       child: child
     sort:
-      field: title
-      direction: ASC
+      field: _none
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

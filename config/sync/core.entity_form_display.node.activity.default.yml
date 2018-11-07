@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.activity.field_activity_type
+    - field.field.node.activity.field_child
     - field.field.node.activity.field_club
     - field.field.node.activity.field_club_contact_person
     - field.field.node.activity.field_club_contact_person_email
@@ -30,6 +31,15 @@ content:
     third_party_settings: {  }
   field_activity_type:
     weight: 121
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_child:
+    weight: 131
     settings:
       match_operator: CONTAINS
       size: 60

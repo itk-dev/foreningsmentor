@@ -45,7 +45,6 @@ permissions:
   - 'edit field_children'
   - 'edit field_comment'
   - 'edit field_comments'
-  - 'edit field_date_child_cert'
   - 'edit field_date_registered'
   - 'edit field_end_interview'
   - 'edit field_is_coordinator'
