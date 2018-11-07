@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "155fb8b12243e7ee5970acd38b972f22",
+    "content-hash": "fc71e8ada882f82f5b79b339ef3bb959",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3711,6 +3711,53 @@
             "homepage": "https://www.drupal.org/project/toolbar_visibility",
             "support": {
                 "source": "http://cgit.drupalcode.org/toolbar_visibility"
+            }
+        },
+        {
+            "name": "drupal/views_add_button",
+            "version": "1.0.0-rc2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/views_add_button",
+                "reference": "8.x-1.0-rc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_add_button-8.x-1.0-rc2.zip",
+                "reference": "8.x-1.0-rc2",
+                "shasum": "1014321d580cfceb5b0d1a655aab31b6744265ff"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc2",
+                    "datestamp": "1540361881",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "laboratory.mike",
+                    "homepage": "https://www.drupal.org/user/131390"
+                }
+            ],
+            "description": "Creates a configurable entity add button for Views headers and footers.",
+            "homepage": "https://www.drupal.org/project/views_add_button",
+            "support": {
+                "source": "http://cgit.drupalcode.org/views_add_button"
             }
         },
         {
@@ -9159,11 +9206,6 @@
         {
             "name": "webflo/drupal-core-require-dev",
             "version": "8.6.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webflo/drupal-core-require-dev.git",
-                "reference": "3fa727e875f73906f7e9325619b540f7012876ee"
-            },
             "require": {
                 "behat/mink": "1.7.x-dev",
                 "behat/mink-goutte-driver": "^1.2",
@@ -9194,6 +9236,7 @@
         "drupal/cer": 15,
         "drupal/field_permissions": 5,
         "drupal/inline_entity_form": 5,
+        "drupal/views_add_button": 5,
         "drupal/youtube": 10
     },
     "prefer-stable": true,

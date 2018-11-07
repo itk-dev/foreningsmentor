@@ -18,6 +18,7 @@ dependencies:
     - node
     - telephone
     - user
+    - views_add_button
 id: clubs
 label: Foreninger
 module: views
@@ -531,7 +532,23 @@ display:
           granularity: second
       title: Foreninger
       header: {  }
-      footer: {  }
+      footer:
+        views_add_button:
+          id: views_add_button
+          table: views
+          field: views_add_button
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: 0
+          type: node+club
+          context: ''
+          button_text: 'Add club'
+          button_classes: foreningsmentor-intra--add-club-button
+          query_string: ''
+          destination: 1
+          plugin_id: views_add_button_area
       empty: {  }
       relationships: {  }
       arguments: {  }

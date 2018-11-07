@@ -10,8 +10,9 @@ dependencies:
   module:
     - node
     - user
+    - views_add_button
 id: active_activities
-label: 'Aktive forløb'
+label: Forløb
 module: views
 description: 'Liste over igangværende aktivitetsforløb'
 tag: ''
@@ -160,9 +161,25 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Aktive forløb'
+      title: Forløb
       header: {  }
-      footer: {  }
+      footer:
+        views_add_button:
+          id: views_add_button
+          table: views
+          field: views_add_button
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: 0
+          type: node+activity
+          context: ''
+          button_text: 'Add activity'
+          button_classes: foreningsmentor-intra--add-activity-button
+          query_string: ''
+          destination: 1
+          plugin_id: views_add_button_area
       empty: {  }
       relationships: {  }
       arguments: {  }
@@ -183,7 +200,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: aktive-forlob
+      path: forlob
     cache_metadata:
       max-age: -1
       contexts:
