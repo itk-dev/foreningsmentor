@@ -6384,8 +6384,7 @@ a.text-dark:hover, a.text-dark:focus {
 .navbar {
   height: 4rem; }
   .navbar-brand {
-    position: absolute;
-    top: 0; }
+    height: 100%; }
     .navbar-brand img {
       max-height: 15vh; }
 
@@ -6407,4 +6406,22 @@ a.text-dark:hover, a.text-dark:focus {
 
 .bg-orange {
   background-color: #F65034; }
+
+.teasers {
+  color: #ffffff; }
+  .teasers .image {
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10rem;
+    height: 10rem; }
+    @media (min-width: 768px) {
+      .teasers .image {
+        width: 15rem;
+        height: 15rem; } }
+    .teasers .image img {
+      -o-object-fit: cover;
+         object-fit: cover;
+      max-width: 100%;
+      height: 100%; }
 

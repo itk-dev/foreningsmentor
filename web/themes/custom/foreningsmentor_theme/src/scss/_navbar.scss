@@ -5,8 +5,7 @@
 .navbar {
   height: $spacer*4;
   &-brand {
-    position: absolute;
-    top: 0;
+    height: 100%;
     img{
       max-height: 15vh;
     }
