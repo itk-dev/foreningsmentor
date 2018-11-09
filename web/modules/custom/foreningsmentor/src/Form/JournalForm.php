@@ -34,6 +34,12 @@ class JournalForm extends FormBase {
       '#description' => $this->t('The journal entry'),
       '#weight' => '1',
     ];
+    $form['only_for_coordinators'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Show only to coordinators'),
+      '#description' => $this->t('Whether or not this entry should be hidden from mentors'),
+      '#weight' => '1',
+    ];
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
@@ -60,6 +66,7 @@ class JournalForm extends FormBase {
       'type' => 'journal_entry',
       'title' => $form_state->getValue('title'),
       'body' => $form_state->getValue('body'),
+      'field_only_for_coordinators' => $form_state->getValue('only_for_coordinators'),
       'field_child' => $parentNode,
     ]);
     $node->save();
