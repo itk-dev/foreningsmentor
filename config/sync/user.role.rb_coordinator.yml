@@ -36,6 +36,7 @@ permissions:
   - 'view field_is_mentored'
   - 'view field_mentors_end_status'
   - 'view field_neighborhood'
+  - 'view field_only_for_coordinators'
   - 'view field_other_subsidy_recieved'
   - 'view field_parents'
   - 'view field_qualifified_f_subsidy'
