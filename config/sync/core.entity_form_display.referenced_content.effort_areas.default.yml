@@ -1,0 +1,52 @@
+uuid: 1a4d9f27-0662-4871-839d-4d12ecd17c19
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.effort_areas
+    - field.field.referenced_content.effort_areas.field_effort_area_description
+    - field.field.referenced_content.effort_areas.field_effort_area_image
+    - field.field.referenced_content.effort_areas.field_effort_area_link
+    - image.style.thumbnail
+  module:
+    - image
+    - link
+id: referenced_content.effort_areas.default
+targetEntityType: referenced_content
+bundle: effort_areas
+mode: default
+content:
+  field_effort_area_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_effort_area_image:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_effort_area_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

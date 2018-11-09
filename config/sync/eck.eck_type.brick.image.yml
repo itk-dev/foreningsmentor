@@ -1,0 +1,11 @@
+uuid: c07a483e-1d40-40fd-a7df-a6e693fa6b87
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+_core:
+  default_config_hash: Yi9EMU4_bNoYOljxKWEKJ83ZBN1P4nte0cfYmdJSSZA
+name: Image
+type: image
+description: 'Tilføj et billede'

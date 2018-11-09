@@ -1,0 +1,9 @@
+uuid: 86969fbb-0989-433a-9391-c9a106d85297
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.referenced_content
+name: Teaser
+type: teaser
+description: ''

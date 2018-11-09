@@ -1,0 +1,19 @@
+uuid: 80e1b356-c77b-4619-a916-1e61495fa426
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.testimonials
+    - field.storage.referenced_content.field_testimonial_text
+id: referenced_content.testimonials.field_testimonial_text
+field_name: field_testimonial_text
+entity_type: referenced_content
+bundle: testimonials
+label: Udtalelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

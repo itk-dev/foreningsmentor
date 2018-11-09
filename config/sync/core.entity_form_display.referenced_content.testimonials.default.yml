@@ -1,0 +1,51 @@
+uuid: f647145b-862e-4865-962b-8688d29de976
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.testimonials
+    - field.field.referenced_content.testimonials.field_testimonial_author
+    - field.field.referenced_content.testimonials.field_testimonial_image
+    - field.field.referenced_content.testimonials.field_testimonial_text
+    - image.style.thumbnail
+  module:
+    - image
+id: referenced_content.testimonials.default
+targetEntityType: referenced_content
+bundle: testimonials
+mode: default
+content:
+  field_testimonial_author:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_testimonial_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_testimonial_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

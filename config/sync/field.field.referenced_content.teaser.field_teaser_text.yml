@@ -1,0 +1,21 @@
+uuid: 87eb9808-f2af-48df-8f6b-868c32286804
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.teaser
+    - field.storage.referenced_content.field_teaser_text
+  module:
+    - text
+id: referenced_content.teaser.field_teaser_text
+field_name: field_teaser_text
+entity_type: referenced_content
+bundle: teaser
+label: Tekst
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

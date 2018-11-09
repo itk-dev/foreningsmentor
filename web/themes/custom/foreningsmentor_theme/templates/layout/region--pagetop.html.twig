@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{% if content %}
+  <div{{ attributes }} class="row">
+    <nav class="col navbar navbar-expand navbar-light bg-light">
+      <a class="navbar-brand" href="/"><img src="/{{ directory }}/images/foreningsmentor-logo.svg" alt="Foreningsmentor"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {{ content }}
+      </div>
+    </nav>
+  </div>
+{% endif %}

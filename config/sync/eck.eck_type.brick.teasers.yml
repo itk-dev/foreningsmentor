@@ -1,0 +1,9 @@
+uuid: 4d2c2f30-3bb9-4024-ae24-077a24f0b39a
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Teaser område'
+type: teasers
+description: 'Sektion til at tilføje teasers i. Teaser består af et billede og en kort tekst. Der er plads til 3 stk. i sektionen.'

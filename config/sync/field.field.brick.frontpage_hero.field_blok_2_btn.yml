@@ -1,0 +1,23 @@
+uuid: 74a1e38b-da75-4417-b11a-e197a8a4cf9b
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.frontpage_hero
+    - field.storage.brick.field_blok_2_btn
+  module:
+    - link
+id: brick.frontpage_hero.field_blok_2_btn
+field_name: field_blok_2_btn
+entity_type: brick
+bundle: frontpage_hero
+label: 'Blok 2 - Knap'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,33 @@
+uuid: 49f3eb68-c8b2-48fd-b406-a89e85765d40
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.teasers
+    - field.field.brick.teasers.field_teasers
+  module:
+    - bricks
+id: brick.teasers.default
+targetEntityType: brick
+bundle: teasers
+mode: default
+content:
+  field_teasers:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: bricks_nested
+    region: content
+  title:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

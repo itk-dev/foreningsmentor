@@ -1,0 +1,11 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - #{$spacer*6});
+  .blok-1 {
+    background-color: $primary;
+  }
+  .blok-2 {
+    background-color: $white;
+  }
+}

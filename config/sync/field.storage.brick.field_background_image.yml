@@ -1,0 +1,34 @@
+uuid: 31ee1309-5deb-4d7a-b988-35fcbe4a3778
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - field_permissions
+    - file
+    - image
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: brick.field_background_image
+field_name: field_background_image
+entity_type: brick
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

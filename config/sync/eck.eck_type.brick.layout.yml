@@ -1,0 +1,11 @@
+uuid: ca30ab50-9f11-4d2b-934a-0ec1fac959be
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+_core:
+  default_config_hash: 2wUMzjZZX_vZdGlp1AUiFr0J3unO78SFAga-v1YI4ZA
+name: Layout
+type: layout
+description: ''

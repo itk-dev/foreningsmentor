@@ -1,0 +1,21 @@
+uuid: efde5a4e-c5fe-4efd-b67c-7481f5f9fa47
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.frontpage_hero
+    - field.storage.brick.field_blok_1_description
+  module:
+    - text
+id: brick.frontpage_hero.field_blok_1_description
+field_name: field_blok_1_description
+entity_type: brick
+bundle: frontpage_hero
+label: 'Blok 1 - Beskrivelse'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

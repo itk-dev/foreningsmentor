@@ -1,0 +1,19 @@
+uuid: 3182019a-a4f3-493b-b8f5-ed809ce5de0c
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.pagehero
+    - field.storage.brick.field_title_first_line
+id: brick.pagehero.field_title_first_line
+field_name: field_title_first_line
+entity_type: brick
+bundle: pagehero
+label: 'Title - First line'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

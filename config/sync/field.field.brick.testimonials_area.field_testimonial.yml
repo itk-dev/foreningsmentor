@@ -1,0 +1,30 @@
+uuid: 0bddad72-8c3e-4331-ab21-c3aa7f8f3cb4
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.testimonials_area
+    - eck.eck_type.referenced_content.testimonials
+    - field.storage.brick.field_testimonial
+  module:
+    - bricks
+id: brick.testimonials_area.field_testimonial
+field_name: field_testimonial
+entity_type: brick
+bundle: testimonials_area
+label: Udtalelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:referenced_content'
+  handler_settings:
+    target_bundles:
+      testimonials: testimonials
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: ''
+field_type: bricks

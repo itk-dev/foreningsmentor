@@ -1,0 +1,9 @@
+uuid: b854a3a5-ff03-4e29-b6eb-40ff97296019
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Pagehero
+type: pagehero
+description: "Subpage hero with title and background image.\r\nUse as the first element on a subpage."

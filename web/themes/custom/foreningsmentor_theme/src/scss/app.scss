@@ -1,0 +1,13 @@
+/*
+* Import bootstrap
+*/
+@import "custom"; /* Bootstrap overrides goes in this file */
+@import "~bootstrap/scss/bootstrap";
+
+/*
+* Import component styling
+*/
+@import "navbar";
+@import "hero";
+@import "background-image";
+@import "teasers";

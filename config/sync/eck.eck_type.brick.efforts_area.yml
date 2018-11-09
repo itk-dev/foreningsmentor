@@ -1,0 +1,9 @@
+uuid: bfa4f5f4-53fe-4513-8706-0a6412684846
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Indsatser område'
+type: efforts_area
+description: 'Sektion hvor der kan tilføjes indsatser.'
