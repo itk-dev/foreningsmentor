@@ -18,4 +18,5 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_content_block: true
   langcode: true
