@@ -1,0 +1,23 @@
+uuid: 14603850-26ad-4b89-be75-27813ab6cd0b
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: referenced_content.field_testimonial_text
+field_name: field_testimonial_text
+entity_type: referenced_content
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

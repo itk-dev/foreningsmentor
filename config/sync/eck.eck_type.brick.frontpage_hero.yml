@@ -1,0 +1,9 @@
+uuid: 422e52e4-3891-4262-a353-f39376e43716
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Forside hero'
+type: frontpage_hero
+description: 'Hero element til forsiden med tekst oven på baggrundbillede + 2 områder med titel, kort tekst og knap til mere info.'

@@ -1,0 +1,30 @@
+uuid: 365d4506-6c58-4f48-b636-30ec2878a720
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.teasers
+    - eck.eck_type.referenced_content.teaser
+    - field.storage.brick.field_teasers
+  module:
+    - bricks
+id: brick.teasers.field_teasers
+field_name: field_teasers
+entity_type: brick
+bundle: teasers
+label: 'Teaser område'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:referenced_content'
+  handler_settings:
+    target_bundles:
+      teaser: teaser
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: ''
+field_type: bricks

@@ -1,0 +1,40 @@
+uuid: 394d2baf-6756-4efd-bd63-ca8bf66763e3
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.teasers
+    - field.field.brick.teasers.field_teasers
+  module:
+    - bricks_inline
+id: brick.teasers.default
+targetEntityType: brick
+bundle: teasers
+mode: default
+content:
+  field_teasers:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: bricks_tree_inline
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

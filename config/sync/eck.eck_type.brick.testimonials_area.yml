@@ -1,0 +1,9 @@
+uuid: 0761e23f-d63b-4a68-b2fe-1344486fc355
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Udtalelser område'
+type: testimonials_area
+description: 'Sektion til at tilføje udtalelser.'

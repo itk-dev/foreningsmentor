@@ -1,0 +1,22 @@
+uuid: d9656456-ab7e-4b19-8e81-f17ce36cfb72
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - foreningsmentor_theme
+_core:
+  default_config_hash: 80N66GdzEvwqi1m-_GZ-ulkk8AJG9beoXcZ4-pMVKjI
+id: foreningsmentor_theme_content
+theme: foreningsmentor_theme
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Primært sideindhold'
+  provider: system
+  label_display: '0'
+visibility: {  }

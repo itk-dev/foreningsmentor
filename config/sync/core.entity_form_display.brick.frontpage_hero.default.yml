@@ -1,0 +1,107 @@
+uuid: 6327d3ac-58c4-4a06-95b3-47c5e17954da
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.frontpage_hero
+    - field.field.brick.frontpage_hero.field_background_image
+    - field.field.brick.frontpage_hero.field_blok_1_btn
+    - field.field.brick.frontpage_hero.field_blok_1_description
+    - field.field.brick.frontpage_hero.field_blok_2_btn
+    - field.field.brick.frontpage_hero.field_blok_2_description
+    - field.field.brick.frontpage_hero.field_text_1
+    - field.field.brick.frontpage_hero.field_text_2
+    - field.field.brick.frontpage_hero.field_title_first_line
+    - field.field.brick.frontpage_hero.field_title_second_line
+    - image.style.thumbnail
+  module:
+    - image
+    - link
+    - text
+id: brick.frontpage_hero.default
+targetEntityType: brick
+bundle: frontpage_hero
+mode: default
+content:
+  field_background_image:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_blok_1_btn:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_blok_1_description:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_blok_2_btn:
+    weight: 9
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_blok_2_description:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_text_1:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_text_2:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_title_first_line:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_title_second_line:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

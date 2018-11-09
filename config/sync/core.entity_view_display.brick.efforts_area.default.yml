@@ -1,0 +1,26 @@
+uuid: 095b6cae-7810-443c-879d-3a275f26fc4d
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.efforts_area
+    - field.field.brick.efforts_area.field_effort
+  module:
+    - bricks
+id: brick.efforts_area.default
+targetEntityType: brick
+bundle: efforts_area
+mode: default
+content:
+  field_effort:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: bricks_nested
+    region: content
+hidden:
+  langcode: true
+  title: true

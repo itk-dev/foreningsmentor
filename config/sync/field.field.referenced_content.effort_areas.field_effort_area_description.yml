@@ -1,0 +1,19 @@
+uuid: 90c5042f-baeb-41be-8a32-ec5a0c9ce76d
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.effort_areas
+    - field.storage.referenced_content.field_effort_area_description
+id: referenced_content.effort_areas.field_effort_area_description
+field_name: field_effort_area_description
+entity_type: referenced_content
+bundle: effort_areas
+label: 'Indsats beskrivelse'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
