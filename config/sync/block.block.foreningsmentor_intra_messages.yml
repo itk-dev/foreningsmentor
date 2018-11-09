@@ -1,0 +1,22 @@
+uuid: d7ef7ba6-c837-444d-8785-1ebdd0960ff7
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - foreningsmentor_intra
+_core:
+  default_config_hash: YqKTtloWJ8FjLtfVNfrHaK6kVgxT67lC1cJ3j6i6WLo
+id: foreningsmentor_intra_messages
+theme: foreningsmentor_intra
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,10 @@
+uuid: 9a13ed8c-ed6e-4f70-ac29-6baa8810bc0f
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.journal
+label: Dagbog
+targetEntityType: node
+cache: true

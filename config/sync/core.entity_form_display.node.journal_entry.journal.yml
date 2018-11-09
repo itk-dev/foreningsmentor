@@ -1,0 +1,39 @@
+uuid: 34e76ace-cce6-4eee-8200-8a3a973f7392
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.journal
+    - field.field.node.journal_entry.body
+    - field.field.node.journal_entry.field_child
+    - field.field.node.journal_entry.field_date
+    - field.field.node.journal_entry.field_reminder_date
+    - node.type.journal_entry
+  module:
+    - text
+id: node.journal_entry.journal
+targetEntityType: node
+bundle: journal_entry
+mode: journal
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 0
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_child: true
+  field_date: true
+  field_reminder_date: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true

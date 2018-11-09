@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: intranet
 label: Intranet
-description: ''
+description: 'Intranettets menu'
 locked: false

@@ -7,5 +7,19 @@ label: Mentor
 weight: 2
 is_admin: null
 permissions:
+  - 'access content'
+  - 'create field_mentors_end_status'
+  - 'create journal_entry content'
+  - 'delete own journal_entry content'
+  - 'edit any activity content'
+  - 'edit own field_mentors_end_status'
+  - 'edit own journal_entry content'
+  - 'view any activity content'
+  - 'view field_activity'
+  - 'view field_club'
+  - 'view field_mentors_end_status'
+  - 'view field_neighborhood'
+  - 'view field_parents'
   - 'view own field_children'
-  - 'view own field_neighborhood'
+  - 'view own field_mentors_end_status'
+  - 'view own journal_entry content'

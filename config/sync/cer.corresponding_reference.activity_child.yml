@@ -1,0 +1,13 @@
+uuid: 96afd916-6d4d-40c9-85ea-53803db534c6
+langcode: da
+status: true
+dependencies: {  }
+id: activity_child
+label: 'Aktivitetsforløb - Barn'
+enabled: true
+first_field: field_activity
+second_field: field_child
+bundles:
+  node:
+    - activity
+    - child
