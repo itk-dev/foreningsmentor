@@ -8,6 +8,8 @@ weight: 3
 is_admin: null
 permissions:
   - 'access content'
+  - 'view any activity content'
+  - 'view any club content'
   - 'view field_activity'
   - 'view field_activity_type'
   - 'view field_activity_wishes'
@@ -31,3 +33,4 @@ permissions:
   - 'view field_referer_phone'
   - 'view field_siblings'
   - 'view field_subsidy_recieved'
+  - 'view own bricky content'
