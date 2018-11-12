@@ -94,8 +94,13 @@ function foreningsmentor_access_control_node_grants(
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'journal_entry')
-      ->condition('field_only_for_coordinators', 0)
       ->accessCheck(FALSE);
+
+    $orCondition = $query->orConditionGroup()
+      ->notExists('field_only_for_coordinators')
+      ->condition('field_only_for_coordinators', 0);
+    $query->condition($orCondition);
+
     $journal_entry_ids = $query->execute();
 
     // Assign NID's as grant ID's
