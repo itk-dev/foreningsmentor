@@ -22,4 +22,3 @@ permissions:
   - 'view field_parents'
   - 'view own field_children'
   - 'view own field_mentors_end_status'
-  - 'view own journal_entry content'

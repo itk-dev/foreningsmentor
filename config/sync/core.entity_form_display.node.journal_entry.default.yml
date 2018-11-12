@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.journal_entry.body
     - field.field.node.journal_entry.field_child
     - field.field.node.journal_entry.field_date
+    - field.field.node.journal_entry.field_only_for_coordinators
     - field.field.node.journal_entry.field_reminder_date
     - node.type.journal_entry
   module:
@@ -23,6 +24,13 @@ content:
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
+    region: content
+  field_only_for_coordinators:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
 hidden:
   created: true
