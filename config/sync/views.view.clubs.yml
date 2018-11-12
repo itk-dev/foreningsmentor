@@ -10,8 +10,8 @@ dependencies:
     - field.storage.node.field_phone
     - node.type.club
     - user.role.coordinator
+    - user.role.mentor
     - user.role.pm
-    - user.role.rb_coordinator
   module:
     - address_dawa
     - link
@@ -38,9 +38,9 @@ display:
         type: role
         options:
           role:
+            mentor: mentor
             pm: pm
             coordinator: coordinator
-            rb_coordinator: rb_coordinator
       cache:
         type: tag
         options: {  }

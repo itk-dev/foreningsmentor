@@ -7,7 +7,6 @@ dependencies:
     - node.type.activity
     - user.role.coordinator
     - user.role.pm
-    - user.role.rb_coordinator
   module:
     - node
     - user
@@ -33,7 +32,6 @@ display:
           role:
             pm: pm
             coordinator: coordinator
-            rb_coordinator: rb_coordinator
       cache:
         type: tag
         options: {  }

@@ -44,7 +44,6 @@ display:
           role:
             pm: pm
             coordinator: coordinator
-            rb_coordinator: rb_coordinator
       cache:
         type: tag
         options: {  }
