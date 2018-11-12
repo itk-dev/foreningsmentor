@@ -1,0 +1,9 @@
+uuid: dfe46686-5267-4161-99e8-bff4043ec495
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.referenced_content
+name: Udtalelser
+type: testimonials
+description: 'Opret en udtalelse fra en person'

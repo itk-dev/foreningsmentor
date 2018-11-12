@@ -1,0 +1,23 @@
+uuid: bb10803e-1377-46e9-a3b7-119ac4d9b1c7
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.effort_areas
+    - field.storage.referenced_content.field_effort_area_link
+  module:
+    - link
+id: referenced_content.effort_areas.field_effort_area_link
+field_name: field_effort_area_link
+entity_type: referenced_content
+bundle: effort_areas
+label: 'Indsats link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

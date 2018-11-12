@@ -1,0 +1,13 @@
+name: Foreningsmentor
+type: theme
+description: 'Foreningsmentor custom theme'
+
+libraries:
+  - foreningsmentor_theme/global-styling
+
+regions:
+  pagetop: 'Page top'
+  content: 'Content'
+  pagebottom: 'Page bottom'
+
+core: '8.x'

@@ -1,0 +1,21 @@
+uuid: c9ed7f75-157a-4290-a519-2cd37e7b00ba
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.frontpage_hero
+    - field.storage.brick.field_text_1
+  module:
+    - text
+id: brick.frontpage_hero.field_text_1
+field_name: field_text_1
+entity_type: brick
+bundle: frontpage_hero
+label: 'Blok 1 - Titel'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

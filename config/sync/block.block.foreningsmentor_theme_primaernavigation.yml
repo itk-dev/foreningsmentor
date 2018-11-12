@@ -1,0 +1,24 @@
+uuid: c8278afa-6b15-479f-9dad-5aae03a87600
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - foreningsmentor_theme
+id: foreningsmentor_theme_primaernavigation
+theme: foreningsmentor_theme
+region: pagetop
+weight: -1
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Primær navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

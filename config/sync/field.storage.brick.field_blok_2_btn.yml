@@ -1,0 +1,23 @@
+uuid: 43bdd372-5448-49ea-9ade-5c0c8b1be94a
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - field_permissions
+    - link
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: brick.field_blok_2_btn
+field_name: field_blok_2_btn
+entity_type: brick
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

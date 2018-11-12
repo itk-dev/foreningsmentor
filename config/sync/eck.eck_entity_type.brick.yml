@@ -1,0 +1,12 @@
+uuid: 3bd1a0e5-d4d5-4e73-9f39-4536d1553bb8
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: I5U8cI3szNmb0miZu1QfUui4kdDBjaODPdVZJFm7h24
+id: brick
+label: Indholdsblok
+created: false
+changed: false
+uid: false
+title: true

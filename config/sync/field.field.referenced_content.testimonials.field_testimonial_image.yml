@@ -1,0 +1,38 @@
+uuid: 3504f4fb-37cb-41a2-a70b-29e6cdc363f9
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.testimonials
+    - field.storage.referenced_content.field_testimonial_image
+  module:
+    - image
+id: referenced_content.testimonials.field_testimonial_image
+field_name: field_testimonial_image
+entity_type: referenced_content
+bundle: testimonials
+label: Billede
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: images
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
