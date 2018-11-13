@@ -11,12 +11,14 @@ dependencies:
     - field.field.node.activity.field_club_contact_person_email
     - field.field.node.activity.field_club_contact_person_phone
     - field.field.node.activity.field_coordinators_end_status
+    - field.field.node.activity.field_date_start
     - field.field.node.activity.field_mentors_end_status
     - field.field.node.activity.field_other_subsidy_recieved
     - field.field.node.activity.field_qualifified_f_subsidy
     - field.field.node.activity.field_subsidy_recieved
     - node.type.activity
   module:
+    - datetime
     - path
     - telephone
 id: node.activity.default
@@ -91,6 +93,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_date_start:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_mentors_end_status:
     weight: 12

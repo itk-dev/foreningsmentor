@@ -36,13 +36,12 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
 
 .foreningsmentor-intra--journal {
   border: 1px solid #ccc;
-  border-bottom: 0;
   padding: 1em;
+  margin-bottom: 1em;
 }
 
 .foreningsmentor-intra--journal-add-entry {
   border: 1px solid #ccc;
-  border-top: 0;
   padding: 1em;
 }
 
