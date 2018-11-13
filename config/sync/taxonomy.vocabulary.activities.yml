@@ -1,0 +1,9 @@
+uuid: 84440730-544b-4e2e-b2a7-460d80371a9b
+langcode: da
+status: true
+dependencies: {  }
+name: Aktiviteter
+vid: activities
+description: 'Liste af aktiviteter'
+hierarchy: 0
+weight: 0

@@ -1,23 +1,23 @@
-uuid: f2086c48-1c43-475b-b820-50a7f75800ea
+uuid: 4157f247-e326-4a1e-adeb-3691a4f43ffa
 langcode: da
 status: true
 dependencies:
   module:
+    - bricks
     - field_permissions
     - node
-    - taxonomy
 third_party_settings:
   field_permissions:
     permission_type: custom
-id: node.field_activity
-field_name: field_activity
+id: node.field_activities
+field_name: field_activities
 entity_type: node
-type: entity_reference
+type: bricks
 settings:
-  target_type: taxonomy_term
-module: core
+  target_type: node
+module: bricks
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

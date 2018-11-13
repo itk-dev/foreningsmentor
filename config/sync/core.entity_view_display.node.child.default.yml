@@ -3,7 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.child.field_activity
+    - field.field.node.child.field_activities
     - field.field.node.child.field_activity_wishes
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.child.field_siblings
     - node.type.child
   module:
+    - bricks
     - datetime
     - options
     - telephone
@@ -32,13 +33,14 @@ targetEntityType: node
 bundle: child
 mode: default
 content:
-  field_activity:
-    weight: 16
+  field_activities:
+    weight: 18
     label: above
     settings:
-      link: true
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: bricks_nested
     region: content
   field_activity_wishes:
     weight: 2

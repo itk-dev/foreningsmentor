@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.journal
-    - field.field.node.child.field_activity
+    - field.field.node.child.field_activities
     - field.field.node.child.field_activity_wishes
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.child.field_siblings
     - node.type.child
   module:
+    - bricks
     - datetime
     - inline_entity_form
     - path
@@ -39,14 +40,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_activity:
+  field_activities:
     weight: 137
     settings:
       match_operator: CONTAINS
-      size: 60
+      size: '60'
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: bricks_tree_autocomplete
     region: content
   field_activity_wishes:
     weight: 122

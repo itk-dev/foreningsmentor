@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.node.activity.field_activity
     - field.field.node.activity.field_activity_type
     - field.field.node.activity.field_child
     - field.field.node.activity.field_club
@@ -25,12 +26,21 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_activity:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_activity_type:
-    weight: 8
+    weight: 11
     settings:
       match_operator: CONTAINS
       size: 60
@@ -39,7 +49,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_child:
-    weight: 18
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -48,7 +58,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_club:
-    weight: 17
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -57,7 +67,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_club_contact_person:
-    weight: 11
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -65,7 +75,7 @@ content:
     type: string_textfield
     region: content
   field_club_contact_person_email:
-    weight: 13
+    weight: 16
     settings:
       size: 60
       placeholder: ''
@@ -73,14 +83,14 @@ content:
     type: email_default
     region: content
   field_club_contact_person_phone:
-    weight: 12
+    weight: 15
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
     region: content
   field_coordinators_end_status:
-    weight: 10
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60
@@ -89,7 +99,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_mentors_end_status:
-    weight: 9
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
@@ -98,7 +108,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_other_subsidy_recieved:
-    weight: 16
+    weight: 19
     settings:
       match_operator: CONTAINS
       size: 60
@@ -107,14 +117,14 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_qualifified_f_subsidy:
-    weight: 14
+    weight: 17
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_subsidy_recieved:
-    weight: 15
+    weight: 18
     settings:
       display_label: true
     third_party_settings: {  }
@@ -122,14 +132,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 1
+    weight: 4
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -137,12 +147,12 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 8
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 2
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -151,7 +161,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 9
     region: content
     third_party_settings: {  }
   title:
@@ -164,7 +174,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60

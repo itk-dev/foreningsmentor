@@ -1,17 +1,19 @@
-uuid: 440aa355-231b-4538-8e49-30f9ffe1389e
+uuid: b434a577-1b84-422f-bb54-8f128a0c783d
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_activity
+    - field.storage.node.field_activities
     - node.type.activity
     - node.type.child
-id: node.child.field_activity
-field_name: field_activity
+  module:
+    - bricks
+id: node.child.field_activities
+field_name: field_activities
 entity_type: node
 bundle: child
 label: Aktivitetsforløb
-description: ''
+description: 'Liste af aktivitetsforløb barnet er tilmeldt.'
 required: false
 translatable: false
 default_value: {  }
@@ -23,6 +25,6 @@ settings:
       activity: activity
     sort:
       field: _none
-    auto_create: false
+    auto_create: 0
     auto_create_bundle: ''
-field_type: entity_reference
+field_type: bricks
