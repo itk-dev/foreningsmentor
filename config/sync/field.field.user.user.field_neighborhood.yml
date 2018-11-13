@@ -11,8 +11,8 @@ id: user.user.field_neighborhood
 field_name: field_neighborhood
 entity_type: user
 bundle: user
-label: Bydele
-description: ''
+label: Indsatsområder
+description: 'Liste over indsatsområder brugeren er tilkoblet.'
 required: false
 translatable: false
 default_value: {  }
