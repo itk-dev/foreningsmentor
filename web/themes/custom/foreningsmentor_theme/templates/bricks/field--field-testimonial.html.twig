@@ -66,10 +66,19 @@
     {% endif %}
   </div>
 {% endif %} #}
-
-{% for item in items[0].content %}
-  <div{{ attributes.addClass('col-sm-3','col-10','offset-1','teaser') }}>
-    {{ item }}
+<div id="testimonialsCarousel" class="carousel w-100 slide">
+  <div class="carousel-inner">
+  {% for item in items[0].content %}
+    <div class="carousel-item {% if loop.first %}active{% endif %}">
+      <div class="testimonial">
+        {{ item }}
+      </div>
+    </div>
+  {% endfor %}
   </div>
-{% endfor %}
-
+  <ol class="carousel-indicators">
+    {% for item in items[0].content %}
+      <li data-target="#testimonialsCarousel" data-slide-to="{{ loop.index - 1 }}" class="{% if loop.first %}active{% endif %}"></li>
+    {% endfor %}
+  </ol>
+</div>

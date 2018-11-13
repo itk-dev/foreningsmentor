@@ -10,6 +10,10 @@
 /* Set primary color */
 /* stylelint-enable */
 /* Set default font */
+/* Set serif font */
+.lead {
+  font-family: Georgia, serif; }
+
 /* Spacer helper */
 /* Bootstrap overrides goes in this file */
 /*!
@@ -6376,6 +6380,10 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #e6e6e6; } }
 
 /*
+* Import scss mixins
+*/
+/* Scaling round images */
+/*
 * Import component styling
 */
 /*
@@ -6387,11 +6395,25 @@ a.text-dark:hover, a.text-dark:focus {
     height: 100%; }
     .navbar-brand img {
       max-height: 15vh; }
+  .navbar .nav-link {
+    font-weight: 900;
+    color: #222222;
+    transition: color .2s ease-in, opacity .2s ease-in; }
+    .navbar .nav-link:hover {
+      color: #259799;
+      transition: color 0.4s ease-out; }
+      .navbar .nav-link:hover.active {
+        color: #222222; }
+    .navbar .nav-link.active {
+      opacity: .65; }
 
 .hero {
   position: relative;
-  overflow: hidden;
-  height: calc(100vh - 6rem); }
+  overflow: hidden; }
+  @media (min-width: 768px) {
+    .hero {
+      height: calc(100vh - 6rem);
+      max-height: 640px; } }
   .hero .blok-1 {
     background-color: #259799; }
   .hero .blok-2 {
@@ -6409,19 +6431,62 @@ a.text-dark:hover, a.text-dark:focus {
 
 .teasers {
   color: #ffffff; }
-  .teasers .image {
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-    width: 10rem;
-    height: 10rem; }
-    @media (min-width: 768px) {
-      .teasers .image {
-        width: 15rem;
-        height: 15rem; } }
-    .teasers .image img {
-      -o-object-fit: cover;
-         object-fit: cover;
-      max-width: 100%;
-      height: 100%; }
+
+.teaser-image {
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden; }
+  .teaser-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover; }
+
+.testimonial-image {
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden; }
+  .testimonial-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover; }
+
+.testimonial-image {
+  max-height: 10rem; }
+
+.testimonial-text {
+  font-family: Georgia, serif;
+  font-size: 1.5rem; }
+
+.carousel-indicators {
+  position: static;
+  width: 100%;
+  margin: auto; }
+  .carousel-indicators li {
+    background-color: #eaeaea;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: background-color .2s ease-in; }
+    .carousel-indicators li:hover {
+      background-color: #2aabae;
+      transition: background-color .4s ease-out; }
+    .carousel-indicators li.active {
+      background-color: #259799; }
+
+.carousel-control-next, .carousel-control-previous {
+  color: #259799; }
+
+/*** EXPORTS FROM exports-loader ***/
 
