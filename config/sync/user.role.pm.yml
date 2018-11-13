@@ -23,6 +23,7 @@ permissions:
   - 'view field_club_contact_person_phone'
   - 'view field_comments'
   - 'view field_date_registered'
+  - 'view field_end_interview'
   - 'view field_is_mentored'
   - 'view field_mentors_end_status'
   - 'view field_neighborhood'
