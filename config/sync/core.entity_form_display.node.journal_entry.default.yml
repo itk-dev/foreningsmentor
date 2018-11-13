@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.journal_entry.field_reminder_date
     - node.type.journal_entry
   module:
+    - datetime
     - text
 id: node.journal_entry.default
 targetEntityType: node
@@ -25,8 +26,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  field_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_only_for_coordinators:
-    weight: 26
+    weight: 1
     settings:
       display_label: true
     third_party_settings: {  }
@@ -35,7 +42,6 @@ content:
 hidden:
   created: true
   field_child: true
-  field_date: true
   field_reminder_date: true
   langcode: true
   path: true

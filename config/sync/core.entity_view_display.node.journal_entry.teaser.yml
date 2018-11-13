@@ -7,10 +7,10 @@ dependencies:
     - field.field.node.journal_entry.body
     - field.field.node.journal_entry.field_child
     - field.field.node.journal_entry.field_date
+    - field.field.node.journal_entry.field_only_for_coordinators
     - field.field.node.journal_entry.field_reminder_date
     - node.type.journal_entry
   module:
-    - datetime
     - text
     - user
 id: node.journal_entry.teaser
@@ -26,17 +26,10 @@ content:
       trim_length: 600
     third_party_settings: {  }
     region: content
-  field_reminder_date:
-    type: datetime_default
-    weight: 1
-    region: content
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
 hidden:
   field_child: true
   field_date: true
+  field_only_for_coordinators: true
+  field_reminder_date: true
   langcode: true
   links: true

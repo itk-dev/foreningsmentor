@@ -22,7 +22,7 @@ settings:
     target_bundles:
       journal_entry: journal_entry
     sort:
-      field: nid
+      field: field_date
       direction: ASC
     auto_create: false
     auto_create_bundle: ''

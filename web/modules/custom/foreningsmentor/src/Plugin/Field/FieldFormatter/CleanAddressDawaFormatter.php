@@ -30,7 +30,6 @@ class CleanAddressDawaFormatter extends FormatterBase {
         '#suffix' => '</span>',
       ];
       $elements[$delta] += $this->viewElement($item);
-
     }
 
     return $elements;

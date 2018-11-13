@@ -93,24 +93,20 @@
 
   <h2>{{ label }}</h2>
 
-{#
-  {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-#}
-  <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+  <div class="foreningsmentor-intra--fields">
+    <div{{ content_attributes.addClass('node__content') }}>
+      {{ content|without('field_diary') }}
+    </div>
   </div>
 
-  <div class="foreningsmentor-intra--journal-add-entry">
-    <h2>{{ 'Add new journal entry' | trans }}</h2>
+  <div class="foreningsmentor-intra--fields">
+    <h2 class="foreningsmentor-intra--journal-heading">{{ 'Journal' | trans }}</h2>
+
+    {{ content.field_diary }}
+
+    <hr>
+
+    <h2 class="foreningsmentor-intra--journal-heading">{{ 'Add new journal entry' | trans }}</h2>
     {{ journal_form }}
   </div>
-
 </article>
