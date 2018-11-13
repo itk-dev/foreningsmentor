@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.child.field_comments
     - field.field.node.child.field_date_registered
     - field.field.node.child.field_diary
-    - field.field.node.child.field_is_mentored
     - field.field.node.child.field_mentor
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
@@ -82,16 +81,6 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
-    region: content
-  field_is_mentored:
-    weight: 1
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
     region: content
   field_mentor:
     weight: 14
