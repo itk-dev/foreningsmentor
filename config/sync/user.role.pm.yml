@@ -14,6 +14,7 @@ permissions:
   - 'view field_activity'
   - 'view field_activity_type'
   - 'view field_activity_wishes'
+  - 'view field_aktiviteties'
   - 'view field_available_activities'
   - 'view field_birthday'
   - 'view field_child'

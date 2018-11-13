@@ -1,9 +1,8 @@
-uuid: 4157f247-e326-4a1e-adeb-3691a4f43ffa
+uuid: 3185593c-35c1-4d51-b233-14c29e918f50
 langcode: da
 status: true
 dependencies:
   module:
-    - bricks
     - field_permissions
     - node
 third_party_settings:
@@ -12,10 +11,10 @@ third_party_settings:
 id: node.field_activities
 field_name: field_activities
 entity_type: node
-type: bricks
+type: entity_reference
 settings:
   target_type: node
-module: bricks
+module: core
 locked: false
 cardinality: -1
 translatable: true
