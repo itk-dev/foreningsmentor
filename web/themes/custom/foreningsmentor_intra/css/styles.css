@@ -50,3 +50,7 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
   font-size: 1.5em;
   margin-bottom: 1em;
 }
+
+.foreningsmentor-intra--views-table-wrapper {
+  overflow-x: auto;
+}
