@@ -25,6 +25,7 @@ permissions:
   - 'edit own journal_entry content'
   - 'view any activity content'
   - 'view any club content'
+  - 'view any page content'
   - 'view field_activities'
   - 'view field_activity'
   - 'view field_aktiviteties'
