@@ -84,7 +84,6 @@ function foreningsmentor_access_control_node_grants(
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'child')
-      ->condition('field_is_mentored', 1)
       ->condition('field_mentor.target_id', $account->id())
       ->accessCheck(FALSE);
     $ids = $query->execute();
