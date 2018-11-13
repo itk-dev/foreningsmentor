@@ -10,8 +10,9 @@ dependencies:
     - field.field.node.club.field_phone
     - node.type.club
   module:
-    - address_dawa
+    - foreningsmentor
     - link
+    - telephone
     - user
 id: node.club.default
 targetEntityType: node
@@ -23,7 +24,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: address_dawa
+    type: address_dawa_clean
     region: content
   field_available_activities:
     weight: 107
@@ -55,14 +56,15 @@ content:
   field_phone:
     weight: 105
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

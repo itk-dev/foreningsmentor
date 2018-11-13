@@ -8,10 +8,10 @@ dependencies:
     - field.field.node.parent.field_children
     - field.field.node.parent.field_email
     - field.field.node.parent.field_phone
-    - field.field.node.parent.field_relation
     - node.type.parent
   module:
-    - address_dawa
+    - foreningsmentor
+    - telephone
     - text
     - user
 id: node.parent.default
@@ -31,7 +31,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: address_dawa
+    type: address_dawa_clean
     region: content
   field_children:
     weight: 105
@@ -51,22 +51,15 @@ content:
   field_phone:
     weight: 104
     label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_relation:
-    weight: 106
-    label: above
     settings:
-      link: true
+      title: ''
     third_party_settings: {  }
-    type: entity_reference_label
+    type: telephone_link
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

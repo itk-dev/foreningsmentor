@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.activity.field_club_contact_person_email
     - field.field.node.activity.field_club_contact_person_phone
     - field.field.node.activity.field_coordinators_end_status
+    - field.field.node.activity.field_date_end
     - field.field.node.activity.field_date_start
     - field.field.node.activity.field_mentors_end_status
     - field.field.node.activity.field_other_subsidy_recieved
@@ -93,6 +94,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_date_end:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_date_start:
     weight: 26

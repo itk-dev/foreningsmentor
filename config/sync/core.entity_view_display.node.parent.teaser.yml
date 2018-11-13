@@ -5,6 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.parent.body
+    - field.field.node.parent.field_address
+    - field.field.node.parent.field_children
+    - field.field.node.parent.field_email
+    - field.field.node.parent.field_phone
     - node.type.parent
   module:
     - text
@@ -24,9 +28,9 @@ content:
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_address: true
   field_children: true
