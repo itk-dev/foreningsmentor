@@ -26,26 +26,32 @@ class JournalForm extends FormBase {
 
     $permissiveRole = count(array_intersect(['pm', 'coordinator'], $currentUser->getRoles())) > 0;
 
-    $form['title'] = [
+    $form['add_journal_entry'] = array(
+      '#type' => 'details',
+      '#title' => t('Add journal entry'),
+      '#weight' => 5,
+      '#open' => TRUE,
+    );
+    $form['add_journal_entry']['title'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Headline'),
       '#description' => $this->t('The journal entry headline'),
       '#weight' => '0',
     ];
-    $form['body'] = [
+    $form['add_journal_entry']['body'] = [
       '#type' => 'textarea',
       '#title' => $this->t('The journal entry'),
       '#description' => $this->t('The journal entry'),
       '#weight' => '1',
     ];
-    $form['only_for_coordinators'] = [
+    $form['add_journal_entry']['only_for_coordinators'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Show only to coordinators'),
       '#description' => $this->t('Whether or not this entry should be hidden from mentors'),
       '#weight' => '1',
       '#access' => $permissiveRole,
     ];
-    $form['submit'] = [
+    $form['add_journal_entry']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
       '#weight' => '2',

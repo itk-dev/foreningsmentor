@@ -35,7 +35,9 @@ function foreningsmentor_access_control_node_access_records(NodeInterface $node
 ) {
   $grants = [];
 
-  if ($node->getType() === 'child' || $node->getType() === 'journal_entry') {
+  if ($node->getType() == 'child' ||
+      $node->getType() == 'journal_entry' ||
+      $node->getType() == 'activity') {
     // Define a specific grant for this child using nid as grant id.
     $grants[] = [
       'realm' => 'foreningsmentor_access_control',
@@ -86,7 +88,16 @@ function foreningsmentor_access_control_node_grants(
       ->condition('type', 'child')
       ->condition('field_mentor.target_id', $account->id())
       ->accessCheck(FALSE);
-    $ids = $query->execute();
+    $child_ids = $query->execute();
+
+    // Only give access to activities where the child is set to a child
+    // connected with the mentor.
+     $query = \Drupal::entityQuery('node')
+      ->condition('status', 1)
+      ->condition('type', 'activity')
+      ->condition('field_child.target_id', $child_ids, 'IN')
+      ->accessCheck(FALSE);
+    $activity_ids = $query->execute();
 
     // Mentors should also have access to journal_entries where
     // field_only_for_coordinators is not set.
@@ -94,16 +105,14 @@ function foreningsmentor_access_control_node_grants(
       ->condition('status', 1)
       ->condition('type', 'journal_entry')
       ->accessCheck(FALSE);
-
     $orCondition = $query->orConditionGroup()
       ->notExists('field_only_for_coordinators')
       ->condition('field_only_for_coordinators', 0);
     $query->condition($orCondition);
-
     $journal_entry_ids = $query->execute();
 
     // Assign NID's as grant ID's
-    $grants['foreningsmentor_access_control'] = array_merge($ids, $journal_entry_ids);
+    $grants['foreningsmentor_access_control'] = array_merge($child_ids, $journal_entry_ids, $activity_ids);
   }
 
   return $grants;
