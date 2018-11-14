@@ -45,12 +45,23 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
   margin-bottom: 1em;
 }
 
-.foreningsmentor-intra--journal-heading {
+.foreningsmentor-intra--heading {
   color: black;
   font-size: 1.5em;
   margin-bottom: 1em;
 }
 
+.foreningsmentor-intra--journal-heading-add {
+  color: black;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
+
 .foreningsmentor-intra--views-table-wrapper {
   overflow-x: auto;
+}
+
+.foreningsmentor-intra--no-results {
+  margin-bottom: 1em;
+  font-style: italic;
 }

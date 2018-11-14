@@ -100,17 +100,22 @@
   </div>
 
   <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--journal-heading">{{ 'Parents' | trans }}</h2>
+    <h2 class="foreningsmentor-intra--heading">{{ 'Parents' | trans }}</h2>
 
     {{ content.field_parents }}
   </div>
 
   <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--journal-heading">{{ 'Journal' | trans }}</h2>
+    <h2 class="foreningsmentor-intra--heading">{{ 'Journal' | trans }}</h2>
 
     {{ content.field_diary }}
 
-    <h2 class="foreningsmentor-intra--journal-heading">{{ 'Add new journal entry' | trans }}</h2>
+    {% if content.field_diary['#items']| length == 0 %}
+      <div class="foreningsmentor-intra--no-results">{{ 'No journal entries.' | trans }}</div>
+    {% endif %}
+
+    <h2 class="foreningsmentor-intra--journal-heading-add">{{ 'Add new journal entry' | trans }}</h2>
+
     {{ journal_form }}
   </div>
 </article>

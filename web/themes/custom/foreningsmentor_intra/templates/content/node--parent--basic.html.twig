@@ -82,11 +82,11 @@
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
-  <hr>
-
   <h3>{{ label }}</h3>
 
   <div{{ content_attributes.addClass('node__content') }}>
     {{ content }}
   </div>
+
+  <hr>
 </article>
