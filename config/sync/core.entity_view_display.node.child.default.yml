@@ -98,11 +98,12 @@ content:
     region: content
   field_parents:
     weight: 12
-    label: above
+    label: hidden
     settings:
-      link: true
+      view_mode: basic
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_referer:
     weight: 8

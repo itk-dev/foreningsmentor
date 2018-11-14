@@ -82,35 +82,11 @@
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
+  <hr>
 
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
+  <h3>{{ label }}</h3>
 
-  <div class="foreningsmentor-intra--fields">
-    <h2>{{ label }}</h2>
-
-    <div{{ content_attributes.addClass('node__content') }}>
-      {{ content|without('field_diary', 'field_parents') }}
-    </div>
-  </div>
-
-  <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--journal-heading">{{ 'Parents' | trans }}</h2>
-
-    {{ content.field_parents }}
-  </div>
-
-  <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--journal-heading">{{ 'Journal' | trans }}</h2>
-
-    {{ content.field_diary }}
-
-    <h2 class="foreningsmentor-intra--journal-heading">{{ 'Add new journal entry' | trans }}</h2>
-    {{ journal_form }}
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content }}
   </div>
 </article>

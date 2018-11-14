@@ -10,6 +10,7 @@ permissions:
   - 'access content'
   - 'view any activity content'
   - 'view any club content'
+  - 'view any parent content'
   - 'view field_activities'
   - 'view field_activity'
   - 'view field_activity_type'
