@@ -5,6 +5,7 @@ namespace Drupal\foreningsmentor\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Class ActivityForm.
@@ -21,16 +22,21 @@ class ActivityForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $node = NULL) {
-    $form['add_activity'] = array(
+  public function buildForm(
+    array $form,
+    FormStateInterface $form_state,
+    $node = NULL
+  ) {
+    $form['add_activity'] = [
       '#type' => 'details',
       '#title' => t('Add activity'),
       '#weight' => 5,
       '#open' => FALSE,
-    );
+    ];
     $form['add_activity']['title'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Headline'),
+      '#required' => TRUE,
+      '#title' => $this->t('Activity headline'),
       '#description' => $this->t('The activity headline'),
       '#weight' => '0',
     ];
@@ -67,20 +73,40 @@ class ActivityForm extends FormBase {
       '#selection_settings' => [
         'target_bundles' => ['club'],
       ],
+      '#ajax' => [
+        'callback' => [$this, 'changeClub'],
+        'event' => 'change',
+        'wrapper' => 'field-activity--wrapper',
+      ],
     ];
+
     $form['add_activity']['field_activity'] = [
-      '#type' => 'entity_autocomplete',
+      '#type' => 'radios',
       '#title' => $this->t('Activity'),
-      '#required' => TRUE,
-      '#description' => $this->t('The activity'),
-      '#target_type' => 'taxonomy_term',
-      '#selection_settings' => [
-        'target_bundles' => ['activities'],
-      ],
-      '#autocreate' => [
-          'bundle' => 'activities',
-      ],
+      '#options' => [],
+      '#prefix' => '<div id="field-activity--wrapper">',
+      '#suffix' => '</div>',
     ];
+
+    // Set activity according to the activities supplied by the club.
+    $club = $form_state->getValue('field_club');
+    if ($club) {
+      // Load activities for club, supply as selectable activities.
+      $club = Node::load($club);
+
+      $available_activities = $club->get('field_available_activities');
+
+      $options = [];
+
+      foreach ($available_activities as $activity) {
+        $term = Term::load($activity->target_id);
+
+        $options[$activity->target_id] = $term->getName();
+      }
+
+      $form['add_activity']['field_activity']['#options'] = $options;
+    }
+
     $form['add_activity']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
@@ -88,6 +114,18 @@ class ActivityForm extends FormBase {
     ];
 
     return $form;
+  }
+
+  /**
+   * Ajax callback from selecting club.
+   *
+   * @param array $form
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *
+   * @return array
+   */
+  public function changeClub(array &$form, FormStateInterface $form_state) : array {
+    return $form['add_activity']['field_activity'];
   }
 
   /**
