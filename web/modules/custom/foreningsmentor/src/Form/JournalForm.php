@@ -73,6 +73,11 @@ class JournalForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $parentNode = $form_state->getBuildInfo()["args"][0];
 
+    // Bail out if parent is not a child.
+    if (isset($parentNode) && $parentNode->getType() != 'child') {
+      return;
+    }
+
     $node = Node::create([
       'type' => 'journal_entry',
       'title' => $form_state->getValue('title'),
