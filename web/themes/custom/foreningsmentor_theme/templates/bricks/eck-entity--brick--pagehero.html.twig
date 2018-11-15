@@ -1,0 +1,13 @@
+<div{{ attributes.addClass('row','hero','subpage') }}>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="title pt-5 pb-5">
+        <h1 class="mt-5 mb-5"><span class="row first-line"><span class="col-10 offset-1 col-sm-auto offset-sm-1 offset-md-1 bg-white text-primary pl-2 pt-2 pr-2">{{ content.field_title_first_line }}</span></span><span class="row second-line"><span class="col-10 offset-1 col-sm-8 offset-sm-2 bg-white pl-2 pb-2 pr-2">{{ content.field_title_second_line }}</span></span></h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="bg-image" style="background-image: url({{ file_url(content.field_background_image['#items'].entity.uri.value) }})">
+  </div>
+</div>

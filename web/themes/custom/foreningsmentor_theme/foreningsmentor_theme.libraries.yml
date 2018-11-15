@@ -3,3 +3,5 @@ global-styling:
   css:
     base:
       build/app.css: {}
+  js:
+      build/app.js: {}

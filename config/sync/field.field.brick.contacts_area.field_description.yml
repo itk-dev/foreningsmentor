@@ -1,0 +1,19 @@
+uuid: 9dff26a6-175f-4151-998e-39b7adcc4b4f
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.contacts_area
+    - field.storage.brick.field_description
+id: brick.contacts_area.field_description
+field_name: field_description
+entity_type: brick
+bundle: contacts_area
+label: Beskrivelse
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

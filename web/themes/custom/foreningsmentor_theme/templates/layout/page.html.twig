@@ -44,9 +44,88 @@
  */
 #}
 <div class="container-fluid">
+  {{ page.pagetop }}
+  {{ page.content }}
+  {{ page.footer }}
 
-    {{ page.pagetop }}
-    {{ page.content }}
-    {{ page.pagebottom }}
+  {% if page.footer %}
+    <footer role="contentinfo">
+      {{ page.footer }}
+    </footer>
+  {% endif %}
+
+
+
+  {# TODO: Move footer markup to region template. At this point the system doesn't recognise the template region--footer.html.twig #}
+{#
+  <div class="footer">
+    <div class="container">
+      <div class="row mt-5 mb-5">
+        <div class="col-md-3 mb-3">
+          <h4>ForeningsMentor</h4>
+          <ul class="nav footer-nav flex-column">
+              <li class="nav-item">
+                  <a class="nav-link pl-0" href="#">Kontakter</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link pl-0" href="#">Facebook side</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link pl-0" href="#">English</a>
+              </li>
+          </ul>
+        </div>
+        <div class="col-md-6 mb-3">
+          <h4 class="mb-3">Samarbejdspartnere</h4>
+          <div class="row mb-3">
+            <div class="col">
+              <img src="//placehold.it/200x60" alt="">
+            </div>
+            <div class="col">
+              <img src="//placehold.it/200x60" alt="">
+            </div>
+          </div>
+          <h4 class="mb-3">Kom i gang allerede nu</h4>
+          <a name="" id="" class="btn btn-primary" href="#" role="button">Start til en fritidsaktivitet</a>
+          <a name="" id="" class="btn btn-dark" href="#" role="button">Bliv frivillig</a>
+        </div>
+        <div class="col-md-3 mb-3">
+          <a class="footer-brand" href="/"><img src="/{{ directory }}/images/foreningsmentor-logo.svg" alt="Foreningsmentor"></a>
+        </div>
+
+
+        {% if (custom_config_exists) %}
+          {% if (footer_text) %}
+            <div class="col-md-3">
+                {{ footer_text|raw }}
+              <p><img src="/{{ base_path ~ directory }}/static/images/AAK_02_venstrejusteret_hvid.svg" alt="Aarhus Kommune"></p>
+            </div>
+          {% endif %}
+          {% if (footer_second) %}
+            <div class="col-md-3">
+              {{ footer_second|raw }}
+            </div>
+          {% endif %}
+          {% if (footer_third) %}
+            <div class="col-md-3">
+              {{ footer_third|raw }}
+            </div>
+          {% endif %}
+          {% if (footer_fourth) %}
+            <div class="col-md-3">
+              {{ footer_fourth|raw }}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="row">
+        <div class="col-md-12 permalinks">
+          {% if content %}
+            {{ content }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div> #}
 
 </div>{# /.layout-container #}

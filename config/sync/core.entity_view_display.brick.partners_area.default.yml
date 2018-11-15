@@ -1,0 +1,55 @@
+uuid: 5f7a5b8e-0fe5-4a59-ae11-05dd8122c52c
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.partners_area
+    - field.field.brick.partners_area.field_btn
+    - field.field.brick.partners_area.field_description
+    - field.field.brick.partners_area.field_image
+  module:
+    - image
+    - link
+id: brick.partners_area.default
+targetEntityType: brick
+bundle: partners_area
+mode: default
+content:
+  field_btn:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

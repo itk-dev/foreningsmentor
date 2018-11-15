@@ -4,6 +4,12 @@
 @import "custom"; /* Bootstrap overrides goes in this file */
 @import "~bootstrap/scss/bootstrap";
 
+
+/*
+* Import scss mixins
+*/
+@import "_mixins";
+
 /*
 * Import component styling
 */
@@ -11,3 +17,5 @@
 @import "hero";
 @import "background-image";
 @import "teasers";
+@import "testimonial";
+@import "effort";

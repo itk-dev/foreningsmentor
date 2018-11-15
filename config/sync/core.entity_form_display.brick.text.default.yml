@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - eck.eck_type.brick.text
+    - field.field.brick.text.field_lead
     - field.field.brick.text.field_text
   module:
     - text
@@ -14,27 +15,29 @@ targetEntityType: brick
 bundle: text
 mode: default
 content:
+  field_lead:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_text:
-    weight: 3
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     region: content
-hidden: {  }
+hidden:
+  langcode: true
