@@ -46,6 +46,7 @@
         "drupal/redirect": "^1.2",
         "drupal/toolbar_visibility": "^1.2",
         "drupal/views_add_button": "^1.0@RC",
+        "drupal/views_bulk_operations": "^2.4",
         "drupal/youtube": "^1.0@beta",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
