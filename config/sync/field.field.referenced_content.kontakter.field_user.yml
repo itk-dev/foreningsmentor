@@ -1,0 +1,30 @@
+uuid: 8fabc9a0-db5b-4f40-a216-702b5d6e0717
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.kontakter
+    - field.storage.referenced_content.field_user
+  module:
+    - bricks
+id: referenced_content.kontakter.field_user
+field_name: field_user
+entity_type: referenced_content
+bundle: kontakter
+label: Bruger
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: 0
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: 0
+field_type: bricks

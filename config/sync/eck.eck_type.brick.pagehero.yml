@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.brick
-name: Pagehero
+name: 'Underside hero'
 type: pagehero
-description: "Subpage hero with title and background image.\r\nUse as the first element on a subpage."
+description: "Underside hero med overskrift og baggrundsbillede\r\nBrug dette som det første element på undersider."

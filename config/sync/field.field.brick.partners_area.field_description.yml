@@ -1,0 +1,19 @@
+uuid: d58a5738-6e7f-453d-9ea4-982c34f5cb09
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.partners_area
+    - field.storage.brick.field_description
+id: brick.partners_area.field_description
+field_name: field_description
+entity_type: brick
+bundle: partners_area
+label: Beskrivelse
+description: 'Skriv en kort tekst der beskriver området.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

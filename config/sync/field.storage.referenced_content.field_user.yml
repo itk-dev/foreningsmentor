@@ -1,24 +1,24 @@
-uuid: 6deca9cb-8589-4600-8a4b-e1a07f71f534
+uuid: ba088dcb-ea94-4b8a-a7f9-d5c25b34f503
 langcode: da
 status: true
 dependencies:
   module:
+    - bricks
     - eck
     - field_permissions
-    - text
+    - user
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
-  default_config_hash: NysRtBnHfDcv43IQLssvXqZBYP4PWkk35Cc1HWxjTSQ
-id: brick.field_text
-field_name: field_text
-entity_type: brick
-type: text_long
-settings: {  }
-module: text
+id: referenced_content.field_user
+field_name: field_user
+entity_type: referenced_content
+type: bricks
+settings:
+  target_type: user
+module: bricks
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

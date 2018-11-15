@@ -1,0 +1,19 @@
+uuid: e8e8aade-0890-4aa7-8cfa-95e7ef1bcb50
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.text
+    - field.storage.brick.field_lead
+id: brick.text.field_lead
+field_name: field_lead
+entity_type: brick
+bundle: text
+label: Underoverskrift
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

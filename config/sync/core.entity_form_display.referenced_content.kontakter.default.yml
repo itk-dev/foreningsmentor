@@ -1,0 +1,33 @@
+uuid: c235bfe4-65db-4132-83a4-81276b05ff8c
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.kontakter
+    - field.field.referenced_content.kontakter.field_user
+  module:
+    - bricks
+id: referenced_content.kontakter.default
+targetEntityType: referenced_content
+bundle: kontakter
+mode: default
+content:
+  field_user:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: '60'
+      placeholder: ''
+    third_party_settings: {  }
+    type: bricks_tree_autocomplete
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

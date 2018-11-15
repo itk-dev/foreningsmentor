@@ -1,40 +1,39 @@
-uuid: 69d188e7-51a9-46c8-a400-1faf2d7a13e4
+uuid: 499de6ae-ed21-4c75-8d40-159db65ff548
 langcode: da
 status: true
 dependencies:
   config:
-    - eck.eck_type.brick.text
-    - field.field.brick.text.field_lead
-    - field.field.brick.text.field_text
+    - eck.eck_type.brick.contacts_area
+    - field.field.brick.contacts_area.field_contact
+    - field.field.brick.contacts_area.field_description
   module:
-    - text
-_core:
-  default_config_hash: R_qZFnJ_07t5UhRbGWvTRj4dyAgNEsy-jDq-9Kh4BQE
-id: brick.text.default
+    - bricks
+id: brick.contacts_area.default
 targetEntityType: brick
-bundle: text
+bundle: contacts_area
 mode: default
 content:
-  field_lead:
-    weight: 1
+  field_contact:
+    weight: 2
     label: hidden
     settings:
-      link_to_entity: false
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: string
+    type: bricks_nested
     region: content
-  field_text:
-    weight: 2
+  field_description:
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   title:
+    label: hidden
     type: string
     weight: 0
     region: content
-    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

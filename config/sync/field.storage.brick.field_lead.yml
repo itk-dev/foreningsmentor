@@ -1,22 +1,22 @@
-uuid: 6deca9cb-8589-4600-8a4b-e1a07f71f534
+uuid: 596b1725-8f99-4ad3-8a0c-e9689ff851c1
 langcode: da
 status: true
 dependencies:
   module:
     - eck
     - field_permissions
-    - text
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
-  default_config_hash: NysRtBnHfDcv43IQLssvXqZBYP4PWkk35Cc1HWxjTSQ
-id: brick.field_text
-field_name: field_text
+id: brick.field_lead
+field_name: field_lead
 entity_type: brick
-type: text_long
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

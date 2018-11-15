@@ -8,6 +8,6 @@ libraries:
 regions:
   pagetop: 'Page top'
   content: 'Content'
-  pagebottom: 'Page bottom'
+  footer: 'Page footer'
 
 core: '8.x'
