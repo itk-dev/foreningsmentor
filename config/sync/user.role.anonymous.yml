@@ -11,4 +11,5 @@ is_admin: false
 permissions:
   - 'access content'
   - 'view any brick entities'
+  - 'view any page content'
   - 'view any referenced_content entities'

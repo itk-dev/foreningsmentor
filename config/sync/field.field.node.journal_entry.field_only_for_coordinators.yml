@@ -1,0 +1,23 @@
+uuid: 0489be33-bf4f-4e75-a2b9-b39adce5190c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_only_for_coordinators
+    - node.type.journal_entry
+id: node.journal_entry.field_only_for_coordinators
+field_name: field_only_for_coordinators
+entity_type: node
+bundle: journal_entry
+label: 'Kun for koordinatorer'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

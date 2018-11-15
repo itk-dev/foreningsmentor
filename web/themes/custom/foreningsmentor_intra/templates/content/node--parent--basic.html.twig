@@ -82,46 +82,11 @@
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
+  <h3>{{ label }}</h3>
 
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
-  <div class="foreningsmentor-intra--fields">
-    <h2>{{ label }}</h2>
-
-    <div{{ content_attributes.addClass('node__content') }}>
-      {{ content|without('field_diary', 'field_parents', 'field_activities') }}
-    </div>
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content }}
   </div>
 
-  <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading">{{ 'Parents' | trans }}</h2>
-
-    {{ content.field_parents }}
-  </div>
-
-  <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading">{{ 'Activities' | trans }}</h2>
-
-    {{ content.field_activities }}
-
-    {{ activity_form }}
-  </div>
-
-  <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading">{{ 'Journal' | trans }}</h2>
-
-    {{ content.field_diary }}
-
-    {% if content.field_diary['#items']| length == 0 %}
-      <div class="foreningsmentor-intra--no-results">{{ 'No journal entries.' | trans }}</div>
-    {% endif %}
-
-    {{ journal_form }}
-  </div>
+  <hr>
 </article>

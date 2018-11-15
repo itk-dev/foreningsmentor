@@ -2,8 +2,8 @@ uuid: 7242b4ee-d5d7-43f8-923a-45a70aec9385
 langcode: da
 status: true
 dependencies: {  }
-name: Bydel
+name: Indsatsområde
 vid: neighborhood
-description: ''
+description: Indsatsområder
 hierarchy: 0
 weight: 0

@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.parent.field_children
     - field.field.node.parent.field_email
     - field.field.node.parent.field_phone
-    - field.field.node.parent.field_relation
     - node.type.parent
   module:
     - address_dawa
@@ -45,9 +44,12 @@ content:
     region: content
   field_children:
     weight: 125
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
+    type: entity_reference_autocomplete
     region: content
   field_email:
     weight: 123
@@ -63,12 +65,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
-    region: content
-  field_relation:
-    weight: 126
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   langcode:
     type: language_select

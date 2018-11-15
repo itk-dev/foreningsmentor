@@ -1,17 +1,17 @@
-uuid: 440aa355-231b-4538-8e49-30f9ffe1389e
+uuid: 60086fdd-3e41-4270-b564-88eccde369f2
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_activity
+    - field.storage.node.field_activities
     - node.type.activity
     - node.type.child
-id: node.child.field_activity
-field_name: field_activity
+id: node.child.field_activities
+field_name: field_activities
 entity_type: node
 bundle: child
-label: Aktivitetsforløb
-description: ''
+label: Aktiviteter
+description: 'Liste over aktivitetsforløb barnet er tilknyttet'
 required: false
 translatable: false
 default_value: {  }

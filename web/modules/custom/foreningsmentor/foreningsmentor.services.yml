@@ -1,0 +1,5 @@
+services:
+  theme.negotiator.foreningsmentor:
+    class: Drupal\foreningsmentor\Theme\ForeningsmentorThemeNegotiator
+    tags:
+    - { name: theme_negotiator, priority: -50 }

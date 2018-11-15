@@ -10,7 +10,7 @@ id: node.activity.field_activity_type
 field_name: field_activity_type
 entity_type: node
 bundle: activity
-label: Aktivitetstype
+label: Forløbstype
 description: ''
 required: false
 translatable: false

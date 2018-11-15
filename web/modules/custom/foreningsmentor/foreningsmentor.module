@@ -5,10 +5,14 @@
  * Contains foreningsmentor.module.
  */
 
+/**
+ * Implements template_preprocess_node().
+ */
 function foreningsmentor_preprocess_node(&$variables) {
   $nodeType = $variables["node"]->getType();
 
   if ($nodeType == 'child') {
     $variables['journal_form'] = \Drupal::formBuilder()->getForm(\Drupal\foreningsmentor\Form\JournalForm::class, $variables["node"]);
+    $variables['activity_form'] = \Drupal::formBuilder()->getForm(\Drupal\foreningsmentor\Form\ActivityForm::class, $variables["node"]);
   }
 }

@@ -1,16 +1,16 @@
-uuid: 6de5121b-d9fa-4853-975a-e371793a28e7
+uuid: 0be8b504-fc4e-4cea-86e4-e1be646776e6
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_relation
-    - node.type.parent
-    - taxonomy.vocabulary.relation
-id: node.parent.field_relation
-field_name: field_relation
+    - field.storage.node.field_activity
+    - node.type.activity
+    - taxonomy.vocabulary.activities
+id: node.activity.field_activity
+field_name: field_activity
 entity_type: node
-bundle: parent
-label: Relation
+bundle: activity
+label: Aktivitet
 description: ''
 required: false
 translatable: false
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      relation: relation
+      activities: activities
     sort:
       field: name
       direction: asc
-    auto_create: false
+    auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference

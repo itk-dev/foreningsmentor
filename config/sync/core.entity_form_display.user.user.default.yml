@@ -9,7 +9,6 @@ dependencies:
     - field.field.user.user.field_comment
     - field.field.user.user.field_date_child_cert
     - field.field.user.user.field_end_interview
-    - field.field.user.user.field_fg_mobile
     - field.field.user.user.field_name
     - field.field.user.user.field_neighborhood
     - field.field.user.user.field_own_mobile
@@ -133,13 +132,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-    region: content
-  field_fg_mobile:
-    weight: 11
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
     region: content
   field_name:
     weight: 8

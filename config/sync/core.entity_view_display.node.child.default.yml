@@ -3,13 +3,12 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.child.field_activity
+    - field.field.node.child.field_activities
     - field.field.node.child.field_activity_wishes
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
     - field.field.node.child.field_date_registered
     - field.field.node.child.field_diary
-    - field.field.node.child.field_is_mentored
     - field.field.node.child.field_mentor
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
@@ -32,8 +31,8 @@ targetEntityType: node
 bundle: child
 mode: default
 content:
-  field_activity:
-    weight: 16
+  field_activities:
+    weight: 15
     label: above
     settings:
       link: true
@@ -41,14 +40,14 @@ content:
     type: entity_reference_label
     region: content
   field_activity_wishes:
-    weight: 2
+    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_birthday:
-    weight: 3
+    weight: 2
     label: above
     settings:
       format_type: medium
@@ -57,14 +56,14 @@ content:
     type: datetime_default
     region: content
   field_comments:
-    weight: 8
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_date_registered:
-    weight: 7
+    weight: 6
     label: above
     settings:
       format_type: medium
@@ -73,41 +72,15 @@ content:
     type: datetime_default
     region: content
   field_diary:
-    weight: 17
-    label: above
+    weight: 16
+    label: hidden
     settings:
       view_mode: teaser
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-  field_is_mentored:
-    weight: 1
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_mentor:
-    weight: 14
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_neighborhood:
-    weight: 15
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_parents:
     weight: 13
     label: above
     settings:
@@ -115,8 +88,25 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_neighborhood:
+    weight: 14
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_parents:
+    weight: 12
+    label: hidden
+    settings:
+      view_mode: basic
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
   field_referer:
-    weight: 9
+    weight: 8
     label: above
     settings:
       link_to_entity: false
@@ -124,14 +114,14 @@ content:
     type: string
     region: content
   field_referer_email:
-    weight: 11
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_referer_phone:
-    weight: 10
+    weight: 9
     label: above
     settings:
       title: ''
@@ -139,7 +129,7 @@ content:
     type: telephone_link
     region: content
   field_school:
-    weight: 5
+    weight: 4
     label: above
     settings:
       link_to_entity: false
@@ -147,21 +137,21 @@ content:
     type: string
     region: content
   field_sex:
-    weight: 4
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_shool_class:
-    weight: 6
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_siblings:
-    weight: 12
+    weight: 11
     label: above
     settings:
       link: true

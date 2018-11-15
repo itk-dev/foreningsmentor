@@ -72,16 +72,18 @@
 #}
 {%
   set classes = [
-  'node',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
+
+  <h2>{{ label }}</h2>
 
   {{ title_prefix }}
   {% if not page %}
@@ -91,37 +93,18 @@
   {% endif %}
   {{ title_suffix }}
 
-  <div class="foreningsmentor-intra--fields">
-    <h2>{{ label }}</h2>
+  {% if display_submitted %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
 
-    <div{{ content_attributes.addClass('node__content') }}>
-      {{ content|without('field_diary', 'field_parents', 'field_activities') }}
-    </div>
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content }}
   </div>
 
-  <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading">{{ 'Parents' | trans }}</h2>
-
-    {{ content.field_parents }}
-  </div>
-
-  <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading">{{ 'Activities' | trans }}</h2>
-
-    {{ content.field_activities }}
-
-    {{ activity_form }}
-  </div>
-
-  <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading">{{ 'Journal' | trans }}</h2>
-
-    {{ content.field_diary }}
-
-    {% if content.field_diary['#items']| length == 0 %}
-      <div class="foreningsmentor-intra--no-results">{{ 'No journal entries.' | trans }}</div>
-    {% endif %}
-
-    {{ journal_form }}
-  </div>
 </article>

@@ -1,0 +1,21 @@
+uuid: c20d1c7b-34db-447f-ba31-976ce4b4e9cb
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_end
+    - node.type.activity
+  module:
+    - datetime
+id: node.activity.field_date_end
+field_name: field_date_end
+entity_type: node
+bundle: activity
+label: Afslutningsdato
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

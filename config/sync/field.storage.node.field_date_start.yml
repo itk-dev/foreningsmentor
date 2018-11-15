@@ -1,19 +1,21 @@
-uuid: 1604d0d4-b2cb-4c71-ab0f-099c97a65a29
+uuid: 369a1716-cc8e-497e-b621-505ae00f8e49
 langcode: da
 status: true
 dependencies:
   module:
+    - datetime
     - field_permissions
     - node
 third_party_settings:
   field_permissions:
-    permission_type: custom
-id: node.field_is_mentored
-field_name: field_is_mentored
+    permission_type: public
+id: node.field_date_start
+field_name: field_date_start
 entity_type: node
-type: boolean
-settings: {  }
-module: core
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

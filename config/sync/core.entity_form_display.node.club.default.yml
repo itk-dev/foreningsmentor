@@ -3,8 +3,8 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.club.field_activity_types
     - field.field.node.club.field_address
+    - field.field.node.club.field_available_activities
     - field.field.node.club.field_email
     - field.field.node.club.field_homepage
     - field.field.node.club.field_phone
@@ -25,15 +25,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_activity_types:
-    weight: 122
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_address:
     weight: 123
     settings:
@@ -41,6 +32,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: address_dawa
+    region: content
+  field_available_activities:
+    weight: 127
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_email:
     weight: 124

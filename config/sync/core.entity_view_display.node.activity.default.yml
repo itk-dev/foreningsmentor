@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.node.activity.field_activity
     - field.field.node.activity.field_activity_type
     - field.field.node.activity.field_child
     - field.field.node.activity.field_club
@@ -10,20 +11,32 @@ dependencies:
     - field.field.node.activity.field_club_contact_person_email
     - field.field.node.activity.field_club_contact_person_phone
     - field.field.node.activity.field_coordinators_end_status
+    - field.field.node.activity.field_date_end
+    - field.field.node.activity.field_date_start
     - field.field.node.activity.field_mentors_end_status
     - field.field.node.activity.field_other_subsidy_recieved
     - field.field.node.activity.field_qualifified_f_subsidy
     - field.field.node.activity.field_subsidy_recieved
     - node.type.activity
   module:
+    - datetime
+    - telephone
     - user
 id: node.activity.default
 targetEntityType: node
 bundle: activity
 mode: default
 content:
+  field_activity:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_activity_type:
-    weight: 101
+    weight: 4
     label: above
     settings:
       link: true
@@ -31,7 +44,7 @@ content:
     type: entity_reference_label
     region: content
   field_child:
-    weight: 111
+    weight: 2
     label: above
     settings:
       link: true
@@ -39,7 +52,7 @@ content:
     type: entity_reference_label
     region: content
   field_club:
-    weight: 110
+    weight: 3
     label: above
     settings:
       link: true
@@ -47,7 +60,7 @@ content:
     type: entity_reference_label
     region: content
   field_club_contact_person:
-    weight: 104
+    weight: 7
     label: above
     settings:
       link_to_entity: false
@@ -55,29 +68,48 @@ content:
     type: string
     region: content
   field_club_contact_person_email:
-    weight: 106
+    weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_club_contact_person_phone:
-    weight: 105
+    weight: 8
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
   field_coordinators_end_status:
-    weight: 103
+    weight: 6
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_date_end:
+    weight: 14
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_date_start:
+    weight: 13
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_mentors_end_status:
-    weight: 102
+    weight: 5
     label: above
     settings:
       link: true
@@ -85,7 +117,7 @@ content:
     type: entity_reference_label
     region: content
   field_other_subsidy_recieved:
-    weight: 109
+    weight: 12
     label: above
     settings:
       link: true
@@ -93,7 +125,7 @@ content:
     type: entity_reference_label
     region: content
   field_qualifified_f_subsidy:
-    weight: 107
+    weight: 10
     label: above
     settings:
       format: default
@@ -103,7 +135,7 @@ content:
     type: boolean
     region: content
   field_subsidy_recieved:
-    weight: 108
+    weight: 11
     label: above
     settings:
       format: default
@@ -113,9 +145,9 @@ content:
     type: boolean
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

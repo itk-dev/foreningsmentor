@@ -1,6 +1,18 @@
 <?php
 
+/**
+ * Implements template_preprocess_html().
+ */
 function foreningsmentor_intra_preprocess_page_title(&$variables) {
   $config = \Drupal::config('system.site');
   $variables['site_name'] = $config->get('name');
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function foreningsmentor_intra_preprocess_node(&$variables) {
+  if ($variables["node"]->getType() == 'journal_entry') {
+    $variables['author_name'] = $variables["node"]->getOwner()->name->value;
+  }
 }
