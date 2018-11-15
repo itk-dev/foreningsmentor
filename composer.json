@@ -115,6 +115,11 @@
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
             }
+        },
+        "patches": {
+            "drupal/bricks": {
+                "Fix deprecation warning": "https://www.drupal.org/files/issues/2018-10-30/3008553-deprecated-eck-entity-variable-%238.patch"
+            }
         }
     }
 }
