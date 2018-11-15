@@ -1,0 +1,13 @@
+<div{{ attributes.addClass('row','contacts') }}>
+  <div class="col-12 pt-5 pb-5">
+    <h2 class="text-center mb-5">{{ content.title[0] }}</h2>
+    {% if content.field_description %}
+      <p class="lead text-center mb-5">{{ content.field_description[0] }}</p>
+    {% endif %}
+    <div class="container">
+      <div class="row">
+        {{ content|without('title','field_description') }}
+      </div>
+    </div>
+  </div>
+</div>
