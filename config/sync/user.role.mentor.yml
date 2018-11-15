@@ -23,6 +23,7 @@ permissions:
   - 'edit own field_date_end'
   - 'edit own field_mentors_end_status'
   - 'edit own journal_entry content'
+  - 'use text format filtered_html'
   - 'view any activity content'
   - 'view any club content'
   - 'view any page content'
