@@ -39,7 +39,7 @@
     }).then(function (permissionStatus) {
       console.log(permissionStatus);
       if (permissionStatus === 'granted' && navigator.clipboard) {
-        copyTextToClipboard()
+        copyTextToClipboard(response.list)
       }
       else {
         fallbackCopyTextToClipboard(response.list);
