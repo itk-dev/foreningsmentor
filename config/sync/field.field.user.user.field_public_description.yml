@@ -1,0 +1,20 @@
+uuid: 7154a20f-e8f5-4e26-93f3-606ef4192c8d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_public_description
+  module:
+    - user
+id: user.user.field_public_description
+field_name: field_public_description
+entity_type: user
+bundle: user
+label: 'Offentlig beskrivelse'
+description: 'Kort offentlig tilgængelig beskrivelse. Kan bruges til information til kontaktområdet på hjemmesiden.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

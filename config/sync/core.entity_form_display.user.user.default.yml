@@ -12,11 +12,15 @@ dependencies:
     - field.field.user.user.field_name
     - field.field.user.user.field_neighborhood
     - field.field.user.user.field_own_mobile
+    - field.field.user.user.field_profile_image
+    - field.field.user.user.field_public_description
     - field.field.user.user.field_start_interview
+    - image.style.thumbnail
   module:
     - address_dawa
     - datetime
     - field_group
+    - image
     - telephone
     - text
     - user
@@ -156,6 +160,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
+    region: content
+  field_profile_image:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_public_description:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_start_interview:
     weight: 4

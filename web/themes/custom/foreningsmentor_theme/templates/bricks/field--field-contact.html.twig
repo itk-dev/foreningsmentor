@@ -37,14 +37,17 @@
  */
 #}
 
-{% for item in items[0].content %}
-  <div{{ attributes.addClass('col-sm-6','col-md-4','mb-3','contact','text-center','bg-gray','pt-3') }}>
-    {# TODO: Get info from system user #}
-    <h4 class="mb-3">Gellerup</h4>
-    <img class="rounded-circle img-fluid mb-3" width="120" height="120" src="//placehold.it/120x120" alt="Placehold">
-    <h5 class="mb-3">{{ item['#label'] }}</h5>
-    <p>Hver torsdag sidder hun på Bispehavevej 29, 8210 Aarhus V i Fællesskabernes Hus.</p>
-    <p class="mb-0">Mail: <a href="mailto:nan@bosoc.ojba.dk"></a>nan@bosoc.ojba.dk</p>
-    <p>Telefon: <a href="tel:27797038"></a>27 79 70 38</p>
-  </div>
+{% for item in items %}
+  {% for content in item.content %}
+      <div{{ attributes.addClass('col-sm-6','col-md-4','mb-3','contact','text-center','bg-gray','pt-3') }}>
+        <h4 class="mb-3">{{ content['#label'] }}</h4>
+        {% if content.contact %}
+          <img class="rounded-circle img-fluid mb-3" width="120" height="120" src="{{ content.contact.image }}" alt="Placehold">
+          <h5 class="mb-3">{{ content.contact.name }}</h5>
+          <p>{{ content.contact.description }}</p>
+          <p class="mb-0">Mail: <a href="mailto:{{ content.contact.mail }}"></a>{{ content.contact.mail }}</p>
+          <p>Telefon: <a href="tel:{{ content.contact.phone }}"></a>{{ content.contact.phone }}</p>
+        {% endif %}
+      </div>
+  {% endfor %}
 {% endfor %}

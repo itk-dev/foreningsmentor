@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\image\Entity\ImageStyle;
+
 /**
  * @file
  * Contains foreningsmentor.module.
@@ -14,5 +16,35 @@ function foreningsmentor_preprocess_node(&$variables) {
   if ($nodeType == 'child') {
     $variables['journal_form'] = \Drupal::formBuilder()->getForm(\Drupal\foreningsmentor\Form\JournalForm::class, $variables["node"]);
     $variables['activity_form'] = \Drupal::formBuilder()->getForm(\Drupal\foreningsmentor\Form\ActivityForm::class, $variables["node"]);
+  }
+}
+
+function foreningsmentor_preprocess_field(&$variables, $hook) {
+  if ($variables["field_name"] == 'field_contact') {
+    foreach ($variables["items"][0]["content"] as &$content) {
+      $ref = $content["#referenced_content"];
+
+      $uid = $ref->get('field_user')->target_id;
+
+      if ($uid) {
+        $user = \Drupal\user\Entity\User::load($uid);
+
+        $imageUrl = NULL;
+
+        if (isset($user->field_profile_image->entity)) {
+          $imageUrl = ImageStyle::load('profile_image')->buildUrl($user->field_profile_image->entity->getFileUri());
+        }
+
+        $contact = [
+          'name' => $user->get('field_name')->value ?: $user->getDisplayName(),
+          'image' => $imageUrl,
+          'description' => $user->get('field_public_description')->value,
+          'mail' => $user->getEmail(),
+          'phone' => $user->get('field_own_mobile')->value,
+        ];
+
+        $content['contact'] = $contact;
+      }
+    }
   }
 }

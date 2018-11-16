@@ -12,10 +12,13 @@ dependencies:
     - field.field.user.user.field_name
     - field.field.user.user.field_neighborhood
     - field.field.user.user.field_own_mobile
+    - field.field.user.user.field_profile_image
+    - field.field.user.user.field_public_description
     - field.field.user.user.field_start_interview
   module:
     - datetime
     - foreningsmentor
+    - image
     - options
     - telephone
     - text
@@ -93,6 +96,23 @@ content:
       title: ''
     third_party_settings: {  }
     type: telephone_link
+    region: content
+  field_profile_image:
+    weight: 11
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_public_description:
+    weight: 12
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_start_interview:
     weight: 6
