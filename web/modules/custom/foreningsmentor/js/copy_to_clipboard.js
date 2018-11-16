@@ -1,6 +1,9 @@
 (function ($, Drupal) {
   Drupal.AjaxCommands.prototype.copyToClipboardCommand = function (ajax, response) {
-    console.log(ajax, response);
+    /**
+     * Fallback function if access to clipboard is not allowed.
+     * @param text
+     */
     function fallbackCopyTextToClipboard(text) {
       var textArea = document.createElement("textarea");
       textArea.value = text;
@@ -26,6 +29,10 @@
       document.body.removeChild(textArea);
     }
 
+    /**
+     * Async copy to clipboard.
+     * @param text
+     */
     function copyTextToClipboard(text) {
       navigator.clipboard.writeText(text).then(function() {
         console.log('Async: Copying to clipboard was successful!');
@@ -37,8 +44,7 @@
     navigator.permissions.query({
       name: 'clipboard-write'
     }).then(function (permissionStatus) {
-      console.log(permissionStatus);
-      if (permissionStatus === 'granted' && navigator.clipboard) {
+      if (permissionStatus === 'granted') {
         copyTextToClipboard(response.list)
       }
       else {
