@@ -41,11 +41,12 @@
       });
     }
 
+    // Ask for access to clipboard and existence, else use fallback.
     navigator.permissions.query({
       name: 'clipboard-write'
     }).then(function (permissionStatus) {
-      if (permissionStatus === 'granted') {
-        copyTextToClipboard(response.list)
+      if (permissionStatus.state === 'granted' && navigator.clipboard) {
+        copyTextToClipboard(response.list);
       }
       else {
         fallbackCopyTextToClipboard(response.list);
