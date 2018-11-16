@@ -20,7 +20,7 @@
         if (!successful) {
           window.prompt("Copy to clipboard: Ctrl+C", text);
         }
-      } catch () {
+      } catch (err) {
         window.prompt("Copy to clipboard: Ctrl+C", text);
       }
 
