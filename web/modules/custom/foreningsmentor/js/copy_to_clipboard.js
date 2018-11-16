@@ -15,15 +15,13 @@
 
       try {
         var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Fallback: Copying text command was ' + msg);
 
         // If not successful fallback to window.prompt.
         if (!successful) {
-          window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+          window.prompt("Copy to clipboard: Ctrl+C", text);
         }
-      } catch (err) {
-        console.error('Fallback: Oops, unable to copy', err);
+      } catch () {
+        window.prompt("Copy to clipboard: Ctrl+C", text);
       }
 
       document.body.removeChild(textArea);
@@ -35,9 +33,9 @@
      */
     function copyTextToClipboard(text) {
       navigator.clipboard.writeText(text).then(function() {
-        console.log('Async: Copying to clipboard was successful!');
-      }, function(err) {
-        console.error('Async: Could not copy text: ', err);
+        alert(Drupal.t('Email addresses copied to clipboard.'))
+      }, function() {
+        alert(Drupal.t('Copy failed.'));
       });
     }
 
