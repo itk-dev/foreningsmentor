@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Form\FormState;
 
 /**
  * @file
@@ -47,4 +49,54 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'views_bulk_operations_confirm_action') {
+    $newList = [];
+
+    if (isset($form['list'])) {
+      foreach ($form["list"]["#items"] as $username) {
+        $newList[] = user_load_by_name($username)->getEmail();
+      }
+
+      $form["list"]["#items"] = $newList;
+
+      $tempstore = \Drupal::service('user.private_tempstore')->get('foreningsmentor');
+      $tempstore->set('copy_to_clipboard', $newList);
+    }
+
+    unset($form["actions"]["submit"]);
+
+    $form["actions"]["copy_to_clipboard"] = [
+      '#type' => 'submit',
+      '#value' => 'Check',
+      //'#submit' => ['_foreningsmentor_copy_to_clipboard'],
+      '#ajax' => array(
+        'callback' => '_foreningsmentor_copy_to_clipboard',
+        'progress' => array(
+          'type' => 'throbber',
+          'message' => NULL,
+        ),
+      ),
+    ];
+
+    $form['#attached']['library'][] = 'foreningsmentor/copy_to_clipboard';
+  }
+
+}
+
+function _foreningsmentor_copy_to_clipboard(array &$form, $form_state) : AjaxResponse {
+  $tempstore = \Drupal::service('user.private_tempstore')->get('foreningsmentor');
+
+  $list = $tempstore->get('copy_to_clipboard');
+  $tempstore->set('copy_to_clipboard', []);
+
+  $ajax_response = new AjaxResponse();
+  $ajax_response->addCommand(new \Drupal\foreningsmentor\Ajax\CopyToClipboardCommand($list));
+
+  return $ajax_response;
 }
