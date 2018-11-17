@@ -19,7 +19,7 @@ class CopyToClipboardCommand implements CommandInterface {
 
     $last_key = array_search(end($this->list), $this->list);
     foreach ($this->list as $key => $object) {
-      $result = $result . '"' . $object . '"' . '<' . $object . '>';
+      $result = $result . '"' . $object . '"' . '<' . $key . '>';
       if ($key != $last_key) {
         $result .= '; ';
       }
