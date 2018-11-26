@@ -57,6 +57,7 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
 function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_bulk_operations_confirm_action') {
     $newList = [];
+    $commaSeparatedString = '';
 
     if (isset($form['list'])) {
       foreach ($form["list"]["#items"] as $username) {
@@ -72,9 +73,11 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
 
       $last_key = array_search(end($newList), $newList);
       foreach ($newList as $key => $object) {
+        $commaSeparatedString .= $key;
         $listString = $listString . '"' . $object . '"' . '<' . $key . '>';
         if ($key != $last_key) {
           $listString .= '; ';
+          $commaSeparatedString .= ",";
         }
       }
 
@@ -98,7 +101,7 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
       ),
     ];
 
-    $form['test']['#markup'] = "<a href='mailto:" . $listString . ">Mailto link for mail client</a>";
+    $form['mailtolink']['#markup'] = '<a href="mailto:' . $commaSeparatedString . '">Mailto link for mail client</a>';
 
     $form['#attached']['library'][] = 'foreningsmentor/copy_to_clipboard';
   }
