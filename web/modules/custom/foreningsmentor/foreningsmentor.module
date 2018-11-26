@@ -2,7 +2,6 @@
 
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Form\FormState;
 
 /**
  * @file
@@ -21,6 +20,9 @@ function foreningsmentor_preprocess_node(&$variables) {
   }
 }
 
+/**
+ * Implements template_preprocess_field().
+ */
 function foreningsmentor_preprocess_field(&$variables, $hook) {
   if ($variables["field_name"] == 'field_contact') {
     foreach ($variables["items"][0]["content"] as &$content) {
@@ -101,11 +103,10 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
       ),
     ];
 
-    $form['mailtolink']['#markup'] = '<a href="mailto:' . $commaSeparatedString . '">Mailto link for mail client</a>';
+    $form['mailtolink']['#markup'] = '<a class="button" href="mailto:' . $commaSeparatedString . '">' . t('Mailto link for mail client') . '</a>';
 
     $form['#attached']['library'][] = 'foreningsmentor/copy_to_clipboard';
   }
-
 }
 
 /**
