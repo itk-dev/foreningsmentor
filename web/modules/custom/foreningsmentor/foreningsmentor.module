@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Ajax\AjaxResponse;
 
 /**
  * @file
@@ -19,6 +20,9 @@ function foreningsmentor_preprocess_node(&$variables) {
   }
 }
 
+/**
+ * Implements template_preprocess_field().
+ */
 function foreningsmentor_preprocess_field(&$variables, $hook) {
   if ($variables["field_name"] == 'field_contact') {
     foreach ($variables["items"][0]["content"] as &$content) {
@@ -47,4 +51,91 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'views_bulk_operations_confirm_action') {
+    $newList = [];
+    $commaSeparatedString = '';
+
+    if (isset($form['list'])) {
+      foreach ($form["list"]["#items"] as $username) {
+        $user = user_load_by_name($username);
+        $name = $user->get('field_name')->value ?: $user->getEmail();
+
+        $newList[$user->getEmail()] = $name;
+      }
+
+      $form["list"]["#items"] = array_keys($newList);
+
+      $listString = '';
+
+      $last_key = array_search(end($newList), $newList);
+      foreach ($newList as $key => $object) {
+        $commaSeparatedString .= $key;
+        $listString = $listString . '"' . $object . '"' . '<' . $key . '>';
+        if ($key != $last_key) {
+          $listString .= '; ';
+          $commaSeparatedString .= ",";
+        }
+      }
+
+      $store = \Drupal::service('user.private_tempstore')->get('foreningsmentor');
+      $store->set('copy_to_clipboard', $listString);
+    }
+
+    unset($form["actions"]["submit"]);
+
+    $form["actions"]["cancel"]['#submit'] = ['_foreningsmentor_cancel_action'];
+
+    $form["actions"]["copy_to_clipboard"] = [
+      '#type' => 'submit',
+      '#value' => \Drupal::translation()->translate('Copy to clipboard'),
+      '#ajax' => array(
+        'callback' => '_foreningsmentor_copy_to_clipboard',
+        'progress' => array(
+          'type' => 'throbber',
+          'message' => NULL,
+        ),
+      ),
+    ];
+
+    $form['mailtolink']['#markup'] = '<a class="button" href="mailto:' . $commaSeparatedString . '">' . t('Mailto link for mail client') . '</a>';
+
+    $form['#attached']['library'][] = 'foreningsmentor/copy_to_clipboard';
+  }
+}
+
+/**
+ * Copy to clipboard ajax function.
+ *
+ * @param array $form
+ * @param $form_state
+ *
+ * @return \Drupal\Core\Ajax\AjaxResponse
+ */
+function _foreningsmentor_copy_to_clipboard(array &$form, $form_state) : AjaxResponse {
+  $store = \Drupal::service('user.private_tempstore')->get('foreningsmentor');
+
+  $list = $store->get('copy_to_clipboard');
+  $store->set('copy_to_clipboard', []);
+
+  $ajax_response = new AjaxResponse();
+  $ajax_response->addCommand(new \Drupal\foreningsmentor\Ajax\CopyToClipboardCommand($list));
+
+  return $ajax_response;
+}
+
+/**
+ * Cancel submit function.
+ *
+ * @param array $form
+ * @param $form_state
+ */
+function _foreningsmentor_cancel_action(array &$form, $form_state) {
+  $form_data = $form_state->get('views_bulk_operations');
+  $form_state->setRedirectUrl($form_data['redirect_url']);
 }
