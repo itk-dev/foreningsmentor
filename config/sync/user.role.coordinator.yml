@@ -8,6 +8,7 @@ weight: 4
 is_admin: null
 permissions:
   - 'access content'
+  - 'access content overview'
   - 'access taxonomy overview'
   - 'access user profiles'
   - 'administer taxonomy'
@@ -31,6 +32,7 @@ permissions:
   - 'create field_club_contact_person_phone'
   - 'create field_comment'
   - 'create field_comments'
+  - 'create field_coordinators_end_status'
   - 'create field_date_child_cert'
   - 'create field_date_end'
   - 'create field_date_registered'
@@ -96,6 +98,7 @@ permissions:
   - 'edit field_club_contact_person_phone'
   - 'edit field_comment'
   - 'edit field_comments'
+  - 'edit field_coordinators_end_status'
   - 'edit field_date_child_cert'
   - 'edit field_date_end'
   - 'edit field_date_registered'
@@ -147,6 +150,7 @@ permissions:
   - 'view field_club_contact_person_phone'
   - 'view field_comment'
   - 'view field_comments'
+  - 'view field_coordinators_end_status'
   - 'view field_date_child_cert'
   - 'view field_date_end'
   - 'view field_date_registered'

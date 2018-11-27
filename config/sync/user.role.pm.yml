@@ -8,6 +8,7 @@ weight: 3
 is_admin: null
 permissions:
   - 'access content'
+  - 'access content overview'
   - 'use text format filtered_html'
   - 'view any activity content'
   - 'view any club content'
@@ -26,6 +27,7 @@ permissions:
   - 'view field_club_contact_person_email'
   - 'view field_club_contact_person_phone'
   - 'view field_comments'
+  - 'view field_coordinators_end_status'
   - 'view field_date_end'
   - 'view field_date_registered'
   - 'view field_end_interview'
