@@ -545,7 +545,7 @@ display:
           type: node+club
           context: ''
           button_text: 'Add club'
-          button_classes: foreningsmentor-intra--add-club-button
+          button_classes: button
           query_string: ''
           destination: 1
           plugin_id: views_add_button_area

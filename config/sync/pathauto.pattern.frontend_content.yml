@@ -1,0 +1,22 @@
+uuid: 7d140586-fcc4-4cbc-9f2f-9245784593e7
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: frontend_content
+label: 'Frontend content'
+type: 'canonical_entities:node'
+pattern: '/[node:title]'
+selection_criteria:
+  ba0c1137-236c-4b7b-b230-3e771db3d418:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ba0c1137-236c-4b7b-b230-3e771db3d418
+selection_logic: and
+weight: -5
+relationships: {  }

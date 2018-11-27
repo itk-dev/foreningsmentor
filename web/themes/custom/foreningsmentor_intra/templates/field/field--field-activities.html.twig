@@ -53,33 +53,25 @@
 %}
 
 <div{{ attributes.addClass(classes) }}>
-  <div{{ title_attributes.addClass(title_classes) }}>{{ 'Aktive activities' | trans }}</div>
-  {% if multiple %}
-  <div class="field__items">
+  <div{{ title_attributes.addClass(title_classes) }}>{{ 'Active activities' | trans }}</div>
+  <ul class="foreningsmentor-intra--activity-ul">
+  {% for item in items %}
+    {% if not item.content['#node'].field_date_end.value %}
+    <li class="field__item">
+      <a href="/node/{{ item.content['#node'].id }}">{{ item.content['#node'].title.value }}</a>
+    </li>
     {% endif %}
-    {% for item in items %}
-      {% if not item.content['#node'].field_date_end.value %}
-        <div{{ item.attributes.addClass('field__item') }}>
-          <a href="/node/{{ item.content['#node'].id }}">{{ item.content['#node'].title.value }}</a>
-        </div>
-      {% endif %}
-    {% endfor %}
-    {% if multiple %}
-  </div>
-  {% endif %}
+  {% endfor %}
+  </ul>
 
   <div{{ title_attributes.addClass(title_classes) }}>{{ 'Finished activities' | trans }}</div>
-  {% if multiple %}
-  <div class="field__items">
+  <ul class="foreningsmentor-intra--activity-ul">
+  {% for item in items %}
+    {% if item.content['#node'].field_date_end.value %}
+    <li class="field__item">
+      <a class="foreningsmentor-intra--activity-ended" href="/node/{{ item.content['#node'].id }}">{{ item.content['#node'].title.value }}</a>
+    </li>
     {% endif %}
-    {% for item in items %}
-      {% if item.content['#node'].field_date_end.value %}
-        <div{{ item.attributes.addClass('field__item foreningsmentor-intra--activity-ended') }}>
-          <a href="/node/{{ item.content['#node'].id }}">{{ item.content['#node'].title.value }}</a>
-        </div>
-      {% endif %}
-    {% endfor %}
-    {% if multiple %}
-  </div>
-  {% endif %}
+  {% endfor %}
+  </ul>
 </div>

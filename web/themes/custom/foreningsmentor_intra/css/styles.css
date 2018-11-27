@@ -66,11 +66,15 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
   font-style: italic;
 }
 
-.foreningsmentor-intra--activity-ended > a {
+.foreningsmentor-intra--activity-ended {
   color: grey;
   text-decoration-line: line-through;
 }
 
 .foreningsmentor-intra--activity-headline {
   margin-top: 1em;
+}
+
+.foreningsmentor-intra--activity-ul {
+  padding: 0;
 }
