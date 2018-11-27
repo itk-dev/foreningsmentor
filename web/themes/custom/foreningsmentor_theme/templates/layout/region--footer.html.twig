@@ -13,35 +13,44 @@
  */
 #}
 
-<div class="footer mt-5">
+<div class="footer">
   <div class="container">
-    <div class="row">
-      {% if (custom_config_exists) %}
-        {% if (footer_text) %}
-          <div class="col-md-3">
+    <div class="row mt-5 mb-5">
+      <div class="col-md-3 mb-3">
+        {% if (custom_config_exists) %}
+          {% if (footer_text) %}
               {{ footer_text|raw }}
-            <p><img src="/{{ base_path ~ directory }}/static/images/AAK_02_venstrejusteret_hvid.svg" alt="Aarhus Kommune"></p>
-          </div>
+          {% endif %}
         {% endif %}
-        {% if (footer_second) %}
-          <div class="col-md-3">
-            {{ footer_second|raw }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="row">
+          <div class="col">
+            {% if (custom_config_exists) %}
+              {% if (footer_second) %}
+                {{ footer_second|raw }}
+              {% endif %}
+            {% endif %}
           </div>
-        {% endif %}
-        {% if (footer_third) %}
-          <div class="col-md-3">
-            {{ footer_third|raw }}
+        </div>
+        <div class="row">
+          <div class="col">
+            {% if (custom_config_exists) %}
+              {% if (custom_config_exists) %}
+                {% if (footer_third) %}
+                  {{ footer_third|raw }}
+                {% endif %}
+              {% endif %}
+            {% endif %}
           </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        {% if (custom_config_exists) %}
+          {% if (footer_forth) %}
+            {{ footer_forth|raw }}
+          {% endif %}
         {% endif %}
-        {% if (footer_fourth) %}
-          <div class="col-md-3">
-            {{ footer_fourth|raw }}
-          </div>
-        {% endif %}
-      {% endif %}
-    </div>
-    <div class="row">
-      <div class="col-md-12 permalinks">
         {% if content %}
           {{ content }}
         {% endif %}

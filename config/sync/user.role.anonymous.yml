@@ -10,6 +10,7 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'use text format filtered_html'
   - 'view any brick entities'
   - 'view any page content'
   - 'view any referenced_content entities'

@@ -123,6 +123,7 @@ permissions:
   - 'edit terms in mentors_end_status'
   - 'edit terms in neighborhood'
   - 'edit terms in relation'
+  - 'use text format filtered_html'
   - 'view any activity content'
   - 'view any bricky content'
   - 'view any child content'

@@ -8,6 +8,7 @@ weight: 3
 is_admin: null
 permissions:
   - 'access content'
+  - 'use text format filtered_html'
   - 'view any activity content'
   - 'view any club content'
   - 'view any parent content'
