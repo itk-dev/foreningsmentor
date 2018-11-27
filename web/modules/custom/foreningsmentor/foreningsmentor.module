@@ -2,6 +2,7 @@
 
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\node\Entity\Node;
 
 /**
  * @file
@@ -15,8 +16,12 @@ function foreningsmentor_preprocess_node(&$variables) {
   $nodeType = $variables["node"]->getType();
 
   if ($nodeType == 'child') {
-    $variables['journal_form'] = \Drupal::formBuilder()->getForm(\Drupal\foreningsmentor\Form\JournalForm::class, $variables["node"]);
-    $variables['activity_form'] = \Drupal::formBuilder()->getForm(\Drupal\foreningsmentor\Form\ActivityForm::class, $variables["node"]);
+    $variables['journal_form'] = \Drupal::formBuilder()
+      ->getForm(\Drupal\foreningsmentor\Form\JournalForm::class,
+        $variables["node"]);
+    $variables['activity_form'] = \Drupal::formBuilder()
+      ->getForm(\Drupal\foreningsmentor\Form\ActivityForm::class,
+        $variables["node"]);
   }
 }
 
@@ -36,7 +41,8 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
         $imageUrl = NULL;
 
         if (isset($user->field_profile_image->entity)) {
-          $imageUrl = ImageStyle::load('profile_image')->buildUrl($user->field_profile_image->entity->getFileUri());
+          $imageUrl = ImageStyle::load('profile_image')
+            ->buildUrl($user->field_profile_image->entity->getFileUri());
         }
 
         $contact = [
@@ -57,16 +63,48 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
  * Implements hook_form_alter().
  */
 function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'views_bulk_operations_confirm_action') {
+  if (isset($form_state->getStorage()["views_bulk_operations"]["view_id"]) &&
+    ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers' ||
+      $form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') &&
+    $form_id == 'views_bulk_operations_confirm_action') {
+
     $newList = [];
     $commaSeparatedString = '';
 
     if (isset($form['list'])) {
-      foreach ($form["list"]["#items"] as $username) {
-        $user = user_load_by_name($username);
-        $name = $user->get('field_name')->value ?: $user->getEmail();
+      if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers') {
+        foreach ($form["list"]["#items"] as $username) {
+          $user = user_load_by_name($username);
+          $name = $user->get('field_name')->value ?: $user->getEmail();
 
-        $newList[$user->getEmail()] = $name;
+          $newList[$user->getEmail()] = $name;
+        }
+      }
+      else {
+        if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') {
+          foreach ($form["list"]["#items"] as $child_name) {
+            $query = \Drupal::entityQuery('node');
+            $query->condition('type', 'child');
+            $query->condition('title', $child_name);
+
+            $p = $query->execute();
+
+            $nodes = Node::loadMultiple($p);
+
+            foreach ($nodes as $node) {
+              $parents = $node->field_parents;
+
+              foreach ($parents as $parent) {
+                $entity = $parent->entity;
+
+                $name = $entity->title->value;
+                $email = $entity->field_email->value;
+
+                $newList[$email] = $name;
+              }
+            }
+          }
+        }
       }
 
       $form["list"]["#items"] = array_keys($newList);
@@ -94,13 +132,13 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
     $form["actions"]["copy_to_clipboard"] = [
       '#type' => 'submit',
       '#value' => \Drupal::translation()->translate('Copy to clipboard'),
-      '#ajax' => array(
+      '#ajax' => [
         'callback' => '_foreningsmentor_copy_to_clipboard',
-        'progress' => array(
+        'progress' => [
           'type' => 'throbber',
           'message' => NULL,
-        ),
-      ),
+        ],
+      ],
     ];
 
     $form['mailtolink']['#markup'] = '<a class="button" href="mailto:' . $commaSeparatedString . '">' . t('Mailto link for mail client') . '</a>';
@@ -117,7 +155,10 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
  *
  * @return \Drupal\Core\Ajax\AjaxResponse
  */
-function _foreningsmentor_copy_to_clipboard(array &$form, $form_state) : AjaxResponse {
+function _foreningsmentor_copy_to_clipboard(
+  array &$form,
+  $form_state
+): AjaxResponse {
   $store = \Drupal::service('user.private_tempstore')->get('foreningsmentor');
 
   $list = $store->get('copy_to_clipboard');

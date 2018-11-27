@@ -19,6 +19,7 @@ dependencies:
     - text
     - user
     - views_add_button
+    - views_bulk_operations
 id: children_view_page
 label: 'Alle børn'
 module: views
@@ -127,6 +128,81 @@ display:
       row:
         type: fields
       fields:
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Views bulk operations'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          batch: true
+          batch_size: 10
+          form_step: true
+          buttons: false
+          clear_on_exposed: 0
+          action_title: Handling
+          selected_actions:
+            foreningsmentor_get_mail_action: foreningsmentor_get_mail_action
+            node_assign_owner_action: 0
+            node_unpromote_action: 0
+            node_promote_action: 0
+            node_publish_action: 0
+            node_save_action: 0
+            node_make_sticky_action: 0
+            node_unpublish_by_keyword_action: 0
+            node_unpublish_action: 0
+            node_make_unsticky_action: 0
+            pathauto_update_alias: 0
+            views_bulk_operations_delete_entity: 0
+            'entity:delete_action:node': 0
+            'entity:publish_action:node': 0
+            'entity:save_action:node': 0
+            'entity:unpublish_action:node': 0
+          preconfiguration:
+            foreningsmentor_get_mail_action:
+              label_override: 'Hent mailliste'
+          plugin_id: views_bulk_operations_bulk_form
         title:
           id: title
           table: node_field_data
@@ -662,7 +738,7 @@ display:
         groups:
           1: AND
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -686,7 +762,7 @@ display:
       display_extenders: {  }
       path: born
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
