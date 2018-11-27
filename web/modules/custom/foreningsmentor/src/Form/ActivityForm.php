@@ -64,9 +64,19 @@ class ActivityForm extends FormBase {
       '#description' => $this->t('The phone number of the contact in the club'),
       '#weight' => '0',
     ];
+
+    // Find entity options for 'field_club'.
+    $options = [];
+    $ids = \Drupal::entityQuery('node')->condition('type','club')->execute();
+    foreach ($ids as $id) {
+      $node = Node::load($id);
+      $options[$id] = $node->getTitle();
+    }
+
     $form['add_activity']['field_club'] = [
-      '#type' => 'entity_autocomplete',
+      '#type' => 'radios',
       '#title' => $this->t('Club'),
+      '#options' => $options,
       '#required' => TRUE,
       '#description' => $this->t('The club where the activity is at'),
       '#target_type' => 'node',
@@ -83,6 +93,7 @@ class ActivityForm extends FormBase {
     $form['add_activity']['field_activity'] = [
       '#type' => 'radios',
       '#title' => $this->t('Activity'),
+      '#required' => TRUE,
       '#options' => [],
       '#prefix' => '<div id="field-activity--wrapper">',
       '#suffix' => '</div>',
