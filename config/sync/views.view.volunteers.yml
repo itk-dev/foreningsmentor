@@ -3,17 +3,22 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.storage.user.field_active
     - field.storage.user.field_name
     - field.storage.user.field_neighborhood
     - taxonomy.vocabulary.neighborhood
     - user.role.coordinator
     - user.role.mentor
-    - user.role.pm
   module:
+    - csv_serialization
+    - options
+    - rest
+    - serialization
     - taxonomy
     - user
     - views_add_button
     - views_bulk_operations
+    - views_data_export
 id: volunteers
 label: Frivillige
 module: views
@@ -33,7 +38,6 @@ display:
         type: role
         options:
           role:
-            pm: pm
             coordinator: coordinator
       cache:
         type: tag
@@ -273,6 +277,68 @@ display:
           field_api_classes: false
           entity_type: user
           entity_field: name
+          plugin_id: field
+        field_active:
+          id: field_active
+          table: user__field_active
+          field: field_active
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
           plugin_id: field
         status:
           id: status
@@ -602,6 +668,60 @@ display:
         - user
         - user.roles
       tags:
+        - 'config:field.storage.user.field_active'
+        - 'config:field.storage.user.field_name'
+        - 'config:field.storage.user.field_neighborhood'
+  data_export_1:
+    display_plugin: data_export
+    id: data_export_1
+    display_title: 'Data export'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      path: frivillige/eksport
+      filename: ''
+      displays:
+        page_1: page_1
+        default: '0'
+      pager:
+        type: none
+        options:
+          offset: 0
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.user.field_active'
         - 'config:field.storage.user.field_name'
         - 'config:field.storage.user.field_neighborhood'
   page_1:
@@ -622,5 +742,6 @@ display:
         - user
         - user.roles
       tags:
+        - 'config:field.storage.user.field_active'
         - 'config:field.storage.user.field_name'
         - 'config:field.storage.user.field_neighborhood'

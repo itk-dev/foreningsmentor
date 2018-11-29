@@ -374,7 +374,7 @@ display:
               category: ''
               manager: ''
               company: ''
-      path: parents/export
+      path: parents/eksport
       filename: ''
       displays:
         page_1: page_1
