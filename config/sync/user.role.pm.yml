@@ -15,7 +15,6 @@ permissions:
   - 'view any parent content'
   - 'view field_activities'
   - 'view field_activity'
-  - 'view field_activity_type'
   - 'view field_activity_wishes'
   - 'view field_aktiviteties'
   - 'view field_available_activities'
