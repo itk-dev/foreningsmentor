@@ -12,6 +12,7 @@ dependencies:
   module:
     - taxonomy
     - user
+    - views_add_button
     - views_bulk_operations
 id: volunteers
 label: Frivillige
@@ -570,7 +571,23 @@ display:
       sorts: {  }
       title: Frivillige
       header: {  }
-      footer: {  }
+      footer:
+        views_add_button:
+          id: views_add_button
+          table: views
+          field: views_add_button
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: 0
+          type: user+user
+          context: ''
+          button_text: 'Add user'
+          button_classes: button
+          query_string: ''
+          destination: 1
+          plugin_id: views_add_button_area
       empty: {  }
       relationships: {  }
       arguments: {  }

@@ -57,17 +57,10 @@ class ItkGeneralSettingsForm extends FormBase {
       '#weight' => '5',
     ];
 
-    $form['footer']['footer_menu_link']['link'] = [
-      '#title' => $this
-        ->t('Footer bottom links'),
-      '#type' => 'link',
-      '#url' => Url::fromRoute('entity.menu.edit_form', ['menu' => 'footer']),
-    ];
-
     $form['footer']['footer_text'] = [
       '#title' => $this->t('Footer text first column'),
       '#type' => 'text_format',
-      '#format' => 'plain_text',
+      '#format' => 'filtered_html',
       '#default_value' => $config->get('footer_text'),
       '#weight' => '1',
     ];
@@ -75,7 +68,7 @@ class ItkGeneralSettingsForm extends FormBase {
     $form['footer']['footer_text_2nd'] = [
       '#title' => $this->t('Footer text seccond column'),
       '#type' => 'text_format',
-      '#format' => 'plain_text',
+      '#format' => 'filtered_html',
       '#default_value' => $config->get('footer_text_2nd'),
       '#weight' => '1',
     ];
@@ -83,7 +76,7 @@ class ItkGeneralSettingsForm extends FormBase {
     $form['footer']['footer_text_3rd'] = [
       '#title' => $this->t('Footer text third column'),
       '#type' => 'text_format',
-      '#format' => 'plain_text',
+      '#format' => 'filtered_html',
       '#default_value' => $config->get('footer_text_3rd'),
       '#weight' => '1',
     ];
@@ -91,7 +84,7 @@ class ItkGeneralSettingsForm extends FormBase {
     $form['footer']['footer_text_4th'] = [
       '#title' => $this->t('Footer text forth column'),
       '#type' => 'text_format',
-      '#format' => 'plain_text',
+      '#format' => 'filtered_html',
       '#default_value' => $config->get('footer_text_4th'),
       '#weight' => '1',
     ];
@@ -133,7 +126,6 @@ class ItkGeneralSettingsForm extends FormBase {
       'footer_text' => $form_state->getValue('footer_text')['value'],
       'footer_text_2nd' => $form_state->getValue('footer_text_2nd')['value'],
       'footer_text_3rd' => $form_state->getValue('footer_text_3rd')['value'],
-      'footer_text_4th' => $form_state->getValue('footer_text_4th')['value'],
       'frontpage_id' => $form_state->getValue('frontpage_id'),
     ]);
 

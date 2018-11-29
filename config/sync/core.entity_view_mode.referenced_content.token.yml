@@ -1,0 +1,10 @@
+uuid: 00e9d838-e3e8-4abf-82fc-4f933888b176
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+id: referenced_content.token
+label: Symbol
+targetEntityType: referenced_content
+cache: true

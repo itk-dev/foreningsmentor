@@ -775,7 +775,8 @@ display:
           expose:
             label: ''
       title: Venteliste
-      header:
+      header: {  }
+      footer:
         views_add_button:
           id: views_add_button
           table: views
@@ -788,11 +789,10 @@ display:
           type: node+child
           context: ''
           button_text: 'Add child'
-          button_classes: foreningsmentor-intra--add-child-button
+          button_classes: button
           query_string: ''
           destination: 1
           plugin_id: views_add_button_area
-      footer: {  }
       empty: {  }
       relationships:
         field_parents:

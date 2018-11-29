@@ -13,7 +13,7 @@ id: brick.text.field_text
 field_name: field_text
 entity_type: brick
 bundle: text
-label: Text
+label: 'Tekst område'
 description: ''
 required: true
 translatable: false

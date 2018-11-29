@@ -238,7 +238,7 @@ display:
           type: node+activity
           context: ''
           button_text: 'Add activity'
-          button_classes: foreningsmentor-intra--add-activity-button
+          button_classes: button
           query_string: ''
           destination: 1
           plugin_id: views_add_button_area

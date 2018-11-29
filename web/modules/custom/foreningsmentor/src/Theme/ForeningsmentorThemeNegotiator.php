@@ -27,7 +27,9 @@ class ForeningsmentorThemeNegotiator implements ThemeNegotiatorInterface {
   public function applies(RouteMatchInterface $route) {
     $node = $route->getParameter('node');
 
-    if (isset($node) && in_array($node->getType(), ['page'])) {
+    if (isset($node) &&
+        in_array($node->getType(), ['page']) &&
+        $route->getRouteName() != 'entity.node.edit_form') {
       return true;
     }
 

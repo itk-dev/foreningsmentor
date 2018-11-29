@@ -1,0 +1,68 @@
+uuid: 31e3c8dd-c4b3-4a68-9c5d-a003a40fcc00
+langcode: da
+status: true
+dependencies:
+  config:
+    - filter.format.filtered_html
+  module:
+    - ckeditor
+format: filtered_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatering
+          items:
+            - Bold
+            - Italic
+            - Underline
+        -
+          name: Overskrifter
+          items:
+            - Format
+        -
+          name: Styles
+          items:
+            - Styles
+        -
+          name: Justering
+          items:
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lister
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+        -
+          name: Værktøjer
+          items:
+            - Source
+            - PasteFromWord
+            - PasteText
+  plugins:
+    stylescombo:
+      styles: "a.btn.btn-primary|Knap - Primær knap\r\na.btn.btn-dark|Knap - Sort knap"
+    language:
+      language_list: un
+image_upload:
+  status: true
+  scheme: public
+  directory: images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

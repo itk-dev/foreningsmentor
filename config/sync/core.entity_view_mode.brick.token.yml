@@ -1,0 +1,10 @@
+uuid: f8aba977-8696-427f-b4c7-289eaf4f2bbf
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+id: brick.token
+label: Symbol
+targetEntityType: brick
+cache: true
