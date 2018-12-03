@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.activity.field_activity
-    - field.field.node.activity.field_activity_type
     - field.field.node.activity.field_child
     - field.field.node.activity.field_club
     - field.field.node.activity.field_club_contact_person
@@ -13,6 +12,7 @@ dependencies:
     - field.field.node.activity.field_coordinators_end_status
     - field.field.node.activity.field_date_end
     - field.field.node.activity.field_date_start
+    - field.field.node.activity.field_mentor
     - field.field.node.activity.field_mentors_end_status
     - field.field.node.activity.field_other_subsidy_recieved
     - field.field.node.activity.field_qualifified_f_subsidy
@@ -41,12 +41,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: content
-  field_activity_type:
-    weight: 11
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   field_child:
     weight: 2
@@ -106,6 +100,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_mentor:
+    weight: 28
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_mentors_end_status:
     weight: 12

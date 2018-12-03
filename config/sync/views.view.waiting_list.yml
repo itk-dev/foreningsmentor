@@ -11,15 +11,18 @@ dependencies:
     - node.type.child
     - taxonomy.vocabulary.neighborhood
     - user.role.coordinator
-    - user.role.pm
   module:
+    - csv_serialization
     - datetime
     - foreningsmentor
     - node
+    - rest
+    - serialization
     - taxonomy
     - text
     - user
     - views_add_button
+    - views_data_export
 id: waiting_list
 label: Venteliste
 module: views
@@ -39,7 +42,6 @@ display:
         type: role
         options:
           role:
-            pm: pm
             coordinator: coordinator
       cache:
         type: tag
@@ -826,6 +828,62 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.roles
+      tags:
+        - 'config:field.storage.node.field_activity_wishes'
+        - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_comments'
+        - 'config:field.storage.node.field_date_registered'
+        - 'config:field.storage.node.field_neighborhood'
+  data_export_1:
+    display_plugin: data_export
+    id: data_export_1
+    display_title: 'Data export'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      path: venteliste/eksport
+      filename: ''
+      displays:
+        page_1: page_1
+        default: '0'
+      pager:
+        type: none
+        options:
+          offset: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
         - user
         - 'user.node_grants:view'
         - user.roles

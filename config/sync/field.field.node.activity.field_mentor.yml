@@ -1,0 +1,32 @@
+uuid: c613e765-0764-4f92-992b-2d9c56eae0e2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mentor
+    - node.type.activity
+id: node.activity.field_mentor
+field_name: field_mentor
+entity_type: node
+bundle: activity
+label: Mentor
+description: 'Hvilken mentor er koblet på forløbet?'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: role
+      role:
+        mentor: mentor
+        pm: '0'
+        coordinator: '0'
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

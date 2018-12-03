@@ -1,15 +1,15 @@
-uuid: 5cfad0b8-c985-4623-95d1-9c688e5043a3
+uuid: 1745f607-a204-432e-aa77-577901821e56
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_activity_type
-    - node.type.activity
+    - node.type.child
     - taxonomy.vocabulary.activity_type
-id: node.activity.field_activity_type
+id: node.child.field_activity_type
 field_name: field_activity_type
 entity_type: node
-bundle: activity
+bundle: child
 label: Forløbstype
 description: ''
 required: false
