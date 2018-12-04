@@ -69,6 +69,11 @@ function foreningsmentor_access_control_node_grants(
   AccountInterface $account,
   $op
 ) {
+  $grants = &drupal_static(__FUNCTION__);
+  if (!is_null($grants)) {
+    return $grants;
+  }
+
   $grants = [];
 
   $all_access_roles = ['coordinator'];
