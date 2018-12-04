@@ -71,7 +71,7 @@ function foreningsmentor_access_control_node_grants(
 ) {
   $grants = [];
 
-  $all_access_roles = ['pm', 'coordinator', 'rb_coordinator'];
+  $all_access_roles = ['coordinator'];
 
   if (array_intersect($all_access_roles, $account->getRoles())) {
     // For 'all access' roles we give the general '0' GID

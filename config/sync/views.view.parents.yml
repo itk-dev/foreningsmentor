@@ -7,7 +7,6 @@ dependencies:
     - field.storage.node.field_children
     - node.type.parent
     - user.role.coordinator
-    - user.role.pm
   module:
     - csv_serialization
     - foreningsmentor
@@ -36,7 +35,6 @@ display:
         type: role
         options:
           role:
-            pm: pm
             coordinator: coordinator
       cache:
         type: tag
