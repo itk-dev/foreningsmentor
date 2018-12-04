@@ -7,6 +7,7 @@ dependencies:
     - field.field.referenced_content.effort_areas.field_effort_area_description
     - field.field.referenced_content.effort_areas.field_effort_area_image
     - field.field.referenced_content.effort_areas.field_effort_area_link
+    - image.style.foreningsmentor_80x80
   module:
     - image
     - link
@@ -26,7 +27,7 @@ content:
     weight: 3
     label: hidden
     settings:
-      image_style: ''
+      image_style: foreningsmentor_80x80
       image_link: ''
     third_party_settings: {  }
     type: image

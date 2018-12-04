@@ -90,12 +90,11 @@ function foreningsmentor_access_control_node_grants(
       ->accessCheck(FALSE);
     $child_ids = $query->execute();
 
-    // Only give access to activities where the child is set to a child
-    // connected with the mentor.
-     $query = \Drupal::entityQuery('node')
+    // Only give access to activities where the mentor is set.
+    $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'activity')
-      ->condition('field_child.target_id', $child_ids, 'IN')
+      ->condition('field_mentor.target_id', $account->id())
       ->accessCheck(FALSE);
     $activity_ids = $query->execute();
 

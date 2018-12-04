@@ -1,0 +1,15 @@
+uuid: f855f1d5-b612-423b-b534-73ee2ec26a0d
+langcode: da
+status: true
+dependencies: {  }
+name: foreningsmentor_600x600
+label: 'Foreningsmentor 600x600'
+effects:
+  5900182a-1eb6-40bb-ace9-85ac5bc84850:
+    uuid: 5900182a-1eb6-40bb-ace9-85ac5bc84850
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 600
+      anchor: center-center

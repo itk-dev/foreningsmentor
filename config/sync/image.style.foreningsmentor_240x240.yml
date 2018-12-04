@@ -1,0 +1,15 @@
+uuid: 4d48a63c-848b-41b0-b311-68bd79930b81
+langcode: da
+status: true
+dependencies: {  }
+name: foreningsmentor_240x240
+label: 'Foreningsmentor 240x240'
+effects:
+  41bc2da5-3a37-4071-ad17-d4ef7aaa91f8:
+    uuid: 41bc2da5-3a37-4071-ad17-d4ef7aaa91f8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 240
+      height: 240
+      anchor: center-center

@@ -1,0 +1,7 @@
+uuid: 64db4cda-7862-4cd3-8b76-2f5d36dcd9e8
+langcode: da
+status: true
+dependencies: {  }
+name: foreningsmentor_max_400x400
+label: 'Foreningsmentor max 400x400'
+effects: {  }

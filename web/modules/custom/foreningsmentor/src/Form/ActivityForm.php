@@ -65,6 +65,24 @@ class ActivityForm extends FormBase {
       '#weight' => '0',
     ];
 
+    $current_user = \Drupal::currentUser();
+
+    if (in_array('coordinator', $current_user->getRoles())
+    ) {
+      $form['add_activity']['field_mentor'] = [
+        '#type' => 'entity_autocomplete',
+        '#title' => $this->t('Mentor'),
+        '#description' => $this->t('The mentor for the activity.'),
+        '#target_type' => 'user',
+        '#selection_settings' => [
+          'include_anonymous' => FALSE,
+          'filter' => [
+            'role' => ['mentor'],
+          ],
+        ],
+      ];
+    }
+
     // Find entity options for 'field_club'.
     $options = [];
     $ids = \Drupal::entityQuery('node')->condition('type','club')->execute();
@@ -79,10 +97,6 @@ class ActivityForm extends FormBase {
       '#options' => $options,
       '#required' => TRUE,
       '#description' => $this->t('The club where the activity is at'),
-      '#target_type' => 'node',
-      '#selection_settings' => [
-        'target_bundles' => ['club'],
-      ],
       '#ajax' => [
         'callback' => [$this, 'changeClub'],
         'event' => 'change',
@@ -157,10 +171,23 @@ class ActivityForm extends FormBase {
       return;
     }
 
+    $mentor = $form_state->getValue('field_mentor');
+
+    if (!isset($mentor)) {
+      $current_user = \Drupal::currentUser();
+
+      if (in_array('mentor', $current_user->getRoles()) &&
+        !in_array('coordinator', $current_user->getRoles())
+      ) {
+        $mentor = $current_user->id();
+      }
+    }
+
     $node = Node::create([
       'type' => 'activity',
       'title' => $form_state->getValue('title'),
       'field_child' => $parentNode,
+      'field_mentor' => $mentor,
       'field_date_start' => $form_state->getValue('field_date_start'),
       'field_club' => $form_state->getValue('field_club'),
       'field_activity' => $form_state->getValue('field_activity'),

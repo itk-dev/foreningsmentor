@@ -1,0 +1,15 @@
+uuid: 23cee7d2-c6e3-4f65-9873-6cfba1e60885
+langcode: da
+status: true
+dependencies: {  }
+name: foreningsmentor_80x80
+label: 'Foreningsmentor 80x80'
+effects:
+  c992794d-2db6-4939-ba21-f7cc976de784:
+    uuid: c992794d-2db6-4939-ba21-f7cc976de784
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 80
+      height: 80
+      anchor: center-center
