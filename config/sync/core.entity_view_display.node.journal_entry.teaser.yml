@@ -6,9 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.journal_entry.body
     - field.field.node.journal_entry.field_child
-    - field.field.node.journal_entry.field_date
     - field.field.node.journal_entry.field_only_for_coordinators
-    - field.field.node.journal_entry.field_reminder_date
     - node.type.journal_entry
   module:
     - text
@@ -28,8 +26,6 @@ content:
     region: content
 hidden:
   field_child: true
-  field_date: true
   field_only_for_coordinators: true
-  field_reminder_date: true
   langcode: true
   links: true
