@@ -7,6 +7,7 @@ dependencies:
     - field.field.referenced_content.testimonials.field_testimonial_author
     - field.field.referenced_content.testimonials.field_testimonial_image
     - field.field.referenced_content.testimonials.field_testimonial_text
+    - image.style.foreningsmentor_600x600
   module:
     - image
 id: referenced_content.testimonials.default
@@ -26,7 +27,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: ''
+      image_style: foreningsmentor_600x600
       image_link: ''
     third_party_settings: {  }
     type: image

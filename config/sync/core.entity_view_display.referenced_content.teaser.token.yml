@@ -1,8 +1,9 @@
-uuid: 3e664924-509b-4555-a21b-42c21c67f7be
+uuid: 5897bf2e-91fb-4855-8677-7fc2a838f73f
 langcode: da
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.referenced_content.token
     - eck.eck_type.referenced_content.teaser
     - field.field.referenced_content.teaser.field_teaser_image
     - field.field.referenced_content.teaser.field_teaser_text
@@ -10,10 +11,10 @@ dependencies:
   module:
     - image
     - text
-id: referenced_content.teaser.default
+id: referenced_content.teaser.token
 targetEntityType: referenced_content
 bundle: teaser
-mode: default
+mode: token
 content:
   field_teaser_image:
     weight: 0

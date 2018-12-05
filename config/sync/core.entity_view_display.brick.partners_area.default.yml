@@ -7,6 +7,7 @@ dependencies:
     - field.field.brick.partners_area.field_btn
     - field.field.brick.partners_area.field_description
     - field.field.brick.partners_area.field_image
+    - image.style.foreningsmentor_max_400h
   module:
     - image
     - link
@@ -38,8 +39,8 @@ content:
     weight: 2
     label: hidden
     settings:
+      image_style: foreningsmentor_max_400h
       image_link: ''
-      image_style: ''
     third_party_settings: {  }
     type: image
     region: content
