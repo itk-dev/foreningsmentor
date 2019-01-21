@@ -1,34 +1,45 @@
-uuid: f2f57fb9-5169-444b-a186-36b7fb4a99ca
+uuid: f028514d-f86a-48ef-ae3b-ece33c6383c4
 langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.activity.field_activity
-    - field.field.node.activity.field_club
-    - field.field.node.activity.field_club_contact_person
-    - field.field.node.activity.field_club_contact_person_email
-    - field.field.node.activity.field_club_contact_person_phone
-    - field.field.node.activity.field_course
-    - field.field.node.activity.field_date_end
-    - field.field.node.activity.field_date_start
-    - node.type.activity
+    - field.field.node.course.body
+    - field.field.node.course.field_activities
+    - field.field.node.course.field_activity_type
+    - field.field.node.course.field_child
+    - field.field.node.course.field_coordinators_end_status
+    - field.field.node.course.field_date_end
+    - field.field.node.course.field_date_start
+    - field.field.node.course.field_diary
+    - field.field.node.course.field_mentor
+    - field.field.node.course.field_mentors_end_status
+    - node.type.course
   module:
     - datetime
     - path
-    - telephone
-id: node.activity.default
+    - text
+id: node.course.default
 targetEntityType: node
-bundle: activity
+bundle: course
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
-    weight: 7
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_activity:
-    weight: 1
+  field_activities:
+    weight: 125
     settings:
       match_operator: CONTAINS
       size: 60
@@ -36,8 +47,8 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_club:
-    weight: 3
+  field_activity_type:
+    weight: 128
     settings:
       match_operator: CONTAINS
       size: 60
@@ -45,31 +56,17 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_club_contact_person:
-    weight: 14
+  field_child:
+    weight: 123
     settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: entity_reference_autocomplete
     region: content
-  field_club_contact_person_email:
-    weight: 16
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
-    region: content
-  field_club_contact_person_phone:
-    weight: 15
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
-  field_course:
-    weight: 28
+  field_coordinators_end_status:
+    weight: 130
     settings:
       match_operator: CONTAINS
       size: 60
@@ -78,27 +75,54 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_date_end:
-    weight: 27
+    weight: 127
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_date_start:
-    weight: 26
+    weight: 126
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_diary:
+    weight: 122
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_mentor:
+    weight: 124
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_mentors_end_status:
+    weight: 129
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   langcode:
     type: language_select
-    weight: 4
+    weight: 2
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 10
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -106,26 +130,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 15
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
-    region: content
     settings:
       display_label: true
+    weight: 120
+    region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 16
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: -5
     region: content
     settings:
       size: 60
@@ -133,7 +157,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60

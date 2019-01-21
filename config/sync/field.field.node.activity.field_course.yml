@@ -1,16 +1,16 @@
-uuid: 78770245-91ca-4016-b41f-8f64449bb6e2
+uuid: 37b81102-f55c-46b5-91a7-6c569eb67006
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_child
+    - field.storage.node.field_course
     - node.type.activity
-    - node.type.child
-id: node.activity.field_child
-field_name: field_child
+    - node.type.course
+id: node.activity.field_course
+field_name: field_course
 entity_type: node
 bundle: activity
-label: Barn
+label: Forløb
 description: ''
 required: false
 translatable: true
@@ -20,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      child: child
+      course: course
     sort:
       field: _none
     auto_create: false

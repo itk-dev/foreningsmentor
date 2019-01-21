@@ -3,15 +3,11 @@ langcode: da
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.journal
-    - field.field.node.child.field_activities
-    - field.field.node.child.field_activity_type
     - field.field.node.child.field_activity_wishes
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
+    - field.field.node.child.field_course
     - field.field.node.child.field_date_registered
-    - field.field.node.child.field_diary
-    - field.field.node.child.field_mentor
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
     - field.field.node.child.field_referer
@@ -24,7 +20,6 @@ dependencies:
     - node.type.child
   module:
     - datetime
-    - inline_entity_form
     - path
     - telephone
     - text
@@ -39,28 +34,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_activities:
-    weight: 23
-    settings:
-      match_operator: CONTAINS
-      form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      collapsible: false
-      collapsed: false
-      allow_new: true
-      allow_existing: false
-      allow_duplicate: false
-    third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
-  field_activity_type:
-    weight: 14
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_activity_wishes:
     weight: 8
     settings:
@@ -83,36 +56,20 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_date_registered:
-    weight: 13
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_diary:
-    weight: 24
-    settings:
-      form_mode: journal
-      label_singular: ''
-      label_plural: ''
-      override_labels: false
-      collapsible: false
-      collapsed: false
-      allow_new: true
-      allow_existing: false
-      match_operator: CONTAINS
-      allow_duplicate: false
-    third_party_settings: {  }
-    type: inline_entity_form_complex
-    region: content
-  field_mentor:
-    weight: 21
+  field_course:
+    weight: 26
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_date_registered:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_neighborhood:
     weight: 22

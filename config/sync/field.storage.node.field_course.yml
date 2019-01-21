@@ -1,4 +1,4 @@
-uuid: 725ed924-73e1-4c49-a35e-44f66d4530a9
+uuid: 9166d82d-f5c1-4304-9da5-4bfd6e52919b
 langcode: da
 status: true
 dependencies:
@@ -8,14 +8,15 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: custom
-id: node.field_qualifified_f_subsidy
-field_name: field_qualifified_f_subsidy
+id: node.field_course
+field_name: field_course
 entity_type: node
-type: boolean
-settings: {  }
+type: entity_reference
+settings:
+  target_type: node
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

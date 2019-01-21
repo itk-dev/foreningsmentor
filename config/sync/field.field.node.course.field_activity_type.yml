@@ -1,19 +1,19 @@
-uuid: 1745f607-a204-432e-aa77-577901821e56
+uuid: 07244070-f864-4d35-85f3-91a0f2592597
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_activity_type
-    - node.type.child
+    - node.type.course
     - taxonomy.vocabulary.activity_type
-id: node.child.field_activity_type
+id: node.course.field_activity_type
 field_name: field_activity_type
 entity_type: node
-bundle: child
+bundle: course
 label: Forløbstype
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
