@@ -92,6 +92,11 @@
   {{ title_suffix }}
 
   <div class="foreningsmentor-intra--fields">
+    <a href="#journal" class="button btn btn-info">{{ 'Go to journal' | trans }}</a>
+    <a href="#activities" class="button btn btn-info">{{ 'Go to activities' | trans }}</a>
+  </div>
+
+  <div class="foreningsmentor-intra--fields">
     <h2>{{ label }}</h2>
 
     <div{{ content_attributes.addClass('node__content') }}>
@@ -104,7 +109,7 @@
   </div>
 
   <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading">{{ 'Activities' | trans }}</h2>
+    <h2 class="foreningsmentor-intra--heading" id="activities">{{ 'Activities' | trans }}</h2>
 
     {{ content.field_activities }}
 
@@ -112,7 +117,7 @@
   </div>
 
   <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading">{{ 'Journal' | trans }}</h2>
+    <h2 class="foreningsmentor-intra--heading" id="journal">{{ 'Journal' | trans }}</h2>
 
     {{ content.field_diary }}
 
