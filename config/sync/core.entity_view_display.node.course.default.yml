@@ -11,12 +11,16 @@ dependencies:
     - field.field.node.course.field_date_end
     - field.field.node.course.field_date_start
     - field.field.node.course.field_diary
+    - field.field.node.course.field_field_coor_end_status_text
+    - field.field.node.course.field_finished
     - field.field.node.course.field_mentor
     - field.field.node.course.field_mentors_end_status
+    - field.field.node.course.field_mentors_end_status_text
     - node.type.course
   module:
     - datetime
     - field_group
+    - text
     - user
 third_party_settings:
   field_group:
@@ -24,7 +28,7 @@ third_party_settings:
       children:
         - field_child
       parent_name: ''
-      weight: 6
+      weight: 11
       format_type: details
       format_settings:
         id: ''
@@ -38,7 +42,7 @@ bundle: course
 mode: default
 content:
   field_activities:
-    weight: 8
+    weight: 7
     label: above
     settings:
       view_mode: basic
@@ -90,13 +94,30 @@ content:
     type: datetime_default
     region: content
   field_diary:
-    weight: 7
+    weight: 6
     label: above
     settings:
       view_mode: teaser
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
+  field_field_coor_end_status_text:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_finished:
+    weight: 10
+    label: above
+    settings:
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_mentor:
     weight: 1
@@ -113,6 +134,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_mentors_end_status_text:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
 hidden:
   body: true

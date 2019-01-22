@@ -1,0 +1,21 @@
+uuid: 42126ced-6f06-4a88-ba37-0e1243d79398
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mentors_end_status_text
+    - node.type.course
+  module:
+    - text
+id: node.course.field_mentors_end_status_text
+field_name: field_mentors_end_status_text
+entity_type: node
+bundle: course
+label: 'Begrundelse for mentorafslutning'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
