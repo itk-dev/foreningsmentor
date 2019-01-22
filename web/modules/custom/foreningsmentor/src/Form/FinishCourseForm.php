@@ -30,19 +30,26 @@ class FinishCourseForm extends FormBase {
       '#open' => FALSE,
     );
 
+    // Extract options for mentor end status.
     $vid = 'mentors_end_status';
     $terms =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
-
     $options = [];
     foreach ($terms as $term) {
       $options[$term->tid] = $term->name;
     }
 
+    $form['finish_course']['date_end'] = [
+      '#title' => t('Finish date'),
+      '#type' => 'date',
+      '#description' => t('The date for the end of the course.'),
+      '#required' => TRUE,
+      '#weight' => '0',
+    ];
     $form['finish_course']['mentor_end_status'] = [
       '#type' => 'select',
       '#title' => $this->t('Mentor end status'),
       '#description' => $this->t('The mentor\'s end status for the course.'),
-      '#weight' => '0',
+      '#weight' => '1',
       '#required' => TRUE,
       '#options' => $options,
     ];
@@ -51,12 +58,13 @@ class FinishCourseForm extends FormBase {
       '#title' => $this->t('Mentor end status description'),
       '#description' => $this->t('The reasons for the given end status.'),
       '#required' => TRUE,
-      '#weight' => '1',
+      '#weight' => '2',
     ];
+
     $form['finish_course']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
-      '#weight' => '2',
+      '#weight' => '3',
     ];
 
     return $form;
@@ -80,9 +88,11 @@ class FinishCourseForm extends FormBase {
       return;
     }
 
+    $date_end = $form_state->getValue('date_end');
     $mentor_end_status = $form_state->getValue('mentor_end_status');
     $mentor_end_status_text = $form_state->getValue('mentor_end_status_text');
 
+    $parentNode->set('field_date_end', $date_end);
     $parentNode->set('field_mentors_end_status', $mentor_end_status);
     $parentNode->set('field_mentors_end_status_text', $mentor_end_status_text);
     $parentNode->set('field_finished', TRUE);
