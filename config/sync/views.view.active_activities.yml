@@ -23,7 +23,6 @@ dependencies:
     - serialization
     - telephone
     - user
-    - views_add_button
     - views_data_export
 id: active_activities
 label: Aktivitetsforløb
@@ -873,23 +872,7 @@ display:
           granularity: second
       title: Aktivitetsforløb
       header: {  }
-      footer:
-        views_add_button:
-          id: views_add_button
-          table: views
-          field: views_add_button
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: 0
-          type: node+activity
-          context: ''
-          button_text: 'Add activity'
-          button_classes: button
-          query_string: ''
-          destination: 1
-          plugin_id: views_add_button_area
+      footer: {  }
       empty: {  }
       relationships:
         field_child:

@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.child.field_activity_wishes
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
-    - field.field.node.child.field_course
     - field.field.node.child.field_date_registered
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
@@ -50,22 +49,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-    region: content
-  field_course:
-    weight: 14
-    settings:
-      form_mode: inlineform
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: true
-      match_operator: CONTAINS
-      override_labels: false
-      collapsible: false
-      collapsed: false
-      allow_duplicate: false
-    third_party_settings: {  }
-    type: inline_entity_form_complex
     region: content
   field_date_registered:
     weight: 6

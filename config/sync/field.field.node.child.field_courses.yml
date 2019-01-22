@@ -1,17 +1,17 @@
-uuid: ff10a65f-e1ba-4056-ad16-a3860eebe3dc
+uuid: d4c561b5-7b42-4ed8-9771-b605f9bb4e20
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_course
+    - field.storage.node.field_courses
     - node.type.child
     - node.type.course
-id: node.child.field_course
-field_name: field_course
+id: node.child.field_courses
+field_name: field_courses
 entity_type: node
 bundle: child
 label: Forløb
-description: 'Hvilke forløb er der tilknyttet barnet?'
+description: ''
 required: false
 translatable: false
 default_value: {  }
