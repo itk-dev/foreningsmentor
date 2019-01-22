@@ -1,8 +1,9 @@
-uuid: f028514d-f86a-48ef-ae3b-ece33c6383c4
+uuid: 44ee2694-6981-4eb7-b0f7-9977de0a5493
 langcode: da
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.inlineform
     - field.field.node.course.body
     - field.field.node.course.field_activities
     - field.field.node.course.field_activity_type
@@ -16,49 +17,25 @@ dependencies:
     - node.type.course
   module:
     - datetime
-id: node.course.default
+id: node.course.inlineform
 targetEntityType: node
 bundle: course
-mode: default
+mode: inlineform
 content:
-  field_activities:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_activity_type:
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_child:
     weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_coordinators_end_status:
-    weight: 8
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
     region: content
   field_date_end:
-    weight: 5
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_date_start:
-    weight: 4
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -72,12 +49,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_mentors_end_status:
-    weight: 7
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   title:
     type: string_textfield
     weight: 0
@@ -89,7 +60,11 @@ content:
 hidden:
   body: true
   created: true
+  field_activities: true
+  field_child: true
+  field_coordinators_end_status: true
   field_diary: true
+  field_mentors_end_status: true
   langcode: true
   path: true
   promote: true

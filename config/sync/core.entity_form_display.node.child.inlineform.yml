@@ -1,4 +1,4 @@
-uuid: 5d15fd72-a73c-4a9a-8c30-9d6b6a1561a2
+uuid: e1b4c731-06e6-4050-9aea-8bc24a811dde
 langcode: da
 status: true
 dependencies:
@@ -24,10 +24,10 @@ dependencies:
     - inline_entity_form
     - telephone
     - text
-id: node.child.default
+id: node.child.inlineform
 targetEntityType: node
 bundle: child
-mode: default
+mode: inlineform
 content:
   field_activity_wishes:
     weight: 1
@@ -75,9 +75,12 @@ content:
     region: content
   field_neighborhood:
     weight: 11
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
+    type: entity_reference_autocomplete
     region: content
   field_parents:
     weight: 12

@@ -74,7 +74,7 @@ class JournalForm extends FormBase {
     $parentNode = $form_state->getBuildInfo()["args"][0];
 
     // Bail out if parent is not a child.
-    if (isset($parentNode) && $parentNode->getType() != 'child') {
+    if (isset($parentNode) && $parentNode->getType() != 'course') {
       return;
     }
 
@@ -83,7 +83,7 @@ class JournalForm extends FormBase {
       'title' => $form_state->getValue('title'),
       'body' => $form_state->getValue('body'),
       'field_only_for_coordinators' => $form_state->getValue('only_for_coordinators'),
-      'field_child' => $parentNode,
+      'field_course' => $parentNode,
     ]);
     $node->save();
   }

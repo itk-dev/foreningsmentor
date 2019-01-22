@@ -26,7 +26,7 @@ dependencies:
     - views_add_button
     - views_data_export
 id: active_activities
-label: Forløb
+label: Aktivitetsforløb
 module: views
 description: 'Liste over igangværende aktivitetsforløb'
 tag: ''
@@ -871,7 +871,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: Forløb
+      title: Aktivitetsforløb
       header: {  }
       footer:
         views_add_button:
@@ -997,7 +997,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: forlob
+      path: aktiviteter
     cache_metadata:
       max-age: -1
       contexts:
