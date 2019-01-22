@@ -1,0 +1,146 @@
+uuid: 574219f9-b089-4218-a901-9804ab8ca84b
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.basic
+    - field.field.node.child.field_activity_wishes
+    - field.field.node.child.field_birthday
+    - field.field.node.child.field_comments
+    - field.field.node.child.field_course
+    - field.field.node.child.field_date_registered
+    - field.field.node.child.field_neighborhood
+    - field.field.node.child.field_parents
+    - field.field.node.child.field_referer
+    - field.field.node.child.field_referer_email
+    - field.field.node.child.field_referer_phone
+    - field.field.node.child.field_school
+    - field.field.node.child.field_sex
+    - field.field.node.child.field_shool_class
+    - field.field.node.child.field_siblings
+    - node.type.child
+  module:
+    - datetime
+    - field_group
+    - options
+    - telephone
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_foraeldre:
+      children:
+        - field_parents
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: false
+      label: Forældre
+id: node.child.basic
+targetEntityType: node
+bundle: child
+mode: basic
+content:
+  field_activity_wishes:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_birthday:
+    weight: 2
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_comments:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_date_registered:
+    weight: 6
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_neighborhood:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_parents:
+    weight: 11
+    label: visually_hidden
+    settings:
+      view_mode: basic
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_referer:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_referer_email:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_referer_phone:
+    weight: 9
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_school:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sex:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_shool_class:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  field_course: true
+  field_siblings: true
+  langcode: true
+  links: true

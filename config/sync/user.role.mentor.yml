@@ -37,6 +37,7 @@ permissions:
   - 'view field_activity'
   - 'view field_aktiviteties'
   - 'view field_available_activities'
+  - 'view field_child'
   - 'view field_club'
   - 'view field_club_contact_person'
   - 'view field_club_contact_person_email'

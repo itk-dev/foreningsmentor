@@ -962,7 +962,7 @@ display:
               category: ''
               manager: ''
               company: ''
-      path: forlob/eksport
+      path: aktiviteter/eksport.csv
       filename: ''
       pager:
         type: none

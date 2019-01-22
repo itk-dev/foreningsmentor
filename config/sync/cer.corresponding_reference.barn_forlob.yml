@@ -1,0 +1,13 @@
+uuid: 4daec2e4-b2c4-481b-a48d-3cd30ca643e5
+langcode: da
+status: true
+dependencies: {  }
+id: barn_forlob
+label: 'Barn - Forløb'
+enabled: true
+first_field: field_child
+second_field: field_course
+bundles:
+  node:
+    - child
+    - course

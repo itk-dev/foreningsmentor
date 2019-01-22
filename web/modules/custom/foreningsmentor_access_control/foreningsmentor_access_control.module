@@ -37,6 +37,7 @@ function foreningsmentor_access_control_node_access_records(NodeInterface $node
 
   if ($node->getType() == 'child' ||
       $node->getType() == 'journal_entry' ||
+      $node->getType() == 'course' ||
       $node->getType() == 'activity') {
     // Define a specific grant for this child using nid as grant id.
     $grants[] = [
@@ -88,10 +89,21 @@ function foreningsmentor_access_control_node_grants(
     // Only show children that are marked as being mentored.
     // Disable access check to avoid triggering infinite loop, since access
     // checks apply to entity queries.
+    // Only give access to courses where the mentor is set.
+
+    // Give access to courses where mentor is current user.
+    $query = \Drupal::entityQuery('node')
+      ->condition('status', 1)
+      ->condition('type', 'course')
+      ->condition('field_mentor.target_id', $account->id())
+      ->accessCheck(FALSE);
+    $course_ids = $query->execute();
+
+    // Give access to children where the course is in courses_id.
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'child')
-      ->condition('field_mentor.target_id', $account->id())
+      ->condition('field_course.target_id', $course_ids, 'IN')
       ->accessCheck(FALSE);
     $child_ids = $query->execute();
 
@@ -99,7 +111,7 @@ function foreningsmentor_access_control_node_grants(
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'activity')
-      ->condition('field_mentor.target_id', $account->id())
+      ->condition('field_course.target_id', $course_ids, 'IN')
       ->accessCheck(FALSE);
     $activity_ids = $query->execute();
 
@@ -108,6 +120,7 @@ function foreningsmentor_access_control_node_grants(
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'journal_entry')
+      ->condition('field_course.target_id', $course_ids, 'IN')
       ->accessCheck(FALSE);
     $orCondition = $query->orConditionGroup()
       ->notExists('field_only_for_coordinators')
@@ -116,7 +129,7 @@ function foreningsmentor_access_control_node_grants(
     $journal_entry_ids = $query->execute();
 
     // Assign NID's as grant ID's
-    $grants['foreningsmentor_access_control'] = array_merge($child_ids, $journal_entry_ids, $activity_ids);
+    $grants['foreningsmentor_access_control'] = array_merge($child_ids, $journal_entry_ids, $course_ids, $activity_ids);
   }
 
   return $grants;

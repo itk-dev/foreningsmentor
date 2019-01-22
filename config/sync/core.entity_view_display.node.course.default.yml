@@ -16,30 +16,38 @@ dependencies:
     - node.type.course
   module:
     - datetime
-    - text
+    - field_group
     - user
+third_party_settings:
+  field_group:
+    group_barn:
+      children:
+        - field_child
+      parent_name: ''
+      weight: 6
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Barn
 id: node.course.default
 targetEntityType: node
 bundle: course
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_activities:
-    weight: 105
+    weight: 8
     label: above
     settings:
-      link: true
+      view_mode: basic
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_activity_type:
-    weight: 108
+    weight: 0
     label: above
     settings:
       link: true
@@ -47,15 +55,16 @@ content:
     type: entity_reference_label
     region: content
   field_child:
-    weight: 103
-    label: above
+    weight: 1
+    label: visually_hidden
     settings:
-      link: true
+      view_mode: basic
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_coordinators_end_status:
-    weight: 110
+    weight: 5
     label: above
     settings:
       link: true
@@ -63,7 +72,7 @@ content:
     type: entity_reference_label
     region: content
   field_date_end:
-    weight: 107
+    weight: 3
     label: above
     settings:
       format_type: medium
@@ -72,7 +81,7 @@ content:
     type: datetime_default
     region: content
   field_date_start:
-    weight: 106
+    weight: 2
     label: above
     settings:
       format_type: medium
@@ -81,7 +90,7 @@ content:
     type: datetime_default
     region: content
   field_diary:
-    weight: 102
+    weight: 7
     label: above
     settings:
       view_mode: teaser
@@ -90,7 +99,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_mentor:
-    weight: 104
+    weight: 1
     label: above
     settings:
       link: true
@@ -98,17 +107,14 @@ content:
     type: entity_reference_label
     region: content
   field_mentors_end_status:
-    weight: 109
+    weight: 4
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  body: true
   langcode: true
+  links: true

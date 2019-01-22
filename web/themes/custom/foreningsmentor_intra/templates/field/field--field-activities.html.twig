@@ -58,7 +58,7 @@
   {% for item in items %}
     {% if not item.content['#node'].field_date_end.value %}
     <li class="field__item">
-      <a href="/node/{{ item.content['#node'].id }}">{{ item.content }}</a>
+      <a href="/node/{{ item.content['#node'].id }}">{{ item.content['#node'].title.value }}</a>
     </li>
     {% endif %}
   {% endfor %}

@@ -16,6 +16,9 @@ function foreningsmentor_preprocess_node(&$variables) {
   $nodeType = $variables["node"]->getType();
 
   if ($nodeType == 'course') {
+    // Load child.
+    // Load child parents contact information.
+
     $variables['journal_form'] = \Drupal::formBuilder()
       ->getForm(\Drupal\foreningsmentor\Form\JournalForm::class,
         $variables["node"]);
