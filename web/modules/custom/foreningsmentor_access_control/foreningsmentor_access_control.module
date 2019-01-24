@@ -103,7 +103,7 @@ function foreningsmentor_access_control_node_grants(
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'child')
-      ->condition('field_course.target_id', $course_ids, 'IN')
+      ->condition('field_courses.target_id', $course_ids, 'IN')
       ->accessCheck(FALSE);
     $child_ids = $query->execute();
 

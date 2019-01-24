@@ -9,4 +9,5 @@ first_field: field_child
 second_field: field_courses
 bundles:
   node:
+    - child
     - course
