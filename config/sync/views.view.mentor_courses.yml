@@ -1,34 +1,30 @@
-uuid: 06f335c3-8dae-4092-9095-330d288ecab3
+uuid: 3b89f694-b835-43bb-8616-8c4117779dc2
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_activity_wishes
-    - field.storage.node.field_address
-    - field.storage.node.field_comments
-    - field.storage.node.field_date_registered
-    - field.storage.node.field_neighborhood
-    - field.storage.node.field_phone
-    - node.type.child
+    - field.storage.node.field_activity_type
+    - field.storage.node.field_coordinators_end_status
+    - field.storage.node.field_date_end
+    - field.storage.node.field_date_start
+    - field.storage.node.field_finished
+    - field.storage.node.field_mentor
+    - field.storage.node.field_mentors_end_status
+    - node.type.course
+    - taxonomy.vocabulary.activity_type
+    - taxonomy.vocabulary.coordinators_end_status
+    - taxonomy.vocabulary.mentors_end_status
     - taxonomy.vocabulary.neighborhood
-    - user.role.coordinator
+    - user.role.mentor
   module:
-    - csv_serialization
     - datetime
-    - foreningsmentor
     - node
-    - rest
-    - serialization
     - taxonomy
-    - telephone
-    - text
     - user
-    - views_add_button
-    - views_data_export
-id: waiting_list
-label: Venteliste
+id: mentor_courses
+label: Mentorforløb
 module: views
-description: 'Liste med alle børn'
+description: 'Liste over alle forløb'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -44,7 +40,7 @@ display:
         type: role
         options:
           role:
-            coordinator: coordinator
+            mentor: mentor
       cache:
         type: tag
         options: {  }
@@ -97,11 +93,14 @@ display:
           description: ''
           columns:
             title: title
-            field_activity_wishes: field_activity_wishes
-            field_comments: field_comments
-            field_date_registered: field_date_registered
-            field_neighborhood: field_neighborhood
-            field_address: field_address
+            title_1: title_1
+            field_mentor: field_mentor
+            field_date_start: field_date_start
+            field_date_end: field_date_end
+            field_activity_type: field_activity_type
+            field_mentors_end_status: field_mentors_end_status
+            field_coordinators_end_status: field_coordinators_end_status
+            field_finished: field_finished
           info:
             title:
               sortable: true
@@ -110,38 +109,63 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_activity_wishes:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_comments:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_date_registered:
+            title_1:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_neighborhood:
+            field_mentor:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_address:
+            field_date_start:
+              sortable: true
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-          default: title
+            field_date_end:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_activity_type:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_mentors_end_status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_coordinators_end_status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_finished:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
           empty_table: false
       row:
         type: fields
@@ -150,10 +174,57 @@ display:
           id: title
           table: node_field_data
           field: title
+          entity_type: node
+          entity_field: title
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            trim: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            html: false
+          hide_empty: false
+          empty_zero: false
+          settings:
+            link_to_entity: true
+          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
-          label: Navn
+          label: Titel
+          exclude: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        title_1:
+          id: title_1
+          table: node_field_data
+          field: title
+          relationship: field_child
+          group_type: group
+          admin_label: ''
+          label: Barn
           exclude: false
           alter:
             alter_text: false
@@ -173,8 +244,8 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: false
-            ellipsis: false
+            word_boundary: true
+            ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -211,204 +282,15 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-        field_activity_wishes:
-          id: field_activity_wishes
-          table: node__field_activity_wishes
-          field: field_activity_wishes
+        field_mentor:
+          id: field_mentor
+          table: node__field_mentor
+          field: field_mentor
           relationship: none
           group_type: group
           admin_label: ''
-          label: Aktivitetsønsker
+          label: Mentor
           exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: basic_string
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_comments:
-          id: field_comments
-          table: node__field_comments
-          field: field_comments
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Bemærkninger
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_trimmed
-          settings:
-            trim_length: 100
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_date_registered:
-          id: field_date_registered
-          table: node__field_date_registered
-          field: field_date_registered
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Dato f. registrering'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_default
-          settings:
-            timezone_override: ''
-            format_type: html_date
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_neighborhood:
-          id: field_neighborhood
-          table: node__field_neighborhood
-          field: field_neighborhood
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Indsatsområde
-          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -463,14 +345,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_address:
-          id: field_address
-          table: node__field_address
-          field: field_address
-          relationship: field_parents
+        field_date_start:
+          id: field_date_start
+          table: node__field_date_start
+          field: field_date_start
+          relationship: none
           group_type: group
           admin_label: ''
-          label: Adresse
+          label: Startdato
           exclude: false
           alter:
             alter_text: false
@@ -512,8 +394,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: address_dawa_clean
-          settings: {  }
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: short_no_time
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -525,14 +409,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_phone:
-          id: field_phone
-          table: node__field_phone
-          field: field_phone
-          relationship: field_parents
+        field_date_end:
+          id: field_date_end
+          table: node__field_date_end
+          field: field_date_end
+          relationship: none
           group_type: group
           admin_label: ''
-          label: Tlf
+          label: Afslutningsdato
           exclude: false
           alter:
             alter_text: false
@@ -574,9 +458,264 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: telephone_link
+          type: datetime_default
           settings:
-            title: ''
+            timezone_override: ''
+            format_type: short_no_time
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_activity_type:
+          id: field_activity_type
+          table: node__field_activity_type
+          field: field_activity_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Forløbstype
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_mentors_end_status:
+          id: field_mentors_end_status
+          table: node__field_mentors_end_status
+          field: field_mentors_end_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Mentors afslutning'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_coordinators_end_status:
+          id: field_coordinators_end_status
+          table: node__field_coordinators_end_status
+          field: field_coordinators_end_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Koordinatorens afslutning'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_finished:
+          id: field_finished
+          table: node__field_finished
+          field: field_finished
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Afsluttet
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: yes-no
+            format_custom_true: ''
+            format_custom_false: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -604,12 +743,42 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            child: child
+            course: course
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          group: 1
         title:
           id: title
           table: node_field_data
@@ -617,13 +786,13 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
+          operator: '='
           value: ''
           group: 1
           exposed: true
           expose:
             operator_id: title_op
-            label: Navn
+            label: Titel
             description: ''
             use_operator: false
             operator: title_op
@@ -635,7 +804,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
               mentor: '0'
-              pm: '0'
               coordinator: '0'
             placeholder: ''
           is_grouped: false
@@ -657,7 +825,7 @@ display:
           id: field_neighborhood_target_id
           table: node__field_neighborhood
           field: field_neighborhood_target_id
-          relationship: none
+          relationship: field_child
           group_type: group
           admin_label: ''
           operator: or
@@ -678,7 +846,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
               mentor: '0'
-              pm: '0'
               coordinator: '0'
             reduce: false
           is_grouped: false
@@ -700,119 +867,33 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-        delta_1:
-          id: delta_1
-          table: node__field_parents
-          field: delta
+        field_activity_type_target_id:
+          id: field_activity_type_target_id
+          table: node__field_activity_type
+          field: field_activity_type_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
-        delta:
-          id: delta
-          table: node__field_parents
-          field: delta
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: '0'
-          group: 2
-          exposed: false
-          expose:
-            operator_id: delta_op
-            label: 'Forældre (field_parents:delta)'
-            description: null
-            use_operator: false
-            operator: delta_op
-            identifier: delta
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: null
-            min_placeholder: null
-            max_placeholder: null
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
-        field_courses_target_id:
-          id: field_courses_target_id
-          table: node__field_courses
-          field: field_courses_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
+          operator: or
+          value: {  }
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
+            operator_id: field_activity_type_target_id_op
+            label: Forløbstype
             description: ''
             use_operator: false
-            operator: ''
-            identifier: ''
+            operator: field_activity_type_target_id_op
+            identifier: field_activity_type_target_id
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -825,67 +906,141 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: numeric
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: activity_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_mentors_end_status_target_id:
+          id: field_mentors_end_status_target_id
+          table: node__field_mentors_end_status
+          field: field_mentors_end_status_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_mentors_end_status_target_id_op
+            label: 'Mentors afslutning'
+            description: ''
+            use_operator: false
+            operator: field_mentors_end_status_target_id_op
+            identifier: field_mentors_end_status_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: mentors_end_status
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_coordinators_end_status_target_id:
+          id: field_coordinators_end_status_target_id
+          table: node__field_coordinators_end_status
+          field: field_coordinators_end_status_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_coordinators_end_status_target_id_op
+            label: 'Koordinators afslutning'
+            description: ''
+            use_operator: false
+            operator: field_coordinators_end_status_target_id_op
+            identifier: field_coordinators_end_status_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: coordinators_end_status
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
-        title:
-          id: title
+        created:
+          id: created
           table: node_field_data
-          field: title
-          order: ASC
+          field: created
+          order: DESC
           entity_type: node
-          entity_field: title
-          plugin_id: standard
+          entity_field: created
+          plugin_id: date
           relationship: none
           group_type: group
           admin_label: ''
           exposed: false
           expose:
             label: ''
-      title: Venteliste
+          granularity: second
+      title: Forløb
       header: {  }
-      footer:
-        views_add_button:
-          id: views_add_button
-          table: views
-          field: views_add_button
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: 0
-          type: node+child
-          context: ''
-          button_text: 'Add child'
-          button_classes: button
-          query_string: ''
-          destination: 1
-          plugin_id: views_add_button_area
+      footer: {  }
       empty: {  }
       relationships:
-        field_parents:
-          id: field_parents
-          table: node__field_parents
-          field: field_parents
+        field_child:
+          id: field_child
+          table: node__field_child
+          field: field_child
           relationship: none
           group_type: group
-          admin_label: 'field_parents: Indhold'
+          admin_label: 'field_child: Indhold'
           required: false
           plugin_id: standard
-      arguments:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          entity_type: node
-          entity_field: nid
-          plugin_id: node_nid
+      arguments: {  }
       display_extenders: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
-          2: OR
-      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -897,69 +1052,13 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_activity_wishes'
-        - 'config:field.storage.node.field_address'
-        - 'config:field.storage.node.field_comments'
-        - 'config:field.storage.node.field_date_registered'
-        - 'config:field.storage.node.field_neighborhood'
-        - 'config:field.storage.node.field_phone'
-  data_export_1:
-    display_plugin: data_export
-    id: data_export_1
-    display_title: 'Data export'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      style:
-        type: data_export
-        options:
-          formats:
-            csv: csv
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
-          xls_settings:
-            xls_format: Excel2007
-            metadata:
-              creator: ''
-              last_modified_by: ''
-              title: ''
-              description: ''
-              subject: ''
-              keywords: ''
-              category: ''
-              manager: ''
-              company: ''
-      path: venteliste/eksport
-      filename: ''
-      displays:
-        page_1: page_1
-        default: '0'
-      pager:
-        type: none
-        options:
-          offset: 0
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - request_format
-        - url
-        - user
-        - 'user.node_grants:view'
-        - user.roles
-      tags:
-        - 'config:field.storage.node.field_activity_wishes'
-        - 'config:field.storage.node.field_address'
-        - 'config:field.storage.node.field_comments'
-        - 'config:field.storage.node.field_date_registered'
-        - 'config:field.storage.node.field_neighborhood'
-        - 'config:field.storage.node.field_phone'
+        - 'config:field.storage.node.field_activity_type'
+        - 'config:field.storage.node.field_coordinators_end_status'
+        - 'config:field.storage.node.field_date_end'
+        - 'config:field.storage.node.field_date_start'
+        - 'config:field.storage.node.field_finished'
+        - 'config:field.storage.node.field_mentor'
+        - 'config:field.storage.node.field_mentors_end_status'
   page_1:
     display_plugin: page
     id: page_1
@@ -967,7 +1066,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: venteliste
+      path: mentor/forlob
     cache_metadata:
       max-age: -1
       contexts:
@@ -979,9 +1078,10 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_activity_wishes'
-        - 'config:field.storage.node.field_address'
-        - 'config:field.storage.node.field_comments'
-        - 'config:field.storage.node.field_date_registered'
-        - 'config:field.storage.node.field_neighborhood'
-        - 'config:field.storage.node.field_phone'
+        - 'config:field.storage.node.field_activity_type'
+        - 'config:field.storage.node.field_coordinators_end_status'
+        - 'config:field.storage.node.field_date_end'
+        - 'config:field.storage.node.field_date_start'
+        - 'config:field.storage.node.field_finished'
+        - 'config:field.storage.node.field_mentor'
+        - 'config:field.storage.node.field_mentors_end_status'
