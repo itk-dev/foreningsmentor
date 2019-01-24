@@ -445,7 +445,7 @@ display:
     display_options:
       display_extenders: {  }
       path: foreninger/eksport
-      filename: ''
+      filename: foreninger.csv
       displays:
         page_1: page_1
         default: '0'
@@ -455,7 +455,7 @@ display:
           formats:
             csv: csv
           csv_settings:
-            delimiter: ','
+            delimiter: ;
             enclosure: '"'
             escape_char: \
             strip_tags: true
