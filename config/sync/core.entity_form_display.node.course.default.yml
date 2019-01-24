@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.course.field_activity_type
     - field.field.node.course.field_child
     - field.field.node.course.field_coordinators_end_status
+    - field.field.node.course.field_course_type_text
     - field.field.node.course.field_date_end
     - field.field.node.course.field_date_start
     - field.field.node.course.field_diary
@@ -25,17 +26,8 @@ targetEntityType: node
 bundle: course
 mode: default
 content:
-  field_activities:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_activity_type:
-    weight: 6
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -55,14 +47,22 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  field_course_type_text:
+    weight: 6
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
   field_date_end:
-    weight: 5
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_date_start:
-    weight: 4
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -76,7 +76,7 @@ content:
     type: text_textarea
     region: content
   field_finished:
-    weight: 26
+    weight: 11
     settings:
       display_label: true
     third_party_settings: {  }
@@ -116,6 +116,7 @@ content:
 hidden:
   body: true
   created: true
+  field_activities: true
   field_diary: true
   langcode: true
   path: true

@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.course.field_activity_type
     - field.field.node.course.field_child
     - field.field.node.course.field_coordinators_end_status
+    - field.field.node.course.field_course_type_text
     - field.field.node.course.field_date_end
     - field.field.node.course.field_date_start
     - field.field.node.course.field_diary
@@ -74,6 +75,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_course_type_text:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_date_end:
     weight: 3
