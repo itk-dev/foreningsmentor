@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_activity_wishes
     - field.storage.node.field_comments
-    - field.storage.node.field_course
+    - field.storage.node.field_courses
     - field.storage.node.field_date_registered
     - field.storage.node.field_mentor
     - field.storage.node.field_neighborhood
@@ -523,10 +523,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_course:
-          id: field_course
-          table: node__field_course
-          field: field_course
+        field_courses:
+          id: field_courses
+          table: node__field_courses
+          field: field_courses
           relationship: none
           group_type: group
           admin_label: ''
@@ -762,7 +762,7 @@ display:
       tags:
         - 'config:field.storage.node.field_activity_wishes'
         - 'config:field.storage.node.field_comments'
-        - 'config:field.storage.node.field_course'
+        - 'config:field.storage.node.field_courses'
         - 'config:field.storage.node.field_date_registered'
         - 'config:field.storage.node.field_neighborhood'
   data_export_1:
@@ -1225,6 +1225,6 @@ display:
       tags:
         - 'config:field.storage.node.field_activity_wishes'
         - 'config:field.storage.node.field_comments'
-        - 'config:field.storage.node.field_course'
+        - 'config:field.storage.node.field_courses'
         - 'config:field.storage.node.field_date_registered'
         - 'config:field.storage.node.field_neighborhood'

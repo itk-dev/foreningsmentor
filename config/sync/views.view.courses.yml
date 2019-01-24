@@ -11,9 +11,14 @@ dependencies:
     - field.storage.node.field_mentor
     - field.storage.node.field_mentors_end_status
     - node.type.course
+    - taxonomy.vocabulary.activity_type
+    - taxonomy.vocabulary.coordinators_end_status
+    - taxonomy.vocabulary.mentors_end_status
+    - taxonomy.vocabulary.neighborhood
   module:
     - datetime
     - node
+    - taxonomy
     - user
 id: courses
 label: Forløb
@@ -75,6 +80,91 @@ display:
             next: ››
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            title_1: title_1
+            field_mentor: field_mentor
+            field_date_start: field_date_start
+            field_date_end: field_date_end
+            field_activity_type: field_activity_type
+            field_mentors_end_status: field_mentors_end_status
+            field_coordinators_end_status: field_coordinators_end_status
+            field_finished: field_finished
+          info:
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_mentor:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date_start:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date_end:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_activity_type:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_mentors_end_status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_coordinators_end_status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_finished:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
@@ -687,6 +777,232 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Titel
+            description: ''
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_neighborhood_target_id:
+          id: field_neighborhood_target_id
+          table: node__field_neighborhood
+          field: field_neighborhood_target_id
+          relationship: field_child
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_neighborhood_target_id_op
+            label: Indsatsområde
+            description: ''
+            use_operator: false
+            operator: field_neighborhood_target_id_op
+            identifier: field_neighborhood_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: neighborhood
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_activity_type_target_id:
+          id: field_activity_type_target_id
+          table: node__field_activity_type
+          field: field_activity_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_activity_type_target_id_op
+            label: Forløbstype
+            description: ''
+            use_operator: false
+            operator: field_activity_type_target_id_op
+            identifier: field_activity_type_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: activity_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_mentors_end_status_target_id:
+          id: field_mentors_end_status_target_id
+          table: node__field_mentors_end_status
+          field: field_mentors_end_status_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_mentors_end_status_target_id_op
+            label: 'Mentors afslutning'
+            description: ''
+            use_operator: false
+            operator: field_mentors_end_status_target_id_op
+            identifier: field_mentors_end_status_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: mentors_end_status
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_coordinators_end_status_target_id:
+          id: field_coordinators_end_status_target_id
+          table: node__field_coordinators_end_status
+          field: field_coordinators_end_status_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_coordinators_end_status_target_id_op
+            label: 'Koordinators afslutning'
+            description: ''
+            use_operator: false
+            operator: field_coordinators_end_status_target_id_op
+            identifier: field_coordinators_end_status_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: coordinators_end_status
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -719,12 +1035,18 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -748,7 +1070,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:

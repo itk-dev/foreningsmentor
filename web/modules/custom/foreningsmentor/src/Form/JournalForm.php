@@ -35,12 +35,14 @@ class JournalForm extends FormBase {
     $form['add_journal_entry']['title'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Headline'),
+      '#required' => TRUE,
       '#description' => $this->t('The journal entry headline'),
       '#weight' => '0',
     ];
     $form['add_journal_entry']['body'] = [
       '#type' => 'textarea',
       '#title' => $this->t('The journal entry'),
+      '#required' => TRUE,
       '#description' => $this->t('The journal entry'),
       '#weight' => '1',
     ];

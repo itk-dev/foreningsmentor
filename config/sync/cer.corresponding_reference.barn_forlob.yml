@@ -6,8 +6,7 @@ id: barn_forlob
 label: 'Barn - Forløb'
 enabled: true
 first_field: field_child
-second_field: field_course
+second_field: field_courses
 bundles:
   node:
-    - child
     - course
