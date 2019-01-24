@@ -4,15 +4,11 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_activity
-    - field.storage.node.field_activity_type
     - field.storage.node.field_child
     - field.storage.node.field_club
-    - field.storage.node.field_coordinators_end_status
+    - field.storage.node.field_course
+    - field.storage.node.field_date_end
     - field.storage.node.field_date_start
-    - field.storage.node.field_mentor
-    - field.storage.node.field_mentors_end_status
-    - field.storage.user.field_name
-    - field.storage.user.field_own_mobile
     - node.type.activity
     - user.role.coordinator
   module:
@@ -21,7 +17,6 @@ dependencies:
     - node
     - rest
     - serialization
-    - telephone
     - user
     - views_data_export
 id: active_activities
@@ -85,80 +80,78 @@ display:
             next: ››
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            field_child: field_child
+            field_activity: field_activity
+            field_course: field_course
+            field_club: field_club
+            field_date_start: field_date_start
+            field_date_end: field_date_end
+          info:
+            field_child:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_activity:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_course:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_club:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date_start:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date_end:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
-        field_child:
-          id: field_child
-          table: node__field_child
-          field: field_child
+        title:
+          id: title
+          table: node_field_data
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
-          label: Barn
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_name:
-          id: field_name
-          table: user__field_name
-          field: field_name
-          relationship: field_mentor
-          group_type: group
-          admin_label: ''
-          label: Mentor
+          label: Titel
           exclude: false
           alter:
             alter_text: false
@@ -202,7 +195,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -213,132 +206,8 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
-        field_mentor:
-          id: field_mentor
-          table: node__field_mentor
-          field: field_mentor
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Mentors bruger'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_own_mobile:
-          id: field_own_mobile
-          table: user__field_own_mobile
-          field: field_own_mobile
-          relationship: field_mentor
-          group_type: group
-          admin_label: ''
-          label: 'Mentors telefon'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: telephone_link
-          settings:
-            title: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+          entity_type: node
+          entity_field: title
           plugin_id: field
         field_activity:
           id: field_activity
@@ -403,61 +272,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
-          relationship: none
+        field_child:
+          id: field_child
+          table: node__field_child
+          field: field_child
+          relationship: field_course
           group_type: group
           admin_label: ''
-          label: Titel
-          exclude: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_activity_type:
-          id: field_activity_type
-          table: node__field_activity_type
-          field: field_activity_type
-          relationship: field_child
-          group_type: group
-          admin_label: ''
-          label: Forløbstype
+          label: Barn
           exclude: false
           alter:
             alter_text: false
@@ -513,77 +335,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_mentors_end_status:
-          id: field_mentors_end_status
-          table: node__field_mentors_end_status
-          field: field_mentors_end_status
+        field_course:
+          id: field_course
+          table: node__field_course
+          field: field_course
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Mentors afslutning'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_coordinators_end_status:
-          id: field_coordinators_end_status
-          table: node__field_coordinators_end_status
-          field: field_coordinators_end_status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Koordinatorens afslutning'
+          label: Forløb
           exclude: false
           alter:
             alter_text: false
@@ -702,73 +461,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        changed:
-          id: changed
-          table: node_field_data
-          field: changed
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Ændret
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: timestamp
-          settings:
-            date_format: short_no_time
-            custom_date_format: ''
-            timezone: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: changed
-          plugin_id: field
         field_date_start:
           id: field_date_start
           table: node__field_date_start
@@ -776,7 +468,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Opstartsdato
+          label: Startdato
           exclude: false
           alter:
             alter_text: false
@@ -821,7 +513,71 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: short_no_time
+            format_type: medium
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_date_end:
+          id: field_date_end
+          table: node__field_date_end
+          field: field_date_end
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Afslutningsdato
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: medium
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -854,6 +610,48 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Titel
+            description: ''
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
       sorts:
         created:
           id: created
@@ -875,22 +673,13 @@ display:
       footer: {  }
       empty: {  }
       relationships:
-        field_child:
-          id: field_child
-          table: node__field_child
-          field: field_child
+        field_course:
+          id: field_course
+          table: node__field_course
+          field: field_course
           relationship: none
           group_type: group
-          admin_label: 'field_child: Indhold'
-          required: false
-          plugin_id: standard
-        field_mentor:
-          id: field_mentor
-          table: node__field_mentor
-          field: field_mentor
-          relationship: none
-          group_type: group
-          admin_label: 'field_mentor: Bruger'
+          admin_label: 'field_course: Indhold'
           required: false
           plugin_id: standard
       arguments: {  }
@@ -900,20 +689,17 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.roles
       tags:
         - 'config:field.storage.node.field_activity'
-        - 'config:field.storage.node.field_activity_type'
         - 'config:field.storage.node.field_child'
         - 'config:field.storage.node.field_club'
-        - 'config:field.storage.node.field_coordinators_end_status'
+        - 'config:field.storage.node.field_course'
+        - 'config:field.storage.node.field_date_end'
         - 'config:field.storage.node.field_date_start'
-        - 'config:field.storage.node.field_mentor'
-        - 'config:field.storage.node.field_mentors_end_status'
-        - 'config:field.storage.user.field_name'
-        - 'config:field.storage.user.field_own_mobile'
   data_export_1:
     display_plugin: data_export
     id: data_export_1
@@ -960,19 +746,16 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - 'user.node_grants:view'
         - user.roles
       tags:
         - 'config:field.storage.node.field_activity'
-        - 'config:field.storage.node.field_activity_type'
         - 'config:field.storage.node.field_child'
         - 'config:field.storage.node.field_club'
-        - 'config:field.storage.node.field_coordinators_end_status'
+        - 'config:field.storage.node.field_course'
+        - 'config:field.storage.node.field_date_end'
         - 'config:field.storage.node.field_date_start'
-        - 'config:field.storage.node.field_mentor'
-        - 'config:field.storage.node.field_mentors_end_status'
-        - 'config:field.storage.user.field_name'
-        - 'config:field.storage.user.field_own_mobile'
   page_1:
     display_plugin: page
     id: page_1
@@ -986,17 +769,14 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.roles
       tags:
         - 'config:field.storage.node.field_activity'
-        - 'config:field.storage.node.field_activity_type'
         - 'config:field.storage.node.field_child'
         - 'config:field.storage.node.field_club'
-        - 'config:field.storage.node.field_coordinators_end_status'
+        - 'config:field.storage.node.field_course'
+        - 'config:field.storage.node.field_date_end'
         - 'config:field.storage.node.field_date_start'
-        - 'config:field.storage.node.field_mentor'
-        - 'config:field.storage.node.field_mentors_end_status'
-        - 'config:field.storage.user.field_name'
-        - 'config:field.storage.user.field_own_mobile'
