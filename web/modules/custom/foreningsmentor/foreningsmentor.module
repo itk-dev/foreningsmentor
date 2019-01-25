@@ -35,11 +35,9 @@ function foreningsmentor_preprocess_node_add_list(&$variables) {
   // Remove types from node add list.
   unset($variables["types"]['activity']);
   unset($variables["types"]['bricky']);
-  unset($variables["types"]['course']);
   unset($variables["types"]['journal_entry']);
   unset($variables["content"]["activity"]);
   unset($variables["content"]["bricky"]);
-  unset($variables["content"]["course"]);
   unset($variables["content"]["journal_entry"]);
 }
 
