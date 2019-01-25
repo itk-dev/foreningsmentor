@@ -30,7 +30,7 @@ bundle: child
 mode: default
 content:
   field_activity_wishes:
-    weight: 1
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -38,13 +38,13 @@ content:
     type: string_textarea
     region: content
   field_birthday:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_comments:
-    weight: 7
+    weight: 8
     settings:
       rows: 5
       placeholder: ''
@@ -52,7 +52,7 @@ content:
     type: text_textarea
     region: content
   field_courses:
-    weight: 26
+    weight: 14
     settings:
       form_mode: inlineform
       label_singular: ''
@@ -68,13 +68,13 @@ content:
     type: inline_entity_form_complex
     region: content
   field_date_registered:
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_neighborhood:
-    weight: 11
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -96,7 +96,7 @@ content:
     type: inline_entity_form_complex
     region: content
   field_referer:
-    weight: 8
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -105,21 +105,21 @@ content:
     region: content
   field_referer_email:
     type: email_default
-    weight: 10
+    weight: 11
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_referer_phone:
-    weight: 9
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
     region: content
   field_school:
-    weight: 4
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -127,13 +127,13 @@ content:
     type: string_textfield
     region: content
   field_sex:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_shool_class:
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
