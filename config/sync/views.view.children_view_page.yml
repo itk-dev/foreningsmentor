@@ -717,16 +717,7 @@ display:
       header: {  }
       footer: {  }
       empty: {  }
-      relationships:
-        field_course:
-          id: field_course
-          table: node__field_course
-          field: field_course
-          relationship: none
-          group_type: group
-          admin_label: 'field_course: Indhold'
-          required: false
-          plugin_id: standard
+      relationships: {  }
       arguments: {  }
       display_extenders: {  }
       filter_groups:
@@ -1275,7 +1266,14 @@ display:
           type: node+child
           context: ''
           button_text: 'Add child'
-          button_classes: button
+          button_classes: 'button button-primary'
+          button_attributes: ''
+          button_prefix:
+            value: ''
+            format: filtered_html
+          button_suffix:
+            value: ''
+            format: filtered_html
           query_string: ''
           destination: 1
           plugin_id: views_add_button_area

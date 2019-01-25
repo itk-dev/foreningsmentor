@@ -24,6 +24,7 @@ dependencies:
     - serialization
     - taxonomy
     - user
+    - views_add_button
     - views_data_export
 id: courses
 label: Forløb
@@ -1026,7 +1027,30 @@ display:
             label: ''
           granularity: second
       title: Forløb
-      header: {  }
+      header:
+        views_add_button:
+          id: views_add_button
+          table: views
+          field: views_add_button
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: 0
+          type: node+course
+          context: ''
+          button_text: 'Add course'
+          button_classes: 'button button-primary'
+          button_attributes: ''
+          button_prefix:
+            value: ''
+            format: filtered_html
+          button_suffix:
+            value: ''
+            format: filtered_html
+          query_string: ''
+          destination: 1
+          plugin_id: views_add_button_area
       footer: {  }
       empty: {  }
       relationships:

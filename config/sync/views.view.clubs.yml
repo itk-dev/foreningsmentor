@@ -7,6 +7,7 @@ dependencies:
     - field.storage.node.field_available_activities
     - field.storage.node.field_homepage
     - node.type.club
+    - taxonomy.vocabulary.activities
     - user.role.coordinator
   module:
     - csv_serialization
@@ -15,6 +16,7 @@ dependencies:
     - node
     - rest
     - serialization
+    - taxonomy
     - user
     - views_add_button
     - views_data_export
@@ -404,6 +406,94 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Titel
+            description: ''
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_available_activities_target_id:
+          id: field_available_activities_target_id
+          table: node__field_available_activities
+          field: field_available_activities_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_available_activities_target_id_op
+            label: 'Tilgængelige aktiviteter'
+            description: ''
+            use_operator: false
+            operator: field_available_activities_target_id_op
+            identifier: field_available_activities_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: activities
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -432,7 +522,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -807,6 +899,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -834,7 +928,14 @@ display:
           type: node+club
           context: ''
           button_text: 'Add club'
-          button_classes: button
+          button_classes: 'button button-primary'
+          button_attributes: ''
+          button_prefix:
+            value: ''
+            format: filtered_html
+          button_suffix:
+            value: ''
+            format: filtered_html
           query_string: ''
           destination: 1
           plugin_id: views_add_button_area
@@ -845,7 +946,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:

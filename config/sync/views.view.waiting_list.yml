@@ -850,8 +850,7 @@ display:
           expose:
             label: ''
       title: Venteliste
-      header: {  }
-      footer:
+      header:
         views_add_button:
           id: views_add_button
           table: views
@@ -864,10 +863,18 @@ display:
           type: node+child
           context: ''
           button_text: 'Add child'
-          button_classes: button
+          button_classes: 'button button-primary'
+          button_attributes: ''
+          button_prefix:
+            value: ''
+            format: filtered_html
+          button_suffix:
+            value: ''
+            format: filtered_html
           query_string: ''
           destination: 1
           plugin_id: views_add_button_area
+      footer: {  }
       empty: {  }
       relationships:
         field_parents:

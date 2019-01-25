@@ -91,3 +91,34 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
 .foreningsmentor-intra--feed-icon {
   margin: 1em;
 }
+
+.adminimal .button-primary {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #0062cc;
+}
+
+.adminimal .button-primary:hover,
+.adminimal .button-primary:active {
+  background-color: #003295;
+  border-color: #003295;
+}
+
+.adminimal .button-secondary,
+.adminimal .button-secondary:focus,
+.adminimal .button-secondary:visited {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.adminimal .button-secondary:hover,
+.adminimal .button-secondary:active {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.foreningsmentor-intra--region {
+  margin-top: 1em;
+}

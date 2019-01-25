@@ -15,6 +15,7 @@ dependencies:
     - field.field.user.user.field_profile_image
     - field.field.user.user.field_public_description
     - field.field.user.user.field_start_interview
+    - image.style.foreningsmentor_240x240
   module:
     - datetime
     - foreningsmentor
@@ -101,7 +102,7 @@ content:
     weight: 11
     label: above
     settings:
-      image_style: ''
+      image_style: foreningsmentor_240x240
       image_link: ''
     third_party_settings: {  }
     type: image
