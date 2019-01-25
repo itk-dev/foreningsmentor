@@ -28,7 +28,7 @@
         "drupal/bricks": "^1.6",
         "drupal/cer": "^4.0@alpha",
         "drupal/console": "^1.8",
-        "drupal/core": "^8.6.0",
+        "drupal/core": "~8.0",
         "drupal/eck": "^1.0@alpha",
         "drupal/field_group": "^1.0",
         "drupal/field_permissions": "^1.0@RC",
