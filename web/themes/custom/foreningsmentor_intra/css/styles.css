@@ -8,6 +8,15 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
   list-style-type: none;
 }
 
+ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded,
+ul.menu.foreningsmentor-intra--menu--intranet .menu-item--collapsed {
+  list-style-image: none;
+}
+
+ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
+  background-color: #444;
+}
+
 .foreningsmentor-intra--menu--intranet li {
   float: left;
 }
@@ -16,7 +25,7 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: .8em 1em;
   text-decoration: none;
 }
 
