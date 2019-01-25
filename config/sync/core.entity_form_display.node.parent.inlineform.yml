@@ -1,8 +1,9 @@
-uuid: 112a5e0c-fd55-49a9-b53c-beffee788b05
+uuid: d139a9df-8e0e-477b-8f2e-f9484978c937
 langcode: da
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.inlineform
     - field.field.node.parent.body
     - field.field.node.parent.field_address
     - field.field.node.parent.field_children
@@ -12,10 +13,10 @@ dependencies:
   module:
     - address_dawa
     - telephone
-id: node.parent.default
+id: node.parent.inlineform
 targetEntityType: node
 bundle: parent
-mode: default
+mode: inlineform
 content:
   field_address:
     weight: 1
@@ -25,15 +26,6 @@ content:
     third_party_settings: {  }
     type: address_dawa
     region: content
-  field_children:
-    type: entity_reference_autocomplete
-    weight: 4
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_email:
     weight: 2
     settings:
@@ -60,6 +52,7 @@ content:
 hidden:
   body: true
   created: true
+  field_children: true
   langcode: true
   path: true
   promote: true

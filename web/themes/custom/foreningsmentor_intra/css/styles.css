@@ -90,9 +90,12 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
 
 .foreningsmentor-intra--feed-icon {
   margin: 1em;
+  float: right;
 }
 
-.adminimal .button-primary {
+.adminimal .button-primary,
+.adminimal .button-primary:focus,
+.adminimal .button-primary:visited {
   color: #fff;
   background-color: #0062cc;
   border-color: #0062cc;
@@ -121,4 +124,9 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
 
 .foreningsmentor-intra--region {
   margin-top: 1em;
+}
+
+.view-header {
+  display: flex;
+  flex-flow: row-reverse;
 }

@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Enables better_exposed_filters.
+ */
+function foreningsmentor_update_8101(&$sandbox) {
+  $module_list = array(
+    'better_exposed_filters'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+}
