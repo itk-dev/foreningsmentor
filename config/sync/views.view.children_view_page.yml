@@ -698,6 +698,65 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        field_courses_target_id:
+          id: field_courses_target_id
+          table: node__field_courses
+          field: field_courses_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_courses_target_id_op
+            label: 'Forløb (field_courses)'
+            description: ''
+            use_operator: false
+            operator: field_courses_target_id_op
+            identifier: field_courses_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: Forløb
+            description: ''
+            identifier: field_courses_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Har ikke forløb'
+                operator: empty
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+              2:
+                title: 'Har forløb'
+                operator: 'not empty'
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+          plugin_id: numeric
       sorts:
         title:
           id: title
