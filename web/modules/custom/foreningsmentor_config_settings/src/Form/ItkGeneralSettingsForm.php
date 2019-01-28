@@ -50,13 +50,6 @@ class ItkGeneralSettingsForm extends FormBase {
       '#group' => 'general_settings',
     ];
 
-    $form['footer']['footer_menu_link'] = [
-      '#title' => $this->t('Footer bottom menu'),
-      '#type' => 'details',
-      '#open' => TRUE,
-      '#weight' => '5',
-    ];
-
     $form['footer']['footer_text'] = [
       '#title' => $this->t('Footer text first column'),
       '#type' => 'text_format',
@@ -66,26 +59,10 @@ class ItkGeneralSettingsForm extends FormBase {
     ];
 
     $form['footer']['footer_text_2nd'] = [
-      '#title' => $this->t('Footer text seccond column'),
+      '#title' => $this->t('Footer text second column'),
       '#type' => 'text_format',
       '#format' => 'filtered_html',
       '#default_value' => $config->get('footer_text_2nd'),
-      '#weight' => '1',
-    ];
-
-    $form['footer']['footer_text_3rd'] = [
-      '#title' => $this->t('Footer text third column'),
-      '#type' => 'text_format',
-      '#format' => 'filtered_html',
-      '#default_value' => $config->get('footer_text_3rd'),
-      '#weight' => '1',
-    ];
-
-    $form['footer']['footer_text_4th'] = [
-      '#title' => $this->t('Footer text forth column'),
-      '#type' => 'text_format',
-      '#format' => 'filtered_html',
-      '#default_value' => $config->get('footer_text_4th'),
       '#weight' => '1',
     ];
 
@@ -125,7 +102,6 @@ class ItkGeneralSettingsForm extends FormBase {
     $this->getBaseConfig()->setMultiple([
       'footer_text' => $form_state->getValue('footer_text')['value'],
       'footer_text_2nd' => $form_state->getValue('footer_text_2nd')['value'],
-      'footer_text_3rd' => $form_state->getValue('footer_text_3rd')['value'],
       'frontpage_id' => $form_state->getValue('frontpage_id'),
     ]);
 

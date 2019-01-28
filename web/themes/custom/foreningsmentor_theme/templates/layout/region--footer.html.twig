@@ -24,33 +24,13 @@
         {% endif %}
       </div>
       <div class="col-md-6 mb-3">
-        <div class="row">
-          <div class="col">
-            {% if (custom_config_exists) %}
-              {% if (footer_second) %}
-                {{ footer_second|raw }}
-              {% endif %}
-            {% endif %}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            {% if (custom_config_exists) %}
-              {% if (custom_config_exists) %}
-                {% if (footer_third) %}
-                  {{ footer_third|raw }}
-                {% endif %}
-              {% endif %}
-            {% endif %}
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
         {% if (custom_config_exists) %}
-          {% if (footer_forth) %}
-            {{ footer_forth|raw }}
+          {% if (footer_second) %}
+            {{ footer_second|raw }}
           {% endif %}
         {% endif %}
+      </div>
+      <div class="col-md-3 mb-3">
         {% if content %}
           {{ content }}
         {% endif %}

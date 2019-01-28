@@ -10,6 +10,7 @@ permissions:
   - 'access brick entity listing'
   - 'access content'
   - 'access content overview'
+  - 'access itk admin settings'
   - 'access referenced_content entity listing'
   - 'access taxonomy overview'
   - 'access user profiles'
