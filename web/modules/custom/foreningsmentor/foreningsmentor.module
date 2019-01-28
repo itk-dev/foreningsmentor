@@ -15,14 +15,30 @@ use Drupal\node\Entity\Node;
 function foreningsmentor_preprocess_node(&$variables) {
   $nodeType = $variables["node"]->getType();
 
-  if ($nodeType == 'child') {
+  if ($nodeType == 'course') {
     $variables['journal_form'] = \Drupal::formBuilder()
       ->getForm(\Drupal\foreningsmentor\Form\JournalForm::class,
         $variables["node"]);
     $variables['activity_form'] = \Drupal::formBuilder()
       ->getForm(\Drupal\foreningsmentor\Form\ActivityForm::class,
         $variables["node"]);
+    $variables['finish_course_form'] = \Drupal::formBuilder()
+      ->getForm(\Drupal\foreningsmentor\Form\FinishCourseForm::class,
+        $variables["node"]);
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function foreningsmentor_preprocess_node_add_list(&$variables) {
+  // Remove types from node add list.
+  unset($variables["types"]['activity']);
+  unset($variables["types"]['bricky']);
+  unset($variables["types"]['journal_entry']);
+  unset($variables["content"]["activity"]);
+  unset($variables["content"]["bricky"]);
+  unset($variables["content"]["journal_entry"]);
 }
 
 /**
@@ -63,7 +79,10 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
  * Implements hook_form_alter().
  */
 function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
-  if (isset($form_state->getStorage()["views_bulk_operations"]["view_id"]) &&
+  if (
+    isset($form_state->getStorage()["views_bulk_operations"]["action_id"]) &&
+    $form_state->getStorage()["views_bulk_operations"]["action_id"] == 'foreningsmentor_get_mail_action' &&
+    isset($form_state->getStorage()["views_bulk_operations"]["view_id"]) &&
     ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers' ||
       $form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') &&
     $form_id == 'views_bulk_operations_confirm_action') {

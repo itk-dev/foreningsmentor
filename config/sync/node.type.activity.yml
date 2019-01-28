@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Aktivitetsforløb
 type: activity
-description: ''
+description: "Aktivitetsforløb er en del af et forløb.\r\nDet kan være at barnet går til spejder i en forening."
 help: ''
 new_revision: true
 preview_mode: 1

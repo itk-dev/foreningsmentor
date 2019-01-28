@@ -1,0 +1,61 @@
+uuid: d139a9df-8e0e-477b-8f2e-f9484978c937
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.inlineform
+    - field.field.node.parent.body
+    - field.field.node.parent.field_address
+    - field.field.node.parent.field_children
+    - field.field.node.parent.field_email
+    - field.field.node.parent.field_phone
+    - node.type.parent
+  module:
+    - address_dawa
+    - telephone
+id: node.parent.inlineform
+targetEntityType: node
+bundle: parent
+mode: inlineform
+content:
+  field_address:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: address_dawa
+    region: content
+  field_email:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_phone:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  field_children: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

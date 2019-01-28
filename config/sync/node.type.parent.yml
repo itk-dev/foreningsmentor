@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Forælder
 type: parent
-description: ''
+description: 'En forælder til et eller flere børn, der er henvist til foreningsmentor.'
 help: ''
 new_revision: true
 preview_mode: 1

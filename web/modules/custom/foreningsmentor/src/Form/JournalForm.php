@@ -35,12 +35,14 @@ class JournalForm extends FormBase {
     $form['add_journal_entry']['title'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Headline'),
+      '#required' => TRUE,
       '#description' => $this->t('The journal entry headline'),
       '#weight' => '0',
     ];
     $form['add_journal_entry']['body'] = [
       '#type' => 'textarea',
       '#title' => $this->t('The journal entry'),
+      '#required' => TRUE,
       '#description' => $this->t('The journal entry'),
       '#weight' => '1',
     ];
@@ -74,7 +76,7 @@ class JournalForm extends FormBase {
     $parentNode = $form_state->getBuildInfo()["args"][0];
 
     // Bail out if parent is not a child.
-    if (isset($parentNode) && $parentNode->getType() != 'child') {
+    if (isset($parentNode) && $parentNode->getType() != 'course') {
       return;
     }
 
@@ -83,7 +85,7 @@ class JournalForm extends FormBase {
       'title' => $form_state->getValue('title'),
       'body' => $form_state->getValue('body'),
       'field_only_for_coordinators' => $form_state->getValue('only_for_coordinators'),
-      'field_child' => $parentNode,
+      'field_course' => $parentNode,
     ]);
     $node->save();
   }

@@ -180,7 +180,7 @@ display:
     display_title: 'Nye brugere'
     position: 1
     display_options:
-      display_description: 'A list of new users'
+      display_description: 'En liste af nye brugere'
       block_description: 'Nye brugere'
       block_category: Bruger
       display_extenders: {  }

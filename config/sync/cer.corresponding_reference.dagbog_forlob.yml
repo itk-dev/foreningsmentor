@@ -1,0 +1,13 @@
+uuid: 62ea5eb1-37bf-4f90-8fc8-03f151f161c4
+langcode: da
+status: true
+dependencies: {  }
+id: dagbog_forlob
+label: 'Dagbog - Forløb'
+enabled: true
+first_field: field_diary
+second_field: field_course
+bundles:
+  node:
+    - course
+    - journal_entry

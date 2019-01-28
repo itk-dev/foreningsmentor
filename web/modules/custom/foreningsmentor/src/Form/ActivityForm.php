@@ -167,7 +167,7 @@ class ActivityForm extends FormBase {
     $parentNode = $form_state->getBuildInfo()["args"][0];
 
     // Bail out if parent is not a child.
-    if (isset($parentNode) && $parentNode->getType() != 'child') {
+    if (isset($parentNode) && $parentNode->getType() != 'course') {
       return;
     }
 
@@ -186,7 +186,7 @@ class ActivityForm extends FormBase {
     $node = Node::create([
       'type' => 'activity',
       'title' => $form_state->getValue('title'),
-      'field_child' => $parentNode,
+      'field_course' => $parentNode,
       'field_mentor' => $mentor,
       'field_date_start' => $form_state->getValue('field_date_start'),
       'field_club' => $form_state->getValue('field_club'),

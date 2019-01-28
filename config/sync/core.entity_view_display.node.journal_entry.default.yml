@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.journal_entry.body
-    - field.field.node.journal_entry.field_child
+    - field.field.node.journal_entry.field_course
     - field.field.node.journal_entry.field_only_for_coordinators
     - node.type.journal_entry
   module:
@@ -22,8 +22,8 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_child:
-    weight: 2
+  field_course:
+    weight: 4
     label: above
     settings:
       link: true

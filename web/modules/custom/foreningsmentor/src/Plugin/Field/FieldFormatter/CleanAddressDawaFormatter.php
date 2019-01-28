@@ -45,9 +45,17 @@ class CleanAddressDawaFormatter extends FormatterBase {
    *   A renderable array.
    */
   protected function viewElement(AddressDawaItemInterface $item) {
-    $value = [
-      $item->getData()["adressebetegnelse"],
-    ];
+    $data = $item->getData();
+
+    if (isset($data['adressebetegnelse'])) {
+      $value = [
+        $data['adressebetegnelse'],
+      ];
+    }
+    else {
+      $value = $data;
+    }
+
     $element = [
       '#type' => 'markup',
       '#markup' => implode('', $value),

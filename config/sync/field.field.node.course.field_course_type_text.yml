@@ -1,0 +1,21 @@
+uuid: fa5290da-591f-4b71-8f8b-74d717b61645
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_type_text
+    - node.type.course
+  module:
+    - text
+id: node.course.field_course_type_text
+field_name: field_course_type_text
+entity_type: node
+bundle: course
+label: 'Begrundelse for forløbstype'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

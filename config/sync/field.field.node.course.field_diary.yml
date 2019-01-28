@@ -1,0 +1,28 @@
+uuid: 7b451716-ec0f-477c-9add-59caaa14b859
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_diary
+    - node.type.course
+    - node.type.journal_entry
+id: node.course.field_diary
+field_name: field_diary
+entity_type: node
+bundle: course
+label: Dagbog
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      journal_entry: journal_entry
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

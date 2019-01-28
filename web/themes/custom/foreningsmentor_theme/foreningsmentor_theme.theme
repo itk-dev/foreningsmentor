@@ -11,7 +11,5 @@ function foreningsmentor_theme_preprocess_region__footer(&$variables) {
     $config = \Drupal::getContainer()->get('itk_admin.itk_config');
     $variables['footer_text'] = $config->get('footer_text');
     $variables['footer_second'] = $config->get('footer_text_2nd');
-    $variables['footer_third'] = $config->get('footer_text_3rd');
-    $variables['footer_fourth'] = $config->get('footer_text_4th');
   }
 }

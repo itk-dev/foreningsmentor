@@ -1,0 +1,157 @@
+uuid: e1b4c731-06e6-4050-9aea-8bc24a811dde
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.inlineform
+    - field.field.node.child.field_activity_wishes
+    - field.field.node.child.field_birthday
+    - field.field.node.child.field_comments
+    - field.field.node.child.field_courses
+    - field.field.node.child.field_date_registered
+    - field.field.node.child.field_neighborhood
+    - field.field.node.child.field_parents
+    - field.field.node.child.field_referer
+    - field.field.node.child.field_referer_email
+    - field.field.node.child.field_referer_phone
+    - field.field.node.child.field_school
+    - field.field.node.child.field_sex
+    - field.field.node.child.field_shool_class
+    - field.field.node.child.field_siblings
+    - node.type.child
+  module:
+    - datetime
+    - inline_entity_form
+    - telephone
+    - text
+id: node.child.inlineform
+targetEntityType: node
+bundle: child
+mode: inlineform
+content:
+  field_activity_wishes:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_birthday:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_comments:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_date_registered:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_neighborhood:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_parents:
+    weight: 12
+    settings:
+      form_mode: inlineform
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  field_referer:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_referer_email:
+    type: email_default
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_referer_phone:
+    weight: 10
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_school:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sex:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_shool_class:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_siblings:
+    weight: 13
+    settings:
+      form_mode: inlineform
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_courses: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

@@ -1,0 +1,128 @@
+uuid: f028514d-f86a-48ef-ae3b-ece33c6383c4
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.course.body
+    - field.field.node.course.field_activities
+    - field.field.node.course.field_activity_type
+    - field.field.node.course.field_anonymized
+    - field.field.node.course.field_child
+    - field.field.node.course.field_coordinators_end_status
+    - field.field.node.course.field_course_type_text
+    - field.field.node.course.field_date_end
+    - field.field.node.course.field_date_start
+    - field.field.node.course.field_diary
+    - field.field.node.course.field_field_coor_end_status_text
+    - field.field.node.course.field_finished
+    - field.field.node.course.field_mentor
+    - field.field.node.course.field_mentors_end_status
+    - field.field.node.course.field_mentors_end_status_text
+    - node.type.course
+  module:
+    - datetime
+    - text
+id: node.course.default
+targetEntityType: node
+bundle: course
+mode: default
+content:
+  field_activity_type:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_child:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_coordinators_end_status:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_course_type_text:
+    weight: 6
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_date_end:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_date_start:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_field_coor_end_status_text:
+    weight: 10
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_finished:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_mentor:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_mentors_end_status:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_mentors_end_status_text:
+    weight: 8
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  field_activities: true
+  field_anonymized: true
+  field_diary: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

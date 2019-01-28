@@ -3,14 +3,13 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.child.field_activities
-    - field.field.node.child.field_activity_type
     - field.field.node.child.field_activity_wishes
+    - field.field.node.child.field_anonymized
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
+    - field.field.node.child.field_courses
     - field.field.node.child.field_date_registered
-    - field.field.node.child.field_diary
-    - field.field.node.child.field_mentor
+    - field.field.node.child.field_family_subsidy
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
     - field.field.node.child.field_referer
@@ -32,23 +31,6 @@ targetEntityType: node
 bundle: child
 mode: default
 content:
-  field_activities:
-    weight: 15
-    label: above
-    settings:
-      view_mode: basic
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
-  field_activity_type:
-    weight: 17
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_activity_wishes:
     weight: 1
     label: above
@@ -72,6 +54,14 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_courses:
+    weight: 14
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_date_registered:
     weight: 6
     label: above
@@ -81,25 +71,18 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_diary:
-    weight: 16
-    label: hidden
-    settings:
-      view_mode: teaser
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
-  field_mentor:
-    weight: 13
+  field_family_subsidy:
+    weight: 15
     label: above
     settings:
-      link: true
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
     third_party_settings: {  }
-    type: entity_reference_label
+    type: boolean
     region: content
   field_neighborhood:
-    weight: 14
+    weight: 13
     label: above
     settings:
       link: true
@@ -108,12 +91,11 @@ content:
     region: content
   field_parents:
     weight: 12
-    label: hidden
+    label: above
     settings:
-      view_mode: basic
-      link: false
+      link: true
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: entity_reference_label
     region: content
   field_referer:
     weight: 8
@@ -174,4 +156,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_anonymized: true
   langcode: true

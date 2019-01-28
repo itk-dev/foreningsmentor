@@ -2,6 +2,12 @@ uuid: f19ae8bb-44b7-4be4-95d4-ee920dec0d17
 langcode: da
 status: true
 dependencies:
+  config:
+    - node.type.child
+    - node.type.club
+    - node.type.course
+    - node.type.page
+    - node.type.parent
   module:
     - node
     - user
@@ -404,7 +410,12 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            child: child
+            club: club
+            course: course
+            parent: parent
+            page: page
           group: 1
           exposed: true
           expose:
@@ -420,8 +431,9 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              administrator: '0'
-            reduce: false
+              mentor: '0'
+              coordinator: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -533,6 +545,50 @@ display:
           plugin_id: node_status
           group: 1
           entity_type: node
+        type_1:
+          id: type_1
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            child: child
+            club: club
+            course: course
+            parent: parent
+            page: page
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
       sorts: {  }
       title: Indhold
       empty:

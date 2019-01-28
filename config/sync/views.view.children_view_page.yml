@@ -3,9 +3,10 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_activity_type
     - field.storage.node.field_activity_wishes
+    - field.storage.node.field_anonymized
     - field.storage.node.field_comments
+    - field.storage.node.field_courses
     - field.storage.node.field_date_registered
     - field.storage.node.field_mentor
     - field.storage.node.field_neighborhood
@@ -25,7 +26,7 @@ dependencies:
     - views_bulk_operations
     - views_data_export
 id: children_view_page
-label: 'Alle børn'
+label: Børn
 module: views
 description: 'Liste med alle børn'
 tag: ''
@@ -186,6 +187,7 @@ display:
           clear_on_exposed: 0
           action_title: Handling
           selected_actions:
+            foreningsmentor_anonymize: foreningsmentor_anonymize
             foreningsmentor_get_mail_action: foreningsmentor_get_mail_action
             node_assign_owner_action: 0
             node_unpromote_action: 0
@@ -196,13 +198,15 @@ display:
             node_unpublish_by_keyword_action: 0
             node_unpublish_action: 0
             node_make_unsticky_action: 0
-            pathauto_update_alias: 0
             views_bulk_operations_delete_entity: 0
+            pathauto_update_alias: 0
             'entity:delete_action:node': 0
             'entity:publish_action:node': 0
             'entity:save_action:node': 0
             'entity:unpublish_action:node': 0
           preconfiguration:
+            foreningsmentor_anonymize:
+              label_override: Anonymisér
             foreningsmentor_get_mail_action:
               label_override: 'Hent mailliste'
           plugin_id: views_bulk_operations_bulk_form
@@ -334,69 +338,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_activity_type:
-          id: field_activity_type
-          table: node__field_activity_type
-          field: field_activity_type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Forløbstype
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_date_registered:
           id: field_date_registered
           table: node__field_date_registered
@@ -586,14 +527,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_mentor:
-          id: field_mentor
-          table: node__field_mentor
-          field: field_mentor
+        field_courses:
+          id: field_courses
+          table: node__field_courses
+          field: field_courses
           relationship: none
           group_type: group
           admin_label: ''
-          label: Mentor
+          label: Forløb
           exclude: false
           alter:
             alter_text: false
@@ -648,6 +589,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
+        field_anonymized:
+          id: field_anonymized
+          table: node__field_anonymized
+          field: field_anonymized
           plugin_id: field
       filters:
         status:
@@ -736,11 +682,10 @@ display:
             remember: true
             multiple: false
             remember_roles:
-              pm: pm
-              coordinator: coordinator
+              authenticated: authenticated
               anonymous: '0'
-              authenticated: '0'
               mentor: '0'
+              coordinator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -761,6 +706,101 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        field_courses_target_id:
+          id: field_courses_target_id
+          table: node__field_courses
+          field: field_courses_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_courses_target_id_op
+            label: 'Forløb (field_courses)'
+            description: ''
+            use_operator: false
+            operator: field_courses_target_id_op
+            identifier: field_courses_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: Forløb
+            description: ''
+            identifier: field_courses_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Har ikke forløb'
+                operator: empty
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+              2:
+                title: 'Har forløb'
+                operator: 'not empty'
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+        field_anonymized_value:
+          id: field_anonymized_value
+          table: node__field_anonymized
+          field: field_anonymized_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
       sorts:
         title:
           id: title
@@ -776,25 +816,9 @@ display:
           exposed: false
           expose:
             label: ''
-      title: 'Alle børn'
+      title: Børn
       header: {  }
-      footer:
-        views_add_button:
-          id: views_add_button
-          table: views
-          field: views_add_button
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: 0
-          type: node+child
-          context: ''
-          button_text: 'Tilføj barn'
-          button_classes: button
-          query_string: ''
-          destination: 1
-          plugin_id: views_add_button_area
+      footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
@@ -814,11 +838,11 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_activity_type'
         - 'config:field.storage.node.field_activity_wishes'
+        - 'config:field.storage.node.field_anonymized'
         - 'config:field.storage.node.field_comments'
+        - 'config:field.storage.node.field_courses'
         - 'config:field.storage.node.field_date_registered'
-        - 'config:field.storage.node.field_mentor'
         - 'config:field.storage.node.field_neighborhood'
   data_export_1:
     display_plugin: data_export
@@ -833,7 +857,7 @@ display:
           formats:
             csv: csv
           csv_settings:
-            delimiter: ','
+            delimiter: ;
             enclosure: '"'
             escape_char: \
             strip_tags: true
@@ -852,7 +876,7 @@ display:
               manager: ''
               company: ''
       path: born/eksport
-      filename: ''
+      filename: born.csv
       pager:
         type: none
         options:
@@ -861,6 +885,72 @@ display:
         page_1: page_1
         default: '0'
       fields:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ID
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -1241,8 +1331,238 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_anonymized:
+          id: field_anonymized
+          table: node__field_anonymized
+          field: field_anonymized
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Anonymiseret
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: yes-no
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       defaults:
         fields: false
+        filters: false
+        filter_groups: false
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            child: child
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Navn
+            description: ''
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              pm: '0'
+              coordinator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_neighborhood_target_id:
+          id: field_neighborhood_target_id
+          table: node__field_neighborhood
+          field: field_neighborhood_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_neighborhood_target_id_op
+            label: Indsatsområde
+            description: ''
+            use_operator: false
+            operator: field_neighborhood_target_id_op
+            identifier: field_neighborhood_target_id
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: neighborhood
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_courses_target_id:
+          id: field_courses_target_id
+          table: node__field_courses
+          field: field_courses_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_courses_target_id_op
+            label: 'Forløb (field_courses)'
+            description: ''
+            use_operator: false
+            operator: field_courses_target_id_op
+            identifier: field_courses_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: Forløb
+            description: ''
+            identifier: field_courses_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Har ikke forløb'
+                operator: empty
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+              2:
+                title: 'Har forløb'
+                operator: 'not empty'
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -1255,6 +1575,7 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_activity_wishes'
+        - 'config:field.storage.node.field_anonymized'
         - 'config:field.storage.node.field_comments'
         - 'config:field.storage.node.field_date_registered'
         - 'config:field.storage.node.field_mentor'
@@ -1267,6 +1588,668 @@ display:
     display_options:
       display_extenders: {  }
       path: born
+      header:
+        views_add_button:
+          id: views_add_button
+          table: views
+          field: views_add_button
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: 0
+          type: node+child
+          context: ''
+          button_text: 'Add child'
+          button_classes: 'button button-primary'
+          button_attributes: ''
+          button_prefix:
+            value: ''
+            format: filtered_html
+          button_suffix:
+            value: ''
+            format: filtered_html
+          query_string: ''
+          destination: 1
+          plugin_id: views_add_button_area
+      defaults:
+        header: false
+        filters: false
+        filter_groups: false
+        fields: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            child: child
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Navn
+            description: ''
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              pm: '0'
+              coordinator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_neighborhood_target_id:
+          id: field_neighborhood_target_id
+          table: node__field_neighborhood
+          field: field_neighborhood_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_neighborhood_target_id_op
+            label: Indsatsområde
+            description: ''
+            use_operator: false
+            operator: field_neighborhood_target_id_op
+            identifier: field_neighborhood_target_id
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: neighborhood
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_courses_target_id:
+          id: field_courses_target_id
+          table: node__field_courses
+          field: field_courses_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_courses_target_id_op
+            label: 'Forløb (field_courses)'
+            description: ''
+            use_operator: false
+            operator: field_courses_target_id_op
+            identifier: field_courses_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              mentor: '0'
+              coordinator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: Forløb
+            description: ''
+            identifier: field_courses_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Har ikke forløb'
+                operator: empty
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+              2:
+                title: 'Har forløb'
+                operator: 'not empty'
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Views bulk operations'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          batch: true
+          batch_size: 10
+          form_step: true
+          buttons: false
+          clear_on_exposed: 0
+          action_title: Handling
+          selected_actions:
+            foreningsmentor_anonymize: foreningsmentor_anonymize
+            foreningsmentor_get_mail_action: foreningsmentor_get_mail_action
+            node_assign_owner_action: 0
+            node_unpromote_action: 0
+            node_promote_action: 0
+            node_publish_action: 0
+            node_save_action: 0
+            node_make_sticky_action: 0
+            node_unpublish_by_keyword_action: 0
+            node_unpublish_action: 0
+            node_make_unsticky_action: 0
+            views_bulk_operations_delete_entity: 0
+            pathauto_update_alias: 0
+            'entity:delete_action:node': 0
+            'entity:publish_action:node': 0
+            'entity:save_action:node': 0
+            'entity:unpublish_action:node': 0
+          preconfiguration:
+            foreningsmentor_anonymize:
+              label_override: Anonymisér
+            foreningsmentor_get_mail_action:
+              label_override: 'Hent mailliste'
+          plugin_id: views_bulk_operations_bulk_form
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Navn
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_neighborhood:
+          id: field_neighborhood
+          table: node__field_neighborhood
+          field: field_neighborhood
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Indsatsområde
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_date_registered:
+          id: field_date_registered
+          table: node__field_date_registered
+          field: field_date_registered
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Dato f. registrering'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: html_date
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_activity_wishes:
+          id: field_activity_wishes
+          table: node__field_activity_wishes
+          field: field_activity_wishes
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Aktivitetsønsker
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_comments:
+          id: field_comments
+          table: node__field_comments
+          field: field_comments
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Bemærkninger
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_trimmed
+          settings:
+            trim_length: 100
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_courses:
+          id: field_courses
+          table: node__field_courses
+          field: field_courses
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Forløb
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
     cache_metadata:
       max-age: 0
       contexts:
@@ -1278,9 +2261,8 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_activity_type'
         - 'config:field.storage.node.field_activity_wishes'
         - 'config:field.storage.node.field_comments'
+        - 'config:field.storage.node.field_courses'
         - 'config:field.storage.node.field_date_registered'
-        - 'config:field.storage.node.field_mentor'
         - 'config:field.storage.node.field_neighborhood'
