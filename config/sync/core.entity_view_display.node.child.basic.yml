@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.child.field_activity_wishes
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
+    - field.field.node.child.field_courses
     - field.field.node.child.field_date_registered
+    - field.field.node.child.field_family_subsidy
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
     - field.field.node.child.field_referer
@@ -31,7 +33,7 @@ third_party_settings:
       children:
         - field_parents
       parent_name: ''
-      weight: 20
+      weight: 12
       format_type: details
       format_settings:
         id: ''
@@ -76,6 +78,16 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_family_subsidy:
+    type: boolean
+    weight: 11
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_neighborhood:
     weight: 0
     label: above
@@ -139,6 +151,7 @@ content:
     type: list_default
     region: content
 hidden:
+  field_courses: true
   field_siblings: true
   langcode: true
   links: true

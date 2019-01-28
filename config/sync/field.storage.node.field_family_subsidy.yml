@@ -1,0 +1,22 @@
+uuid: 58ee1fec-9dda-47fb-8652-bb84cbf448fe
+langcode: da
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: node.field_family_subsidy
+field_name: field_family_subsidy
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

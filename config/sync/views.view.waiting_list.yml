@@ -540,7 +540,7 @@ display:
           relationship: field_parents
           group_type: group
           admin_label: ''
-          label: Tlf
+          label: Telefon
           exclude: false
           alter:
             alter_text: false

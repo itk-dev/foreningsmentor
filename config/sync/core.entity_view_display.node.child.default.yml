@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.child.field_comments
     - field.field.node.child.field_courses
     - field.field.node.child.field_date_registered
+    - field.field.node.child.field_family_subsidy
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
     - field.field.node.child.field_referer
@@ -68,6 +69,16 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_family_subsidy:
+    weight: 16
+    label: above
+    settings:
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_neighborhood:
     weight: 14
