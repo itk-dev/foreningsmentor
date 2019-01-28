@@ -903,7 +903,7 @@ display:
             operator: field_neighborhood_target_id_op
             identifier: field_neighborhood_target_id
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
               authenticated: authenticated

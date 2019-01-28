@@ -673,11 +673,10 @@ display:
             remember: true
             multiple: false
             remember_roles:
-              pm: pm
-              coordinator: coordinator
+              authenticated: authenticated
               anonymous: '0'
-              authenticated: '0'
               mentor: '0'
+              coordinator: '0'
             reduce: false
           is_grouped: false
           group_info:

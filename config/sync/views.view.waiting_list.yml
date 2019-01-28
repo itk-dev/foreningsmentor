@@ -680,13 +680,12 @@ display:
             operator: field_neighborhood_target_id_op
             identifier: field_neighborhood_target_id
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
               mentor: '0'
-              pm: '0'
               coordinator: '0'
             reduce: false
           is_grouped: false
