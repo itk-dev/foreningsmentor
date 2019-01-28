@@ -1,0 +1,23 @@
+uuid: 96f0247c-04b9-4516-babb-0abdd80f62f3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_anonymized
+    - node.type.child
+id: node.child.field_anonymized
+field_name: field_anonymized
+entity_type: node
+bundle: child
+label: Anonymiseret
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

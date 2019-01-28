@@ -7,7 +7,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\views_bulk_operations\Action\ViewsBulkOperationsActionBase;
 
 /**
- * Action description.
+ * Get mail addresses action.
  *
  * @Action(
  *   id = "foreningsmentor_get_mail_action",
@@ -55,8 +55,6 @@ class ForeningsmentorGetMailAddressesAction extends ViewsBulkOperationsActionBas
       return $return_as_object ? $access : $access->isAllowed();
     }
 
-    // Other entity types may have different
-    // access methods and properties.
     return TRUE;
   }
 

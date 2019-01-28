@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.node.inlineform
     - field.field.node.child.field_activity_wishes
+    - field.field.node.child.field_anonymized
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
     - field.field.node.child.field_courses
@@ -172,6 +173,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_anonymized: true
   langcode: true
   path: true
   promote: true

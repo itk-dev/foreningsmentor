@@ -79,7 +79,10 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
  * Implements hook_form_alter().
  */
 function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
-  if (isset($form_state->getStorage()["views_bulk_operations"]["view_id"]) &&
+  if (
+    isset($form_state->getStorage()["views_bulk_operations"]["action_id"]) &&
+    $form_state->getStorage()["views_bulk_operations"]["action_id"] == 'foreningsmentor_get_mail_action' &&
+    isset($form_state->getStorage()["views_bulk_operations"]["view_id"]) &&
     ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers' ||
       $form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') &&
     $form_id == 'views_bulk_operations_confirm_action') {

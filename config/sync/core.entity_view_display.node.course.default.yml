@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.course.body
     - field.field.node.course.field_activities
     - field.field.node.course.field_activity_type
+    - field.field.node.course.field_anonymized
     - field.field.node.course.field_child
     - field.field.node.course.field_coordinators_end_status
     - field.field.node.course.field_course_type_text
@@ -152,5 +153,6 @@ content:
     region: content
 hidden:
   body: true
+  field_anonymized: true
   langcode: true
   links: true

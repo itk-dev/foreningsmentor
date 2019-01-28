@@ -207,6 +207,7 @@ display:
           clear_on_exposed: 0
           action_title: Handling
           selected_actions:
+            foreningsmentor_anonymize: foreningsmentor_anonymize
             foreningsmentor_get_mail_action: foreningsmentor_get_mail_action
             user_add_role_action: 0
             user_block_user_action: 0
@@ -214,8 +215,11 @@ display:
             user_unblock_user_action: 0
             vbo_cancel_user_action: 0
             views_bulk_operations_delete_entity: 0
+            pathauto_update_alias: 0
             'entity:save_action:user': 0
           preconfiguration:
+            foreningsmentor_anonymize:
+              label_override: Anonymisér
             foreningsmentor_get_mail_action:
               label_override: 'Hent mailliste'
           plugin_id: views_bulk_operations_bulk_form
