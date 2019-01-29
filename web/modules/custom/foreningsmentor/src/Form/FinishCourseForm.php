@@ -61,18 +61,38 @@ class FinishCourseForm extends FormBase {
       '#required' => TRUE,
       '#options' => $options,
     ];
+
+    $statusA1 = $this->t('A1: Child is still active.');
+    $statusA2 = $this->t('A2: Child has stopped in the club during the mentor course.');
+    $statusA3 = $this->t('A3: Mentor stops during the course.');
+    $statusA4 = $this->t('A4: Status unknown.');
+
+    $form['finish_course']['mentor_end_status_descriptions'] = [
+      '#markup' => implode("", [
+        "<div>" . $this->t('Available statuses:'),
+          "<ul>",
+            "<li>" . $statusA1 ."</li>",
+            "<li>" . $statusA2 ."</li>",
+            "<li>" . $statusA3 ."</li>",
+            "<li>" . $statusA4 ."</li>",
+          "</ul>",
+        "</div>"
+        ]),
+      '#weight' => '2'
+    ];
+
     $form['finish_course']['mentor_end_status_text'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Mentor end status description'),
       '#description' => $this->t('The reasons for the given end status.'),
       '#required' => TRUE,
-      '#weight' => '2',
+      '#weight' => '3',
     ];
 
     $form['finish_course']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
-      '#weight' => '3',
+      '#weight' => '4',
     ];
 
     return $form;
