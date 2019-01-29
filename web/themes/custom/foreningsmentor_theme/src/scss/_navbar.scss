@@ -8,14 +8,18 @@
     height: 100%;
     img{
       max-height: $spacer*5;
+      width: auto;
       @include media-breakpoint-up(sm) {
         max-height: $spacer*6;
+        max-width: $spacer*6;
       }
       @include media-breakpoint-up(md) {
         max-height: $spacer*8;
+        max-width: $spacer*8;
       }
       @include media-breakpoint-up(lg) {
         max-height: $spacer*10;
+        max-width: $spacer*10;
       }
     }
   }
