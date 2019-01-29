@@ -7,13 +7,18 @@ dependencies:
     - field.field.node.course.body
     - field.field.node.course.field_activities
     - field.field.node.course.field_activity_type
+    - field.field.node.course.field_anonymized
     - field.field.node.course.field_child
     - field.field.node.course.field_coordinators_end_status
+    - field.field.node.course.field_course_type_text
     - field.field.node.course.field_date_end
     - field.field.node.course.field_date_start
     - field.field.node.course.field_diary
+    - field.field.node.course.field_field_coor_end_status_text
+    - field.field.node.course.field_finished
     - field.field.node.course.field_mentor
     - field.field.node.course.field_mentors_end_status
+    - field.field.node.course.field_mentors_end_status_text
     - node.type.course
   module:
     - datetime
@@ -26,7 +31,7 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: options_select
     region: content
   field_date_end:
     weight: 4
@@ -61,10 +66,15 @@ hidden:
   body: true
   created: true
   field_activities: true
+  field_anonymized: true
   field_child: true
   field_coordinators_end_status: true
+  field_course_type_text: true
   field_diary: true
+  field_field_coor_end_status_text: true
+  field_finished: true
   field_mentors_end_status: true
+  field_mentors_end_status_text: true
   langcode: true
   path: true
   promote: true
