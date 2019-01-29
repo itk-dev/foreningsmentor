@@ -906,7 +906,7 @@ display:
             min: ''
             max: ''
             value: ''
-          group: 1
+          group: 3
           exposed: false
           expose:
             operator_id: ''
@@ -949,6 +949,48 @@ display:
             max: ''
             value: ''
           group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        field_mentor_target_id:
+          id: field_mentor_target_id
+          table: node__field_mentor
+          field: field_mentor_target_id
+          relationship: field_courses
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 3
           exposed: false
           expose:
             operator_id: ''
@@ -1030,6 +1072,15 @@ display:
           admin_label: 'field_parents: Indhold'
           required: false
           plugin_id: standard
+        field_courses:
+          id: field_courses
+          table: node__field_courses
+          field: field_courses
+          relationship: none
+          group_type: group
+          admin_label: 'field_courses: Indhold'
+          required: false
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
       filter_groups:
@@ -1037,6 +1088,7 @@ display:
         groups:
           1: AND
           2: OR
+          3: OR
       group_by: false
     cache_metadata:
       max-age: -1
