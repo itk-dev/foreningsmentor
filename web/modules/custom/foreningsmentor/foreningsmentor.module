@@ -84,8 +84,11 @@ function _foreningsmentor_callback_submit($form, FormStateInterface $form_state)
  * Implements hook_form_alter().
  */
 function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
-  if (
-    in_array($form["#form_id"],
+  if ($form_id == 'node_course_edit_form') {
+    $form['#attached']['library'][] = 'foreningsmentor/course_form';
+  }
+  else if (
+    in_array($form_id,
       [
         'node_child_delete_form',
         'node_course_delete_form',

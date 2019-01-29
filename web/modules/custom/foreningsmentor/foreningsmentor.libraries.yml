@@ -4,3 +4,11 @@ copy_to_clipboard:
     js/copy_to_clipboard.js: {}
   dependencies:
   - core/drupal.ajax
+
+course_form:
+  version: 1.x
+  js:
+    js/course_form.js: {}
+  dependencies:
+  - core/jquery
+  - core/jquery.once
