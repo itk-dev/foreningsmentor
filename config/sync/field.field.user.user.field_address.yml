@@ -19,6 +19,6 @@ default_value: {  }
 default_value_callback: ''
 settings:
   address_type: adresse
-  allow_non_unique_address: 0
-  allow_non_danish_address: 0
+  allow_non_unique_address: 1
+  allow_non_danish_address: 1
 field_type: address_dawa

@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.user.user.field_active
     - field.field.user.user.field_address
-    - field.field.user.user.field_children
     - field.field.user.user.field_comment
     - field.field.user.user.field_date_child_cert
     - field.field.user.user.field_end_interview
@@ -21,6 +20,7 @@ dependencies:
     - datetime
     - field_group
     - image
+    - path
     - telephone
     - text
     - user
@@ -106,15 +106,6 @@ content:
     third_party_settings: {  }
     type: address_dawa
     region: content
-  field_children:
-    weight: 7
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_comment:
     weight: 7
     settings:
@@ -185,6 +176,12 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   langcode: true
   language: true
