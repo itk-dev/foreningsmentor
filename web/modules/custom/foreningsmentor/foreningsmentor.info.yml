@@ -3,3 +3,5 @@ type: module
 description: 'Foreningsmentor custom code'
 core: 8.x
 package: 'Foreningsmentor'
+interface translation project: foreningsmentor
+interface translation server pattern: modules/custom/foreningsmentor/translations/%language.po
