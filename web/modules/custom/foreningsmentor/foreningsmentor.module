@@ -101,13 +101,6 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
   }
 }
 
-function _foreningsmentor_callback_submit(
-  $form,
-  FormStateInterface $form_state
-) {
-  $form_state->setRedirect('system.admin_content');
-}
-
 /**
  * Implements hook_form_alter().
  */
@@ -118,114 +111,133 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
     $form['#attached']['library'][] = 'foreningsmentor/course_form';
   }
 
-  if (
-  in_array($form_id,
-    [
-      'node_child_delete_form',
-      'node_course_delete_form',
-      'node_club_delete_form',
-      'node_parent_delete_form',
-      'node_page_delete_form',
-      'node_activity_delete_form',
-      'node_journal_entry_delete_form',
-    ]
-  )
-  ) {
-    foreach (array_keys($form['actions']) as $action) {
-      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
-        $form['actions'][$action]['#submit'][] = '_foreningsmentor_callback_submit';
-      }
-    }
-  }
-  else {
-    if (
-      isset($form_state->getStorage()["views_bulk_operations"]["action_id"]) &&
-      $form_state->getStorage()["views_bulk_operations"]["action_id"] == 'foreningsmentor_get_mail_action' &&
-      isset($form_state->getStorage()["views_bulk_operations"]["view_id"]) &&
-      ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers' ||
-        $form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') &&
-      $form_id == 'views_bulk_operations_confirm_action') {
-
-      $newList = [];
-      $commaSeparatedString = '';
-
-      if (isset($form['list'])) {
-        if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers') {
-          foreach ($form["list"]["#items"] as $username) {
-            $user = user_load_by_name($username);
-            $name = $user->get('field_name')->value ?: $user->getEmail();
-
-            $newList[$user->getEmail()] = $name;
-          }
+  switch ($form_id) {
+    // Unset previous selection in case of navigating from confirm page.
+    case 'views_form_volunteers_page_1':
+    case 'views_form_children_view_page_page_1':
+      foreach ($form["views_bulk_operations_bulk_form"] as &$element) {
+        if (is_array($element)) {
+          $element["#default_value"] = false;
         }
-        else {
-          if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') {
-            foreach ($form["list"]["#items"] as $child_name) {
-              $query = \Drupal::entityQuery('node');
-              $query->condition('type', 'child');
-              $query->condition('title', $child_name);
+      }
+      break;
+    // Change delete form callbacks.
+    case 'node_child_delete_form':
+    case 'node_course_delete_form':
+    case 'node_club_delete_form':
+    case 'node_parent_delete_form':
+    case 'node_page_delete_form':
+    case 'node_activity_delete_form':
+    case 'node_journal_entry_delete_form':
+      foreach (array_keys($form['actions']) as $action) {
+        if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+          $form['actions'][$action]['#submit'][] = '_foreningsmentor_callback_submit';
+        }
+      }
+      break;
+    case 'views_bulk_operations_confirm_action':
+      if (
+        isset($form_state->getStorage()["views_bulk_operations"]["action_id"]) &&
+        $form_state->getStorage()["views_bulk_operations"]["action_id"] == 'foreningsmentor_get_mail_action' &&
+        isset($form_state->getStorage()["views_bulk_operations"]["view_id"]) &&
+        ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers' ||
+          $form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page')) {
 
-              $p = $query->execute();
+        $newList = [];
+        $commaSeparatedString = '';
 
-              $nodes = Node::loadMultiple($p);
+        if (isset($form['list'])) {
+          if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers') {
+            foreach ($form["list"]["#items"] as $username) {
+              $user = user_load_by_name($username);
+              $name = $user->get('field_name')->value ?: $user->getEmail();
 
-              foreach ($nodes as $node) {
-                $parents = $node->field_parents;
+              $newList[$user->getEmail()] = $name;
+            }
+          }
+          else {
+            if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') {
+              foreach ($form["list"]["#items"] as $child_name) {
+                $query = \Drupal::entityQuery('node');
+                $query->condition('type', 'child');
+                $query->condition('title', $child_name);
 
-                foreach ($parents as $parent) {
-                  $entity = $parent->entity;
+                $p = $query->execute();
 
-                  $email = $entity->field_email->value;
+                $nodes = Node::loadMultiple($p);
 
-                  if (isset($email) && !isset($newList[$email])) {
-                    $newList[$email] = $email;
+                foreach ($nodes as $node) {
+                  $parents = $node->field_parents;
+
+                  foreach ($parents as $parent) {
+                    $entity = $parent->entity;
+
+                    $email = $entity->field_email->value;
+
+                    if (isset($email) && !isset($newList[$email])) {
+                      $newList[$email] = $email;
+                    }
                   }
                 }
               }
             }
           }
-        }
 
-        $form["list"]["#items"] = array_keys($newList);
+          $form["list"]["#items"] = array_keys($newList);
 
-        $listString = '';
+          $listString = '';
 
-        $last_key = array_search(end($newList), $newList);
-        foreach ($newList as $key => $object) {
-          $commaSeparatedString .= $key;
-          $listString = $listString . '"' . $object . '"' . '<' . $key . '>';
-          if ($key != $last_key) {
-            $listString .= '; ';
-            $commaSeparatedString .= ",";
+          $last_key = array_search(end($newList), $newList);
+          foreach ($newList as $key => $object) {
+            $commaSeparatedString .= $key;
+            $listString = $listString . '"' . $object . '"' . '<' . $key . '>';
+            if ($key != $last_key) {
+              $listString .= '; ';
+              $commaSeparatedString .= ",";
+            }
           }
+
+          $store = \Drupal::service('user.private_tempstore')
+            ->get('foreningsmentor');
+          $store->set('copy_to_clipboard', $listString);
         }
 
-        $store = \Drupal::service('user.private_tempstore')
-          ->get('foreningsmentor');
-        $store->set('copy_to_clipboard', $listString);
+        unset($form["actions"]["submit"]);
+
+        $form["actions"]["cancel"]['#submit'] = ['_foreningsmentor_cancel_action'];
+
+        $form["actions"]["copy_to_clipboard"] = [
+          '#type' => 'submit',
+          '#value' => \Drupal::translation()->translate('Copy to clipboard'),
+          '#ajax' => [
+            'callback' => '_foreningsmentor_copy_to_clipboard',
+            'progress' => [
+              'type' => 'throbber',
+              'message' => NULL,
+            ],
+          ],
+        ];
+
+        $form['mailtolink']['#markup'] = '<a class="button" href="mailto:' . $commaSeparatedString . '">' . t('Mailto link for mail client') . '</a>';
+
+        $form['#attached']['library'][] = 'foreningsmentor/copy_to_clipboard';
       }
 
-      unset($form["actions"]["submit"]);
-
-      $form["actions"]["cancel"]['#submit'] = ['_foreningsmentor_cancel_action'];
-
-      $form["actions"]["copy_to_clipboard"] = [
-        '#type' => 'submit',
-        '#value' => \Drupal::translation()->translate('Copy to clipboard'),
-        '#ajax' => [
-          'callback' => '_foreningsmentor_copy_to_clipboard',
-          'progress' => [
-            'type' => 'throbber',
-            'message' => NULL,
-          ],
-        ],
-      ];
-
-      $form['mailtolink']['#markup'] = '<a class="button" href="mailto:' . $commaSeparatedString . '">' . t('Mailto link for mail client') . '</a>';
-
-      $form['#attached']['library'][] = 'foreningsmentor/copy_to_clipboard';
-    }
+      break;
   }
+}
+
+/**
+ * Set redirect to admin content.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function _foreningsmentor_callback_submit(
+  $form,
+  FormStateInterface $form_state
+) {
+  $form_state->setRedirect('system.admin_content');
 }
 
 /**
