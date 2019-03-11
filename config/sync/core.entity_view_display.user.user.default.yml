@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.user.user.field_active
     - field.field.user.user.field_address
+    - field.field.user.user.field_anonymized
     - field.field.user.user.field_comment
     - field.field.user.user.field_date_child_cert
     - field.field.user.user.field_end_interview
@@ -41,6 +42,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: address_dawa_clean
+    region: content
+  field_anonymized:
+    weight: 13
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_comment:
     weight: 5

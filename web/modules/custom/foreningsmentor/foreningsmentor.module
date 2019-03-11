@@ -9,6 +9,9 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -256,4 +259,58 @@ function _foreningsmentor_copy_to_clipboard(
 function _foreningsmentor_cancel_action(array &$form, $form_state) {
   $form_data = $form_state->get('views_bulk_operations');
   $form_state->setRedirectUrl($form_data['redirect_url']);
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function foreningsmentor_views_pre_render(ViewExecutable $view) {
+  // Waiting list view.
+  // Filters lists of all children to only show those that do not have a course
+  // with a active mentor.
+  if ($view->id() == 'waiting_list') {
+    $addedIds = [];
+    foreach ($view->result as $key => $result) {
+      // Remove duplicates from waiting list.
+      if (isset($addedIds[$result->_entity->id()])) {
+        unset($view->result[$key]);
+        continue;
+      }
+
+      $doNotAdd = false;
+
+      // If field_courses is set, make sure at least one course with an active
+      // mentor has been set.
+      $field_courses = $result->_entity->get('field_courses');
+
+      if ($field_courses->count() > 0) {
+        foreach ($field_courses as $course) {
+          $course = Node::load($course->target_id);
+
+          $mentors = $course->get('field_mentor');
+
+          if ($mentors->count() > 0) {
+            foreach ($mentors as $mentorReference) {
+              $mentor = User::load($mentorReference->target_id);
+
+              if ($mentor->get('status')->value == 1 && !$mentor->get('field_anonymized')->value) {
+                $doNotAdd = true;
+                continue;
+              }
+            }
+
+            if ($doNotAdd) {
+              continue;
+            }
+          }
+        }
+      }
+
+      if ($doNotAdd) {
+        unset($view->result[$key]);
+      }
+
+      $addedIds[$result->_entity->id()] = $result->_entity->id();
+    };
+  }
 }

@@ -39,6 +39,7 @@ class AnonymizeAction extends ViewsBulkOperationsActionBase {
     $entity->setEmail(NULL);
 
     $entity->set('status', 0);
+    $entity->set('field_anonymized', TRUE);
 
     $entity->save();
   }

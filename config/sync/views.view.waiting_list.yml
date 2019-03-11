@@ -70,23 +70,9 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       pager:
-        type: mini
+        type: none
         options:
-          items_per_page: 10
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Antal elementer'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- Alle -'
-            offset: false
-            offset_label: Forskydning
-          tags:
-            previous: ‹‹
-            next: ››
       style:
         type: table
         options:
@@ -945,48 +931,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-        field_courses_target_id:
-          id: field_courses_target_id
-          table: node__field_courses
-          field: field_courses_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 3
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
         field_parents_target_id:
           id: field_parents_target_id
           table: node__field_parents
@@ -1000,48 +944,6 @@ display:
             max: ''
             value: ''
           group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
-        field_mentor_target_id:
-          id: field_mentor_target_id
-          table: node__field_mentor
-          field: field_mentor_target_id
-          relationship: field_courses
-          group_type: group
-          admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 3
           exposed: false
           expose:
             operator_id: ''
@@ -1139,7 +1041,6 @@ display:
         groups:
           1: AND
           2: OR
-          3: OR
       group_by: false
     cache_metadata:
       max-age: -1
