@@ -175,10 +175,11 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
                 foreach ($parents as $parent) {
                   $entity = $parent->entity;
 
-                  $name = $entity->title->value;
                   $email = $entity->field_email->value;
 
-                  $newList[$email] = $name;
+                  if (isset($email) && !isset($newList[$email])) {
+                    $newList[$email] = $email;
+                  }
                 }
               }
             }
