@@ -10,7 +10,6 @@ use Drupal\node\Entity\Node;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
-use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\user\Entity\User;
 
 /**
@@ -135,6 +134,7 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
         }
       }
       break;
+    // Override bulk operations confirm action for foreningsmentor_get_mail_action actions.
     case 'views_bulk_operations_confirm_action':
       if (
         isset($form_state->getStorage()["views_bulk_operations"]["action_id"]) &&
