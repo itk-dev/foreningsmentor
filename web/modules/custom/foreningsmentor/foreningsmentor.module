@@ -21,6 +21,18 @@ function foreningsmentor_user_presave(UserInterface $user) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function foreningsmentor_form_user_register_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  // Make "Notify user of new account" default to true.
+  $form['account']['notify']['#default_value'] = TRUE;
+}
+
+/**
  * Implements template_preprocess_node().
  */
 function foreningsmentor_preprocess_node(&$variables) {
