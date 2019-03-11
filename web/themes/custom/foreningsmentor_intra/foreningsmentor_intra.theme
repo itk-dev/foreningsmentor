@@ -33,6 +33,7 @@ function foreningsmentor_intra_preprocess_node(&$variables) {
         $variables['journal_entries'][] = (object) [
           'title' => $diary_entry->getTitle(),
           'text' => $diary_entry->get('body')->value,
+          'course' => $course_node->getTitle(),
           'author' => $diary_entry->getOwner(),
           'date' => $diary_entry->getChangedTime(),
         ];
