@@ -11,6 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\user\Entity\User;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -278,9 +279,10 @@ function _foreningsmentor_cancel_action(array &$form, $form_state) {
  * Implements hook_views_pre_render().
  */
 function foreningsmentor_views_pre_render(ViewExecutable $view) {
-  // Waiting list view.
+  // Waiting list view. Assumes that all children have been found by the views
+  // query.
   // Filters lists of all children to only show those that do not have a course
-  // with a active mentor.
+  // with a active mentor (type A course) or courses of type B or C.
   if ($view->id() == 'waiting_list') {
     $addedIds = [];
     foreach ($view->result as $key => $result) {
@@ -299,6 +301,17 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
       if ($field_courses->count() > 0) {
         foreach ($field_courses as $course) {
           $course = Node::load($course->target_id);
+
+          $activityTypeId = $course->get('field_activity_type')->target_id;
+
+          if (!is_null($activityTypeId)) {
+            $activityType = Term::load($activityTypeId);
+
+            if (!is_null($activityType) && ($activityType->getName() == 'B' || $activityType->getName() == 'C')) {
+              $doNotAdd = true;
+              continue;
+            }
+          }
 
           $mentors = $course->get('field_mentor');
 
