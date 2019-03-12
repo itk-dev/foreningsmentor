@@ -8,6 +8,7 @@ weight: 2
 is_admin: null
 permissions:
   - 'access content'
+  - 'change own username'
   - 'create activity content'
   - 'create field_activities'
   - 'create field_activity'

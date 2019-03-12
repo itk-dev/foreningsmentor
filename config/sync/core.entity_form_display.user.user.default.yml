@@ -44,7 +44,6 @@ third_party_settings:
         - field_name
         - field_address
         - field_own_mobile
-        - field_fg_mobile
       parent_name: ''
       weight: 1
       format_type: fieldset
@@ -58,7 +57,6 @@ third_party_settings:
       children:
         - field_active
         - field_date_child_cert
-        - field_is_coordinator
         - field_comment
       parent_name: ''
       weight: 2
@@ -107,13 +105,6 @@ content:
     third_party_settings: {  }
     type: address_dawa
     region: content
-  field_anonymized:
-    weight: 31
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_comment:
     weight: 7
     settings:
@@ -145,7 +136,7 @@ content:
     type: string_textfield
     region: content
   field_neighborhood:
-    weight: 6
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -161,7 +152,7 @@ content:
     type: telephone_default
     region: content
   field_profile_image:
-    weight: 11
+    weight: 5
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -169,7 +160,7 @@ content:
     type: image_image
     region: content
   field_public_description:
-    weight: 12
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -186,11 +177,12 @@ content:
     region: content
   path:
     type: path
-    weight: 30
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_anonymized: true
   langcode: true
   language: true
   timezone: true

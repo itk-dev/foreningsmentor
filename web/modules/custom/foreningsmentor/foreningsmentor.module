@@ -112,6 +112,16 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
   }
 
   switch ($form_id) {
+    case 'user_form':
+      $currentUser = \Drupal::currentUser();
+      $user = $form_state->getFormObject()->getEntity();
+      if ($currentUser->id() != 1 && $user->id() == 1) {
+        throw new Exception(t('Access denied to edit user.'));
+      }
+      if ($currentUser->id() != 1 || !in_array('coordinator', $currentUser->getRoles())) {
+        throw new Exception(t('Access denied to edit user.'));
+      }
+      break;
     // Unset previous selection in case of navigating from confirm page.
     case 'views_form_volunteers_page_1':
     case 'views_form_children_view_page_page_1':
@@ -273,6 +283,21 @@ function _foreningsmentor_copy_to_clipboard(
 function _foreningsmentor_cancel_action(array &$form, $form_state) {
   $form_data = $form_state->get('views_bulk_operations');
   $form_state->setRedirectUrl($form_data['redirect_url']);
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function foreningsmentor_entity_presave(
+  Drupal\Core\Entity\EntityInterface $entity
+) {
+  $currentUser = \Drupal::currentUser();
+
+  if ($entity->getEntityTypeId() == 'user') {
+    if ($entity->id() == 1 && $currentUser->id() != 1) {
+      throw new \Exception(t('Permission denied.'));
+    }
+  }
 }
 
 /**

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae0f4c0401e8965932f702933af357ef",
+    "content-hash": "d3b39a69edd8d45bcf916001240779c4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2792,6 +2792,9 @@
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Fix missing label": "https://www.drupal.org/files/issues/inline_entity_form-no_label_required_field_with_no_entries-2842744.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
