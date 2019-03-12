@@ -327,6 +327,10 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
         foreach ($field_courses as $course) {
           $course = Node::load($course->target_id);
 
+          if (is_null($course)) {
+            continue;
+          }
+
           $activityTypeId = $course->get('field_activity_type')->target_id;
 
           if (!is_null($activityTypeId)) {
