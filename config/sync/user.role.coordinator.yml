@@ -15,7 +15,6 @@ permissions:
   - 'access taxonomy overview'
   - 'access user profiles'
   - 'administer menu'
-  - 'administer users'
   - 'bypass node access'
   - 'create activity content'
   - 'create brick entities'
