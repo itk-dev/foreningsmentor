@@ -368,7 +368,7 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
 
           $mentors = $course->get('field_mentor');
 
-          if ($mentors->count() > 0) {
+          if ($activityType->getName() == 'A' && $mentors->count() > 0) {
             foreach ($mentors as $mentorReference) {
               $mentor = User::load($mentorReference->target_id);
               $anonymized = $mentor->get('field_anonymized')->value;
