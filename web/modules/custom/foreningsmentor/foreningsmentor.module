@@ -171,6 +171,7 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
 
         $newList = [];
         $commaSeparatedString = '';
+        $colonSeparatedString = '';
 
         if (isset($form['list'])) {
           if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers') {
@@ -216,10 +217,12 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
           $last_key = array_search(end($newList), $newList);
           foreach ($newList as $key => $object) {
             $commaSeparatedString .= $key;
+            $colonSeparatedString .= $key;
             $listString = $listString . '"' . $object . '"' . '<' . $key . '>';
             if ($key != $last_key) {
               $listString .= '; ';
-              $commaSeparatedString .= ";";
+              $commaSeparatedString .= ",";
+              $colonSeparatedString .= ";";
             }
           }
 
@@ -230,7 +233,7 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
             $store->set('copy_to_clipboard', $listString);
           }
           else if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') {
-            $store->set('copy_to_clipboard', $commaSeparatedString);
+            $store->set('copy_to_clipboard', $colonSeparatedString);
           }
         }
 
