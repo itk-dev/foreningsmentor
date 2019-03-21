@@ -219,13 +219,19 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
             $listString = $listString . '"' . $object . '"' . '<' . $key . '>';
             if ($key != $last_key) {
               $listString .= '; ';
-              $commaSeparatedString .= ",";
+              $commaSeparatedString .= ";";
             }
           }
 
           $store = \Drupal::service('user.private_tempstore')
             ->get('foreningsmentor');
-          $store->set('copy_to_clipboard', $listString);
+
+          if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers') {
+            $store->set('copy_to_clipboard', $listString);
+          }
+          else if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') {
+            $store->set('copy_to_clipboard', $commaSeparatedString);
+          }
         }
 
         unset($form["actions"]["submit"]);
