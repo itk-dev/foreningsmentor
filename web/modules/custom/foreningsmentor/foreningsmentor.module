@@ -12,6 +12,7 @@ use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\user\Entity\User;
 use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -115,12 +116,26 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
     case 'user_form':
       $currentUser = \Drupal::currentUser();
       $user = $form_state->getFormObject()->getEntity();
+
+      if ($user->id() == $currentUser->id()) {
+        // Allow user to edit themselves.
+        return;
+      }
+
+      // Deny access to edit user 1, except for user 1.
       if ($currentUser->id() != 1 && $user->id() == 1) {
-        throw new Exception(t('Access denied to edit user.'));
+        $response = new RedirectResponse('/admin/people');
+        $response->send();
+        return;
       }
-      if ($currentUser->id() != 1 || !in_array('coordinator', $currentUser->getRoles())) {
-        throw new Exception(t('Access denied to edit user.'));
+
+      // If not user 1 and not coordinator, block access to edit users.
+      if ($currentUser->id() != 1 && !in_array('coordinator', $currentUser->getRoles())) {
+        $response = new RedirectResponse('/admin/people');
+        $response->send();
+        return;
       }
+
       break;
     // Unset previous selection in case of navigating from confirm page.
     case 'views_form_volunteers_page_1':
@@ -347,8 +362,10 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
           if ($mentors->count() > 0) {
             foreach ($mentors as $mentorReference) {
               $mentor = User::load($mentorReference->target_id);
+              $anonymized = $mentor->get('field_anonymized')->value;
+              $status = $mentor->get('status')->value;
 
-              if ($mentor->get('status')->value == 1 && !$mentor->get('field_anonymized')->value) {
+              if ($status && !$anonymized) {
                 $doNotAdd = true;
                 continue;
               }
