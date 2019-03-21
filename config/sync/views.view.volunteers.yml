@@ -204,7 +204,7 @@ display:
           batch_size: 10
           form_step: true
           buttons: false
-          clear_on_exposed: 0
+          clear_on_exposed: false
           action_title: Handling
           selected_actions:
             foreningsmentor_anonymize: foreningsmentor_anonymize
@@ -1417,7 +1417,7 @@ display:
           tokenize: 0
           type: user+user
           context: ''
-          button_text: 'Add user'
+          button_text: 'Add volunteer'
           button_classes: 'button button-primary'
           button_attributes: ''
           button_prefix:
