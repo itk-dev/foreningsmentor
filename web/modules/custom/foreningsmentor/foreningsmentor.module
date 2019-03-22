@@ -140,9 +140,11 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
     // Unset previous selection in case of navigating from confirm page.
     case 'views_form_volunteers_page_1':
     case 'views_form_children_view_page_page_1':
-      foreach ($form["views_bulk_operations_bulk_form"] as &$element) {
-        if (is_array($element)) {
-          $element["#default_value"] = false;
+      if (isset($form["views_bulk_operations_bulk_form"])) {
+        foreach ($form["views_bulk_operations_bulk_form"] as &$element) {
+          if (is_array($element)) {
+            $element["#default_value"] = false;
+          }
         }
       }
       break;
