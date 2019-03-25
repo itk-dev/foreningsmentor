@@ -20,6 +20,7 @@ content:
 hidden:
   field_activity_types: true
   field_address: true
+  field_available_activities: true
   field_email: true
   field_homepage: true
   field_phone: true
