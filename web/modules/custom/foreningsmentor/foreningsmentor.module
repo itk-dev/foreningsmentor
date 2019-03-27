@@ -373,12 +373,15 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
           if ($activityType->getName() == 'A' && $mentors->count() > 0) {
             foreach ($mentors as $mentorReference) {
               $mentor = User::load($mentorReference->target_id);
-              $anonymized = $mentor->get('field_anonymized')->value;
-              $status = $mentor->get('status')->value;
 
-              if ($status && !$anonymized) {
-                $doNotAdd = true;
-                continue;
+              if (!is_null($mentor)) {
+                $anonymized = $mentor->get('field_anonymized')->value;
+                $status = $mentor->get('status')->value;
+
+                if ($status && !$anonymized) {
+                  $doNotAdd = true;
+                  continue;
+                }
               }
             }
 
