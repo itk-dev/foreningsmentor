@@ -12,7 +12,7 @@ field_name: field_background_image
 entity_type: brick
 bundle: frontpage_hero
 label: Baggrundsbillede
-description: ''
+description: 'For at få det bedste resultat på tværs af enheder, bør der anvendes et aflangt billede (Panorama), hvor det vigtigste ved motivet er centreret.'
 required: false
 translatable: true
 default_value: {  }
