@@ -1,0 +1,23 @@
+uuid: b0180141-2b32-4a5d-bc71-18b705bd04f3
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.partners_area
+    - field.storage.brick.field_btn
+  module:
+    - link
+id: brick.partners_area.field_btn
+field_name: field_btn
+entity_type: brick
+bundle: partners_area
+label: Knap
+description: 'Knap hvor der kan linkes til mere information'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

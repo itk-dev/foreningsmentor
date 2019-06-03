@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Forening
 type: club
-description: ''
+description: 'En forening der kan bruges til aktivitetsforløb.'
 help: ''
 new_revision: true
 preview_mode: 1

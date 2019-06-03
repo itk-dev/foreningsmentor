@@ -1,14 +1,15 @@
 uuid: 8dfb93ba-e1cb-4b87-bcd1-779eb5e067cc
-name: 'Drush Site-Install'
+name: Foreningsmentor
 mail: admin@example.com
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /user/login
+  front: /frontpage
 admin_compact_mode: false
 weight_select_max: 100
 langcode: da
 default_langcode: da
 _core:
   default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+mail_notification: ''

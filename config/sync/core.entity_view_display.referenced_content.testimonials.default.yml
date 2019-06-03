@@ -1,0 +1,44 @@
+uuid: 9df13b67-1092-4b7b-8957-a8b24f16ab43
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.testimonials
+    - field.field.referenced_content.testimonials.field_testimonial_author
+    - field.field.referenced_content.testimonials.field_testimonial_image
+    - field.field.referenced_content.testimonials.field_testimonial_text
+    - image.style.foreningsmentor_600x600
+  module:
+    - image
+id: referenced_content.testimonials.default
+targetEntityType: referenced_content
+bundle: testimonials
+mode: default
+content:
+  field_testimonial_author:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_testimonial_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: foreningsmentor_600x600
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_testimonial_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  langcode: true
+  title: true

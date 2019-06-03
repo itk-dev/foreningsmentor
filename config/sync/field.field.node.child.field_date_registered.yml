@@ -11,7 +11,7 @@ id: node.child.field_date_registered
 field_name: field_date_registered
 entity_type: node
 bundle: child
-label: 'Dato f. registrering'
+label: 'Dato for registrering'
 description: ''
 required: false
 translatable: false

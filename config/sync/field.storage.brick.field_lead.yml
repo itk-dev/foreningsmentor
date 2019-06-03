@@ -1,0 +1,25 @@
+uuid: 596b1725-8f99-4ad3-8a0c-e9689ff851c1
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: brick.field_lead
+field_name: field_lead
+entity_type: brick
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

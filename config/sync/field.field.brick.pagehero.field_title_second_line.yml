@@ -1,0 +1,19 @@
+uuid: 43641195-b979-45b1-9718-c4d685d07e5c
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.pagehero
+    - field.storage.brick.field_title_second_line
+id: brick.pagehero.field_title_second_line
+field_name: field_title_second_line
+entity_type: brick
+bundle: pagehero
+label: 'Title - Second line'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

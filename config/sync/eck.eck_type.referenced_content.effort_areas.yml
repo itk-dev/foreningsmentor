@@ -1,0 +1,9 @@
+uuid: f0d32567-8506-489d-b563-0bb1aae44b31
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.referenced_content
+name: Indsatser
+type: effort_areas
+description: ''

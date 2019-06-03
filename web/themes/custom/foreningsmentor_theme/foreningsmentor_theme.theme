@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function foreningsmentor_theme_preprocess_region__footer(&$variables) {
+  $moduleHandler = \Drupal::service('module_handler');
+  $variables['custom_config_exists'] = FALSE;
+  if ($moduleHandler->moduleExists('foreningsmentor_config_settings')) {
+    $variables['custom_config_exists'] = TRUE;
+    $config = \Drupal::getContainer()->get('itk_admin.itk_config');
+    $variables['footer_text'] = $config->get('footer_text');
+    $variables['footer_second'] = $config->get('footer_text_2nd');
+  }
+}

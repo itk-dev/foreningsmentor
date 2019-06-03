@@ -1,0 +1,9 @@
+uuid: 078d5fb7-bf2d-4095-93a7-6d33f3c18637
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Kontakter område'
+type: contacts_area
+description: 'Område hvor der kan tilføjes kontakter'

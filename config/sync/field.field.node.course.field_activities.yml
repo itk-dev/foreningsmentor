@@ -1,0 +1,28 @@
+uuid: b8701391-0193-4173-91ba-7e22d8c231f0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activities
+    - node.type.activity
+    - node.type.course
+id: node.course.field_activities
+field_name: field_activities
+entity_type: node
+bundle: course
+label: Aktivitetsforløb
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      activity: activity
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

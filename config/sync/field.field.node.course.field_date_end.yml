@@ -1,0 +1,21 @@
+uuid: c898f7de-aa44-4026-85e1-3e8896241bb3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_end
+    - node.type.course
+  module:
+    - datetime
+id: node.course.field_date_end
+field_name: field_date_end
+entity_type: node
+bundle: course
+label: Afslutningsdato
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

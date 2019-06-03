@@ -10,9 +10,9 @@ id: node.child.field_neighborhood
 field_name: field_neighborhood
 entity_type: node
 bundle: child
-label: Bydel
+label: Indsatsområde
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -1,0 +1,8 @@
+uuid: 2d2c0374-b312-492b-a1e1-0cd515eae505
+langcode: da
+status: true
+dependencies: {  }
+id: short_no_time
+label: 'Kort ingen tid'
+locked: false
+pattern: 'd/m Y'

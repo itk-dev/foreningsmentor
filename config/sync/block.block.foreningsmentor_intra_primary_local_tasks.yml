@@ -1,0 +1,22 @@
+uuid: 52875f9c-204b-47a3-9869-8f412a32a7f0
+langcode: da
+status: true
+dependencies:
+  theme:
+    - foreningsmentor_intra
+_core:
+  default_config_hash: CyX_aDKAka2_eihevNLscCHDYrzDgIqwWzFVEFRKIww
+id: foreningsmentor_intra_primary_local_tasks
+theme: foreningsmentor_intra
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

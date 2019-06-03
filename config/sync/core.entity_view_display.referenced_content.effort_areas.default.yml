@@ -1,0 +1,56 @@
+uuid: 86bc241d-7c8d-4be9-a0c4-46bbcb540f29
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.effort_areas
+    - field.field.referenced_content.effort_areas.field_effort_area_description
+    - field.field.referenced_content.effort_areas.field_effort_area_image
+    - field.field.referenced_content.effort_areas.field_effort_area_link
+    - image.style.foreningsmentor_80x80
+  module:
+    - image
+    - link
+id: referenced_content.effort_areas.default
+targetEntityType: referenced_content
+bundle: effort_areas
+mode: default
+content:
+  field_effort_area_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_effort_area_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: foreningsmentor_80x80
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_effort_area_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

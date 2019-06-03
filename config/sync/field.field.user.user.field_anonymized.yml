@@ -1,0 +1,24 @@
+uuid: 224c153a-4e96-4e6c-9c50-f24ff71b59c5
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_anonymized
+  module:
+    - user
+id: user.user.field_anonymized
+field_name: field_anonymized
+entity_type: user
+bundle: user
+label: Anonymiseret
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

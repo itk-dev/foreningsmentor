@@ -1,0 +1,10 @@
+uuid: bc786269-81c7-4ccb-8be0-40ca575851cd
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.basic
+label: Basic
+targetEntityType: node
+cache: true

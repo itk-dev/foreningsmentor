@@ -1,0 +1,132 @@
+ul.menu.foreningsmentor-intra--menu--intranet  {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul.menu.foreningsmentor-intra--menu--intranet .menu-item {
+  list-style-type: none;
+}
+
+ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded,
+ul.menu.foreningsmentor-intra--menu--intranet .menu-item--collapsed {
+  list-style-image: none;
+}
+
+ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
+  background-color: #444;
+}
+
+.foreningsmentor-intra--menu--intranet li {
+  float: left;
+}
+
+.foreningsmentor-intra--menu--intranet li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: .8em 1em;
+  text-decoration: none;
+}
+
+.foreningsmentor-intra--menu--intranet li a:hover {
+  background-color: #222;
+}
+
+.foreningsmentor-intra--menu--intranet li a.is-active {
+  color: white;
+  background-color: #444;
+}
+
+.foreningsmentor-intra--journal-entry > .node__meta {
+  font-size: 0.7em;
+  font-style: italic;
+  margin-top: -1em;
+}
+
+.field {
+  margin-bottom: 1em;
+}
+
+.foreningsmentor-intra--fields {
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.foreningsmentor-intra--heading {
+  color: black;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.foreningsmentor-intra--journal-heading-add {
+  color: black;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
+
+.foreningsmentor-intra--views-table-wrapper {
+  overflow-x: auto;
+}
+
+.foreningsmentor-intra--no-results {
+  margin-bottom: 1em;
+  font-style: italic;
+}
+
+.foreningsmentor-intra--activity-ended {
+  color: grey;
+  text-decoration-line: line-through;
+}
+
+.foreningsmentor-intra--activity-headline {
+  margin-top: 1em;
+}
+
+.foreningsmentor-intra--activity-ul {
+  padding: 0;
+}
+
+.foreningsmentor-intra--feed-icon {
+  margin: 1em;
+  float: right;
+}
+
+.adminimal .button-primary,
+.adminimal .button-primary:focus,
+.adminimal .button-primary:visited {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #0062cc;
+}
+
+.adminimal .button-primary:hover,
+.adminimal .button-primary:active {
+  background-color: #003295;
+  border-color: #003295;
+}
+
+.adminimal .button-secondary,
+.adminimal .button-secondary:focus,
+.adminimal .button-secondary:visited {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.adminimal .button-secondary:hover,
+.adminimal .button-secondary:active {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.foreningsmentor-intra--region {
+  margin-top: 1em;
+}
+
+.view-header {
+  display: flex;
+  flex-flow: row-reverse;
+}

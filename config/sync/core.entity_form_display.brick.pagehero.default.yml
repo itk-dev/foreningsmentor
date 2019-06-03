@@ -1,0 +1,57 @@
+uuid: 772a040e-bad7-4463-981e-94d1c44db28e
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.pagehero
+    - field.field.brick.pagehero.field_background_image
+    - field.field.brick.pagehero.field_title_first_line
+    - field.field.brick.pagehero.field_title_second_line
+    - image.style.thumbnail
+  module:
+    - image
+id: brick.pagehero.default
+targetEntityType: brick
+bundle: pagehero
+mode: default
+content:
+  field_background_image:
+    weight: 5
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_title_first_line:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_title_second_line:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

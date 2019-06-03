@@ -1,0 +1,44 @@
+uuid: b51a79df-5809-4842-9b0b-00b20ebd374c
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.contacts_area
+    - eck.eck_type.brick.efforts_area
+    - eck.eck_type.brick.frontpage_hero
+    - eck.eck_type.brick.pagehero
+    - eck.eck_type.brick.partners_area
+    - eck.eck_type.brick.teasers
+    - eck.eck_type.brick.testimonials_area
+    - eck.eck_type.brick.text
+    - field.storage.node.field_content_block
+    - node.type.page
+  module:
+    - bricks
+id: node.page.field_content_block
+field_name: field_content_block
+entity_type: node
+bundle: page
+label: Indholdsblok
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:brick'
+  handler_settings:
+    target_bundles:
+      frontpage_hero: frontpage_hero
+      efforts_area: efforts_area
+      contacts_area: contacts_area
+      partners_area: partners_area
+      teasers: teasers
+      text: text
+      testimonials_area: testimonials_area
+      pagehero: pagehero
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: frontpage_hero
+field_type: bricks

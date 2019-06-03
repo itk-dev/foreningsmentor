@@ -1,0 +1,33 @@
+uuid: dfda72fc-cef8-4d26-9a85-d2f9c01669d2
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.kontakter
+    - field.field.referenced_content.kontakter.field_user
+  module:
+    - bricks
+id: referenced_content.kontakter.default
+targetEntityType: referenced_content
+bundle: kontakter
+mode: default
+content:
+  field_user:
+    weight: -4
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: bricks_nested
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

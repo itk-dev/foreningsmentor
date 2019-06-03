@@ -1,0 +1,49 @@
+<?php
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements template_preprocess_html().
+ */
+function foreningsmentor_intra_preprocess_page_title(&$variables) {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function foreningsmentor_intra_preprocess_node(&$variables) {
+  if ($variables["node"]->getType() == 'journal_entry') {
+    $variables['author_name'] = $variables["node"]->getOwner()->name->value;
+  }
+  else if ($variables["node"]->getType() == 'child' && $variables['view_mode'] == 'full') {
+    $courses = $variables["node"]->get('field_courses');
+
+    $variables['journal_entries'] = [];
+
+    foreach ($courses as $course) {
+      $course_node = Node::load($course->target_id);
+
+      $diary_entries = $course_node->get('field_diary');
+
+      foreach ($diary_entries as $entry) {
+        $diary_entry = Node::load($entry->target_id);
+
+        $variables['journal_entries'][] = (object) [
+          'title' => $diary_entry->getTitle(),
+          'text' => $diary_entry->get('body')->value,
+          'course' => $course_node->getTitle(),
+          'author' => $diary_entry->getOwner(),
+          'date' => $diary_entry->getChangedTime(),
+        ];
+      }
+    }
+
+    // Sort journal_entries according to date.
+    usort($variables['journal_entries'], function($a, $b) {
+      if ($a->date == $b->date) return 0;
+      return $a->date > $b->date ? 1 : -1;
+    });
+  }
+}

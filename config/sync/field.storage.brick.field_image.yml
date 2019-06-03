@@ -1,0 +1,36 @@
+uuid: 943e569f-6106-40a1-9a6c-a86f7c0b3a1c
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - field_permissions
+    - file
+    - image
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: Tm0Y8in7TwGLD5zj-0prExv1hufuJ3JvQAnp77Hn2S0
+id: brick.field_image
+field_name: field_image
+entity_type: brick
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 8
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

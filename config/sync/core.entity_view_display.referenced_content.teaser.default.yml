@@ -1,0 +1,36 @@
+uuid: 3e664924-509b-4555-a21b-42c21c67f7be
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.teaser
+    - field.field.referenced_content.teaser.field_teaser_image
+    - field.field.referenced_content.teaser.field_teaser_text
+    - image.style.foreningsmentor_600x600
+  module:
+    - image
+    - text
+id: referenced_content.teaser.default
+targetEntityType: referenced_content
+bundle: teaser
+mode: default
+content:
+  field_teaser_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: foreningsmentor_600x600
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_teaser_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  langcode: true
+  title: true

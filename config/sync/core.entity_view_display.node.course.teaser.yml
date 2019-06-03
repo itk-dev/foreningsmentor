@@ -1,0 +1,45 @@
+uuid: 5c09c406-e97c-486a-9bbe-9df662793d80
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.course.body
+    - node.type.course
+  module:
+    - text
+    - user
+id: node.course.teaser
+targetEntityType: node
+bundle: course
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_activities: true
+  field_activity_type: true
+  field_anonymized: true
+  field_child: true
+  field_coordinators_end_status: true
+  field_course_type_text: true
+  field_date_end: true
+  field_date_start: true
+  field_diary: true
+  field_field_coor_end_status_text: true
+  field_finished: true
+  field_mentor: true
+  field_mentors_end_status: true
+  field_mentors_end_status_text: true
+  langcode: true

@@ -1,0 +1,48 @@
+uuid: a1e2d2b1-10ee-47d6-aed7-5147fab3c44e
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.basic
+    - field.field.node.parent.body
+    - field.field.node.parent.field_address
+    - field.field.node.parent.field_children
+    - field.field.node.parent.field_email
+    - field.field.node.parent.field_phone
+    - node.type.parent
+  module:
+    - foreningsmentor
+    - telephone
+    - user
+id: node.parent.basic
+targetEntityType: node
+bundle: parent
+mode: basic
+content:
+  field_address:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_dawa_clean
+    region: content
+  field_email:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_phone:
+    weight: 2
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+hidden:
+  body: true
+  field_children: true
+  langcode: true
+  links: true

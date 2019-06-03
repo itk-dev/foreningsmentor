@@ -1,0 +1,83 @@
+uuid: 44ee2694-6981-4eb7-b0f7-9977de0a5493
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.inlineform
+    - field.field.node.course.body
+    - field.field.node.course.field_activities
+    - field.field.node.course.field_activity_type
+    - field.field.node.course.field_anonymized
+    - field.field.node.course.field_child
+    - field.field.node.course.field_coordinators_end_status
+    - field.field.node.course.field_course_type_text
+    - field.field.node.course.field_date_end
+    - field.field.node.course.field_date_start
+    - field.field.node.course.field_diary
+    - field.field.node.course.field_field_coor_end_status_text
+    - field.field.node.course.field_finished
+    - field.field.node.course.field_mentor
+    - field.field.node.course.field_mentors_end_status
+    - field.field.node.course.field_mentors_end_status_text
+    - node.type.course
+  module:
+    - datetime
+id: node.course.inlineform
+targetEntityType: node
+bundle: course
+mode: inlineform
+content:
+  field_activity_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_date_end:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_date_start:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_mentor:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  field_activities: true
+  field_anonymized: true
+  field_child: true
+  field_coordinators_end_status: true
+  field_course_type_text: true
+  field_diary: true
+  field_field_coor_end_status_text: true
+  field_finished: true
+  field_mentors_end_status: true
+  field_mentors_end_status_text: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

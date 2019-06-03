@@ -1,0 +1,26 @@
+uuid: a3c6b46f-512d-4024-9f8e-cb9123c5f18f
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: content_patterns
+label: 'Content patterns'
+type: 'canonical_entities:node'
+pattern: '/[node:content-type]/[node:title]'
+selection_criteria:
+  bf646926-a557-4674-b1af-86fb5f0dc16d:
+    id: node_type
+    bundles:
+      activity: activity
+      child: child
+      club: club
+      journal_entry: journal_entry
+      parent: parent
+    negate: false
+    context_mapping:
+      node: node
+    uuid: bf646926-a557-4674-b1af-86fb5f0dc16d
+selection_logic: and
+weight: -5
+relationships: {  }

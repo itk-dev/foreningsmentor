@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+
+<div class="footer">
+  <div class="container">
+    <div class="row mt-5 mb-5">
+      <div class="col-md-3 mb-3">
+        {% if (custom_config_exists) %}
+          {% if (footer_text) %}
+              {{ footer_text|raw }}
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="col-md-6 mb-3">
+        {% if (custom_config_exists) %}
+          {% if (footer_second) %}
+            {{ footer_second|raw }}
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="col-md-3 mb-3">
+        {% if content %}
+          {{ content }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+uuid: 9ea3ebea-3085-4157-ad6a-60fee1546dc0
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.wrapper
+_core:
+  default_config_hash: YJilc_WIupltLTvb8_SlHNkoPkfERN9De_v1CEie_T8
+id: brick.wrapper.default
+targetEntityType: brick
+bundle: wrapper
+mode: default
+content: {  }
+hidden:
+  langcode: true
+  title: true

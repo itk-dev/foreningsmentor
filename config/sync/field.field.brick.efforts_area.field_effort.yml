@@ -1,0 +1,30 @@
+uuid: ba5d3289-1b37-4228-80ad-dcfbb523f4d6
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.efforts_area
+    - eck.eck_type.referenced_content.effort_areas
+    - field.storage.brick.field_effort
+  module:
+    - bricks
+id: brick.efforts_area.field_effort
+field_name: field_effort
+entity_type: brick
+bundle: efforts_area
+label: Indsats
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:referenced_content'
+  handler_settings:
+    target_bundles:
+      effort_areas: effort_areas
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: ''
+field_type: bricks

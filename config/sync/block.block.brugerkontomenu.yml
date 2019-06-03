@@ -1,0 +1,24 @@
+uuid: 9ab99298-84ea-4698-bbd0-6c6886f067a9
+langcode: da
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - foreningsmentor_intra
+id: brugerkontomenu
+theme: foreningsmentor_intra
+region: header
+weight: -5
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: Brugerkontomenu
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

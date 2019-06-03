@@ -1,0 +1,9 @@
+uuid: 9f8758e0-367c-4516-b87b-fe2df7266431
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Partner område'
+type: partners_area
+description: 'Område med plads til overskrift, kort beskrivelse, op til 8 partner logoer og knap med henvisning.'

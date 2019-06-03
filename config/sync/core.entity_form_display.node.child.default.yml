@@ -3,14 +3,14 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.child.field_activity
+    - core.entity_form_mode.node.inlineform
     - field.field.node.child.field_activity_wishes
+    - field.field.node.child.field_anonymized
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
+    - field.field.node.child.field_courses
     - field.field.node.child.field_date_registered
-    - field.field.node.child.field_diary
-    - field.field.node.child.field_is_mentored
-    - field.field.node.child.field_mentor
+    - field.field.node.child.field_family_subsidy
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
     - field.field.node.child.field_referer
@@ -23,7 +23,7 @@ dependencies:
     - node.type.child
   module:
     - datetime
-    - path
+    - inline_entity_form
     - telephone
     - text
 id: node.child.default
@@ -31,23 +31,8 @@ targetEntityType: node
 bundle: child
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_activity:
-    weight: 137
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_activity_wishes:
-    weight: 122
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -55,70 +40,72 @@ content:
     type: string_textarea
     region: content
   field_birthday:
-    weight: 123
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_comments:
-    weight: 128
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_courses:
+    weight: 15
+    settings:
+      form_mode: inlineform
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
   field_date_registered:
-    weight: 127
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_diary:
-    weight: 136
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_is_mentored:
-    weight: 121
+  field_family_subsidy:
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_mentor:
-    weight: 134
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_neighborhood:
-    weight: 135
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    weight: 1
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_parents:
-    weight: 133
+    weight: 13
     settings:
+      form_mode: inlineform
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
       match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: inline_entity_form_complex
     region: content
   field_referer:
-    weight: 129
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -126,22 +113,22 @@ content:
     type: string_textfield
     region: content
   field_referer_email:
-    weight: 131
+    type: email_default
+    weight: 12
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: email_default
-    region: content
   field_referer_phone:
-    weight: 130
+    weight: 11
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
     region: content
   field_school:
-    weight: 125
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -149,75 +136,47 @@ content:
     type: string_textfield
     region: content
   field_sex:
-    weight: 124
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_shool_class:
-    weight: 126
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_siblings:
-    weight: 132
+    weight: 14
     settings:
+      form_mode: inlineform
+      label_singular: ''
+      label_plural: ''
+      allow_existing: true
       match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_new: false
+      allow_duplicate: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: inline_entity_form_complex
     region: content
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 15
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 120
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 16
-    region: content
-    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 5
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  created: true
+  field_anonymized: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

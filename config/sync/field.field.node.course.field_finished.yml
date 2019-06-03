@@ -1,0 +1,23 @@
+uuid: 7726c210-ae3e-4dd6-a5bd-5e65289cb229
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_finished
+    - node.type.course
+id: node.course.field_finished
+field_name: field_finished
+entity_type: node
+bundle: course
+label: Afsluttet
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Afsluttet
+  off_label: 'Ikke afsluttet'
+field_type: boolean

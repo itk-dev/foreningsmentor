@@ -11,8 +11,8 @@ third_party_settings:
     parent: 'main:'
 name: Side
 type: page
-description: ''
+description: 'En side på hjemmesiden.'
 help: ''
-new_revision: true
-preview_mode: 1
-display_submitted: true
+new_revision: false
+preview_mode: 0
+display_submitted: false

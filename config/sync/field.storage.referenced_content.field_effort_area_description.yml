@@ -1,0 +1,23 @@
+uuid: c6b464e7-11e2-42c3-8ff0-c9625cab5711
+langcode: da
+status: true
+dependencies:
+  module:
+    - eck
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: referenced_content.field_effort_area_description
+field_name: field_effort_area_description
+entity_type: referenced_content
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

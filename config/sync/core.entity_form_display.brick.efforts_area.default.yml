@@ -1,0 +1,40 @@
+uuid: 543ddf13-bbac-46c8-ad15-b2d99eb434ac
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.efforts_area
+    - field.field.brick.efforts_area.field_effort
+  module:
+    - bricks_inline
+id: brick.efforts_area.default
+targetEntityType: brick
+bundle: efforts_area
+mode: default
+content:
+  field_effort:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: bricks_tree_inline
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

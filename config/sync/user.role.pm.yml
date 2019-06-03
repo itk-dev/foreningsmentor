@@ -1,9 +1,0 @@
-uuid: 4fceb16e-e0bb-4a4c-9381-d427c2ba977e
-langcode: da
-status: true
-dependencies: {  }
-id: pm
-label: Projektleder
-weight: 3
-is_admin: null
-permissions: {  }

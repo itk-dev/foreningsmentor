@@ -1,0 +1,9 @@
+uuid: b854a3a5-ff03-4e29-b6eb-40ff97296019
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Underside hero'
+type: pagehero
+description: "Underside hero med overskrift og baggrundsbillede\r\nBrug dette som det første element på undersider."

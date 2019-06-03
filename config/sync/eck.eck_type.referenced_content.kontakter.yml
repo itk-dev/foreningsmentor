@@ -1,0 +1,9 @@
+uuid: a7386476-8f5e-4169-a0de-9dd8bc488d81
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.referenced_content
+name: Kontakter
+type: kontakter
+description: ''

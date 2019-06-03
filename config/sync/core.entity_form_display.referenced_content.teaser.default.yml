@@ -1,0 +1,43 @@
+uuid: aa68f0ce-b647-4001-b0ed-bebeb820d3bd
+langcode: da
+status: true
+dependencies:
+  config:
+    - eck.eck_type.referenced_content.teaser
+    - field.field.referenced_content.teaser.field_teaser_image
+    - field.field.referenced_content.teaser.field_teaser_text
+    - image.style.thumbnail
+  module:
+    - image
+    - text
+id: referenced_content.teaser.default
+targetEntityType: referenced_content
+bundle: teaser
+mode: default
+content:
+  field_teaser_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_teaser_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.journal_entry.body
+    - field.field.node.journal_entry.field_only_for_coordinators
     - node.type.journal_entry
   module:
     - text
@@ -17,15 +18,13 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 0
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
+  field_course: true
+  field_only_for_coordinators: true
   langcode: true
+  links: true
