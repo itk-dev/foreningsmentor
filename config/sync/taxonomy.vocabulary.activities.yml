@@ -5,5 +5,4 @@ dependencies: {  }
 name: Aktiviteter
 vid: activities
 description: 'Liste af aktiviteter'
-hierarchy: 0
 weight: 0

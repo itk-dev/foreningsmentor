@@ -358,35 +358,38 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
           }
 
           $activityTypeId = $course->get('field_activity_type')->target_id;
+          $activityType = null;
 
           if (!is_null($activityTypeId)) {
             $activityType = Term::load($activityTypeId);
+          }
 
-            if (!is_null($activityType) && ($activityType->getName() == 'B' || $activityType->getName() == 'C')) {
+          if (!is_null($activityType)) {
+            if ($activityType->getName() == 'B' || $activityType->getName() == 'C') {
               $doNotAdd = true;
               continue;
             }
-          }
 
-          $mentors = $course->get('field_mentor');
+            $mentors = $course->get('field_mentor');
 
-          if ($activityType->getName() == 'A' && $mentors->count() > 0) {
-            foreach ($mentors as $mentorReference) {
-              $mentor = User::load($mentorReference->target_id);
+            if ($activityType->getName() == 'A' && $mentors->count() > 0) {
+              foreach ($mentors as $mentorReference) {
+                $mentor = User::load($mentorReference->target_id);
 
-              if (!is_null($mentor)) {
-                $anonymized = $mentor->get('field_anonymized')->value;
-                $status = $mentor->get('status')->value;
+                if (!is_null($mentor)) {
+                  $anonymized = $mentor->get('field_anonymized')->value;
+                  $status = $mentor->get('status')->value;
 
-                if ($status && !$anonymized) {
-                  $doNotAdd = true;
-                  continue;
+                  if ($status && !$anonymized) {
+                    $doNotAdd = true;
+                    continue;
+                  }
                 }
               }
-            }
 
-            if ($doNotAdd) {
-              continue;
+              if ($doNotAdd) {
+                continue;
+              }
             }
           }
         }

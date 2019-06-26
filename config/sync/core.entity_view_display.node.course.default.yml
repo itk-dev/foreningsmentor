@@ -38,6 +38,7 @@ third_party_settings:
         open: false
         required_fields: false
       label: Barn
+      region: content
 id: node.course.default
 targetEntityType: node
 bundle: course

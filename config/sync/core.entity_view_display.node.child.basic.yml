@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.basic
     - field.field.node.child.field_activity_wishes
+    - field.field.node.child.field_anonymized
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
     - field.field.node.child.field_courses
@@ -41,6 +42,7 @@ third_party_settings:
         open: true
         required_fields: false
       label: Forældre
+      region: content
 id: node.child.basic
 targetEntityType: node
 bundle: child
