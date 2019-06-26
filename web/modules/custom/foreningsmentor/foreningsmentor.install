@@ -9,3 +9,13 @@ function foreningsmentor_update_8101(&$sandbox) {
   );
   \Drupal::service('module_installer')->install($module_list);
 }
+
+/**
+ * Enables itk_siteimprove.
+ */
+function foreningsmentor_update_8102(&$sandbox) {
+  $module_list = array(
+    'itk_siteimprove'
+  );
+  \Drupal::service('module_installer')->install($module_list);
+}

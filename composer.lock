@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80f95e493d2c63757eb2c6ba9eb6d854",
+    "content-hash": "9579a8343872b225b350e0ec29d7dcfc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3181,6 +3181,31 @@
                 "Drupal"
             ],
             "time": "2017-08-01T07:46:52+00:00"
+        },
+        {
+            "name": "drupal/itk_siteimprove",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:itk-dev/siteimprove-d8.git",
+                "reference": "819bbfce0f71fa4d9577227276d2942947d4ae74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itk-dev/siteimprove-d8/zipball/819bbfce0f71fa4d9577227276d2942947d4ae74",
+                "reference": "819bbfce0f71fa4d9577227276d2942947d4ae74",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.itkdev.dk/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides siteimprove functionality",
+            "keywords": [
+                "Drupal"
+            ],
+            "time": "2018-04-26T09:13:52+00:00"
         },
         {
             "name": "drupal/login_redirect_per_role",
