@@ -42,7 +42,7 @@
       <div{{ attributes.addClass('col-sm-6','col-md-4','mb-3','contact','text-center','bg-gray','pt-3') }}>
         <h4 class="mb-3">{{ content['#label'] }}</h4>
         {% if content.contact %}
-          <img class="rounded-circle img-fluid mb-3" width="120" height="120" src="{{ content.contact.image }}" alt="Placehold">
+          <img class="rounded-circle img-fluid mb-3" width="120" height="120" src="{{ content.contact.image ?: '/'~directory~'/images/default_contact.png' }}" alt="Placeholder">
           <h5 class="mb-3">{{ content.contact.name }}</h5>
           <p>{{ content.contact.description }}</p>
           <p class="mb-0">Mail: <a href="mailto:{{ content.contact.mail }}"></a>{{ content.contact.mail }}</p>

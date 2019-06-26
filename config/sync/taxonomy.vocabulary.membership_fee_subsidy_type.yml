@@ -5,5 +5,4 @@ dependencies: {  }
 name: Kontingentstøtte
 vid: membership_fee_subsidy_type
 description: ''
-hierarchy: 0
 weight: 0

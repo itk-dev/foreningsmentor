@@ -5,5 +5,4 @@ dependencies: {  }
 name: Indsatsområde
 vid: neighborhood
 description: Indsatsområder
-hierarchy: 0
 weight: 0

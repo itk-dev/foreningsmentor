@@ -30,7 +30,7 @@
         "drupal/cer": "^4.0@alpha",
         "drupal/core": "~8.0",
         "drupal/eck": "^1.0@alpha",
-        "drupal/field_group": "^1.0",
+        "drupal/field_group": "^3.0",
         "drupal/field_permissions": "^1.0@RC",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/itk-admin-links": "^1.0",

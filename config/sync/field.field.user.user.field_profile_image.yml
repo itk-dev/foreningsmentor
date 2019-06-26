@@ -12,7 +12,7 @@ field_name: field_profile_image
 entity_type: user
 bundle: user
 label: Profilbillede
-description: 'Tilføj et vellignende billede af dig selv.'
+description: "Tilføj et vellignende billede af dig selv.\r\nHer kan bruges et billede der er kvadratisk eller i 16:9 format. Sørg for at motivet på billedet er centreret."
 required: false
 translatable: false
 default_value: {  }

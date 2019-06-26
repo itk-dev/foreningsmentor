@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Koordinatorens afslutning'
 vid: coordinators_end_status
 description: ''
-hierarchy: 0
 weight: 0
