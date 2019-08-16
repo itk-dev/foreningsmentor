@@ -1,5 +1,9 @@
 # Foreningsmentor changelog
 
+## 1.1.2
+
+* Fixed image sizes.
+
 ## 1.1.1
 
 * Add siteimprove.
