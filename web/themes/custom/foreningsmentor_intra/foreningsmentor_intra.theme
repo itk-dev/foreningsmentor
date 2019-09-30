@@ -47,3 +47,38 @@ function foreningsmentor_intra_preprocess_node(&$variables) {
     });
   }
 }
+
+
+function foreningsmentor_intra_preprocess_views_view_field(&$vars) {
+  $view = $vars['view'];
+
+  if ($view->id() === 'mentor_courses') {
+    if ($vars["field"]->field == 'nothing') {
+      $phone = null;
+
+      foreach ($vars["row"]->_entity->get('field_child') as $child) {
+        $childId = $child->target_id;
+
+        $child = Node::load($childId);
+
+        $parentIds = $child->get('field_parents');
+
+        foreach ($parentIds as $parentId) {
+          $parent = Node::load($parentId->target_id);
+
+          $phone = $parent->get('field_phone')->value;
+
+          if ($phone !== null) {
+            break;
+          }
+        }
+
+        if ($phone !== null) {
+          break;
+        }
+      }
+
+      $vars['output'] = $phone;
+    }
+  }
+}
