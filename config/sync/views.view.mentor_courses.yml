@@ -9,13 +9,11 @@ dependencies:
     - field.storage.node.field_date_start
     - field.storage.node.field_finished
     - field.storage.node.field_mentors_end_status
-    - field.storage.node.field_phone
     - node.type.course
     - user.role.mentor
   module:
     - datetime
     - node
-    - telephone
     - user
 id: mentor_courses
 label: Mentorforløb
@@ -660,17 +658,17 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_phone:
-          id: field_phone
-          table: node__field_phone
-          field: field_phone
-          relationship: field_parents
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
           group_type: group
           admin_label: ''
-          label: Tlf
+          label: Telefon
           exclude: false
           alter:
-            alter_text: false
+            alter_text: true
             text: ''
             make_link: false
             path: ''
@@ -700,29 +698,15 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: telephone_link
-          settings:
-            title: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          hide_alter_empty: false
+          plugin_id: custom
       filters:
         status:
           value: '1'
@@ -817,90 +801,6 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: string
-        field_parents_target_id:
-          id: field_parents_target_id
-          table: node__field_parents
-          field: field_parents_target_id
-          relationship: field_child
-          group_type: group
-          admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
-        delta:
-          id: delta
-          table: node__field_parents
-          field: delta
-          relationship: field_child
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: '0'
-          group: 2
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
       sorts:
         created:
           id: created
@@ -931,22 +831,12 @@ display:
           admin_label: 'field_child: Indhold'
           required: false
           plugin_id: standard
-        field_parents:
-          id: field_parents
-          table: node__field_parents
-          field: field_parents
-          relationship: field_child
-          group_type: group
-          admin_label: 'field_parents: Indhold'
-          required: false
-          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
-          2: OR
     cache_metadata:
       max-age: -1
       contexts:
@@ -963,7 +853,6 @@ display:
         - 'config:field.storage.node.field_date_start'
         - 'config:field.storage.node.field_finished'
         - 'config:field.storage.node.field_mentors_end_status'
-        - 'config:field.storage.node.field_phone'
   page_1:
     display_plugin: page
     id: page_1
@@ -988,4 +877,3 @@ display:
         - 'config:field.storage.node.field_date_start'
         - 'config:field.storage.node.field_finished'
         - 'config:field.storage.node.field_mentors_end_status'
-        - 'config:field.storage.node.field_phone'
