@@ -1,5 +1,9 @@
 # Foreningsmentor changelog
 
+## 1.1.4
+
+* Added siteimprove config.
+
 ## 1.1.3
 
 * Fixed mentor list issues.
