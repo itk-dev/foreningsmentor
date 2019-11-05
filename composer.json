@@ -13,10 +13,6 @@
         "0": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        "itk": {
-            "type": "composer",
-            "url": "https://packagist.itkdev.dk"
         }
     },
     "require": {
