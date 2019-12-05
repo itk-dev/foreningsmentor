@@ -1,5 +1,14 @@
 # Foreningsmentor changelog
 
+## 1.2.1
+
+* Removed pagination from volunteer list.
+* Sorted club listings.
+
+## 1.2.0
+
+* Security fixes.
+
 ## 1.1.4
 
 * Added siteimprove config.

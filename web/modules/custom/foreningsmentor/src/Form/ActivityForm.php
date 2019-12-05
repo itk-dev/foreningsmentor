@@ -91,6 +91,9 @@ class ActivityForm extends FormBase {
       $options[$id] = $node->getTitle();
     }
 
+    // Sort options by title.
+    asort($options);
+
     $form['add_activity']['field_club'] = [
       '#type' => 'radios',
       '#title' => $this->t('Club'),
