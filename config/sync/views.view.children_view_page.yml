@@ -34,7 +34,6 @@ description: 'Liste med alle børn'
 tag: ''
 base_table: node_field_data
 base_field: nid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -189,28 +188,14 @@ display:
           clear_on_exposed: false
           action_title: Handling
           selected_actions:
-            foreningsmentor_anonymize: foreningsmentor_anonymize
-            foreningsmentor_get_mail_action: foreningsmentor_get_mail_action
-            node_assign_owner_action: 0
-            node_unpromote_action: 0
-            node_promote_action: 0
-            node_publish_action: 0
-            node_save_action: 0
-            node_make_sticky_action: 0
-            node_unpublish_by_keyword_action: 0
-            node_unpublish_action: 0
-            node_make_unsticky_action: 0
-            views_bulk_operations_delete_entity: 0
-            pathauto_update_alias: 0
-            'entity:delete_action:node': 0
-            'entity:publish_action:node': 0
-            'entity:save_action:node': 0
-            'entity:unpublish_action:node': 0
-          preconfiguration:
-            foreningsmentor_anonymize:
-              label_override: Anonymisér
-            foreningsmentor_get_mail_action:
-              label_override: 'Hent mailliste'
+            -
+              action_id: foreningsmentor_anonymize
+              preconfiguration:
+                label_override: Anonymisér
+            -
+              action_id: foreningsmentor_get_mail_action
+              preconfiguration:
+                label_override: 'Hent mailliste'
           plugin_id: views_bulk_operations_bulk_form
         title:
           id: title
@@ -608,6 +593,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
         type:
           id: type
@@ -619,6 +606,9 @@ display:
           entity_field: type
           plugin_id: bundle
           group: 1
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
         title:
           id: title
           table: node_field_data
@@ -647,6 +637,8 @@ display:
               pm: '0'
               coordinator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -689,6 +681,8 @@ display:
               mentor: '0'
               coordinator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -740,6 +734,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Forløb
@@ -790,6 +786,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1422,6 +1420,9 @@ display:
           entity_field: type
           plugin_id: bundle
           group: 1
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
         title:
           id: title
           table: node_field_data
@@ -1450,6 +1451,8 @@ display:
               pm: '0'
               coordinator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1492,6 +1495,8 @@ display:
               mentor: '0'
               coordinator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1543,6 +1548,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Forløb
@@ -1599,6 +1606,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1641,6 +1650,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1724,6 +1735,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
         type:
           id: type
@@ -1735,6 +1748,9 @@ display:
           entity_field: type
           plugin_id: bundle
           group: 1
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
         title:
           id: title
           table: node_field_data
@@ -1763,6 +1779,8 @@ display:
               pm: '0'
               coordinator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1805,6 +1823,8 @@ display:
               mentor: '0'
               coordinator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1856,6 +1876,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Forløb
@@ -1912,6 +1934,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1954,6 +1978,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2028,28 +2054,14 @@ display:
           clear_on_exposed: false
           action_title: Handling
           selected_actions:
-            foreningsmentor_anonymize: foreningsmentor_anonymize
-            foreningsmentor_get_mail_action: foreningsmentor_get_mail_action
-            node_assign_owner_action: 0
-            node_unpromote_action: 0
-            node_promote_action: 0
-            node_publish_action: 0
-            node_save_action: 0
-            node_make_sticky_action: 0
-            node_unpublish_by_keyword_action: 0
-            node_unpublish_action: 0
-            node_make_unsticky_action: 0
-            views_bulk_operations_delete_entity: 0
-            pathauto_update_alias: 0
-            'entity:delete_action:node': 0
-            'entity:publish_action:node': 0
-            'entity:save_action:node': 0
-            'entity:unpublish_action:node': 0
-          preconfiguration:
-            foreningsmentor_anonymize:
-              label_override: Anonymisér
-            foreningsmentor_get_mail_action:
-              label_override: 'Hent mailliste'
+            -
+              action_id: foreningsmentor_anonymize
+              preconfiguration:
+                label_override: Anonymisér
+            -
+              action_id: foreningsmentor_get_mail_action
+              preconfiguration:
+                label_override: 'Hent mailliste'
           plugin_id: views_bulk_operations_bulk_form
         title:
           id: title

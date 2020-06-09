@@ -20,11 +20,11 @@ default_value_callback: ''
 settings:
   handler: 'default:user'
   handler_settings:
-    include_anonymous: 0
+    include_anonymous: false
     filter:
       type: _none
     target_bundles: null
     sort:
       field: _none
-    auto_create: 0
+    auto_create: false
 field_type: bricks
