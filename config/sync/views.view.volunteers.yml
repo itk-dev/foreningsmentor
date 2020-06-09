@@ -30,7 +30,6 @@ description: 'Liste over mentorer'
 tag: ''
 base_table: users_field_data
 base_field: uid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -193,21 +192,14 @@ display:
           clear_on_exposed: false
           action_title: Handling
           selected_actions:
-            foreningsmentor_anonymize: foreningsmentor_anonymize
-            foreningsmentor_get_mail_action: foreningsmentor_get_mail_action
-            user_add_role_action: 0
-            user_block_user_action: 0
-            user_remove_role_action: 0
-            user_unblock_user_action: 0
-            vbo_cancel_user_action: 0
-            views_bulk_operations_delete_entity: 0
-            pathauto_update_alias: 0
-            'entity:save_action:user': 0
-          preconfiguration:
-            foreningsmentor_anonymize:
-              label_override: Anonymisér
-            foreningsmentor_get_mail_action:
-              label_override: 'Hent mailliste'
+            -
+              action_id: foreningsmentor_anonymize
+              preconfiguration:
+                label_override: Anonymisér
+            -
+              action_id: foreningsmentor_get_mail_action
+              preconfiguration:
+                label_override: 'Hent mailliste'
           plugin_id: views_bulk_operations_bulk_form
         field_name:
           id: field_name
@@ -717,6 +709,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
         roles_target_id:
           id: roles_target_id
@@ -743,6 +737,8 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -786,6 +782,8 @@ display:
               mentor: '0'
               coordinator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -826,6 +824,8 @@ display:
               mentor: '0'
               coordinator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

@@ -39,6 +39,6 @@ settings:
       pagehero: pagehero
     sort:
       field: _none
-    auto_create: 0
+    auto_create: false
     auto_create_bundle: frontpage_hero
 field_type: bricks
