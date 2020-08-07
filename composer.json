@@ -33,7 +33,6 @@
         "drupal/itk-user-pages-theme": "^1.0",
         "drupal/itk_cookie_message": "^1.0",
         "drupal/itk_media_entity": "^1.1",
-        "drupal/itk_siteimprove": "^1.0",
         "drupal/login_redirect_per_role": "^1.2",
         "drupal/menu_item_role_access": "^1.0",
         "drupal/metatag": "^1.7",
@@ -48,6 +47,7 @@
         "drupal/views_data_export": "^1.0@beta",
         "drupal/youtube": "^1.0@beta",
         "drush/drush": "^9.0.0",
+        "itk-dev/itk_siteimprove": "^1.1",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
