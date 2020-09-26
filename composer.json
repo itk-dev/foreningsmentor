@@ -48,6 +48,7 @@
         "drupal/youtube": "^1.0@beta",
         "drush/drush": "^9.0.0",
         "itk-dev/itk_siteimprove": "^1.1",
+        "itk-dev/web_accessibility_statement": "dev-master",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
