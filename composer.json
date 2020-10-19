@@ -1,6 +1,6 @@
 {
-    "name": "drupal-composer/drupal-project",
-    "description": "Project template for Drupal 8 projects with composer",
+    "name": "aakb/foreningsmentor",
+    "description": "Website for foreningsmentor",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -117,9 +117,6 @@
             }
         },
         "patches": {
-            "drupal/bricks": {
-                "Fix deprecation warning": "https://www.drupal.org/files/issues/2018-10-30/3008553-deprecated-eck-entity-variable-%238.patch"
-            },
             "drupal/inline_entity_form": {
                 "Fix missing label": "https://www.drupal.org/files/issues/inline_entity_form-no_label_required_field_with_no_entries-2842744.patch"
             }
