@@ -16,23 +16,20 @@ function foreningsmentor_access_control_help(
   $route_name,
   RouteMatchInterface $route_match
 ) {
+  $output = '';
   switch ($route_name) {
     // Main module help for the foreningsmentor_access_control module.
     case 'help.page.foreningsmentor_access_control':
-      $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Custom access rules for the Foreningsmentor intranet.') . '</p>';
-      return $output;
-
-    default:
   }
+  return $output;
 }
 
 /**
  * Implements hook_node_access_records().
  */
-function foreningsmentor_access_control_node_access_records(NodeInterface $node
-) {
+function foreningsmentor_access_control_node_access_records(NodeInterface $node) {
   $grants = [];
 
   if ($node->getType() == 'child' ||
