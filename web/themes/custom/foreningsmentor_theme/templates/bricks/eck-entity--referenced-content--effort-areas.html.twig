@@ -5,6 +5,6 @@
   </div>
 </div>
 <p>{{ content.field_effort_area_description[0] }}</p>
-<a class="btn btn-primary btn-block mt-auto" href="{{ content.field_effort_area_link[0]['#url'] }}">{{ content.field_effort_area_link[0]['#title'] }}</a>
-
-
+{% if content.field_effort_area_link[0] is defined %}
+  <a class="btn btn-primary btn-block mt-auto" href="{{ content.field_effort_area_link[0]['#url'] }}">{{ content.field_effort_area_link[0]['#title'] }}</a>
+{% endif %}
