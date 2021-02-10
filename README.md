@@ -19,9 +19,9 @@ docker-compose exec phpfpm /app/vendor/bin/drush --yes config-import
 ```
 
 ### Docker dev setup
-Note that local docker development settings for Drupal are defined in
+Set local docker development settings for Drupal by copying the example file
 ```
-web/sites/default/docker.settings.local.php
+cp html/sites/default/example.docker.settings.local.php html/sites/default/docker.settings.local.php
 ```
 
 ## Drupal setup
