@@ -6,7 +6,7 @@ networks:
   app:
     driver: bridge
     internal: false
-    
+
 services:
   mariadb:
     image: itkdev/mariadb:latest
@@ -19,7 +19,10 @@ services:
       - MYSQL_USER=db
       - MYSQL_PASSWORD=db
       - MYSQL_DATABASE=db
-      #- ENCRYPT=1 # Uncomment to enable database encryptionn.
+      #- ENCRYPT=1 # Uncomment to enable database encryption.
+      # @see https://symfony.com/doc/current/setup/symfony_server.html#docker-integration
+    labels:
+      com.symfony.server.service-prefix: 'DATABASE'
 
   phpfpm:
     image: itkdev/php7.2-fpm:latest
@@ -28,7 +31,6 @@ services:
     environment:
       - PHP_XDEBUG=${PHP_XDEBUG:-0}
       - PHP_XDEBUG_REMOTE_AUTOSTART=${PHP_XDEBUG_REMOTE_AUTOSTART:-0}
-      - PHP_XDEBUG_REMOTE_HOST=${PHP_XDEBUG_REMOTE_HOST:-0.0.0.0}
       - PHP_XDEBUG_REMOTE_CONNECT_BACK=${PHP_XDEBUG_REMOTE_CONNECT_BACK:-0}
       - PHP_MAX_EXECUTION_TIME=30
       - PHP_MEMORY_LIMIT=256M
