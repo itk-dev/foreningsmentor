@@ -81,22 +81,24 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
       if ($uid) {
         $user = \Drupal\user\Entity\User::load($uid);
 
-        $imageUrl = NULL;
+        if ($user) {
+          $imageUrl = NULL;
 
-        if (isset($user->field_profile_image->entity)) {
-          $imageUrl = ImageStyle::load('profile_image')
-            ->buildUrl($user->field_profile_image->entity->getFileUri());
+          if (isset($user->field_profile_image->entity)) {
+            $imageUrl = ImageStyle::load('profile_image')
+              ->buildUrl($user->field_profile_image->entity->getFileUri());
+          }
+
+          $contact = [
+            'name' => $user->get('field_name')->value ?: $user->getDisplayName(),
+            'image' => $imageUrl,
+            'description' => $user->get('field_public_description')->value,
+            'mail' => $user->getEmail(),
+            'phone' => $user->get('field_own_mobile')->value,
+          ];
+
+          $content['contact'] = $contact;
         }
-
-        $contact = [
-          'name' => $user->get('field_name')->value ?: $user->getDisplayName(),
-          'image' => $imageUrl,
-          'description' => $user->get('field_public_description')->value,
-          'mail' => $user->getEmail(),
-          'phone' => $user->get('field_own_mobile')->value,
-        ];
-
-        $content['contact'] = $contact;
       }
     }
   }
