@@ -1,10 +1,8 @@
 <?php
 
 /**
- * @file
  * Add development service settings.
  */
-
 if (file_exists(__DIR__ . '/services.local.yml')) {
   $settings['container_yamls'][] = __DIR__ . '/services.local.yml';
 }
@@ -51,5 +49,5 @@ $settings['file_private_path'] = 'sites/default/files/private';
 $settings['trusted_host_patterns'] = [
   '^0\.0\.0\.0$',
   '^127\.0\.0\.1$',
-  '^foreningsmentor\.local\.itkdev\.dk$',
+  '^itchefer\.local\.itkdev\.dk$',
 ];
