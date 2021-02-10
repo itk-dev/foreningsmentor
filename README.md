@@ -2,22 +2,24 @@
 
 ## Setup for development
 
-Create settings.local.php
-```
-cp web/sites/default/docker.settings.local.php web/sites/default/settings.local.php
-```
-
 Start docker containers
 ```
-itkdev-docker-compose up -d
+docker-compose up --detach
 ```
 
 Install composer packages
 ```
-itkdev-docker-compose composer install
+docker-compose exec phpfpm composer install
 ```
 
 Install drupal
 ```
-itkdev-docker-compose drush --yes site-install --config-dir='../config/sync'
+docker-compose exec phpfpm /app/vendor/bin/drush --yes site-install --config-dir='../config/sync'
+docker-compose exec phpfpm /app/vendor/bin/drush --yes config-import
+```
+
+### Docker dev setup
+Note that local docker development settings for Drupal are defined in
+```
+web/sites/default/docker.settings.local.php
 ```
