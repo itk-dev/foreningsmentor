@@ -382,8 +382,9 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
               $courseFinished = $course->get('field_finished')->value;
 
               // If the course is not finished, make sure an active mentor is assigned to the course.
-              $mentors = $course->get('field_mentor');
               if (!$courseFinished) {
+                $mentors = $course->get('field_mentor');
+
                 foreach ($mentors as $mentorReference) {
                   $mentor = User::load($mentorReference->target_id);
                   if (!is_null($mentor)) {
