@@ -332,14 +332,13 @@ function foreningsmentor_entity_presave(
  * Implements hook_views_pre_render().
  */
 function foreningsmentor_views_pre_render(ViewExecutable $view) {
-  // Waiting list view. Assumes that all children have been found by the views
-  // query.
+  // Waiting list view. Assumes that all children have been found by the views query.
   // Filters lists of all children to only show those that do not have a course
-  // with a active mentor (type A course) or courses of type B or C.
+  // with an active mentor (type A course) or courses of type B or C.
   if ($view->id() == 'waiting_list') {
     $addedIds = [];
     foreach ($view->result as $key => $result) {
-      // Remove duplicates from waiting list.
+      // Remove duplicates from the waiting list.
       if (isset($addedIds[$result->_entity->id()])) {
         unset($view->result[$key]);
         continue;
@@ -347,8 +346,6 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
 
       $doNotAdd = false;
 
-      // If field_courses is set, make sure at least one course with an active
-      // mentor has been set.
       $field_courses = $result->_entity->get('field_courses');
 
       if ($field_courses->count() > 0) {
@@ -359,37 +356,52 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
             continue;
           }
 
+          // Get activity type.
           $activityTypeId = $course->get('field_activity_type')->target_id;
-          $activityType = null;
-
-          if (!is_null($activityTypeId)) {
-            $activityType = Term::load($activityTypeId);
-          }
+          $activityType = !is_null($activityTypeId) ? Term::load($activityTypeId) : null;
 
           if (!is_null($activityType)) {
+            // Children that are in B or C courses should not appear on the waiting list.
             if ($activityType->getName() == 'B' || $activityType->getName() == 'C') {
               $doNotAdd = true;
               continue;
             }
 
-            $mentors = $course->get('field_mentor');
+            // If the course is an A course, make sure that a mentor is assigned.
+            if ($activityType->getName() == 'A') {
+              // Get mentor end status
+              $mentorEndStatusId = $course->get('field_mentors_end_status')->target_id;
+              $mentorEndStatus = !is_null($mentorEndStatusId) ? Term::load($mentorEndStatusId) : null;
 
-            if ($activityType->getName() == 'A' && $mentors->count() > 0) {
-              foreach ($mentors as $mentorReference) {
-                $mentor = User::load($mentorReference->target_id);
+              // If the mentor end status is A3 the child should appear in the waiting list, unless another course
+              // is finished with another status.
+              if ($mentorEndStatus->getName() == 'A3') {
+                continue;
+              }
 
-                if (!is_null($mentor)) {
-                  $anonymized = $mentor->get('field_anonymized')->value;
-                  $status = $mentor->get('status')->value;
+              $courseFinished = $course->get('field_finished')->value;
 
-                  if ($status && !$anonymized) {
-                    $doNotAdd = true;
-                    continue;
+              // If the course is not finished, make sure an active mentor is assigned to the course.
+              if (!$courseFinished) {
+                $mentors = $course->get('field_mentor');
+
+                foreach ($mentors as $mentorReference) {
+                  $mentor = User::load($mentorReference->target_id);
+                  if (!is_null($mentor)) {
+                    $mentorAnonymized = $mentor->get('field_anonymized')->value;
+                    $mentorStatus = $mentor->get('status')->value;
+
+                    // If the mentor is active and not anonomized, do not add to waiting list.
+                    if ($mentorStatus && !$mentorAnonymized) {
+                      $doNotAdd = true;
+                      break;
+                    }
                   }
                 }
               }
-
-              if ($doNotAdd) {
+              else {
+                // If the course is finished do not add to waiting list.
+                $doNotAdd = true;
                 continue;
               }
             }
