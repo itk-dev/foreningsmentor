@@ -375,7 +375,7 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
 
               // If the mentor end status is A3 the child should appear in the waiting list, unless another course
               // is finished with another status.
-              if ($mentorEndStatus->getName() == 'A3') {
+              if (!is_null($mentorEndStatus) && $mentorEndStatus->getName() == 'A3') {
                 continue;
               }
 
