@@ -1,5 +1,9 @@
 # Foreningsmentor changelog
 
+## 1.2.8
+
+* Fixed waiting list issue.
+
 ## 1.2.5
 
 * Merge pull request #9: Updated drupal and added web_accessibility_statement module.
