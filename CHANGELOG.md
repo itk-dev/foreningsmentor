@@ -1,5 +1,9 @@
 # Foreningsmentor changelog
 
+## 1.2.9
+
+* Upgraded drupal/core.
+
 ## 1.2.8
 
 * Fixed waiting list issue.
