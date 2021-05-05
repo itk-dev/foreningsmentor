@@ -1,5 +1,9 @@
 # Foreningsmentor changelog
 
+## 1.2.10
+
+* Fixed null issue with mentor/forlob view.
+
 ## 1.2.9
 
 * Upgraded drupal/core.
