@@ -61,15 +61,17 @@ function foreningsmentor_intra_preprocess_views_view_field(&$vars) {
 
         $child = Node::load($childId);
 
-        $parentIds = $child->get('field_parents');
+        if (!is_null($child)) {
+          $parentIds = $child->get('field_parents');
 
-        foreach ($parentIds as $parentId) {
-          $parent = Node::load($parentId->target_id);
+          foreach ($parentIds as $parentId) {
+            $parent = Node::load($parentId->target_id);
 
-          $phone = $parent->get('field_phone')->value;
+            $phone = $parent->get('field_phone')->value;
 
-          if ($phone !== null) {
-            break;
+            if ($phone !== null) {
+              break;
+            }
           }
         }
 
