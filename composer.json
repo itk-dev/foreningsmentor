@@ -10,9 +10,21 @@
         }
     ],
     "repositories": {
-        "0": {
+        "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "1": {
+            "type": "package",
+            "package": {
+                "name": "furf/jquery-ui-touch-punch",
+                "version": "dev-master",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/furf/jquery-ui-touch-punch/archive/refs/heads/master.zip",
+                    "type": "zip"
+                }
+            }
         }
     },
     "require": {
@@ -33,6 +45,10 @@
         "drupal/itk-user-pages-theme": "^1.0",
         "drupal/itk_cookie_message": "^1.0",
         "drupal/itk_media_entity": "^1.1",
+        "drupal/jquery_ui": "^1.4",
+        "drupal/jquery_ui_datepicker": "^1.1",
+        "drupal/jquery_ui_slider": "^1.1",
+        "drupal/jquery_ui_touch_punch": "^1.0",
         "drupal/login_redirect_per_role": "^1.2",
         "drupal/menu_item_role_access": "^1.0",
         "drupal/metatag": "^1.7",
@@ -47,6 +63,7 @@
         "drupal/views_data_export": "^1.0@beta",
         "drupal/youtube": "^1.0@beta",
         "drush/drush": "^9.0.0",
+        "furf/jquery-ui-touch-punch": "dev-master",
         "itk-dev/itk_siteimprove": "^1.1",
         "itk-dev/web_accessibility_statement": "dev-master",
         "vlucas/phpdotenv": "^2.4",

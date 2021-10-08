@@ -322,6 +322,7 @@ function foreningsmentor_entity_presave(
   $currentUser = \Drupal::currentUser();
 
   if ($entity->getEntityTypeId() == 'user') {
+    // @TODO: Change this since it blocks site-install.
     if ($entity->id() == 1 && $currentUser->id() != 1) {
       throw new \Exception(t('Permission denied.'));
     }

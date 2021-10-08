@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.brick
-name: 'Partner område'
 type: partners_area
+name: 'Partner område'
 description: 'Område med plads til overskrift, kort beskrivelse, op til 8 partner logoer og knap med henvisning.'

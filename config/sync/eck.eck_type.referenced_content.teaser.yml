@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.referenced_content
-name: Teaser
 type: teaser
+name: Teaser
 description: ''
