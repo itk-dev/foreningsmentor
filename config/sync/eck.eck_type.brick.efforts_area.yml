@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.brick
-name: 'Indsatser område'
 type: efforts_area
+name: 'Indsatser område'
 description: 'Sektion hvor der kan tilføjes indsatser.'

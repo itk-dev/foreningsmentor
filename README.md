@@ -14,8 +14,7 @@ docker-compose exec phpfpm composer install
 
 Install drupal
 ```
-docker-compose exec phpfpm /app/vendor/bin/drush --yes site-install --config-dir='../config/sync'
-docker-compose exec phpfpm /app/vendor/bin/drush --yes config-import
+docker-compose exec phpfpm /app/vendor/bin/drush --yes site-install minimal --config-dir='../config/sync'
 ```
 
 ### Docker dev setup
