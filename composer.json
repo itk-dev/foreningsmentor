@@ -129,6 +129,11 @@
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
             }
+        },
+        "patches": {
+            "drupal/address_dawa": {
+                "Drupal 9 compatibility issues": "patch/address_dawa-drupal9.patch"
+            }
         }
     }
 }
