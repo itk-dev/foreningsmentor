@@ -12,6 +12,11 @@ Install composer packages
 docker-compose exec phpfpm composer install
 ```
 
+Copy development services definitions
+```
+cp web/sites/development.services.yml web/sites/default/services.local.yml
+```
+
 Install drupal
 ```
 docker-compose exec phpfpm /app/vendor/bin/drush --yes site-install minimal --config-dir='../config/sync'
