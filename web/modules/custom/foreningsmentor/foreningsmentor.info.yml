@@ -2,6 +2,7 @@ name: 'Foreningsmentor'
 type: module
 description: 'Foreningsmentor custom code'
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'Foreningsmentor'
 interface translation project: foreningsmentor
 interface translation server pattern: modules/custom/foreningsmentor/translations/%language.po
