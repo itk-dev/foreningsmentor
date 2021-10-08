@@ -71,7 +71,8 @@
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
-        "drupal/console": "^1.8"
+        "drupal/console": "^1.9",
+        "drupal/core-dev": "8.9.16"
     },
     "conflict": {
         "drupal/drupal": "*"
