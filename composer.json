@@ -127,6 +127,9 @@
             ]
         },
         "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            },
             "initial": {
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
