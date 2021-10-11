@@ -25,7 +25,7 @@ services:
       com.symfony.server.service-prefix: 'DATABASE'
 
   phpfpm:
-    image: itkdev/php7.4-fpm:latest
+    image: itkdev/php8.0-fpm:latest
     networks:
       - app
     environment:
@@ -36,7 +36,7 @@ services:
       - PHP_MEMORY_LIMIT=256M
       # - PHP_MAIL=1 # Uncomment to enable mailhog.
       - DOCKER_HOST_DOMAIN=${COMPOSE_DOMAIN}
-      - COMPOSER_VERSION=1
+      - COMPOSER_VERSION=2
     depends_on:
       - mariadb
     volumes:
