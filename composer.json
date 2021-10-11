@@ -1,5 +1,5 @@
 {
-    "name": "aakb/foreningsmentor",
+    "name": "itk-dev/foreningsmentor",
     "description": "Website for foreningsmentor",
     "type": "project",
     "license": "GPL-2.0-or-later",
@@ -9,12 +9,12 @@
             "role": ""
         }
     ],
-    "repositories": {
-        "drupal": {
+    "repositories": [
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
-        "1": {
+        {
             "type": "package",
             "package": {
                 "name": "furf/jquery-ui-touch-punch",
@@ -26,22 +26,25 @@
                 }
             }
         }
-    },
+    ],
     "require": {
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
-        "drupal-composer/drupal-scaffold": "^2.6",
-        "drupal/address_dawa": "^1.0",
         "drupal/adminimal_theme": "^1.6",
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/bricks": "^2.0",
         "drupal/cer": "^4.0@alpha",
-        "drupal/core": "^8.9",
+        "drupal/core": "^9",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-project-message": "^9",
+        "drupal/core-recommended": "^9",
         "drupal/eck": "^1.0@beta",
+        "drupal/entity": "^1.2",
         "drupal/field_group": "^3.2",
         "drupal/field_permissions": "^1.1",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/jquery_ui": "^1.4",
+        "drupal/jquery_ui_accordion": "^1.1",
         "drupal/jquery_ui_datepicker": "^1.1",
         "drupal/jquery_ui_slider": "^1.1",
         "drupal/jquery_ui_touch_punch": "^1.0",
@@ -59,16 +62,15 @@
         "drupal/views_data_export": "^1.0",
         "drupal/youtube": "^1.2",
         "furf/jquery-ui-touch-punch": "dev-master",
-        "itk-dev/itk_siteimprove": "^1.1",
+        "itk-dev/itk_siteimprove": "^1.2",
         "itk-dev/web_accessibility_statement": "dev-master",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.2",
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
-        "drupal/core-dev": "8.9.19",
-        "drush/drush": "^10.6",
-        "palantirnet/drupal-rector": "^0.11.3"
+        "drupal/core-dev": "^9",
+        "drush/drush": "^10.6"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -128,11 +130,6 @@
             "initial": {
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
-            }
-        },
-        "patches": {
-            "drupal/address_dawa": {
-                "Drupal 9 compatibility issues": "patch/address_dawa-drupal9.patch"
             }
         }
     }
