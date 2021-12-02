@@ -370,7 +370,8 @@ function foreningsmentor_preprocess_views_view_field(&$variables) {
     $seenJournalEntries = $userData->get('foreningsmentor', $variables['user']->id(),'seenJournalEntries-'.$ent->id());
 
     if ($seenJournalEntries != $targetIds) {
-      $variables['output'] = Markup::create("<span style='color: white; background: orange; border-radius: 20px; padding: 5px 10px;'>".(count($targetIds) - count($seenJournalEntries))."</span>");
+      $unseenEntries = array_diff($targetIds, $seenJournalEntries);
+      $variables['output'] = Markup::create("<span class=\"course-view-unseen-journal-entries\">".count($unseenEntries)."</span>");
     }
   }
 }
