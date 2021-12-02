@@ -25,24 +25,35 @@ class SignUpForm extends FormBase
    */
   public function buildForm(array $form, FormStateInterface $form_state)
   {
-    $form['parent_name'] = [
+    $form['wrapper'] = [
+      '#type' => 'container',
+    ];
+    $form['wrapper']['headline'] = [
+      '#type' => 'item',
+      '#markup' => t('<h2 class="mt-3 mb-3">Sign up</h2>'),
+    ];
+    $form['wrapper']['parent_name'] = [
       '#type' => 'textfield',
       '#required' => true,
+      '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Your name'),
     ];
-    $form['child_name'] = [
+    $form['wrapper']['child_name'] = [
       '#type' => 'textfield',
       '#required' => true,
+      '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Your child\'s name'),
     ];
-    $form['phone_number'] = [
+    $form['wrapper']['phone_number'] = [
       '#type' => 'tel',
       '#required' => true,
+      '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Your phone number'),
     ];
-    $form['mail'] = [
+    $form['wrapper']['mail'] = [
       '#type' => 'textfield',
       '#required' => true,
+      '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Your e-mail address'),
     ];
 
@@ -59,6 +70,7 @@ class SignUpForm extends FormBase
       '#type' => 'radios',
       '#title' => $this->t('Area'),
       '#required' => true,
+      '#attributes' => ['class' => ['mb-3']],
       '#options' => $areaOptions,
     ];
 
@@ -66,6 +78,7 @@ class SignUpForm extends FormBase
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Sign up'),
+      '#attributes' => ['class' => ['btn', 'btn-primary']],
       '#button_type' => 'primary',
     ];
     return $form;
