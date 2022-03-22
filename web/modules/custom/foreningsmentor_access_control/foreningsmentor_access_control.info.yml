@@ -2,4 +2,5 @@ name: 'Foreningsmentor Access Control'
 type: module
 description: 'Custom access rules for the Foreningsmentor intranet.'
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'Foreningsmentor'
