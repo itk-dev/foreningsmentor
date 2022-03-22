@@ -32,6 +32,7 @@ module:
   itk_admin: 0
   itk_siteimprove: 0
   jquery_ui: 0
+  jquery_ui_accordion: 0
   jquery_ui_datepicker: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
@@ -57,6 +58,7 @@ module:
   token: 0
   toolbar: 0
   update: 0
+  upgrade_status: 0
   user: 0
   views_add_button: 0
   views_bulk_operations: 0
@@ -68,8 +70,6 @@ module:
   views: 10
   minimal: 1000
 theme:
-  stable: 0
-  classy: 0
   seven: 0
   adminimal_theme: 0
   foreningsmentor_theme: 0
