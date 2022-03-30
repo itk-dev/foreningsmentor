@@ -10,7 +10,6 @@ the [Drupal community][Drupal community].
 Drupal is developed on [Drupal.org][Drupal.org], the home of the international
 Drupal community since 2001!
 
-<<<<<<< HEAD
 Copy development services definitions
 ```
 cp web/sites/development.services.yml web/sites/default/services.local.yml
@@ -20,12 +19,11 @@ Install drupal
 ```
 docker-compose exec phpfpm /app/vendor/bin/drush --yes site-install minimal --config-dir='../config/sync'
 ```
-=======
+
 [Drupal.org][Drupal.org] hosts Drupal's [GitLab repository][GitLab repository],
 its [issue queue][issue queue], and its [documentation][documentation]. Before
 you start working on code, be sure to search the [issue queue][issue queue] and
 create an issue if your aren't able to find an existing issue.
->>>>>>> d210075 (FOR-228: Upgraded to drupal 9. Moved address_dawa to custom modules to apply patches to .info.yml file)
 
 Every issue on Drupal.org automatically creates a new community-accessible fork
 that you can contribute to. Learn more about the code contribution process on
