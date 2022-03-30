@@ -30,6 +30,7 @@ module:
   foreningsmentor: 0
   foreningsmentor_access_control: 0
   foreningsmentor_config_settings: 0
+  honeypot: 0
   image: 0
   inline_entity_form: 0
   itk_admin: 0
