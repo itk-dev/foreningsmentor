@@ -18,38 +18,38 @@ bundle: parent
 mode: default
 content:
   field_address:
+    type: address_dawa
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: address_dawa
-    region: content
   field_children:
     type: entity_reference_autocomplete
     weight: 4
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   field_email:
-    weight: 2
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: email_default
+    weight: 2
     region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_phone:
+    type: telephone_default
     weight: 3
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: telephone_default
-    region: content
   title:
     type: string_textfield
     weight: 0

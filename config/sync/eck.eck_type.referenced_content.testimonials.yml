@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.referenced_content
-type: testimonials
 name: Udtalelser
+type: testimonials
 description: 'Opret en udtalelse fra en person'

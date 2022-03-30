@@ -14,7 +14,9 @@ bundle: page
 mode: default
 content:
   field_content_block:
+    type: bricks_tree_inline
     weight: 3
+    region: content
     settings:
       form_mode: default
       label_singular: ''
@@ -27,8 +29,6 @@ content:
       collapsed: 0
       allow_duplicate: 0
     third_party_settings: {  }
-    type: bricks_tree_inline
-    region: content
   path:
     type: path
     weight: 1
@@ -37,10 +37,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 2
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield

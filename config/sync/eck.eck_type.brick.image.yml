@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.brick
 _core:
   default_config_hash: Yi9EMU4_bNoYOljxKWEKJ83ZBN1P4nte0cfYmdJSSZA
-type: image
 name: Image
+type: image
 description: 'Tilføj et billede'

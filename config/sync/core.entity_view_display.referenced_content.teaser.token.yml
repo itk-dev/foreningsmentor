@@ -17,20 +17,20 @@ bundle: teaser
 mode: token
 content:
   field_teaser_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: foreningsmentor_600x600
       image_link: ''
+      image_style: foreningsmentor_600x600
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
   field_teaser_text:
-    weight: 1
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: content
 hidden:
   langcode: true
