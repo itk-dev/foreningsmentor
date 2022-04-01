@@ -4,13 +4,83 @@ namespace Drupal\foreningsmentor\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Mail\MailManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Messenger\MessengerInterface;
 
 /**
  * Implements signup form.
  */
-class SignUpForm extends FormBase
-{
+class SignUpForm extends FormBase {
+
+  /**
+   * The mail manager.
+   *
+   * @var MailManagerInterface $mailManager
+   */
+  protected MailManagerInterface $mailManager;
+
+  /**
+   * The language manager.
+   *
+   * @var LanguageManagerInterface $languageManager
+   */
+  protected LanguageManagerInterface $languageManager;
+
+  /**
+   * The entity type manager.
+   *
+   * @var EntityTypeManagerInterface $entityTypeManager
+   */
+  protected EntityTypeManagerInterface $entityTypeManager;
+
+  /**
+   * The config factory.
+   *
+   * @var ConfigFactory $configFactory
+   */
+  protected ConfigFactory $configFactory;
+
+  /**
+   * The messenger interface.
+   *
+   * @var MessengerInterface $messenger
+   */
+  protected MessengerInterface $messenger;
+
+  /**
+   * Class constructor.
+   *
+   * @param MailManagerInterface $mailManager
+   * @param LanguageManagerInterface $languageManager
+   * @param EntityTypeManagerInterface $entityTypeManager
+   * @param ConfigFactory $configFactory
+   * @param MessengerInterface $messenger
+   */
+  public function __construct(MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, EntityTypeManagerInterface $entityTypeManager, ConfigFactory $configFactory, MessengerInterface $messenger) {
+    $this->mailManager = $mailManager;
+    $this->languageManager = $languageManager;
+    $this->entityTypeManager = $entityTypeManager;
+    $this->configFactory = $configFactory;
+    $this->messenger = $messenger;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('plugin.manager.mail'),
+      $container->get('language_manager'),
+      $container->get('entity_type.manager'),
+      $container->get('config.factory'),
+      $container->get('messenger'),
+    );
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -112,8 +182,7 @@ class SignUpForm extends FormBase
       '#type' => 'container',
       '#attributes' => ['class' => ['row', 'no-gutters']],
     ];
-    $tids = \Drupal::entityQuery('taxonomy_term')->condition('vid', 'neighborhood')->execute();
-    $terms = Term::loadMultiple($tids);
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('neighborhood', 0, NULL, TRUE);
 
     $areaOptions = [];
 
@@ -198,9 +267,21 @@ class SignUpForm extends FormBase
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
-    // @TODO: Send notification mail to coordinator for the given area.
-  }
+  public function submitForm(array &$form, FormStateInterface $form_state){
+    $params['form_values'] = $form_state->getValues();
+    $area = $params['form_values']['area'];
+    $neighborhoodUsers =  $this->entityTypeManager->getStorage('user')->loadByProperties(['field_neighborhood' => $area]);
+    $areaTerm = $this->entityTypeManager->getStorage('taxonomy_term')->load($area);
+    // Overwrite $params area id with actual term name for display in mail.
+    $params['form_values']['area'] = $areaTerm->getName();
+    // Send mail to coordinators assigned to the neighborhood.
+    $params['site_name'] = $this->configFactory->get('system.site')->get('name');
+    foreach ($neighborhoodUsers as $user) {
+      if ($user->hasRole('coordinator')) {
+        $this->mailManager->mail('foreningsmentor', 'signup', $user->get('mail')->value, $this->languageManager->getDefaultLanguage()->getName(), $params);
+      }
+    }
 
+    $this->messenger->addStatus($this->t('Thank you for signing up. You will be contacted by @site_name shortly.', ['@site_name' => $params['site_name']]));
+  }
 }
