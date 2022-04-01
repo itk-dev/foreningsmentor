@@ -1,0 +1,12 @@
+uuid: bc375218-367d-4940-a769-d0db7d576640
+langcode: da
+status: true
+dependencies: {  }
+id: smtp
+label: SMTP
+plugin: smtp
+configuration:
+  user: ''
+  pass: ''
+  host: mailhog
+  port: 1025
