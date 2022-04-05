@@ -260,6 +260,6 @@ class SignUpForm extends FormBase {
       }
     }
 
-    $this->messenger->addStatus($this->t('Thank you for signing up. You will be contacted by @site_name shortly.', ['@site_name' => $params['site_name']]));
+    $this->messenger()->addStatus($this->t('Thank you for signing up. You will be contacted by @site_name shortly.', ['@site_name' => $params['site_name']]));
   }
 }
