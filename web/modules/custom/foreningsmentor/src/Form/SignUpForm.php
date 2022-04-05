@@ -8,8 +8,6 @@ use Drupal\Core\Mail\MailManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Config\ConfigFactory;
-use Drupal\Core\Messenger\MessengerInterface;
 
 /**
  * Implements signup form.
@@ -38,34 +36,16 @@ class SignUpForm extends FormBase {
   protected EntityTypeManagerInterface $entityTypeManager;
 
   /**
-   * The config factory.
-   *
-   * @var ConfigFactory $configFactory
-   */
-  protected ConfigFactory $configFactory;
-
-  /**
-   * The messenger interface.
-   *
-   * @var MessengerInterface $messenger
-   */
-  protected MessengerInterface $messenger;
-
-  /**
    * Class constructor.
    *
    * @param MailManagerInterface $mailManager
    * @param LanguageManagerInterface $languageManager
    * @param EntityTypeManagerInterface $entityTypeManager
-   * @param ConfigFactory $configFactory
-   * @param MessengerInterface $messenger
    */
-  public function __construct(MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, EntityTypeManagerInterface $entityTypeManager, ConfigFactory $configFactory, MessengerInterface $messenger) {
+  public function __construct(MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, EntityTypeManagerInterface $entityTypeManager) {
     $this->mailManager = $mailManager;
     $this->languageManager = $languageManager;
     $this->entityTypeManager = $entityTypeManager;
-    $this->configFactory = $configFactory;
-    $this->messenger = $messenger;
   }
 
   /**
@@ -76,8 +56,6 @@ class SignUpForm extends FormBase {
       $container->get('plugin.manager.mail'),
       $container->get('language_manager'),
       $container->get('entity_type.manager'),
-      $container->get('config.factory'),
-      $container->get('messenger'),
     );
   }
 
