@@ -253,7 +253,7 @@ class SignUpForm extends FormBase {
     // Overwrite $params area id with actual term name for display in mail.
     $params['form_values']['area'] = $areaTerm->getName();
     // Send mail to coordinators assigned to the neighborhood.
-    $params['site_name'] = $this->configFactory->get('system.site')->get('name');
+    $params['site_name'] = $this->config('system.site')->get('name');
     foreach ($neighborhoodUsers as $user) {
       if ($user->hasRole('coordinator')) {
         $this->mailManager->mail('foreningsmentor', 'signup', $user->get('mail')->value, $this->languageManager->getDefaultLanguage()->getName(), $params);
