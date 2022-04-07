@@ -1,4 +1,4 @@
-# itk-version: 2.0.1
+# itk-version: 2.1.0
 version: "3"
 
 networks:
@@ -41,32 +41,18 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=frontend"
-
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-http.rule=Host(`${COMPOSE_SERVER_DOMAIN}`)"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-http.entrypoints=web"
-      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-http.middlewares=redierect-to-https"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-http.middlewares=redirect-to-https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${COMPOSE_SERVER_DOMAIN}`)"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.entrypoints=websecure"
-
-      - "traefik.http.routers.www_${COMPOSE_PROJECT_NAME}-http.rule=Host(`www.${COMPOSE_SERVER_DOMAIN}`)"
-      - "traefik.http.routers.www_${COMPOSE_PROJECT_NAME}-http.entrypoints=web"
-      - "traefik.http.routers.www_${COMPOSE_PROJECT_NAME}-http.middlewares=redirect-to-https,non_www"
-      - "traefik.http.routers.www_${COMPOSE_PROJECT_NAME}.rule=Host(`www.${COMPOSE_SERVER_DOMAIN}`)"
-      - "traefik.http.routers.www_${COMPOSE_PROJECT_NAME}.entrypoints=websecure"
-      - "traefik.http.routers.www_${COMPOSE_PROJECT_NAME}.middlewares=non_www"
-
        #- "traefik.http.routers.${COMPOSE_PROJECT_NAME}.middlewares=ITKBasicAuth@file"
-      - traefik.http.middlewares.non_www.redirectregex.regex=^(http|https)?://(?:www\.)?(.+)
-      - traefik.http.middlewares.non_www.redirectregex.replacement=https://$${2}
-      - traefik.http.middlewares.non_www.redirectregex.permanent=true
 
   memcached:
     image: 'memcached:latest'
     restart: unless-stopped
     networks:
       - app
-    ports:
-      - '11211'
     environment:
       - MEMCACHED_CACHE_SIZE=64
