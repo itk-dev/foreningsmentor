@@ -1,7 +1,14 @@
 uuid: 3facabd0-729d-437d-8d2d-4946f452ac92
 langcode: da
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.filtered_html
+  module:
+    - eck
+    - filter
+    - node_view_permissions
+    - system
 _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous

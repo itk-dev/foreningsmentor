@@ -1,7 +1,30 @@
 uuid: ab533a97-4878-426d-b546-917a7ee8a52f
 langcode: da
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.filtered_html
+    - node.type.activity
+    - node.type.bricky
+    - node.type.child
+    - node.type.club
+    - node.type.course
+    - node.type.journal_entry
+    - node.type.page
+    - node.type.parent
+    - taxonomy.vocabulary.activities
+    - taxonomy.vocabulary.membership_fee_subsidy_type
+    - taxonomy.vocabulary.neighborhood
+  module:
+    - eck
+    - field_permissions
+    - filter
+    - itk_admin
+    - locale
+    - node
+    - node_view_permissions
+    - system
+    - taxonomy
 id: coordinator
 label: Koordinator
 weight: 4
