@@ -80,7 +80,12 @@ class SignUpForm extends FormBase {
     ];
     $form['wrapper']['headline'] = [
       '#type' => 'item',
-      '#markup' => t('<h1 class="mt-3 mb-3">Sign up</h1>'),
+      '#markup' => '<h1 class="mt-3 mb-3">' . t('Sign up') . '</h1>',
+    ];
+
+    $form['wrapper']['top_text'] = [
+      '#type' => 'item',
+      '#markup' => '<div class="mt-3 mb-3">' . t('Would you like to be signed up as mentor? Fill out the form below and we will contact you as soon as possible.') . '</div>',
     ];
 
     $form['wrapper']['child'] = [
@@ -192,9 +197,10 @@ class SignUpForm extends FormBase {
       '#required' => true,
       '#attributes' => ['class' => ['mb-3']],
       '#options' => $areaOptions,
+      '#description' => $this->t('<small>Select the area where you live. If in doubt select city covering.</small>'),
     ];
     $form['wrapper']['other']['consent_contact'] = [
-      '#prefix' => '<div class="mb-3 col-md-6"><h5>' . $this->t('Contact consent') .'</h5><small>I hereby consent that ForeningsMentor International may contact me in order to find a leisure activity for my child, and that ForeningsMentor International may contact me at a later point in time to know whether my child is participating in the activity or whether we need help finding another activity.</small>',
+      '#prefix' => '<div class="mb-3 col-md-6"><h5>' . $this->t('Contact consent') .'</h5><small>' . $this->t('I hereby consent that ForeningsMentor International may contact me in order to find a leisure activity for my child, and that ForeningsMentor International may contact me at a later point in time to know whether my child is participating in the activity or whether we need help finding another activity.') . '</small>',
       '#suffix' => '</div>',
       '#description' => '',
       '#type' => 'checkbox',
