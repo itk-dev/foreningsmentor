@@ -46,7 +46,6 @@ settings:
           name: Media
           items:
             - Blockquote
-            - DrupalImage
         -
           name: Værktøjer
           items:

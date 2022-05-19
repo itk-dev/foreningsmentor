@@ -6,7 +6,7 @@ _core:
   default_config_hash: I5U8cI3szNmb0miZu1QfUui4kdDBjaODPdVZJFm7h24
 id: brick
 label: Indholdsblok
+uid: false
 created: false
 changed: false
-uid: false
 title: true

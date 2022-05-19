@@ -16,13 +16,13 @@ bundle: bricky
 mode: default
 content:
   field_body:
-    weight: -1
+    type: bricks_nested
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
-    type: bricks_nested
+    weight: -1
     region: content
 hidden:
   langcode: true

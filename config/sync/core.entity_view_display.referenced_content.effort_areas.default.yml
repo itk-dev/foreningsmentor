@@ -17,23 +17,23 @@ bundle: effort_areas
 mode: default
 content:
   field_effort_area_description:
-    weight: 1
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
   field_effort_area_image:
-    weight: 3
+    type: image
     label: hidden
     settings:
-      image_style: foreningsmentor_80x80
       image_link: ''
+      image_style: foreningsmentor_80x80
     third_party_settings: {  }
-    type: image
+    weight: 3
     region: content
   field_effort_area_link:
-    weight: 2
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -42,15 +42,15 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 2
     region: content
   title:
-    label: hidden
     type: string
-    weight: -5
-    region: content
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: -5
+    region: content
 hidden:
   langcode: true

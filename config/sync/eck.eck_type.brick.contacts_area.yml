@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.brick
-type: contacts_area
 name: 'Kontakter område'
+type: contacts_area
 description: 'Område hvor der kan tilføjes kontakter'

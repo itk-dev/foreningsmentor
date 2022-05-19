@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.brick
-type: teasers
 name: 'Teaser område'
+type: teasers
 description: 'Sektion til at tilføje teasers i. Teaser består af et billede og en kort tekst. Der er plads til 3 stk. i sektionen.'

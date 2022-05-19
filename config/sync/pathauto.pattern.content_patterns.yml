@@ -11,16 +11,16 @@ pattern: '/[node:content-type]/[node:title]'
 selection_criteria:
   bf646926-a557-4674-b1af-86fb5f0dc16d:
     id: node_type
+    negate: false
+    uuid: bf646926-a557-4674-b1af-86fb5f0dc16d
+    context_mapping:
+      node: node
     bundles:
       activity: activity
       child: child
       club: club
       journal_entry: journal_entry
       parent: parent
-    negate: false
-    context_mapping:
-      node: node
-    uuid: bf646926-a557-4674-b1af-86fb5f0dc16d
 selection_logic: and
 weight: -5
 relationships: {  }

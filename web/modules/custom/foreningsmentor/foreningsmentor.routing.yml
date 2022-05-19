@@ -1,0 +1,7 @@
+foreningsmentor.sign_up_form:
+  path: '/signup'
+  defaults:
+    _title: 'Sign up form'
+    _form: '\Drupal\foreningsmentor\Form\SignUpForm'
+  requirements:
+    _permission: 'access content'
