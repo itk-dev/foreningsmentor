@@ -9,10 +9,12 @@ use Drupal\Core\Entity\EntityInterface;
  * Contains foreningsmentor.module.
  */
 
+use Drupal\Core\Render\Markup;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\UserDataInterface;
 use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\user\Entity\User;
@@ -26,6 +28,24 @@ function foreningsmentor_user_presave(UserInterface $user) {
   // Always give new users the Mentor role.
   if ($user->isNew()) {
     $user->addRole('mentor');
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function foreningsmentor_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  // Set seen journal entry ids for the current user.
+  if ($entity->getType() == 'course' && $view_mode == 'full') {
+    $targetIds = [];
+    foreach ($entity->get('field_diary') as $journalEntry) {
+      $targetIds[] = $journalEntry->target_id;
+    }
+
+    /** @var UserDataInterface $userData */
+    $userData = \Drupal::service('user.data');
+
+    $userData->set('foreningsmentor', \Drupal::currentUser()->id(), 'seenJournalEntries-'.$entity->id(), $targetIds);
   }
 }
 
@@ -316,6 +336,49 @@ function _foreningsmentor_copy_to_clipboard(
 function _foreningsmentor_cancel_action(array &$form, $form_state) {
   $form_data = $form_state->get('views_bulk_operations');
   $form_state->setRedirectUrl($form_data['redirect_url']);
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function foreningsmentor_entity_presave(
+  Drupal\Core\Entity\EntityInterface $entity
+) {
+  $currentUser = \Drupal::currentUser();
+
+  if ($entity->getEntityTypeId() == 'user') {
+    // @TODO: Change this since it blocks site-install.
+    if ($entity->id() == 1 && $currentUser->id() != 1) {
+      throw new \Exception(t('Permission denied.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_field().
+ */
+function foreningsmentor_preprocess_views_view_field(&$variables) {
+  if ($variables['view']->id() === 'courses' && $variables['field']->options['id'] === 'nothing') {
+    /** @var \Drupal\views\ResultRow $row */
+    $row = $variables['row'];
+    $ent = $row->_entity;
+
+    $targetIds = [];
+
+    foreach ($ent->get('field_diary') as $journalEntry) {
+      $targetIds[] = $journalEntry->target_id;
+    }
+
+    /** @var UserDataInterface $userData */
+    $userData = \Drupal::service('user.data');
+
+    $seenJournalEntries = $userData->get('foreningsmentor', $variables['user']->id(),'seenJournalEntries-'.$ent->id());
+
+    if ($seenJournalEntries != $targetIds) {
+      $unseenEntries = array_diff($targetIds, $seenJournalEntries);
+      $variables['output'] = Markup::create("<span class=\"course-view-unseen-journal-entries\">".count($unseenEntries)."</span>");
+    }
+  }
 }
 
 /**

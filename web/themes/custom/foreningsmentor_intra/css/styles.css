@@ -1,3 +1,10 @@
+.course-view-unseen-journal-entries {
+  color: white;
+  background: orange;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
 ul.menu.foreningsmentor-intra--menu--intranet  {
   margin: 0;
   padding: 0;
