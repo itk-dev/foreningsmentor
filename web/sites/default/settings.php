@@ -775,9 +775,6 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
-}
 
 /**
  * Default config directory.
@@ -796,3 +793,10 @@ $databases['default']['default'] = [
  'driver' => getenv('DATABASE_DRIVER') ?: 'mysql',
  'prefix' => '',
 ];
+
+/**
+ * Allow local overrides.
+ */
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
