@@ -262,7 +262,7 @@ class SignUpForm extends FormBase {
     $params['site_name'] = $this->config('system.site')->get('name');
     foreach ($neighborhoodUsers as $user) {
       if ($user->hasRole('coordinator')) {
-        $this->mailManager->mail('foreningsmentor', 'signup', $user->get('mail')->value, $this->languageManager->getDefaultLanguage()->getName(), $params);
+        $this->mailManager->mail('foreningsmentor', 'foreningsmentor_signup', $user->get('mail')->value, $this->languageManager->getDefaultLanguage()->getName(), $params);
       }
     }
 
