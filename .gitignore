@@ -15,7 +15,6 @@
 # a settings.php might be committed to the repository if it reads
 # sensitive information from environment variables or other sources.
 # ------------------------------------------------------------------
-/web/sites/*/settings*.php
 /web/sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
@@ -51,7 +50,7 @@
 # Sites that do not have any Composer-managed custom modules may
 # delete all of the `modules/custom` lines below.
 # ------------------------------------------------------------------
-/web/modules/custom/*
+#!/web/modules/custom/*
 #!/web/modules/custom/module_in_repo
 
 
@@ -184,7 +183,7 @@
 # ------------------------------------------------------------------------------
 
 # We want all custom site settings in settings.local.php
-!/web/sites/*/settings*.php
+/web/sites/*/settings.local.php
 
 # Ignore PhpStorm
 .idea

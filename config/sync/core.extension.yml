@@ -1,3 +1,6 @@
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
+langcode: da
 module:
   address_dawa: 0
   better_exposed_filters: 0
@@ -27,6 +30,7 @@ module:
   foreningsmentor: 0
   foreningsmentor_access_control: 0
   foreningsmentor_config_settings: 0
+  honeypot: 0
   image: 0
   inline_entity_form: 0
   itk_admin: 0
@@ -50,6 +54,8 @@ module:
   responsive_image: 0
   rest: 0
   serialization: 0
+  symfony_mailer: 0
+  symfony_mailer_bc: 0
   system: 0
   system_status: 0
   taxonomy: 0
@@ -75,6 +81,3 @@ theme:
   foreningsmentor_theme: 0
   foreningsmentor_intra: 0
 profile: minimal
-_core:
-  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
-langcode: da

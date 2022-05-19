@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.brick
 _core:
   default_config_hash: Id27sTZzRMR3wBrR6AFLynD2zWmYc-hqRVFId2yeMIw
-type: text
 name: 'Tekst område'
+type: text
 description: 'Område til længere beskrivende tekster. Det er muligt at formatere teksten.'

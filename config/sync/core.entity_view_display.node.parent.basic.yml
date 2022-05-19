@@ -20,26 +20,26 @@ bundle: parent
 mode: basic
 content:
   field_address:
-    weight: 0
+    type: address_dawa_clean
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: address_dawa_clean
+    weight: 0
     region: content
   field_email:
-    weight: 1
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
   field_phone:
-    weight: 2
+    type: telephone_link
     label: above
     settings:
       title: ''
     third_party_settings: {  }
-    type: telephone_link
+    weight: 2
     region: content
 hidden:
   body: true

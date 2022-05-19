@@ -6,29 +6,17 @@ name: 'Filtered html'
 format: filtered_html
 weight: 0
 filters:
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: true
-    weight: 9
-    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
     status: true
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <u> <p> <btn class="btn-primary btn-dark"> <a href hreflang class="btn btn-primary btn-dark"> <img src alt data-entity-type data-entity-uuid data-align data-caption class="w20">'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <u> <p> <btn class="btn-primary btn-dark"> <a href hreflang class="btn btn-primary btn-dark">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
     id: filter_autop
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }
-  filter_align:
-    id: filter_align
     provider: filter
     status: true
     weight: 0

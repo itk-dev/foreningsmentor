@@ -319,22 +319,6 @@ function _foreningsmentor_cancel_action(array &$form, $form_state) {
 }
 
 /**
- * Implements hook_entity_presave().
- */
-function foreningsmentor_entity_presave(
-  EntityInterface $entity
-) {
-  $currentUser = \Drupal::currentUser();
-
-  if ($entity->getEntityTypeId() == 'user') {
-    // @TODO: Change this since it blocks site-install.
-    if ($entity->id() == 1 && $currentUser->id() != 1) {
-      throw new \Exception(t('Permission denied.'));
-    }
-  }
-}
-
-/**
  * Implements hook_views_pre_render().
  */
 function foreningsmentor_views_pre_render(ViewExecutable $view) {
@@ -421,5 +405,28 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
 
       $addedIds[$result->_entity->id()] = $result->_entity->id();
     };
+  }
+}
+
+/**
+ * Implements hook_mail
+ *
+ * Change mail header and body.
+ *
+ * @param $key
+ * @param $message
+ * @param $params
+ * @throws \Twig\Error\RuntimeError
+ */
+function foreningsmentor_mail($key, &$message, $params) {
+  if ('foreningsmentor_signup' === $key) {
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+    $mailContent = twig_render_template(\Drupal::service('extension.list.module')->getPath('foreningsmentor') . '/templates/signup-email-body.html.twig', [
+      'params' => $message['params'],
+      // Needed to prevent notices when Twig debugging is enabled.
+      'theme_hook_original' => 'not-applicable',
+    ]);
+
+    $message['body'][] = $mailContent;
   }
 }

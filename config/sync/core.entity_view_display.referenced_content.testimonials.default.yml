@@ -16,28 +16,28 @@ bundle: testimonials
 mode: default
 content:
   field_testimonial_author:
-    weight: 2
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 2
     region: content
   field_testimonial_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: foreningsmentor_600x600
       image_link: ''
+      image_style: foreningsmentor_600x600
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
   field_testimonial_text:
-    weight: 1
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
 hidden:
   langcode: true
