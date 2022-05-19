@@ -1,0 +1,14 @@
+name: Address DAWA
+type: module
+description: A utility module defining field type, widgets and formatters for easy storage and rendering of Danish addresses.
+# core: 8.x
+
+dependencies:
+  - drupal:field
+core_version_requirement: ^8 || ^9
+
+# Information added by Drupal.org packaging script on 2017-02-26
+version: '8.x-1.0'
+core: '8.x'
+project: 'address_dawa'
+datestamp: 1488125886

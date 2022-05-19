@@ -13,7 +13,9 @@ bundle: efforts_area
 mode: default
 content:
   field_effort:
+    type: bricks_tree_inline
     weight: 1
+    region: content
     settings:
       match_operator: CONTAINS
       form_mode: default
@@ -26,8 +28,6 @@ content:
       allow_existing: false
       allow_duplicate: false
     third_party_settings: {  }
-    type: bricks_tree_inline
-    region: content
   title:
     type: string_textfield
     weight: 0

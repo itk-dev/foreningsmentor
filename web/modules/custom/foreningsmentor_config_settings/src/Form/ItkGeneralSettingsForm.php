@@ -96,7 +96,7 @@ class ItkGeneralSettingsForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    drupal_set_message('Settings saved');
+    $this->messenger()->addStatus('Settings saved');
 
     // Set the rest of the configuration values.
     $this->getBaseConfig()->setMultiple([

@@ -13,15 +13,15 @@ bundle: kontakter
 mode: default
 content:
   field_user:
+    type: bricks_tree_autocomplete
     weight: 1
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: bricks_tree_autocomplete
-    region: content
   title:
     type: string_textfield
     weight: 0

@@ -19,40 +19,40 @@ bundle: parent
 mode: default
 content:
   field_address:
-    weight: 1
+    type: address_dawa_clean
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: address_dawa_clean
+    weight: 1
     region: content
   field_children:
-    weight: 4
+    type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 4
     region: content
   field_email:
-    weight: 2
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 2
     region: content
   field_phone:
-    weight: 3
+    type: telephone_link
     label: above
     settings:
       title: ''
     third_party_settings: {  }
-    type: telephone_link
+    weight: 3
     region: content
   links:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   body: true
   langcode: true

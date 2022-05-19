@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.brick
 _core:
   default_config_hash: CnVyvEjvQpeDFbru8EzNDFjIZy7B4lCOeTHicSHfk_w
-type: wrapper
 name: Wrapper
+type: wrapper
 description: ''

@@ -28,86 +28,86 @@ bundle: course
 mode: default
 content:
   field_activity_type:
+    type: options_select
     weight: 5
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_child:
+    type: entity_reference_autocomplete
     weight: 1
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_coordinators_end_status:
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
     type: options_select
+    weight: 9
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_course_type_text:
+    type: text_textarea
     weight: 6
+    region: content
     settings:
       rows: 2
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_date_end:
+    type: datetime_default
     weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_date_start:
+    type: datetime_default
     weight: 3
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_field_coor_end_status_text:
+    type: text_textarea
     weight: 10
+    region: content
     settings:
       rows: 2
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_finished:
+    type: boolean_checkbox
     weight: 11
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_mentor:
+    type: entity_reference_autocomplete
     weight: 2
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_mentors_end_status:
+    type: options_select
     weight: 7
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_mentors_end_status_text:
+    type: text_textarea
     weight: 8
+    region: content
     settings:
       rows: 2
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   title:
     type: string_textfield
     weight: 0

@@ -17,11 +17,11 @@ bundle: journal_entry
 mode: teaser
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   field_course: true

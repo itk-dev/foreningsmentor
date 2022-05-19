@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.brick
-type: testimonials_area
 name: 'Udtalelser område'
+type: testimonials_area
 description: 'Sektion til at tilføje udtalelser.'
