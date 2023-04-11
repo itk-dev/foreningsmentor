@@ -34,6 +34,7 @@
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/bricks": "^2.0",
         "drupal/cer": "^4.0@alpha",
+        "drupal/content_fixtures": "^3.1",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9.3",
