@@ -12,6 +12,7 @@ module:
   cer: 0
   ckeditor: 0
   config: 0
+  content_fixtures: 0
   csv_serialization: 0
   ctools: 0
   datetime: 0

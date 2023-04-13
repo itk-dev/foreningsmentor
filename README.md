@@ -46,13 +46,6 @@ $config['system.performance']['css']['preprocess'] = FALSE;
 $config['system.performance']['js']['preprocess'] = FALSE;
 
 /**
- * Disable caching.
- */
-$settings['cache']['bins']['render'] = 'cache.backend.null';
-$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
-$settings['cache']['bins']['page'] = 'cache.backend.null';
-
-/**
  * Logging.
  */
 $config['system.logging']['error_level'] = 'verbose';
@@ -65,5 +58,10 @@ $config['symfony_mailer.settings']['default_transport'] = 'smtp';
 
 Install drupal
 ```
-docker-compose exec phpfpm /app/vendor/bin/drush --yes site-install minimal --config-dir='../config/sync'
+docker-compose exec phpfpm /app/vendor/bin/drush --yes site-install --existing-config 
+```
+
+Create example content through fixtures:
+```
+docker-compose exec phpfpm /app/vendor/bin/drush content-fixtures:load -y 
 ```

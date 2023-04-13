@@ -1,0 +1,20 @@
+services:
+  Drupal\foreningsmentor_fixtures\Helper\Helper:
+    arguments:
+      - '@extension.path.resolver'
+      - '@file.repository'
+      - '@file_system'
+  Drupal\foreningsmentor_fixtures\Fixture\PageFixture:
+    tags:
+      - { name: content_fixture }
+  Drupal\foreningsmentor_fixtures\Fixture\BrickFixture:
+    tags:
+      - { name: content_fixture }
+  Drupal\foreningsmentor_fixtures\Fixture\ImageFixture:
+    tags:
+      - { name: content_fixture }
+    arguments:
+      - '@Drupal\foreningsmentor_fixtures\Helper\Helper'
+  Drupal\foreningsmentor_fixtures\Fixture\ReferencedContentFixture:
+    tags:
+      - { name: content_fixture }
