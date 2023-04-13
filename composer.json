@@ -28,6 +28,7 @@
         }
     ],
     "require": {
+        "php": "^8.1.10",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
         "drupal/adminimal_theme": "^1.6",
@@ -67,7 +68,6 @@
         "furf/jquery-ui-touch-punch": "dev-master",
         "itk-dev/itk_siteimprove": "^1.2",
         "itk-dev/web_accessibility_statement": "dev-master",
-        "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.2",
         "webmozart/path-util": "^2.3"
     },
@@ -94,9 +94,6 @@
     "autoload": {
         "classmap": [
             "scripts/composer/ScriptHandler.php"
-        ],
-        "files": [
-            "load.environment.php"
         ]
     },
     "scripts": {
@@ -144,6 +141,15 @@
             "initial": {
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
+            }
+        },
+        "enable-patching": true,
+        "patcher": {
+            "force-reset": true
+        },
+        "patches": {
+            "drupal/eck": {
+                "https://www.drupal.org/project/eck/issues/3254794": "https://www.drupal.org/files/issues/2023-03-02/eck-3254794-15-for-beta2.patch"
             }
         }
     }
