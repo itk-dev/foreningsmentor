@@ -12,6 +12,7 @@ module:
   cer: 0
   ckeditor: 0
   config: 0
+  content_fixtures: 0
   csv_serialization: 0
   ctools: 0
   datetime: 0
@@ -30,6 +31,7 @@ module:
   foreningsmentor: 0
   foreningsmentor_access_control: 0
   foreningsmentor_config_settings: 0
+  foreningsmentor_fixtures: 0
   honeypot: 0
   image: 0
   inline_entity_form: 0
@@ -45,6 +47,7 @@ module:
   link: 0
   locale: 0
   menu_ui: 0
+  mysql: 0
   node: 0
   node_view_permissions: 0
   options: 0

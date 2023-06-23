@@ -41,6 +41,8 @@ content:
     settings:
       image_link: ''
       image_style: foreningsmentor_max_400h
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 2
     region: content
