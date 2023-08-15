@@ -31,14 +31,15 @@
         "php": "^8.1.10",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
+        "drupal/address_dawa": "^2.0",
         "drupal/adminimal_theme": "^1.6",
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/bricks": "^2.0",
-        "drupal/cer": "^4.0@alpha",
+        "drupal/cer": "^5.0@beta",
         "drupal/content_fixtures": "^3.1",
-        "drupal/core-composer-scaffold": "^9",
-        "drupal/core-project-message": "^9",
-        "drupal/core-recommended": "^9.3",
+        "drupal/core-composer-scaffold": "9.5.10",
+        "drupal/core-project-message": "9.5.10",
+        "drupal/core-recommended": "9.5.10",
         "drupal/eck": "^1.0@beta",
         "drupal/entity": "^1.2",
         "drupal/field_group": "^3.2",
@@ -57,12 +58,13 @@
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
         "drupal/redirect": "^1.6",
-        "drupal/symfony_mailer": "^1.0@alpha",
+        "drupal/symfony_mailer": "^1.2",
         "drupal/system_status": "^2.9",
         "drupal/upgrade_status": "^3.11",
         "drupal/views_add_button": "^2.0",
         "drupal/views_bulk_operations": "^4.0",
         "drupal/views_data_export": "^1.0",
+        "drupal/webprofiler": "^9.0",
         "drupal/youtube": "^1.2",
         "drush/drush": "^11.0",
         "furf/jquery-ui-touch-punch": "dev-master",
@@ -79,6 +81,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+
     "config": {
         "sort-packages": true,
         "allow-plugins": {
@@ -90,6 +93,7 @@
             "drupal/core-project-message": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+
     },
     "autoload": {
         "classmap": [
