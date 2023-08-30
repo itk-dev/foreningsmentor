@@ -20,6 +20,7 @@ class ChildFixture extends AbstractFixture implements DependentFixtureInterface,
    */
   public function load() {
 
+
     $node = Node::create([
       'type' => 'child',
       'title' => 'John Doe',
@@ -28,19 +29,19 @@ class ChildFixture extends AbstractFixture implements DependentFixtureInterface,
       'field_anonymized' => '', // Hvad er det er det
 //      'field_neighborhood' => 'Indsatsområde ?', Virker ikke
       'field_activity_wishes' => "Fodbold og Hockey",
-//      'field_birthday' => '22/02/2005',  Virker ikke
+      'field_birthday' => date("Y-m-d", 1283166912),
       'field_sex' => 'Mand',
       'field_school' => 'Old School',
       'field_shool_class' => '8',
-//      'field_date_registered' => ' 24/01/2020', Virker ikke
+      'field_date_registered' => date("Y-m-d", 1598786112),
       'field_family_subsidy' => false,
-//      'field_comments' => 'Der er ikke nogen kommentar',
-//      'field_referer' => 'Jane Doe',
-//      'field_referer_phone' => '22 22 22 22',
-//      'field_referer_email' => 'my email',
-//      'field_parents' => 'Unknow Parrents',
-//      'field_siblings' => 'Albert',
-//      'field_courses' => 'A great course'
+      'field_comments' => 'Der er ikke nogen kommentar',
+      'field_referer' => 'Jane Doe',
+      'field_referer_phone' => '+ 45 22 22 22 22',
+      'field_referer_email' => 'John@Doe.dk',
+//      'field_parents' => 'Johns Does DAD', Virker ikke
+//      'field_siblings' => 'Albert', Virker ikke
+//      'field_courses' => 'A great course' GIVER FEJl
 
     ]);
     $this->addReference('child:mmmmm', $node);
