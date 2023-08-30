@@ -7,7 +7,7 @@
 cp web/sites/development.services.yml web/sites/default/services.local.yml
 ```
 
-2) (sites/default/settings.local.php) create file if it doesn't exist. Then copy the following over:
+2) In (sites/default/settings.local.php) create file if it doesn't exist. Then copy the following over:
 ```php
 <?php
 
