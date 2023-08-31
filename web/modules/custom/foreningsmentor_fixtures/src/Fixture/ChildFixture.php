@@ -23,28 +23,62 @@ class ChildFixture extends AbstractFixture implements DependentFixtureInterface,
 
     $node = Node::create([
       'type' => 'child',
-      'title' => 'John Doe',
+      'title' => 'child - JOHN DOE',
       'status' => NodeInterface::PUBLISHED,
 
       'field_anonymized' => '', // Hvad er det er det
-//      'field_neighborhood' => 'Indsatsområde ?', Virker ikke
-      'field_activity_wishes' => "Fodbold og Hockey",
-      'field_birthday' => date("Y-m-d", 1283166912),
-      'field_sex' => 'Mand',
-      'field_school' => 'Old School',
-      'field_shool_class' => '8',
-      'field_date_registered' => date("Y-m-d", 1598786112),
+      'field_neighborhood' => ['target_id' => $this->getReference('neighborhood:Hasle')->id()],
+      'field_activity_wishes' => ['value' => 'Dette er en test'],
+      'field_birthday' => ['value' => date("Y-m-d", 1283166912)],
+      'field_sex' => ['value' => 'Mand'],
+      'field_school' => ['value' => 'Old School'],
+      'field_shool_class' => ['value' => '8.klasse'],
+      'field_date_registered' => ['value' => date("Y-m-d", 1598786112)],
       'field_family_subsidy' => false,
-      'field_comments' => 'Der er ikke nogen kommentar',
-      'field_referer' => 'Jane Doe',
-      'field_referer_phone' => '+ 45 22 22 22 22',
-      'field_referer_email' => 'John@Doe.dk',
-//      'field_parents' => 'Johns Does DAD', Virker ikke
+      'field_comments' => ['value' => 'Dette er en kommentar. HURRA !!!'],
+      'field_referer' => ['value' => 'MENTOR HEST'],
+      'field_referer_phone' => [ 'value' => '+ 45 22 22 22 22'],
+      'field_referer_email' => ['value' => 'MENTOR@HEST.dk'],
+      'field_parents' => ['target_id' => $this->getReference('parent:fixture-1')->id()]
 //      'field_siblings' => 'Albert', Virker ikke
 //      'field_courses' => 'A great course' GIVER FEJl
 
     ]);
-    $this->addReference('child:mmmmm', $node);
+    $this->addReference('child:fixture-1', $node);
+    $node->save();
+
+    $node = Node::create([
+      'type' => 'child',
+      'title' => 'child - HEST DOE',
+      'status' => NodeInterface::PUBLISHED,
+
+      'field_anonymized' => '', // Hvad er det er det
+      'field_neighborhood' => ['target_id' => $this->getReference('neighborhood:Hasle')->id()],
+      'field_activity_wishes' => ['value' => 'Dette er en test'],
+      'field_birthday' => ['value' => date("Y-m-d", 1283122912)],
+      'field_sex' => ['value' => 'Mand'],
+      'field_school' => ['value' => 'Old School'],
+      'field_shool_class' => ['value' => '8.klasse'],
+      'field_date_registered' => ['value' => date("Y-m-d", 1698786112)],
+      'field_family_subsidy' => false,
+      'field_comments' => ['value' => 'Dette er en kommentar. HURRA HURRA!!!'],
+      'field_referer' => ['value' => 'MENTOR HEST'],
+      'field_referer_phone' => [ 'value' => '+ 45 22 22 22 22'],
+      'field_referer_email' => ['value' => 'MENTOR@HEST.dk'],
+      'field_parents' => ['target_id' => $this->getReference('parent:fixture-1')->id()],
+      'field_siblings' => ['target_id' => $this->getReference('child:fixture-1')->id()],
+      // Virker ikke
+      'field_courses' => [
+        ['title' => 'Et fodboldforløb'],
+        ['field_activity_type' => ['target_id' => $this->getReference('activity_type:fodbold')->id()]],
+        ['field_mentor' => ['target_id' => $this->getReference('user:mentor')->id()]],
+        ['field_date_start' =>['value' => date("Y-m-d", 1283122912)]],
+        ['field_date_end' =>['value' => date("Y-m-d", 1283122912)]],
+
+      ],
+
+    ]);
+    $this->addReference('child:fixture-2', $node);
     $node->save();
 
   }
