@@ -1,60 +1,77 @@
-uuid: 31e3c8dd-c4b3-4a68-9c5d-a003a40fcc00
+uuid: 92b85e66-99ff-42a8-be82-0d0b99204ddb
 langcode: da
 status: true
 dependencies:
   config:
     - filter.format.filtered_html
   module:
-    - ckeditor
+    - ckeditor5
 format: filtered_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatering
-          items:
-            - Bold
-            - Italic
-            - Underline
-        -
-          name: Overskrifter
-          items:
-            - Format
-        -
-          name: Styles
-          items:
-            - Styles
-        -
-          name: Justering
-          items:
-            - JustifyLeft
-            - JustifyCenter
-            - JustifyRight
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lister
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-        -
-          name: Værktøjer
-          items:
-            - Source
-            - PasteFromWord
-            - PasteText
+    items:
+      - bold
+      - italic
+      - underline
+      - '|'
+      - heading
+      - '|'
+      - style
+      - '|'
+      - alignment
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - blockQuote
+      - '|'
+      - sourceEditing
+      - '|'
+      - code
   plugins:
-    stylescombo:
-      styles: "a.btn.btn-primary|Knap - Primær knap\r\na.btn.btn-dark|Knap - Sort knap"
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Knap - Primær knap'
+          element: '<a class="btn btn-primary">'
+        -
+          label: 'Knap - Sort knap'
+          element: '<a class="btn btn-dark">'
+    ckeditor5_sourceEditing:
+      allowed_tags:
+        - '<cite>'
+        - '<dl>'
+        - '<dt>'
+        - '<dd>'
+        - '<btn class="btn-primary btn-dark">'
+        - '<blockquote cite>'
+        - '<ul type>'
+        - '<ol type>'
+        - '<h2 id>'
+        - '<h3 id>'
+        - '<h4 id>'
+        - '<h5 id>'
+        - '<h6 id>'
+        - '<a hreflang>'
+    ckeditor5_list:
+      reversed: false
+      startIndex: true
+    ckeditor5_alignment:
+      enabled_alignments:
+        - left
+        - center
+        - right
+        - justify
 image_upload:
   status: true
   scheme: public

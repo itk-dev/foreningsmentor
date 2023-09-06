@@ -2,7 +2,7 @@ name: Foreningsmentor Intra Theme
 type: theme
 description: This is a subtheme of adminimal_theme.
 core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 base theme: adminimal_theme
 libraries:
     - foreningsmentor_intra/global-styling

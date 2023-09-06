@@ -233,7 +233,7 @@ class SignUpForm extends FormBase {
       ]
     ];
 
-    honeypot_add_form_protection($form, $form_state, ['honeypot', 'time_restriction']);
+    \Drupal::service('honeypot') ->addFormProtection($form, $form_state, ['honeypot', 'time_restriction']);
 
     return $form;
   }

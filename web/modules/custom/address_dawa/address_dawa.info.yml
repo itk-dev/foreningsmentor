@@ -5,7 +5,7 @@ description: A utility module defining field type, widgets and formatters for ea
 
 dependencies:
   - drupal:field
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 
 # Information added by Drupal.org packaging script on 2017-02-26
 version: '8.x-1.0'

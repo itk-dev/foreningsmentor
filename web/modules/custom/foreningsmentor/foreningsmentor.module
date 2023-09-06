@@ -215,6 +215,7 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
             if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') {
               foreach ($form["list"]["#items"] as $child_name) {
                 $query = \Drupal::entityQuery('node');
+                $query->accessCheck();
                 $query->condition('type', 'child');
                 $query->condition('title', $child_name);
 
