@@ -2,12 +2,12 @@
 
 ## Local setup.
 
-Copy development services definitions
+1) Copy development services definitions
 ```
 cp web/sites/development.services.yml web/sites/default/services.local.yml
 ```
 
-Local settings (sites/default/settings.local.php)
+2) (sites/default/settings.local.php) create file if it doesn't exist. Then copy the following over:
 ```php
 <?php
 
@@ -56,12 +56,24 @@ $config['system.logging']['error_level'] = 'verbose';
 $config['symfony_mailer.settings']['default_transport'] = 'smtp';
 ```
 
-Install drupal
+3) Start docker comtainers, and install composer.
 ```
-docker-compose exec phpfpm /app/vendor/bin/drush --yes site-install --existing-config 
+docker compose up -d
+docker compose exec phpfpm composer install
 ```
 
-Create example content through fixtures:
+... if error network frontend declared as external, but could not be found = run the following, and then rerun step 3 :
 ```
-docker-compose exec phpfpm /app/vendor/bin/drush content-fixtures:load -y 
+ docker network create frontend
+```
+
+4) Install drupal
+```
+docker compose exec phpfpm /app/vendor/bin/drush --yes site-install --existing-config
+```
+
+
+5) Create example content through fixtures:
+```
+docker compose exec phpfpm /app/vendor/bin/drush content-fixtures:load -y
 ```
