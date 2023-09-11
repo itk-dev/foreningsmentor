@@ -7,7 +7,7 @@ namespace Drupal\foreningsmentor_fixtures\Fixture;
  *
  * @package Drupal\foreningsmentor_fixtures\Fixture
  */
-class TernActivitytypeFixture extends TaxonomyTermFixture {
+class TermActivitytypeFixture extends TaxonomyTermFixture {
   /**
    * {@inheritdoc}
    */

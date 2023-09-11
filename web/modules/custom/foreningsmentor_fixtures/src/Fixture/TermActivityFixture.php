@@ -12,7 +12,7 @@ class TermActivityFixture extends TaxonomyTermFixture
   /**
    * {@inheritdoc}
    */
-  protected static $vocabularyId = 'available_activities';
+  protected static $vocabularyId = 'activities';
 
   /**
    * {@inheritdoc}
