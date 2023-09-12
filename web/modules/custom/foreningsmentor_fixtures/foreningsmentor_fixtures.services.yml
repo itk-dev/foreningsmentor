@@ -42,7 +42,7 @@ services:
     arguments: [ '@entity_type.manager' ]
     tags:
       - { name: content_fixture }
-  Drupal\foreningsmentor_fixtures\Fixture\TernActivitytypeFixture:
+  Drupal\foreningsmentor_fixtures\Fixture\TermActivitytypeFixture:
     arguments: [ '@entity_type.manager' ]
     tags:
       - { name: content_fixture }
