@@ -2,7 +2,7 @@ name: Foreningsmentor
 type: theme
 description: 'Foreningsmentor custom theme'
 core: '8.x'
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 base theme: false
 libraries:
   - foreningsmentor_theme/global-styling

@@ -11,4 +11,3 @@ course_form:
     js/course_form.js: {}
   dependencies:
   - core/jquery
-  - core/jquery.once
