@@ -91,6 +91,7 @@ display:
           batch: true
           batch_size: 10
           form_step: true
+          ajax_loader: false
           buttons: false
           action_title: Handling
           clear_on_exposed: false
@@ -1401,10 +1402,11 @@ display:
           admin_label: ''
           plugin_id: views_add_button_area
           empty: false
-          tokenize: 0
+          tokenize: false
           type: user+user
           context: ''
           button_text: 'Add volunteer'
+          query_string: ''
           button_classes: 'button button-primary'
           button_attributes: ''
           button_prefix:
@@ -1413,8 +1415,7 @@ display:
           button_suffix:
             value: ''
             format: filtered_html
-          query_string: ''
-          destination: 1
+          destination: true
       display_extenders: {  }
       path: frivillige
     cache_metadata:

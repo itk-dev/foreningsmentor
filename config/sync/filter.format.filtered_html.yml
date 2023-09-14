@@ -12,7 +12,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <u> <p> <btn class="btn-primary btn-dark"> <a href hreflang class="btn btn-primary btn-dark">'
+      allowed_html: '<br> <p class="text-align-left text-align-center text-align-right text-align-justify"> <h2 id class="text-align-left text-align-center text-align-right text-align-justify"> <h3 id class="text-align-left text-align-center text-align-right text-align-justify"> <h4 id class="text-align-left text-align-center text-align-right text-align-justify"> <h5 id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 id class="text-align-left text-align-center text-align-right text-align-justify"> <a class="btn btn-primary btn-dark" hreflang href> <cite> <dl> <dt> <dd> <btn class="btn-primary btn-dark"> <blockquote cite> <ul type> <ol type start> <strong> <em> <u> <code> <li>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:

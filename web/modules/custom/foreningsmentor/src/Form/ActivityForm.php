@@ -85,7 +85,10 @@ class ActivityForm extends FormBase {
 
     // Find entity options for 'field_club'.
     $options = [];
-    $ids = \Drupal::entityQuery('node')->condition('type','club')->execute();
+    $ids = \Drupal::entityQuery('node')
+      ->accessCheck()
+      ->condition('type','club')
+      ->execute();
     foreach ($ids as $id) {
       $node = Node::load($id);
       $options[$id] = $node->getTitle();
