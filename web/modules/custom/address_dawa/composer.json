@@ -1,0 +1,23 @@
+{
+  "name": "drupal/address_dawa",
+  "type": "drupal-module",
+  "description": "A utility module defining field type, widgets and formatters for easy storage and rendering of Danish addresses.",
+  "homepage": "https://www.drupal.org/project/address_dawa",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/address_dawa"
+  },
+  "authors": [
+    {
+      "name": "zyyz",
+      "homepage": "https://www.drupal.org/u/zyyz"
+    },
+    {
+      "name": "jacobfriis",
+      "homepage": "https://www.drupal.org/u/jacobfriis"
+    }
+  ],
+  "require": {
+    "ext-json": "*",
+    "drupal/core": "^8.8 || ^9 || ^10"
+  }
+}
