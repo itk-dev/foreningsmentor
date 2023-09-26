@@ -34,7 +34,12 @@ services:
     arguments: [ '@entity_type.manager' ]
     tags:
       - { name: content_fixture }
-  Drupal\foreningsmentor_fixtures\Fixture\CourseFixture:
+  Drupal\foreningsmentor_fixtures\Fixture\JournalFixture:
+    arguments: [ '@entity_type.manager' ]
+    tags:
+      - { name: content_fixture }
+
+  Drupal\foreningsmentor_fixtures\Fixture\ActivityAndCourseFixture:
     arguments: [ '@entity_type.manager' ]
     tags:
       - { name: content_fixture }
@@ -47,6 +52,10 @@ services:
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\TermActivityFixture:
+    arguments: [ '@entity_type.manager' ]
+    tags:
+      - { name: content_fixture }
+  Drupal\foreningsmentor_fixtures\Fixture\TermMentorFixture:
     arguments: [ '@entity_type.manager' ]
     tags:
       - { name: content_fixture }

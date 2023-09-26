@@ -40,8 +40,7 @@ class ChildFixture extends AbstractFixture implements DependentFixtureInterface,
       'field_referer_phone' => [ 'value' => '+ 45 22 22 22 22'],
       'field_referer_email' => ['value' => 'MENTOR@HEST.dk'],
       'field_parents' => ['target_id' => $this->getReference('parent:fixture-1')->id()]
-//      'field_siblings' => 'Albert', Virker ikke
-//      'field_courses' => 'A great course' GIVER FEJl
+
 
     ]);
     $this->addReference('child:fixture-1', $node);
@@ -51,7 +50,6 @@ class ChildFixture extends AbstractFixture implements DependentFixtureInterface,
       'type' => 'child',
       'title' => 'child - HEST DOE',
       'status' => NodeInterface::PUBLISHED,
-
       'field_anonymized' => '', // Hvad er det er det
       'field_neighborhood' => ['target_id' => $this->getReference('neighborhood:Hasle')->id()],
       'field_activity_wishes' => ['value' => 'Dette er en test'],
@@ -67,7 +65,6 @@ class ChildFixture extends AbstractFixture implements DependentFixtureInterface,
       'field_referer_email' => ['value' => 'MENTOR@HEST.dk'],
       'field_parents' => ['target_id' => $this->getReference('parent:fixture-1')->id()],
       'field_siblings' => ['target_id' => $this->getReference('child:fixture-1')->id()],
-      // Virker ikke
       'field_courses' => [
         ['title' => 'Et fodboldforløb'],
         ['field_activity_type' => ['target_id' => $this->getReference('activity_type:fodbold')->id()]],

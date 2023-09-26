@@ -13,27 +13,23 @@ use Drupal\node\NodeInterface;
  *
  * @package Drupal\foreningsmentor_fixtures\Fixture
  */
-class CourseFixture extends AbstractFixture implements DependentFixtureInterface, FixtureGroupInterface
+class JournalFixture extends AbstractFixture implements DependentFixtureInterface, FixtureGroupInterface
 {
   /**
    * {@inheritdoc}
    */
-  public function load() {
+  public function load(): void
+  {
 
 
     $node = Node::create([
-      'type' => 'course',
-      'title' => 'course - TEST FORLØB',
+      'type' => 'journal_entry',
+      'title' => 'course - Journal Overskrift',
       'status' => NodeInterface::PUBLISHED,
-
-//      'field_address' => 'Foreningsvej 1', FEJL
-//      "field_available_activities" => ['test'], FEJL
-      "field_email" => ['value' => 'Forening@mail.com'],
-      "field_homepage" => ['value' => 'https://www.google.com/'],
-      "field_phone" => ['value' => '+45 22 22 22 22']
-
+      'body' => 'Dette er en Journal, og her står der en masse spændene',
+      'field_only_for_coordinators' => false,
     ]);
-    $this->addReference('course:fixture-1', $node);
+    $this->addReference('journal_entry:fixture-1', $node);
     $node->save();
 
   }

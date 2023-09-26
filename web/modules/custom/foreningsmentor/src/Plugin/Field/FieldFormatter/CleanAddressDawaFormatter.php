@@ -58,6 +58,7 @@ class CleanAddressDawaFormatter extends FormatterBase {
 
     $element = [
       '#type' => 'markup',
+//      '#markup' => print_r($value),
       '#markup' => implode('', $value),
     ];
     return $element;

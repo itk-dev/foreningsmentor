@@ -25,9 +25,8 @@ class ClubFixture extends AbstractFixture implements DependentFixtureInterface, 
       'type' => 'club',
       'title' => 'club - TEST FORENING',
       'status' => NodeInterface::PUBLISHED,
-
-//      "field_address" => 'Test foreningsvej 2', ERRO DAWA
-//      "field_available_activities" => 'nej', Invalid datetime format: 1366 Incorrect integer value: 'nej' for column `db`.`taxonomy_index`.`tid` at row 1
+      "field_address" => ['value' => 'testvej 22', 'type' => '', 'id' => 's', 'status' => 1, 'lat' => '2', 'lng' => '2', 'data' => ['adressebetegnelse' => 'testvej 22']],
+      "field_available_activities" => ['target_id' => $this->getReference('activities:activity1')->id()],
       "field_email" => 'forening@gmail.com',
       "field_homepage" => 'https://www.google.com/',
       "field_phone" => '+45 22 22 22 22',
