@@ -1,0 +1,26 @@
+field.field_settings.address_dawa:
+  type: mapping
+  label: 'Address DAWA field settings'
+  mapping:
+    address_type:
+      type: string
+      label: 'Address type'
+    allow_non_unique_address:
+      type: boolean
+      nullable: true
+      label: 'Allow non-unique address'
+    allow_non_danish_address:
+      type: boolean
+      nullable: true
+      label: 'Allow non-Danish address'
+
+field.widget.settings.address_dawa:
+  type: mapping
+  label: 'Address DAWA field widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size of DAWA address textfield'
+    placeholder:
+      type: string
+      label: 'Placeholder'
