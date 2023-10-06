@@ -19,8 +19,6 @@ class ParentFixture extends AbstractFixture implements DependentFixtureInterface
    * {@inheritdoc}
    */
   public function load() {
-
-
     $node = Node::create([
       'type' => 'parent',
       'title' => 'parent - JANE DOE',
@@ -28,7 +26,6 @@ class ParentFixture extends AbstractFixture implements DependentFixtureInterface
       "field_address" => ['value' => 'testvej 1', 'type' => '', 'id' => 's', 'status' => 1, 'lat' => '2', 'lng' => '2', 'data' => ['adressebetegnelse' => 'testvej 1'] ],
       "field_email" => 'parent@test.dk ',
       "field_phone" => '+ 45 22 22 22 22',
-
     ]);
 
 

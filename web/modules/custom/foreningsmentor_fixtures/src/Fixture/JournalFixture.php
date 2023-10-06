@@ -20,8 +20,6 @@ class JournalFixture extends AbstractFixture implements DependentFixtureInterfac
    */
   public function load(): void
   {
-
-
     $node = Node::create([
       'type' => 'journal_entry',
       'title' => 'course - Journal Overskrift',

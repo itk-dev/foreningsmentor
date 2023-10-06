@@ -41,7 +41,6 @@ class PageFixture extends AbstractFixture implements DependentFixtureInterface, 
         ['target_id' => $this->getReference('brick:frontpage-hero-2')->id()],
         ['target_id' => $this->getReference('brick:teasers-area-b')->id()],
         ['target_id' => $this->getReference('brick:efforts-area-b')->id()],
-
       ],
     ]);
     $this->addReference('page:the-second-page', $node);
@@ -53,8 +52,6 @@ class PageFixture extends AbstractFixture implements DependentFixtureInterface, 
       'status' => NodeInterface::PUBLISHED,
       'field_content_block' => [
         ['target_id' => $this->getReference('brick:partners_area-a')->id()],
-
-
       ],
     ]);
     $this->addReference('page:the-third-page', $node);
