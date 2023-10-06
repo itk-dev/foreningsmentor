@@ -166,7 +166,24 @@ BODY,
     ]);
     $this->addReference('brick:testimonials-area-a', $brick);
     $brick->save();
+
+    ////
+    $brick = EckEntity::create([
+      'entity_type' => 'brick',
+      'type' => 'partners_area',
+      'title' => 'mmmmmmmmmmmmmmm',
+      'field_description' => 'mmmMMMMMMmmmmMMMMMmmmmm',
+      'field_btn' =>
+        ['value' => 'test',
+          'url' => 'google.com']
+
+    ]);
+    $this->addReference('brick:partners_area-a', $brick);
+    $brick->save();
+
   }
+
+
 
   /**
    * {@inheritdoc}

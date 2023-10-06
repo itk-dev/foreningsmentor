@@ -201,6 +201,7 @@ class ActivityForm extends FormBase {
       'field_club_contact_person_email' => $form_state->getValue('field_club_contact_person_email'),
       'field_club_contact_person_phone' => $form_state->getValue('field_club_contact_person_phone'),
     ]);
+
     $node->save();
 
     // Add activity to child.
