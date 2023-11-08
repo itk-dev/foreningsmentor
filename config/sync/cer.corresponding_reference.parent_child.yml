@@ -7,6 +7,7 @@ label: 'Forælder - Barn'
 enabled: true
 first_field: field_parents
 second_field: field_children
+add_direction: null
 bundles:
   node:
     - child

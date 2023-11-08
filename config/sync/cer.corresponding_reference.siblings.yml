@@ -7,6 +7,7 @@ label: Søskende
 enabled: true
 first_field: field_siblings
 second_field: field_siblings
+add_direction: null
 bundles:
   node:
     - child

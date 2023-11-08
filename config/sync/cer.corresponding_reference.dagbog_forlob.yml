@@ -7,6 +7,7 @@ label: 'Dagbog - Forløb'
 enabled: true
 first_field: field_diary
 second_field: field_course
+add_direction: null
 bundles:
   node:
     - course
