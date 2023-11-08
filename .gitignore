@@ -17,6 +17,9 @@
 # ------------------------------------------------------------------
 /web/sites/*/settings*.php
 /web/sites/*/services*.yml
+web/sites/default/settings.local.docker.php
+web/sites/default/settings.local.php
+
 
 # Ignore paths that contain user-generated content.
 /web/sites/*/files
@@ -183,14 +186,13 @@
 
 # ------------------------------------------------------------------------------
 
-# We want all custom site settings in settings.local.php
-!/web/sites/*/settings*.php
-
 # Ignore PhpStorm
 .idea
 
 # Ignore private files
 private-files/
+private
 
 # Ignore VS-code
 .vscode
+
