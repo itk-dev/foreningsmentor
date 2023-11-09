@@ -854,10 +854,11 @@ display:
           admin_label: ''
           plugin_id: views_add_button_area
           empty: false
-          tokenize: 0
+          tokenize: false
           type: node+parent
           context: ''
           button_text: 'Add parent'
+          query_string: ''
           button_classes: 'button button-primary'
           button_attributes: ''
           button_prefix:
@@ -866,8 +867,7 @@ display:
           button_suffix:
             value: ''
             format: filtered_html
-          query_string: ''
-          destination: 1
+          destination: true
       display_extenders: {  }
       path: foraeldre
     cache_metadata:
