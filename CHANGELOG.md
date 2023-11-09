@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] 2023-11-09
+
 * Upgrade Drupal to 10.1.6
 * Upgrade outdated contrib modules
 * Upgrade php (8.2)
