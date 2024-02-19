@@ -1562,10 +1562,11 @@ display:
           admin_label: ''
           plugin_id: views_add_button_area
           empty: false
-          tokenize: 0
+          tokenize: false
           type: node+course
           context: ''
           button_text: 'Add course'
+          query_string: ''
           button_classes: 'button button-primary'
           button_attributes: ''
           button_prefix:
@@ -1574,8 +1575,7 @@ display:
           button_suffix:
             value: ''
             format: filtered_html
-          query_string: ''
-          destination: 1
+          destination: true
       footer: {  }
       display_extenders: {  }
     cache_metadata:

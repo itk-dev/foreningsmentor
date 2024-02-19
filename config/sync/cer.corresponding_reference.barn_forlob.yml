@@ -7,6 +7,7 @@ label: 'Barn - Forløb'
 enabled: true
 first_field: field_child
 second_field: field_courses
+add_direction: null
 bundles:
   node:
     - child

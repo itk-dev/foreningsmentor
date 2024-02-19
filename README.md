@@ -7,7 +7,7 @@
 cp web/sites/development.services.yml web/sites/default/services.local.yml
 ```
 
-2) (sites/default/settings.local.php) create file if it doesn't exist. Then copy the following over:
+2) In (sites/default/settings.local.php) create file if it doesn't exist. Then copy the following over:
 ```php
 <?php
 
@@ -67,9 +67,10 @@ docker compose exec phpfpm composer install
  docker network create frontend
 ```
 
-4) Install drupal
+4) Install drupal and set user admin password to test.
 ```
 docker compose exec phpfpm /app/vendor/bin/drush --yes site-install --existing-config
+docker compose exec phpfpm /app/vendor/bin/drush upwd admin test
 ```
 
 
