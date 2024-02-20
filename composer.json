@@ -59,7 +59,7 @@
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
         "drupal/redirect": "^1.6",
-        "drupal/symfony_mailer": "^1.2",
+        "drupal/symfony_mailer": "^1.4",
         "drupal/upgrade_status": "^4.0",
         "drupal/views_add_button": "^2.0",
         "drupal/views_bulk_operations": "^4.0",
