@@ -196,3 +196,4 @@ private
 # Ignore VS-code
 .vscode
 
+.env.local
