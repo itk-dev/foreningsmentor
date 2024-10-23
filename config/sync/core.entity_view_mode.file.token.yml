@@ -6,5 +6,6 @@ dependencies:
     - file
 id: file.token
 label: Symbol
+description: ''
 targetEntityType: file
 cache: true

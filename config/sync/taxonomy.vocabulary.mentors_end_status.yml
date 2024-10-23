@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Mentors afslutning'
 vid: mentors_end_status
-description: ''
+description: null
 weight: 0
+new_revision: false
