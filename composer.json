@@ -1,30 +1,12 @@
 {
     "name": "itk-dev/foreningsmentor",
     "description": "Website for foreningsmentor",
-    "type": "project",
     "license": "GPL-2.0-or-later",
+    "type": "project",
     "authors": [
         {
             "name": "",
             "role": ""
-        }
-    ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "furf/jquery-ui-touch-punch",
-                "version": "dev-master",
-                "type": "drupal-library",
-                "dist": {
-                    "url": "https://github.com/furf/jquery-ui-touch-punch/archive/refs/heads/master.zip",
-                    "type": "zip"
-                }
-            }
         }
     ],
     "require": {
@@ -72,53 +54,64 @@
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
-        "drupal/core-dev": "^10.1"
+        "drupal/core-dev": "^10.1",
+        "ergebnis/composer-normalize": "^2.44"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "furf/jquery-ui-touch-punch",
+                "type": "drupal-library",
+                "version": "dev-master",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/furf/jquery-ui-touch-punch/archive/refs/heads/master.zip"
+                }
+            }
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
-
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "composer/installers": true,
-            "drupal/console-extend-plugin": true,
-            "cweagans/composer-patches": true,
-            "drupal-composer/drupal-scaffold": true,
-            "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpstan/extension-installer": true,
-            "php-http/discovery": true,
-            "tbachert/spi": true
-        }
-
-    },
     "autoload": {
         "classmap": [
             "scripts/composer/ScriptHandler.php"
         ]
     },
-    "scripts": {
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ],
-        "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ]
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal-composer/drupal-scaffold": true,
+            "drupal/console-extend-plugin": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "ergebnis/composer-normalize": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true
+        },
+        "sort-packages": true
     },
     "extra": {
-        "patchLevel": {
-            "drupal/core": "-p2"
+        "drupal-scaffold": {
+            "initial": {
+                ".editorconfig": "../.editorconfig",
+                ".gitattributes": "../.gitattributes"
+            },
+            "locations": {
+                "web-root": "web/"
+            }
         },
+        "enable-patching": true,
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
@@ -139,20 +132,26 @@
                 "type:drupal-drush"
             ]
         },
-        "drupal-scaffold": {
-            "locations": {
-                "web-root": "web/"
-            },
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
-            }
+        "patchLevel": {
+            "drupal/core": "-p2"
         },
-        "enable-patching": true,
         "patcher": {
             "force-reset": true
         },
-        "patches": {
-        }
+        "patches": {}
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
     }
 }
