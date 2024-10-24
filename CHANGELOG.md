@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+* [PR-34](https://github.com/itk-dev/foreningsmentor/pull/34)
+  Security update
 * Upgrade Drupal to 10.1.6
 * Upgrade outdated contrib modules
 * Upgrade php (8.2)

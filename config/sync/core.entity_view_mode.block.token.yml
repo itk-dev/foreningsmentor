@@ -6,5 +6,6 @@ dependencies:
     - block
 id: block.token
 label: Symbol
+description: ''
 targetEntityType: block
 cache: true

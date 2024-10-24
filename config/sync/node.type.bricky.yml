@@ -14,7 +14,7 @@ _core:
 name: Bricky
 type: bricky
 description: "Use <em>bricky pages</em> for your flexible content, such as 'Home' or 'Company' pages."
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

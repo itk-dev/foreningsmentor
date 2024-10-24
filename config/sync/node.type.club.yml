@@ -12,7 +12,7 @@ third_party_settings:
 name: Forening
 type: club
 description: 'En forening der kan bruges til aktivitetsforløb.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true
