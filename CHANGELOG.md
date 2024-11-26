@@ -7,11 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-* [PR-34](https://github.com/itk-dev/foreningsmentor/pull/34)
-  Security update
-* Upgrade Drupal to 10.1.6
+## [1.6.0] 2024-11-26
+
+* Automatic deployment setup.
+* Upgrade Drupal to 10.3.10
 * Upgrade outdated contrib modules
-* Upgrade php (8.2)
+* Upgrade php (8.3)
 * Upgrade docker setup
 
 ## [1.5.0] 2023-10-05
@@ -20,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Update config to match drupal version 
 * Move Address dawa to custom modules for the time being.
 
-## [1.4.0]
+## [1.4.0] - 2023-09-01
 
 * Update contrib modules and custom to be ready for d-10
 
@@ -80,7 +81,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First version
 
-[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.3.1...HEAD
+[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.6.0...HEAD
+[1.6.0]: https://github.com/itk-dev/foreningsmentor/compare/1.5.0...1.6.0
+[1.5.0]: https://github.com/itk-dev/foreningsmentor/compare/1.4.0...1.5.0
+[1.4.0]: https://github.com/itk-dev/foreningsmentor/compare/1.3.1...1.4.0
 [1.3.1]: https://github.com/itk-dev/foreningsmentor/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/itk-dev/foreningsmentor/compare/1.2.10...1.3.0
 [1.2.10]: https://github.com/itk-dev/foreningsmentor/compare/1.2.9...1.2.10
