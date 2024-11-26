@@ -76,5 +76,7 @@ docker compose exec phpfpm /app/vendor/bin/drush upwd admin test
 
 5) Create example content through fixtures:
 ```
+docker compose exec phpfpm /app/vendor/bin/drush en content_fixtures
+docker compose exec phpfpm /app/vendor/bin/drush en foreningsmentor_fixtures
 docker compose exec phpfpm /app/vendor/bin/drush content-fixtures:load -y
 ```

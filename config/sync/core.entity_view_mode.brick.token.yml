@@ -6,5 +6,6 @@ dependencies:
     - eck
 id: brick.token
 label: Symbol
+description: ''
 targetEntityType: brick
 cache: true

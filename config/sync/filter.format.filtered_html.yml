@@ -6,6 +6,12 @@ name: 'Filtered html'
 format: filtered_html
 weight: 0
 filters:
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -15,12 +21,6 @@ filters:
       allowed_html: '<br> <p class="text-align-left text-align-center text-align-right text-align-justify"> <h2 id class="text-align-left text-align-center text-align-right text-align-justify"> <h3 id class="text-align-left text-align-center text-align-right text-align-justify"> <h4 id class="text-align-left text-align-center text-align-right text-align-justify"> <h5 id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 id class="text-align-left text-align-center text-align-right text-align-justify"> <a class="btn btn-primary btn-dark" hreflang href> <cite> <dl> <dt> <dd> <btn class="btn-primary btn-dark"> <blockquote cite> <ul type> <ol type start> <strong> <em> <u> <code> <li>'
       filter_html_help: true
       filter_html_nofollow: false
-  filter_autop:
-    id: filter_autop
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
