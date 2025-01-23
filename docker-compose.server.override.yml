@@ -1,11 +1,4 @@
 services:
-  phpfpm:
-    volumes:
-      - ../../shared/settings.local.php:/app/web/sites/default/settings.local.php
-      - ../../shared/files:/app/web/sites/default/files
-
   nginx:
     environment:
       - NGINX_MAX_BODY_SIZE=12M
-    volumes:
-      - ../../shared/files:/app/web/sites/default/files
