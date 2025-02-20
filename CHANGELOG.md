@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+* [PR-35](https://github.com/itk-dev/foreningsmentor/pull/35)
+  Feature/security update
+
 ## [1.6.0] 2024-11-26
 
 * Automatic deployment setup.
