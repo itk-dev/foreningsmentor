@@ -62,17 +62,19 @@ docker compose up -d
 docker compose exec phpfpm composer install
 ```
 
-... if error network frontend declared as external, but could not be found = run the following, and then rerun step 3 :
+... If error network frontend declared as external, but could not be found, then run the following:
 ```
  docker network create frontend
 ```
+
+And then rerun step 3.
 
 4) Install drupal and set user admin password to test.
 ```
 docker compose exec phpfpm /app/vendor/bin/drush --yes site-install --existing-config
 docker compose exec phpfpm /app/vendor/bin/drush upwd admin test
 ```
-
+... If you get a *permission denied*, go to [web/custom/modules/foreningsmentor.module#351](https://github.com/itk-dev/foreningsmentor/blob/f8b5ab9da80743abb91fbd2e24c3f602ecfba0e4/web/modules/custom/foreningsmentor/foreningsmentor.module#L351) and remove that function, and then rerun step 4:
 
 5) Create example content through fixtures:
 ```

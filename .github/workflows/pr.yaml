@@ -1,6 +1,9 @@
 on:
   pull_request:
 
+env:
+  COMPOSE_USER: runner
+
 name: PR Review
 jobs:
   changelog:
