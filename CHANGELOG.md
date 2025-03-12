@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.2] - 2025-03-12
+
+* [PR-36](https://github.com/itk-dev/foreningsmentor/pull/36)
+  Add labels to Woodpecker workflow
+
+## [1.6.1] - 2025-02-20
+
 * [PR-35](https://github.com/itk-dev/foreningsmentor/pull/35)
   Feature/security update
 
@@ -84,8 +91,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First version
 
-[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.6.0...HEAD
-[1.6.0]: https://github.com/itk-dev/foreningsmentor/compare/1.5.0...1.6.0
+[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.6.2...HEAD
+[1.6.2]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.2
+[1.6.1]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.1
+[1.6.0]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.0
 [1.5.0]: https://github.com/itk-dev/foreningsmentor/compare/1.4.0...1.5.0
 [1.4.0]: https://github.com/itk-dev/foreningsmentor/compare/1.3.1...1.4.0
 [1.3.1]: https://github.com/itk-dev/foreningsmentor/compare/1.3.0...1.3.1

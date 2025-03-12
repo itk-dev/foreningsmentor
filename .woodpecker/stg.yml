@@ -4,6 +4,9 @@ when:
 
 skip_clone: true
 
+labels:
+  zone: CLOUD
+
 steps:
   - name: Run test site update
     image: itkdev/ansible-plugin:1
