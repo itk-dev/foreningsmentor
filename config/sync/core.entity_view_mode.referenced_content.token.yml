@@ -6,5 +6,6 @@ dependencies:
     - eck
 id: referenced_content.token
 label: Symbol
+description: ''
 targetEntityType: referenced_content
 cache: true
