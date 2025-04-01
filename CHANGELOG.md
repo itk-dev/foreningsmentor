@@ -7,16 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.5.2] 2025-04-01
+## [1.7.0] 2025-04-01
 
 * [PR-39](https://github.com/itk-dev/foreningsmentor/pull/39) Upgrade Drupal to 10.4.5
+
+## [1.6.2] - 2025-03-12
+
+* [PR-36](https://github.com/itk-dev/foreningsmentor/pull/36)
+  Add labels to Woodpecker workflow
+
+## [1.6.1] - 2025-02-20
+
+* [PR-35](https://github.com/itk-dev/foreningsmentor/pull/35)
+  Feature/security update
+
+## [1.6.0] 2024-11-26
+
+* Automatic deployment setup.
+* Upgrade Drupal to 10.3.10
+* Upgrade outdated contrib modules
+* Upgrade php (8.3)
+* Upgrade docker setup
 
 ## [1.5.1]
 
 * Upgrade Drupal to 10.1.6
-* Upgrade outdated contrib modules
-* Upgrade php (8.2)
-* Upgrade docker setup
 
 ## [1.5.0] 2023-10-05
 
@@ -24,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Update config to match drupal version 
 * Move Address dawa to custom modules for the time being.
 
-## [1.4.0]
+## [1.4.0] - 2023-09-01
 
 * Update contrib modules and custom to be ready for d-10
 
@@ -84,7 +99,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First version
 
-[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.3.1...HEAD
+[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.6.2...HEAD
+[1.6.2]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.2
+[1.6.1]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.1
+[1.6.0]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.0
+[1.5.0]: https://github.com/itk-dev/foreningsmentor/compare/1.4.0...1.5.0
+[1.4.0]: https://github.com/itk-dev/foreningsmentor/compare/1.3.1...1.4.0
 [1.3.1]: https://github.com/itk-dev/foreningsmentor/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/itk-dev/foreningsmentor/compare/1.2.10...1.3.0
 [1.2.10]: https://github.com/itk-dev/foreningsmentor/compare/1.2.9...1.2.10
