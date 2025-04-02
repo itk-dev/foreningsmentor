@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.0] 2025-04-01
 
-* [PR-39](https://github.com/itk-dev/foreningsmentor/pull/39) Upgrade Drupal to 10.4.5
+* [PR-39](https://github.com/itk-dev/foreningsmentor/pull/39)
+   Upgrade Drupal to 10.4.5
 
 ## [1.6.2] - 2025-03-12
 
