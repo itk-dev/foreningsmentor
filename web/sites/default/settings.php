@@ -800,11 +800,6 @@ $databases['default']['default'] = [
 $settings['skip_permissions_hardening'] = TRUE;
 
 /**
- * Exclude modules from syncing
- */
-$settings['config_exclude_modules'] = ['memcache'];
-
-/**
  * Allow local overrides.
  */
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
