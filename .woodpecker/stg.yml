@@ -32,5 +32,5 @@ steps:
         - git pull
         - itkdev-docker-compose-server up -d --force-recreate
         - itkdev-docker-compose-server exec phpfpm composer install
-        - itkdev-docker-compose-server run --rm phpfpm vendor/bin/drush --yes cache:rebuild
-        - itkdev-docker-compose-server run --rm phpfpm vendor/bin/drush --yes deploy
+        - itkdev-docker-compose-server exec phpfpm vendor/bin/drush --yes cache:rebuild
+        - itkdev-docker-compose-server exec phpfpm vendor/bin/drush --yes deploy

@@ -870,7 +870,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - user.roles
       tags:
         - 'config:field.storage.user.field_active'
@@ -1377,7 +1376,6 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
-        - user
         - user.roles
       tags:
         - 'config:field.storage.user.field_active'
@@ -1425,7 +1423,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - user.roles
       tags:
         - 'config:field.storage.user.field_active'
