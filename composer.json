@@ -17,7 +17,6 @@
         "drupal/better_exposed_filters": "^6.0",
         "drupal/bricks": "^2.1",
         "drupal/cer": "^5.0@beta",
-        "drupal/content_fixtures": "^3.2",
         "drupal/core-composer-scaffold": "^10.4",
         "drupal/core-project-message": "^10.4",
         "drupal/core-recommended": "^10.4",
@@ -54,7 +53,8 @@
     },
     "require-dev": {
         "drupal/core-dev": "^10.1",
-        "ergebnis/composer-normalize": "^2.44"
+        "ergebnis/composer-normalize": "^2.44",
+        "drupal/content_fixtures": "^3.2"
     },
     "conflict": {
         "drupal/drupal": "*"
