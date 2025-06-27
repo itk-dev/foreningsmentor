@@ -50,6 +50,7 @@
         "furf/jquery-ui-touch-punch": "dev-master",
         "itk-dev/itk_siteimprove": "^1.4",
         "itk-dev/web_accessibility_statement": "^1.0",
+        "vincentlanglet/twig-cs-fixer": "^3.0",
         "webflo/drupal-finder": "^1.2"
     },
     "require-dev": {

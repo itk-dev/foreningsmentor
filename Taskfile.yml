@@ -1,0 +1,51 @@
+version: "3"
+
+dotenv: [".env.task", ".env"]
+
+vars:
+  DOCKER_COMPOSE: '{{ .TASK_DOCKER_COMPOSE | default "docker compose" }}'
+
+tasks:
+  compose:
+    desc: Run docker compose or itkdev-docker-compose if TASK_DOCKER_COMPOSE is set in .task.env
+    cmds:
+      - "{{ .DOCKER_COMPOSE }} {{ .CLI_ARGS }}"
+    silent: true
+
+  composer:
+    desc: Run composer through phpfpm container
+    cmds:
+      - task compose -- exec phpfpm composer {{ .CLI_ARGS }}
+    silent: true
+
+  drush:
+    desc: Run drush through phpfpm container
+    cmds:
+      - task compose -- exec --no-TTY phpfpm vendor/bin/drush {{ .CLI_ARGS }}
+    silent: true
+
+  build-site:existing-conf:
+    desc: Build a new site from existing site configuration
+    cmds:
+      - task compose -- up --detach
+      - task composer -- install
+      - task drush -- site-install --existing-config --yes
+
+  code:check:
+    desc: Check php, twig and markdown files and analyze php code
+    cmds:
+      - task compose -- exec phpfpm vendor/bin/phpcs --standard=phpcs.xml.dist
+      - task compose -- exec phpfpm vendor/bin/phpstan analyse --configuration=phpstan.neon
+      - task compose -- exec phpfpm vendor/bin/twig-cs-fixer lint web/themes/custom/*/templates
+      - docker compose run --rm prettier '**/*.{yml,yaml}' --check
+      - docker compose run --rm prettier 'web/themes/custom/**/css/**/*.{css,scss}' --check
+      - docker run --rm --volume "$PWD:/md" itkdev/markdownlint '**/*.md'
+
+  code:apply-standards:
+    desc: Apply coding standards to php, twig and markdown files
+    cmds:
+      - task compose -- exec phpfpm vendor/bin/phpcbf --standard=phpcs.xml.dist
+      - task compose -- exec phpfpm vendor/bin/twig-cs-fixer lint web/themes/custom/*/templates --fix
+      - docker compose run --rm prettier '**/*.{yml,yaml}' --write
+      - docker compose run --rm prettier 'web/themes/custom/**/css/**/*.{css,scss}' --write
+      - docker run --rm --volume "$PWD:/md" itkdev/markdownlint '**/*.md' --fix

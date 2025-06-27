@@ -197,3 +197,4 @@ private
 .vscode
 
 .env.local
+.env.task
