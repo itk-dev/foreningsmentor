@@ -55,7 +55,7 @@ jobs:
       - run: |
           docker network create frontend
           docker compose run --rm phpfpm composer install
-          docker compose run --rm phpfpm composer normalize --dry-run
+            docker compose run --rm phpfpm composer normalize --dry-run
 
   composer-audit:
     runs-on: ubuntu-latest
