@@ -42,7 +42,7 @@ BODY,
         'format' => 'filtered_html',
       ],
       'field_blok_2_btn' => 'https://example.com/',
-      'field_background_image' =>  ['target_id' => $this->getReference('file:1.jpg')->id()]
+      'field_background_image' => ['target_id' => $this->getReference('file:1.jpg')->id()],
     ]);
     $this->addReference('brick:frontpage-hero-1', $brick);
     $brick->save();
@@ -69,7 +69,7 @@ This is some other description
 BODY,
         'format' => 'filtered_html',
       ],
-      'field_background_image' => ['target_id' => $this->getReference('file:2.jpg')->id()]
+      'field_background_image' => ['target_id' => $this->getReference('file:2.jpg')->id()],
     ]);
     $this->addReference('brick:frontpage-hero-2', $brick);
     $brick->save();
@@ -78,7 +78,7 @@ BODY,
       'entity_type' => 'brick',
       'type' => 'image',
       'title' => 'Image A',
-      'field_image' =>  ['target_id' => $this->getReference('file:3.jpg')->id()]
+      'field_image' => ['target_id' => $this->getReference('file:3.jpg')->id()],
     ]);
     $this->addReference('brick:image-a', $brick);
     $brick->save();
@@ -87,7 +87,7 @@ BODY,
       'entity_type' => 'brick',
       'type' => 'image',
       'title' => 'Image B',
-      'field_image' =>  ['target_id' => $this->getReference('file:4.jpg')->id()]
+      'field_image' => ['target_id' => $this->getReference('file:4.jpg')->id()],
     ]);
     $this->addReference('brick:image-b', $brick);
     $brick->save();
@@ -96,7 +96,7 @@ BODY,
       'entity_type' => 'brick',
       'type' => 'efforts_area',
       'title' => 'Hvor kan man være ForeningsMentor?',
-      'field_effort' =>  [
+      'field_effort' => [
         ['target_id' => $this->getReference('referenced_content:effort-area-1')->id()],
         ['target_id' => $this->getReference('referenced_content:effort-area-2')->id()],
         ['target_id' => $this->getReference('referenced_content:effort-area-3')->id()],
@@ -111,7 +111,7 @@ BODY,
       'entity_type' => 'brick',
       'type' => 'efforts_area',
       'title' => 'Effort area B',
-      'field_effort' =>  ['target_id' => $this->getReference('referenced_content:effort-area-2')->id()]
+      'field_effort' => ['target_id' => $this->getReference('referenced_content:effort-area-2')->id()],
     ]);
     $this->addReference('brick:efforts-area-b', $brick);
     $brick->save();
@@ -136,7 +136,7 @@ BODY,
       'entity_type' => 'brick',
       'type' => 'teasers',
       'title' => 'Gode grunde til at starte i en forening',
-      'field_teasers' =>  [
+      'field_teasers' => [
         ['target_id' => $this->getReference('referenced_content:teaser-1')->id()],
         ['target_id' => $this->getReference('referenced_content:teaser-2')->id()],
         ['target_id' => $this->getReference('referenced_content:teaser-3')->id()],
@@ -149,7 +149,7 @@ BODY,
       'entity_type' => 'brick',
       'type' => 'teasers',
       'title' => 'Teasers area B',
-      'field_teasers' =>  ['target_id' => $this->getReference('referenced_content:teaser-2')->id()]
+      'field_teasers' => ['target_id' => $this->getReference('referenced_content:teaser-2')->id()],
     ]);
     $this->addReference('brick:teasers-area-b', $brick);
     $brick->save();
@@ -158,7 +158,7 @@ BODY,
       'entity_type' => 'brick',
       'type' => 'testimonials_area',
       'title' => 'Hvad siger andre om at være ForeningsMentor?',
-      'field_testimonial' =>  [
+      'field_testimonial' => [
         ['target_id' => $this->getReference('referenced_content:testimonial-1')->id()],
         ['target_id' => $this->getReference('referenced_content:testimonial-2')->id()],
         ['target_id' => $this->getReference('referenced_content:testimonial-3')->id()],
@@ -167,23 +167,22 @@ BODY,
     $this->addReference('brick:testimonials-area-a', $brick);
     $brick->save();
 
-    ////
     $brick = EckEntity::create([
       'entity_type' => 'brick',
       'type' => 'partners_area',
       'title' => 'mmmmmmmmmmmmmmm',
       'field_description' => 'mmmMMMMMMmmmmMMMMMmmmmm',
       'field_btn' =>
-        ['value' => 'test',
-          'url' => 'google.com']
+        [
+          'value' => 'test',
+          'url' => 'google.com',
+        ],
 
     ]);
     $this->addReference('brick:partners_area-a', $brick);
     $brick->save();
 
   }
-
-
 
   /**
    * {@inheritdoc}

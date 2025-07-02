@@ -7,15 +7,17 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/itk-dev/foreningsmentor?style=flat-square)](https://github.com/itk-dev/foreningsmentor/commits/develop/)
 [![GitHub License](https://img.shields.io/github/license/itk-dev/foreningsmentor?style=flat-square)](https://github.com/itk-dev/foreningsmentor/blob/develop/LICENSE)
 
-## Local setup.
+## Local setup
 
-1) Copy development services definitions
-```
+### Copy development services definitions
+
+```shell name="services-setup"
 cp web/sites/development.services.yml web/sites/default/services.local.yml
 ```
 
-2) In (sites/default/settings.local.php) create file if it doesn't exist. Then copy the following over:
-```php
+### In (sites/default/settings.local.php) create file if it doesn't exist. Then copy the following over
+
+```php name="settings-setup"
 <?php
 
 /**
@@ -63,28 +65,36 @@ $config['system.logging']['error_level'] = 'verbose';
 $config['symfony_mailer.settings']['default_transport'] = 'smtp';
 ```
 
-3) Start docker comtainers, and install composer.
-```
+### Start docker comtainers, and install composer
+
+```shell name="containers-and-composer-setup"
 docker compose up -d
 docker compose exec phpfpm composer install
 ```
 
 ... If error network frontend declared as external, but could not be found, then run the following:
-```
+
+```shell name="frontend-network"
  docker network create frontend
 ```
 
-And then rerun step 3.
+And then try again.
 
-4) Install drupal and set user admin password to test.
-```
+### Install drupal and set user admin password to test
+
+```shell name="site-setup"
 docker compose exec phpfpm /app/vendor/bin/drush --yes site-install --existing-config
 docker compose exec phpfpm /app/vendor/bin/drush upwd admin test
 ```
-... If you get a *permission denied*, go to [web/custom/modules/foreningsmentor.module#351](https://github.com/itk-dev/foreningsmentor/blob/f8b5ab9da80743abb91fbd2e24c3f602ecfba0e4/web/modules/custom/foreningsmentor/foreningsmentor.module#L351) and remove that function, and then rerun step 4:
 
-5) Create example content through fixtures:
-```
+... If you get a *permission denied*,
+go to
+[web/custom/modules/foreningsmentor.module#351](https://github.com/itk-dev/foreningsmentor/blob/f8b5ab9da80743abb91fbd2e24c3f602ecfba0e4/web/modules/custom/foreningsmentor/foreningsmentor.module#L351)
+and remove that function, and then rerun step 4:
+
+### Create example content through fixtures
+
+```shell name="fixtures-setup"
 docker compose exec phpfpm /app/vendor/bin/drush en content_fixtures
 docker compose exec phpfpm /app/vendor/bin/drush en foreningsmentor_fixtures
 docker compose exec phpfpm /app/vendor/bin/drush content-fixtures:load -y

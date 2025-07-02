@@ -1,25 +1,27 @@
 <?php
-use Drupal\foreningsmentor\Form\JournalForm;
-use Drupal\foreningsmentor\Form\ActivityForm;
-use Drupal\foreningsmentor\Form\FinishCourseForm;
-use Drupal\foreningsmentor\Ajax\CopyToClipboardCommand;
-use Drupal\Core\Entity\EntityInterface;
+
 /**
  * @file
  * Contains foreningsmentor.module.
  */
 
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\foreningsmentor\Form\JournalForm;
+use Drupal\foreningsmentor\Form\ActivityForm;
+use Drupal\foreningsmentor\Form\FinishCourseForm;
+use Drupal\foreningsmentor\Ajax\CopyToClipboardCommand;
 use Drupal\Core\Render\Markup;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\user\UserDataInterface;
 use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\user\Entity\User;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Twig\Error\RuntimeError;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -34,7 +36,7 @@ function foreningsmentor_user_presave(UserInterface $user) {
 /**
  * Implements hook_ENTITY_TYPE_view().
  */
-function foreningsmentor_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+function foreningsmentor_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
   // Set seen journal entry ids for the current user.
   if ($entity->getType() == 'course' && $view_mode == 'full') {
     $targetIds = [];
@@ -42,10 +44,10 @@ function foreningsmentor_node_view(array &$build, \Drupal\Core\Entity\EntityInte
       $targetIds[] = $journalEntry->target_id;
     }
 
-    /** @var UserDataInterface $userData */
+    /** @var \Drupal\user\UserDataInterface $userData */
     $userData = \Drupal::service('user.data');
 
-    $userData->set('foreningsmentor', \Drupal::currentUser()->id(), 'seenJournalEntries-'.$entity->id(), $targetIds);
+    $userData->set('foreningsmentor', \Drupal::currentUser()->id(), 'seenJournalEntries-' . $entity->id(), $targetIds);
   }
 }
 
@@ -55,7 +57,7 @@ function foreningsmentor_node_view(array &$build, \Drupal\Core\Entity\EntityInte
 function foreningsmentor_form_user_register_form_alter(
   &$form,
   FormStateInterface $form_state,
-  $form_id
+  $form_id,
 ) {
   // Make "Notify user of new account" default to true.
   $form['account']['notify']['#default_value'] = TRUE;
@@ -65,18 +67,18 @@ function foreningsmentor_form_user_register_form_alter(
  * Implements template_preprocess_node().
  */
 function foreningsmentor_preprocess_node(&$variables) {
-  $nodeType = $variables["node"]->getType();
+  $nodeType = $variables['node']->getType();
 
   if ($nodeType == 'course') {
     $variables['journal_form'] = \Drupal::formBuilder()
       ->getForm(JournalForm::class,
-        $variables["node"]);
+        $variables['node']);
     $variables['activity_form'] = \Drupal::formBuilder()
       ->getForm(ActivityForm::class,
-        $variables["node"]);
+        $variables['node']);
     $variables['finish_course_form'] = \Drupal::formBuilder()
       ->getForm(FinishCourseForm::class,
-        $variables["node"]);
+        $variables['node']);
   }
 }
 
@@ -85,21 +87,21 @@ function foreningsmentor_preprocess_node(&$variables) {
  */
 function foreningsmentor_preprocess_node_add_list(&$variables) {
   // Remove types from node add list.
-  unset($variables["types"]['activity']);
-  unset($variables["types"]['bricky']);
-  unset($variables["types"]['journal_entry']);
-  unset($variables["content"]["activity"]);
-  unset($variables["content"]["bricky"]);
-  unset($variables["content"]["journal_entry"]);
+  unset($variables['types']['activity']);
+  unset($variables['types']['bricky']);
+  unset($variables['types']['journal_entry']);
+  unset($variables['content']['activity']);
+  unset($variables['content']['bricky']);
+  unset($variables['content']['journal_entry']);
 }
 
 /**
  * Implements template_preprocess_field().
  */
 function foreningsmentor_preprocess_field(&$variables, $hook) {
-  if ($variables["field_name"] == 'field_contact') {
-    foreach ($variables["items"][0]["content"] as &$content) {
-      $ref = $content["#referenced_content"];
+  if ($variables['field_name'] == 'field_contact') {
+    foreach ($variables['items'][0]['content'] as &$content) {
+      $ref = $content['#referenced_content'];
 
       $uid = $ref->get('field_user')->target_id;
 
@@ -132,7 +134,7 @@ function foreningsmentor_preprocess_field(&$variables, $hook) {
 /**
  * Implements hook_form_alter().
  */
-function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
+function foreningsmentor_form_alter(&$form, &$form_state, $form_id): void {
   if (
     $form_id == 'node_course_form' ||
     $form_id == 'node_course_edit_form') {
@@ -164,17 +166,19 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
       }
 
       break;
+
     // Unset previous selection in case of navigating from confirm page.
     case 'views_form_volunteers_page_1':
     case 'views_form_children_view_page_page_1':
-      if (isset($form["views_bulk_operations_bulk_form"])) {
-        foreach ($form["views_bulk_operations_bulk_form"] as &$element) {
+      if (isset($form['views_bulk_operations_bulk_form'])) {
+        foreach ($form['views_bulk_operations_bulk_form'] as &$element) {
           if (is_array($element)) {
-            $element["#default_value"] = false;
+            $element['#default_value'] = FALSE;
           }
         }
       }
       break;
+
     // Change delete form callbacks.
     case 'node_child_delete_form':
     case 'node_course_delete_form':
@@ -189,22 +193,24 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
         }
       }
       break;
-    // Override bulk operations confirm action for foreningsmentor_get_mail_action actions.
+
+    // Override bulk operations confirm action for
+    // foreningsmentor_get_mail_action actions.
     case 'views_bulk_operations_confirm_action':
       if (
-        isset($form_state->getStorage()["views_bulk_operations"]["action_id"]) &&
-        $form_state->getStorage()["views_bulk_operations"]["action_id"] == 'foreningsmentor_get_mail_action' &&
-        isset($form_state->getStorage()["views_bulk_operations"]["view_id"]) &&
-        ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers' ||
-          $form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page')) {
+        isset($form_state->getStorage()['views_bulk_operations']['action_id']) &&
+        $form_state->getStorage()['views_bulk_operations']['action_id'] == 'foreningsmentor_get_mail_action' &&
+        isset($form_state->getStorage()['views_bulk_operations']['view_id']) &&
+        ($form_state->getStorage()['views_bulk_operations']['view_id'] == 'volunteers' ||
+          $form_state->getStorage()['views_bulk_operations']['view_id'] == 'children_view_page')) {
 
         $newList = [];
         $commaSeparatedString = '';
         $colonSeparatedString = '';
 
         if (isset($form['list'])) {
-          if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers') {
-            foreach ($form["list"]["#items"] as $username) {
+          if ($form_state->getStorage()['views_bulk_operations']['view_id'] == 'volunteers') {
+            foreach ($form['list']['#items'] as $username) {
               $user = user_load_by_name($username);
               $name = $user->get('field_name')->value ?: $user->getEmail();
 
@@ -212,8 +218,8 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
             }
           }
           else {
-            if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') {
-              foreach ($form["list"]["#items"] as $child_name) {
+            if ($form_state->getStorage()['views_bulk_operations']['view_id'] == 'children_view_page') {
+              foreach ($form['list']['#items'] as $child_name) {
                 $query = \Drupal::entityQuery('node');
                 $query->accessCheck();
                 $query->condition('type', 'child');
@@ -240,7 +246,7 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
             }
           }
 
-          $form["list"]["#items"] = array_keys($newList);
+          $form['list']['#items'] = array_keys($newList);
 
           $listString = '';
 
@@ -248,30 +254,30 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
           foreach ($newList as $key => $object) {
             $commaSeparatedString .= $key;
             $colonSeparatedString .= $key;
-            $listString = $listString . '"' . $object . '"' . '<' . $key . '>';
+            $listString = $listString . '"' . $object . '"<' . $key . '>';
             if ($key != $last_key) {
               $listString .= '; ';
-              $commaSeparatedString .= ",";
-              $colonSeparatedString .= ";";
+              $commaSeparatedString .= ',';
+              $colonSeparatedString .= ';';
             }
           }
 
           $store = \Drupal::service('tempstore.private')
             ->get('foreningsmentor');
 
-          if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'volunteers') {
+          if ($form_state->getStorage()['views_bulk_operations']['view_id'] == 'volunteers') {
             $store->set('copy_to_clipboard', $listString);
           }
-          else if ($form_state->getStorage()["views_bulk_operations"]["view_id"] == 'children_view_page') {
+          elseif ($form_state->getStorage()['views_bulk_operations']['view_id'] == 'children_view_page') {
             $store->set('copy_to_clipboard', $colonSeparatedString);
           }
         }
 
-        unset($form["actions"]["submit"]);
+        unset($form['actions']['submit']);
 
-        $form["actions"]["cancel"]['#submit'] = ['_foreningsmentor_cancel_action'];
+        $form['actions']['cancel']['#submit'] = ['_foreningsmentor_cancel_action'];
 
-        $form["actions"]["copy_to_clipboard"] = [
+        $form['actions']['copy_to_clipboard'] = [
           '#type' => 'submit',
           '#value' => \Drupal::translation()->translate('Copy to clipboard'),
           '#ajax' => [
@@ -295,13 +301,12 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Set redirect to admin content.
  *
- * @param $form
+ * @param array $form
+ *   The form.
  * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The state of the form.
  */
-function _foreningsmentor_callback_submit(
-  $form,
-  FormStateInterface $form_state
-) {
+function _foreningsmentor_callback_submit(array $form, FormStateInterface $form_state):void {
   $form_state->setRedirect('system.admin_content');
 }
 
@@ -309,14 +314,14 @@ function _foreningsmentor_callback_submit(
  * Copy to clipboard ajax function.
  *
  * @param array $form
- * @param $form_state
+ *   The form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The state of the form.
  *
  * @return \Drupal\Core\Ajax\AjaxResponse
+ *   The ajax response.
  */
-function _foreningsmentor_copy_to_clipboard(
-  array &$form,
-  $form_state
-): AjaxResponse {
+function _foreningsmentor_copy_to_clipboard(array $form, FormStateInterface $form_state): AjaxResponse {
   $store = \Drupal::service('tempstore.private')->get('foreningsmentor');
 
   $list = $store->get('copy_to_clipboard');
@@ -332,23 +337,25 @@ function _foreningsmentor_copy_to_clipboard(
  * Cancel submit function.
  *
  * @param array $form
- * @param $form_state
+ *   The form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The state of the form.
  */
-function _foreningsmentor_cancel_action(array &$form, $form_state) {
+function _foreningsmentor_cancel_action(array &$form, FormStateInterface $form_state): void {
   $form_data = $form_state->get('views_bulk_operations');
   $form_state->setRedirectUrl($form_data['redirect_url']);
 }
 
 /**
  * Implements hook_entity_presave().
+ *
+ * @throws \Exception
  */
-function foreningsmentor_entity_presave(
-  Drupal\Core\Entity\EntityInterface $entity
-) {
+function foreningsmentor_entity_presave(EntityInterface $entity): void {
   $currentUser = \Drupal::currentUser();
 
   if ($entity->getEntityTypeId() == 'user') {
-    // @TODO: Change this since it blocks site-install.
+    // @todo Change this since it blocks site-install.
     if ($entity->id() == 1 && $currentUser->id() != 1) {
       throw new \Exception(t('Permission denied.'));
     }
@@ -358,7 +365,7 @@ function foreningsmentor_entity_presave(
 /**
  * Implements hook_preprocess_views_view_field().
  */
-function foreningsmentor_preprocess_views_view_field(&$variables) {
+function foreningsmentor_preprocess_views_view_field(array &$variables): void {
   if ($variables['view']->id() === 'courses' && $variables['field']->options['id'] === 'nothing') {
     /** @var \Drupal\views\ResultRow $row */
     $row = $variables['row'];
@@ -370,14 +377,14 @@ function foreningsmentor_preprocess_views_view_field(&$variables) {
       $targetIds[] = $journalEntry->target_id;
     }
 
-    /** @var UserDataInterface $userData */
+    /** @var \Drupal\user\UserDataInterface $userData */
     $userData = \Drupal::service('user.data');
 
-    $seenJournalEntries = $userData->get('foreningsmentor', $variables['user']->id(),'seenJournalEntries-'.$ent->id());
+    $seenJournalEntries = $userData->get('foreningsmentor', $variables['user']->id(), 'seenJournalEntries-' . $ent->id());
 
     if ($seenJournalEntries != $targetIds && isset($seenJournalEntries)) {
       $unseenEntries = array_diff($targetIds, $seenJournalEntries);
-      $variables['output'] = Markup::create("<span class=\"course-view-unseen-journal-entries\">".count($unseenEntries)."</span>");
+      $variables['output'] = Markup::create('<span class="course-view-unseen-journal-entries">' . count($unseenEntries) . '</span>');
     }
   }
 }
@@ -386,7 +393,8 @@ function foreningsmentor_preprocess_views_view_field(&$variables) {
  * Implements hook_views_pre_render().
  */
 function foreningsmentor_views_pre_render(ViewExecutable $view) {
-  // Waiting list view. Assumes that all children have been found by the views query.
+  // Waiting list view. Assumes that all children have been found by the views
+  // query.
   // Filters lists of all children to only show those that do not have a course
   // with an active mentor (type A course) or courses of type B or C.
   if ($view->id() == 'waiting_list') {
@@ -398,7 +406,7 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
         continue;
       }
 
-      $doNotAdd = false;
+      $doNotAdd = FALSE;
 
       $field_courses = $result->_entity->get('field_courses');
 
@@ -412,30 +420,34 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
 
           // Get activity type.
           $activityTypeId = $course->get('field_activity_type')->target_id;
-          $activityType = !is_null($activityTypeId) ? Term::load($activityTypeId) : null;
+          $activityType = !is_null($activityTypeId) ? Term::load($activityTypeId) : NULL;
 
           if (!is_null($activityType)) {
-            // Children that are in B or C courses should not appear on the waiting list.
+            // Children that are in B or C courses should not appear on the
+            // waiting list.
             if ($activityType->getName() == 'B' || $activityType->getName() == 'C') {
-              $doNotAdd = true;
+              $doNotAdd = TRUE;
               continue;
             }
 
-            // If the course is an A course, make sure that a mentor is assigned.
+            // If the course is an A course, make sure that a mentor is
+            // assigned.
             if ($activityType->getName() == 'A') {
-              // Get mentor end status
+              // Get mentor end status.
               $mentorEndStatusId = $course->get('field_mentors_end_status')->target_id;
-              $mentorEndStatus = !is_null($mentorEndStatusId) ? Term::load($mentorEndStatusId) : null;
+              $mentorEndStatus = !is_null($mentorEndStatusId) ? Term::load($mentorEndStatusId) : NULL;
 
-              // If the mentor end status is A3 the child should appear in the waiting list, unless another course
-              // is finished with another status.
+              // If the mentor end status is A3 the child should appear in the
+              // waiting list, unless another course is finished with another
+              // status.
               if (!is_null($mentorEndStatus) && $mentorEndStatus->getName() == 'A3') {
                 continue;
               }
 
               $courseFinished = $course->get('field_finished')->value;
 
-              // If the course is not finished, make sure an active mentor is assigned to the course.
+              // If the course is not finished, make sure an active mentor is
+              // assigned to the course.
               if (!$courseFinished) {
                 $mentors = $course->get('field_mentor');
 
@@ -445,9 +457,10 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
                     $mentorAnonymized = $mentor->get('field_anonymized')->value;
                     $mentorStatus = $mentor->get('status')->value;
 
-                    // If the mentor is active and not anonomized, do not add to waiting list.
+                    // If the mentor is active and not anonomized, do not add
+                    // to waiting list.
                     if ($mentorStatus && !$mentorAnonymized) {
-                      $doNotAdd = true;
+                      $doNotAdd = TRUE;
                       break;
                     }
                   }
@@ -455,7 +468,7 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
               }
               else {
                 // If the course is finished do not add to waiting list.
-                $doNotAdd = true;
+                $doNotAdd = TRUE;
                 continue;
               }
             }
@@ -468,28 +481,28 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
       }
 
       $addedIds[$result->_entity->id()] = $result->_entity->id();
-    };
+    }
   }
 }
 
 /**
- * Implements hook_mail
- *
- * Change mail header and body.
- *
- * @param $key
- * @param $message
- * @param $params
- * @throws \Twig\Error\RuntimeError
+ * Implements hook_mail().
  */
 function foreningsmentor_mail($key, &$message, $params) {
   if ('foreningsmentor_signup' === $key) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
-    $mailContent = twig_render_template(\Drupal::service('extension.list.module')->getPath('foreningsmentor') . '/templates/signup-email-body.html.twig', [
-      'params' => $message['params'],
-      // Needed to prevent notices when Twig debugging is enabled.
-      'theme_hook_original' => 'not-applicable',
-    ]);
+    try {
+      $twig = \Drupal::service('twig');
+      $mailContent = $twig->render(\Drupal::service('extension.list.module')
+        ->getPath('foreningsmentor') . '/templates/signup-email-body.html.twig', [
+          'params' => $message['params'],
+        // Needed to prevent notices when Twig debugging is enabled.
+          'theme_hook_original' => 'not-applicable',
+        ]);
+    }
+    catch (RuntimeError | Throwable $e) {
+
+    }
 
     $message['body'][] = $mailContent;
   }

@@ -91,8 +91,8 @@
   {{ title_suffix }}
 
   <div class="foreningsmentor-intra--fields">
-    <a href="#journal" class="button btn btn-info">{{ 'Go to journal' | trans }}</a>
-    <a href="#activities" class="button btn btn-info">{{ 'Go to activities' | trans }}</a>
+    <a href="#journal" class="button btn btn-info">{{ 'Go to journal'|trans }}</a>
+    <a href="#activities" class="button btn btn-info">{{ 'Go to activities'|trans }}</a>
   </div>
 
   <div class="foreningsmentor-intra--fields">
@@ -108,7 +108,7 @@
   </div>
 
   <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading" id="activities">{{ 'Activities' | trans }}</h2>
+    <h2 class="foreningsmentor-intra--heading" id="activities">{{ 'Activities'|trans }}</h2>
 
     {{ content.field_activities }}
 
@@ -116,12 +116,12 @@
   </div>
 
   <div class="foreningsmentor-intra--fields">
-    <h2 class="foreningsmentor-intra--heading" id="journal">{{ 'Journal' | trans }}</h2>
+    <h2 class="foreningsmentor-intra--heading" id="journal">{{ 'Journal'|trans }}</h2>
 
     {{ content.field_diary }}
 
-    {% if content.field_diary['#items']| length == 0 %}
-      <div class="foreningsmentor-intra--no-results">{{ 'No journal entries.' | trans }}</div>
+    {% if content.field_diary['#items']|length == 0 %}
+      <div class="foreningsmentor-intra--no-results">{{ 'No journal entries.'|trans }}</div>
     {% endif %}
 
     {{ journal_form }}
