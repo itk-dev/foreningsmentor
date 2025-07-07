@@ -5,6 +5,7 @@ namespace Drupal\address_dawa;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
+use Drupal\Core\Utility\Error;
 
 /**
  * Defines the interface for DAWA address.
@@ -51,7 +52,8 @@ class AddressDawa implements AddressDawaInterface {
       );
     }
     catch (RequestException $e) {
-      watchdog_exception('address_dawa', $e);
+      $logger = \Drupal::logger('address_dawa');
+      Error::logException($logger, $e);
       return [];
     }
     $result = json_decode($response->getBody()->getContents());

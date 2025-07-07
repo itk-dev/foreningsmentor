@@ -12,35 +12,38 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 /**
  * Implements signup form.
  */
-class SignUpForm extends FormBase {
+final class SignUpForm extends FormBase {
 
   /**
    * The mail manager.
    *
-   * @var MailManagerInterface $mailManager
+   * @var \Drupal\Core\Mail\MailManagerInterface
    */
   protected MailManagerInterface $mailManager;
 
   /**
    * The language manager.
    *
-   * @var LanguageManagerInterface $languageManager
+   * @var \Drupal\Core\Language\LanguageManagerInterface
    */
   protected LanguageManagerInterface $languageManager;
 
   /**
    * The entity type manager.
    *
-   * @var EntityTypeManagerInterface $entityTypeManager
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected EntityTypeManagerInterface $entityTypeManager;
 
   /**
    * Class constructor.
    *
-   * @param MailManagerInterface $mailManager
-   * @param LanguageManagerInterface $languageManager
-   * @param EntityTypeManagerInterface $entityTypeManager
+   * @param \Drupal\Core\Mail\MailManagerInterface $mailManager
+   *   The mail manager service.
+   * @param \Drupal\Core\Language\LanguageManagerInterface $languageManager
+   *   The language manager service.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager service.
    */
   public function __construct(MailManagerInterface $mailManager, LanguageManagerInterface $languageManager, EntityTypeManagerInterface $entityTypeManager) {
     $this->mailManager = $mailManager;
@@ -62,21 +65,19 @@ class SignUpForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function getFormId()
-  {
+  public function getFormId() {
     return 'sign_up_form';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state)
-  {
+  public function buildForm(array $form, FormStateInterface $form_state) {
     $form['wrapper'] = [
       '#type' => 'container',
-      '#attributes' => array(
+      '#attributes' => [
         'class' => 'container mt-5 pt-5',
-      ),
+      ],
     ];
     $form['wrapper']['headline'] = [
       '#type' => 'item',
@@ -90,9 +91,9 @@ class SignUpForm extends FormBase {
 
     $form['wrapper']['child'] = [
       '#type' => 'container',
-      '#attributes' => array(
+      '#attributes' => [
         'class' => 'border-bottom mb-3 pb-3',
-      ),
+      ],
     ];
     $form['wrapper']['child']['child_label'] = [
       '#type' => 'html_tag',
@@ -102,40 +103,40 @@ class SignUpForm extends FormBase {
     ];
     $form['wrapper']['child']['child_name'] = [
       '#type' => 'textfield',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t('Your child\'s name'),
+      '#title' => $this->t("Your child's name"),
     ];
     $form['wrapper']['child']['birth_date'] = [
       '#type' => 'textfield',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t('Your child\'s birth date'),
+      '#title' => $this->t("Your child's birth date"),
     ];
     $form['wrapper']['child']['sex'] = [
       '#type' => 'textfield',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t('Your child\'s sex'),
+      '#title' => $this->t("Your child's sex"),
     ];
     $form['wrapper']['child']['school'] = [
       '#type' => 'textfield',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t('Your child\'s school'),
+      '#title' => $this->t("Your child's school"),
     ];
     $form['wrapper']['child']['grade'] = [
       '#type' => 'textfield',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t('Your child\'s grade'),
+      '#title' => $this->t("Your child's grade"),
     ];
 
     $form['wrapper']['parent'] = [
       '#type' => 'container',
-      '#attributes' => array(
+      '#attributes' => [
         'class' => 'border-bottom mb-3 pb-3',
-      ),
+      ],
     ];
     $form['wrapper']['parent']['parent_label'] = [
       '#type' => 'html_tag',
@@ -145,19 +146,19 @@ class SignUpForm extends FormBase {
     ];
     $form['wrapper']['parent']['parent_name'] = [
       '#type' => 'textfield',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t('Your name '),
+      '#title' => $this->t('Your name'),
     ];
     $form['wrapper']['parent']['phone_number'] = [
       '#type' => 'tel',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Your phone number'),
     ];
     $form['wrapper']['parent']['mail'] = [
       '#type' => 'email',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Your e-mail address'),
     ];
@@ -177,7 +178,7 @@ class SignUpForm extends FormBase {
       '#prefix' => '<div class="col-md-12">',
       '#suffix' => '</div>',
       '#type' => 'textarea',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Address'),
     ];
@@ -185,7 +186,7 @@ class SignUpForm extends FormBase {
       '#prefix' => '<div class="col-md-12">',
       '#suffix' => '</div>',
       '#type' => 'textarea',
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Activity'),
     ];
@@ -194,25 +195,25 @@ class SignUpForm extends FormBase {
       '#suffix' => '</div>',
       '#type' => 'radios',
       '#title' => $this->t('Area'),
-      '#required' => true,
+      '#required' => TRUE,
       '#attributes' => ['class' => ['mb-3']],
       '#options' => $areaOptions,
       '#description' => $this->t('<small>Select the area where you live. If in doubt select city covering.</small>'),
     ];
     $form['wrapper']['other']['consent_contact'] = [
-      '#prefix' => '<div class="mb-3 col-md-6"><h5>' . $this->t('Contact consent') .'</h5><small>' . $this->t('I hereby consent that ForeningsMentor International may contact me in order to find a leisure activity for my child, and that ForeningsMentor International may contact me at a later point in time to know whether my child is participating in the activity or whether we need help finding another activity.') . '</small>',
+      '#prefix' => '<div class="mb-3 col-md-6"><h5>' . $this->t('Contact consent') . '</h5><small>' . $this->t('I hereby consent that ForeningsMentor International may contact me in order to find a leisure activity for my child, and that ForeningsMentor International may contact me at a later point in time to know whether my child is participating in the activity or whether we need help finding another activity.') . '</small>',
       '#suffix' => '</div>',
       '#description' => '',
       '#type' => 'checkbox',
-      '#required' => true,
+      '#required' => TRUE,
       '#title' => $this->t('Give contact consent'),
     ];
 
     $form['wrapper']['other']['consent_data'] = [
-      '#prefix' => '<div class="mb-3 col-md-12"><h5>' . $this->t('Data consent') .'</h5>',
+      '#prefix' => '<div class="mb-3 col-md-12"><h5>' . $this->t('Data consent') . '</h5>',
       '#suffix' => '</div>',
       '#type' => 'checkbox',
-      '#required' => true,
+      '#required' => TRUE,
       '#title' => $this->t('I give permission to store and process my data'),
     ];
 
@@ -226,14 +227,14 @@ class SignUpForm extends FormBase {
         'enabled' => [
           [
             ':input[name="consent_contact"]' => ['checked' => TRUE],
-            'or',
+            'or' => 'or',
             ':input[name="consent_data"]' => ['checked' => TRUE],
           ],
-        ]
-      ]
+        ],
+      ],
     ];
 
-    \Drupal::service('honeypot') ->addFormProtection($form, $form_state, ['honeypot', 'time_restriction']);
+    \Drupal::service('honeypot')->addFormProtection($form, $form_state, ['honeypot', 'time_restriction']);
 
     return $form;
   }
@@ -241,8 +242,7 @@ class SignUpForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state)
-  {
+  public function validateForm(array &$form, FormStateInterface $form_state) {
     if (strlen($form_state->getValue('phone_number')) < 8) {
       $form_state->setErrorByName('phone_number', $this->t('The phone number is too short. Please enter a full phone number.'));
     }
@@ -251,10 +251,10 @@ class SignUpForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state){
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     $params['form_values'] = $form_state->getValues();
     $area = $params['form_values']['area'];
-    $neighborhoodUsers =  $this->entityTypeManager->getStorage('user')->loadByProperties(['field_neighborhood' => $area]);
+    $neighborhoodUsers = $this->entityTypeManager->getStorage('user')->loadByProperties(['field_neighborhood' => $area]);
     $areaTerm = $this->entityTypeManager->getStorage('taxonomy_term')->load($area);
     // Overwrite $params area id with actual term name for display in mail.
     $params['form_values']['area'] = $areaTerm->getName();
@@ -268,4 +268,5 @@ class SignUpForm extends FormBase {
 
     $this->messenger()->addStatus($this->t('Thank you for signing up. You will be contacted by @site_name shortly.', ['@site_name' => $params['site_name']]));
   }
+
 }

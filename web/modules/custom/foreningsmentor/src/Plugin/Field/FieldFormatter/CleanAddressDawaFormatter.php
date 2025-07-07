@@ -18,6 +18,7 @@ use Drupal\Core\Field\FieldItemListInterface;
  * )
  */
 class CleanAddressDawaFormatter extends FormatterBase {
+
   /**
    * {@inheritdoc}
    */
@@ -62,4 +63,5 @@ class CleanAddressDawaFormatter extends FormatterBase {
     ];
     return $element;
   }
+
 }

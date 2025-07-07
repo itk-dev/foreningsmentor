@@ -197,3 +197,6 @@ private
 .vscode
 
 .env.local
+.env.task
+
+.twig-cs-fixer.cache

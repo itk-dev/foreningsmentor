@@ -1,17 +1,17 @@
-uuid: ddd25aca-4e58-4b5e-ae28-74cdd4e36dcf
+uuid: 7204669e-de05-49be-a845-a94b26c5c269
 langcode: da
 status: true
 dependencies:
   module:
     - system
   theme:
-    - adminimal_theme
+    - claro
 _core:
-  default_config_hash: 80N66GdzEvwqi1m-_GZ-ulkk8AJG9beoXcZ4-pMVKjI
-id: adminimal_theme_content
-theme: adminimal_theme
+  default_config_hash: a0Yyx1GeyKarZ4T_yXQBR_ZFKnXiFLtxAb6gWLd8nr0
+id: claro_content
+theme: claro
 region: content
-weight: -2
+weight: 0
 provider: null
 plugin: system_main_block
 settings:

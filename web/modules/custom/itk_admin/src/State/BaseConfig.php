@@ -7,7 +7,7 @@ use Drupal\Component\Serialization\SerializationInterface;
 use Drupal\Core\Database\Connection;
 
 /**
- * Class BaseConfig.
+ * Class for defining itk_admin.itk_config.
  *
  * @package Drupal\itk_admin\State
  */

@@ -18,6 +18,6 @@
   ],
   "require": {
     "ext-json": "*",
-    "drupal/core": "^8.8 || ^9 || ^10"
+    "drupal/core": "^8.8 || ^9 || ^10 || ^11"
   }
 }

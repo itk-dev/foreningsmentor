@@ -18,7 +18,7 @@ class TermActivitytypeFixture extends TaxonomyTermFixture {
    */
   protected static $terms = [
     'fodbold',
-    'hockey'
+    'hockey',
   ];
 
 }

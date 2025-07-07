@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Address DAWA controller.
  */
-class AddressDAWAController extends ControllerBase {
+final class AddressDAWAController extends ControllerBase {
 
   /**
    * AddressDawa servcie.
