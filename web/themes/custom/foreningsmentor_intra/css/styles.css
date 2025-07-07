@@ -7,6 +7,7 @@
 
 ul.menu.foreningsmentor-intra--menu--intranet {
   margin: 0;
+  margin-bottom: 1em;
   padding: 0;
   overflow: hidden;
 }
@@ -20,29 +21,30 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item--collapsed {
   list-style-image: none;
 }
 
-ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
-  background-color: #444;
-}
-
 .foreningsmentor-intra--menu--intranet li {
   float: left;
+  margin-right: 1em;
 }
 
 .foreningsmentor-intra--menu--intranet li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
-  padding: 0.8em 1em;
+  padding: 0.5em 1em;
   text-decoration: none;
+  box-shadow: none!important;
+  border-radius: 5px;
+  border: 1px solid rgb(211, 212, 217);
+  font-weight: 500;
 }
 
 .foreningsmentor-intra--menu--intranet li a:hover {
-  background-color: #222;
+  border-color: #777;
 }
 
 .foreningsmentor-intra--menu--intranet li a.is-active {
-  color: white;
-  background-color: #444;
+  background: rgb(211, 212, 217);
+  border-color: #777;
 }
 
 .foreningsmentor-intra--journal-entry > .node__meta {
@@ -100,6 +102,7 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
   float: right;
 }
 
+/*
 .adminimal .button-primary,
 .adminimal .button-primary:focus,
 .adminimal .button-primary:visited {
@@ -137,3 +140,4 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
   display: flex;
   flex-flow: row-reverse;
 }
+*/
