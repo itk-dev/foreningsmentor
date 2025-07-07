@@ -37,7 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.5.0] 2023-10-05
 
 * Upgrade Drupal to 10.1.3
-* Update config to match drupal version 
+* Update config to match drupal version
 * Move Address dawa to custom modules for the time being.
 
 ## [1.4.0] - 2023-09-01

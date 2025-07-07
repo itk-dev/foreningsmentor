@@ -7,7 +7,6 @@ use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
 use Drupal\file\Entity\File;
 use Drupal\foreningsmentor_fixtures\Helper\Helper;
 
-
 /**
  * Page fixture.
  *
@@ -31,6 +30,7 @@ class ImageFixture extends AbstractFixture implements FixtureGroupInterface {
 
   /**
    * {@inheritdoc}
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function load() {

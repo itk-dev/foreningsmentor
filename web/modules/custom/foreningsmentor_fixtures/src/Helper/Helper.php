@@ -3,12 +3,13 @@
 namespace Drupal\foreningsmentor_fixtures\Helper;
 
 use Drupal\Core\Extension\ExtensionPathResolver;
+use Drupal\Core\File\FileExists;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\file\FileRepository;
 use Drupal\Core\File\FileSystem;
 
 /**
- * Helper.
+ * Helper class for fixtures.
  */
 class Helper {
 
@@ -53,7 +54,7 @@ class Helper {
 
     // Loop over .jpg images to add them properly to the file system.
     foreach (glob($image_source_path . '/*.{jpg}', GLOB_BRACE) as $image) {
-      $destination = $this->fileSystem->copy($image, $image_target_path . '/' . basename($image), FileSystemInterface::EXISTS_REPLACE);
+      $destination = $this->fileSystem->copy($image, $image_target_path . '/' . basename($image), FileExists::Replace);
       $images[] = $destination;
     }
 

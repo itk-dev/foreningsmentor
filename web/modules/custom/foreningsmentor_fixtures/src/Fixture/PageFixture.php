@@ -57,8 +57,6 @@ class PageFixture extends AbstractFixture implements DependentFixtureInterface, 
     $this->addReference('page:the-third-page', $node);
     $node->save();
 
-
-
   }
 
   /**

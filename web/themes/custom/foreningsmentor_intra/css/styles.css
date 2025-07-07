@@ -5,7 +5,7 @@
   padding: 5px 10px;
 }
 
-ul.menu.foreningsmentor-intra--menu--intranet  {
+ul.menu.foreningsmentor-intra--menu--intranet {
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -32,7 +32,7 @@ ul.menu.foreningsmentor-intra--menu--intranet .menu-item--expanded > a {
   display: block;
   color: white;
   text-align: center;
-  padding: .8em 1em;
+  padding: 0.8em 1em;
   text-decoration: none;
 }
 

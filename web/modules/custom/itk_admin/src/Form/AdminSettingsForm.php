@@ -7,7 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 
 /**
- * Class AdminSettingsForm.
+ * Class for managing administration settings form.
  *
  * @package Drupal\itk_admin\Form
  */

@@ -43,7 +43,7 @@ module:
   layout_discovery: 0
   link: 0
   locale: 0
-  memcache: 0
+  mailer_transport: 0
   menu_ui: 0
   mysql: 0
   node: 0
@@ -75,8 +75,7 @@ module:
   views: 10
   minimal: 1000
 theme:
-  seven: 0
-  adminimal_theme: 0
   foreningsmentor_theme: 0
   foreningsmentor_intra: 0
+  claro: 0
 profile: minimal

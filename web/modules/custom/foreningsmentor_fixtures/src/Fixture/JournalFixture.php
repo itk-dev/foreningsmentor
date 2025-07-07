@@ -13,19 +13,18 @@ use Drupal\node\NodeInterface;
  *
  * @package Drupal\foreningsmentor_fixtures\Fixture
  */
-class JournalFixture extends AbstractFixture implements DependentFixtureInterface, FixtureGroupInterface
-{
+class JournalFixture extends AbstractFixture implements DependentFixtureInterface, FixtureGroupInterface {
+
   /**
    * {@inheritdoc}
    */
-  public function load(): void
-  {
+  public function load(): void {
     $node = Node::create([
       'type' => 'journal_entry',
       'title' => 'course - Journal Overskrift',
       'status' => NodeInterface::PUBLISHED,
       'body' => 'Dette er en Journal, og her står der en masse spændene',
-      'field_only_for_coordinators' => false,
+      'field_only_for_coordinators' => FALSE,
     ]);
     $this->addReference('journal_entry:fixture-1', $node);
     $node->save();

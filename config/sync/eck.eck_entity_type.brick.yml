@@ -10,3 +10,4 @@ uid: false
 created: false
 changed: false
 title: true
+standalone_url: true

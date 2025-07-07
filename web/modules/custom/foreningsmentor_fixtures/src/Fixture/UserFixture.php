@@ -2,8 +2,6 @@
 
 namespace Drupal\foreningsmentor_fixtures\Fixture;
 
-
-
 use Drupal\content_fixtures\Fixture\AbstractFixture;
 use Drupal\content_fixtures\Fixture\FixtureGroupInterface;
 use Drupal\user\Entity\User;

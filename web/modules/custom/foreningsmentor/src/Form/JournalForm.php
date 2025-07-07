@@ -7,7 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 
 /**
- * Class JournalForm.
+ * Class for managing JournalForm.
  */
 class JournalForm extends FormBase {
 
@@ -26,12 +26,12 @@ class JournalForm extends FormBase {
 
     $permissiveRole = count(array_intersect(['pm', 'coordinator'], $currentUser->getRoles())) > 0;
 
-    $form['add_journal_entry'] = array(
+    $form['add_journal_entry'] = [
       '#type' => 'details',
       '#title' => t('Add journal entry'),
       '#weight' => 5,
       '#open' => TRUE,
-    );
+    ];
     $form['add_journal_entry']['title'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Headline'),
@@ -65,15 +65,8 @@ class JournalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $parentNode = $form_state->getBuildInfo()["args"][0];
+    $parentNode = $form_state->getBuildInfo()['args'][0];
 
     // Bail out if parent is not a child.
     if (isset($parentNode) && $parentNode->getType() != 'course') {
@@ -89,4 +82,5 @@ class JournalForm extends FormBase {
     ]);
     $node->save();
   }
+
 }

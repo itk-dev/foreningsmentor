@@ -1,4 +1,4 @@
-<div{{ attributes.addClass('row','hero') }}>
+<div{{ attributes.addClass('row', 'hero') }}>
   <div class="title col-sm-12">
     <h1 class="mt-5 mb-5"><span class="row first-line"><span class="col-10 offset-1 col-sm-auto offset-sm-1 offset-md-3 bg-white text-primary pl-2 pt-2 pr-2">{{ content.field_title_first_line }}</span></span><span class="row second-line"><span class="col-10 offset-1 col-sm-auto offset-sm-2 offset-md-4 bg-white pl-2 pb-2 pr-2">{{ content.field_title_second_line }}</span></span></h1>
   </div>
@@ -14,5 +14,5 @@
   </div>
   <div class="bg-image" style="background-image: url({{ file_url(content.field_background_image['#items'].entity.uri.value) }})">
   </div>
-  {{ content|without('field_title_first_line','field_title_second_line','field_text_1','field_blok_1_description','field_blok_1_btn','field_text_2','field_blok_2_description','field_blok_2_btn','field_background_image') }}
+  {{ content|without('field_title_first_line', 'field_title_second_line', 'field_text_1', 'field_blok_1_description', 'field_blok_1_btn', 'field_text_2', 'field_blok_2_description', 'field_blok_2_btn', 'field_background_image') }}
 </div>
