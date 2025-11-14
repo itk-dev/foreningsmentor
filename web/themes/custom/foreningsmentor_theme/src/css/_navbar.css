@@ -35,12 +35,14 @@
 .navbar .nav-link {
   font-weight: 900;
   color: var(--black);
-  transition: color .2s ease-in, opacity .2s ease-in;
+  transition:
+    color 0.2s ease-in,
+    opacity 0.2s ease-in;
 }
 
 .navbar .nav-link:hover {
   color: var(--primary);
-  transition: color .4s ease-out;
+  transition: color 0.4s ease-out;
 }
 
 .navbar .nav-link:hover.active {
@@ -48,5 +50,5 @@
 }
 
 .navbar .nav-link.active {
-  opacity: .65;
+  opacity: 0.65;
 }

@@ -6,9 +6,4 @@
 *.log
 *.tmp
 
-# or folders
-dist/
-build/
-out/
-
 web/sites/default/settings.local.php

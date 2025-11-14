@@ -22,12 +22,12 @@
   --navy: #2b3ba2;
   --navy-light: #bfc4e3;
   --petroleum: #259799;
-  --petroleum-light: #7CCDCE;
+  --petroleum-light: #7ccdce;
   --green: #008850;
   --green-light: #b2dbca;
   --yellow: #ffe13d;
   --yellow-light: #fff6c4;
-  --orange: #F65034;
+  --orange: #f65034;
   --orange-light: #ffcfc1;
   --red: #d32f2f;
   --red-light: #f2c0c0;
@@ -39,7 +39,10 @@
   --secondary: var(--black);
 
   /* Set default font */
-  --font-family-sans-serif: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-sans-serif:
+    Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   --headings-font-family: var(--font-family-sans-serif);
 
   /* Set serif font */
