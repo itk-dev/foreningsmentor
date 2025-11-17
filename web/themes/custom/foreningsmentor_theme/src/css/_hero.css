@@ -1,0 +1,23 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    height: calc(100vh - calc(var(--spacer) * 6));
+    max-height: 640px;
+  }
+}
+
+.hero .blok-1 {
+  background-color: var(--primary);
+}
+
+.hero .blok-2 {
+  background-color: var(--white);
+}
+
+.hero.subpage {
+  height: auto;
+}
