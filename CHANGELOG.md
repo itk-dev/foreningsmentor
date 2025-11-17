@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.7.1] 2025-07-07
+## [release/1.7.1] 2025-07-07 (not tagged)
 
 * [PR-40](https://github.com/itk-dev/foreningsmentor/pull/40)
   * Prepare for drupal 11 in custom and contrib modules
