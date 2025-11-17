@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.7.2] 2025-11-17
 
 * [PR-42](https://github.com/itk-dev/foreningsmentor/pull/42)
-  * Composer update
+  * Ran composer update.
   * Simplified javascript and css handling in Foreningsmentor theme.
   * Replaced scss with css and added bootstrap libraries to codebase instead of importing with yarn.
 
