@@ -1,0 +1,27 @@
+.effort-inner {
+  height: 100%;
+}
+
+.effort-thumbnail {
+  position: absolute;
+  top: var(--spacer);
+  right: calc(var(--spacer) * 2);
+  width: calc(var(--spacer) * 2.5);
+  height: calc(var(--spacer) * 2.5);
+}
+
+.effort-thumbnail-image {
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.effort-thumbnail-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
