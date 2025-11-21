@@ -88,14 +88,14 @@ body {
 
 .btn {
   &:focus {
-    -webkit-box-shadow: 0 0 0 .2rem rgba(37, 151, 153, .5);
-    box-shadow: 0 0 0 .2rem rgba(37, 151, 153, .5);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(37, 151, 153, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(37, 151, 153, 0.5);
   }
 
   &:active {
     &:focus {
-      -webkit-box-shadow: 0 0 0 .2rem rgba(37, 151, 153, .5) !important;
-      box-shadow: 0 0 0 .2rem rgba(37, 151, 153, .5) !important;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(37, 151, 153, 0.5) !important;
+      box-shadow: 0 0 0 0.2rem rgba(37, 151, 153, 0.5) !important;
     }
   }
 }
