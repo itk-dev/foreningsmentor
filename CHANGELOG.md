@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.2] 2025-11-17
+
+* [PR-42](https://github.com/itk-dev/foreningsmentor/pull/42)
+  * Ran composer update.
+  * Simplified javascript and css handling in Foreningsmentor theme.
+  * Replaced scss with css and added bootstrap libraries to codebase instead of importing with yarn.
+
+## [release/1.7.1] 2025-07-07 (not tagged)
+
+* [PR-40](https://github.com/itk-dev/foreningsmentor/pull/40)
+  * Prepare for drupal 11 in custom and contrib modules
+  * Add ITK-dev template for github actions
+
+## [1.7.0] 2025-04-01
+
+* [PR-39](https://github.com/itk-dev/foreningsmentor/pull/39)
+   Upgrade Drupal to 10.4.5
+
 ## [1.6.2] - 2025-03-12
 
 * [PR-36](https://github.com/itk-dev/foreningsmentor/pull/36)
@@ -25,10 +43,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Upgrade php (8.3)
 * Upgrade docker setup
 
+## [1.5.1]
+
+* Upgrade Drupal to 10.1.6
+
 ## [1.5.0] 2023-10-05
 
 * Upgrade Drupal to 10.1.3
-* Update config to match drupal version 
+* Update config to match drupal version
 * Move Address dawa to custom modules for the time being.
 
 ## [1.4.0] - 2023-09-01
@@ -91,7 +113,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First version
 
-[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.6.2...HEAD
+[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.7.2...HEAD
+[1.7.0]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.7.0
 [1.6.2]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.2
 [1.6.1]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.1
 [1.6.0]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.0

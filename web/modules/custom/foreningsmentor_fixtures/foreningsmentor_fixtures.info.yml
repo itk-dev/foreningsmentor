@@ -2,7 +2,7 @@ name: 'Foreningsmentor fixtures'
 type: module
 description: 'Foreningsmentor fixtures'
 hidden: true
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10 || ^11
 package: Foreningsmentor
 dependencies:
   - drupal:content_fixtures

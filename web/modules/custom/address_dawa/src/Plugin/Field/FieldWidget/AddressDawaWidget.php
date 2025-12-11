@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   },
  * )
  */
-class AddressDawaWidget extends WidgetBase implements ContainerFactoryPluginInterface {
+final class AddressDawaWidget extends WidgetBase implements ContainerFactoryPluginInterface {
 
   /**
    * AddressDawa service.
@@ -41,7 +41,7 @@ class AddressDawaWidget extends WidgetBase implements ContainerFactoryPluginInte
     FieldDefinitionInterface $field_definition,
     array $settings,
     array $third_party_settings,
-    AddressDawaInterface $address_dawa
+    AddressDawaInterface $address_dawa,
   ) {
     $this->addressDawa = $address_dawa;
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $third_party_settings);
@@ -112,7 +112,7 @@ class AddressDawaWidget extends WidgetBase implements ContainerFactoryPluginInte
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $element['address'] = $element + [
       '#type' => 'textfield',
-      '#default_value' => isset($items[$delta]->value) ? $items[$delta]->value : NULL,
+      '#default_value' => $items[$delta]->value ?? NULL,
       '#size' => $this->getSetting('size'),
       '#placeholder' => $this->getSetting('placeholder'),
       '#autocomplete_route_name' => $this->getFieldSetting('address_type') == 'adresse' ? 'fetch.dawa.adresse' : 'fetch.dawa.adgangsadresse',

@@ -106,18 +106,18 @@
     {{ content }}
   </div>
 
-  <h3>{{ 'Journal' | trans }}</h3>
+  <h3>{{ 'Journal'|trans }}</h3>
   <table class="table">
     <thead>
-      <th>{{ 'Date' | trans }}</th>
-      <th>{{ 'Author' | trans }}</th>
-      <th>{{ 'Course' | trans }}</th>
-      <th>{{ 'Title' | trans }}</th>
-      <th>{{ 'Text' | trans }}</th>
+      <th>{{ 'Date'|trans }}</th>
+      <th>{{ 'Author'|trans }}</th>
+      <th>{{ 'Course'|trans }}</th>
+      <th>{{ 'Title'|trans }}</th>
+      <th>{{ 'Text'|trans }}</th>
     </thead>
     {% for entry in journal_entries %}
       <tr>
-        <td>{{ entry.date | date }}</td>
+        <td>{{ entry.date|date }}</td>
         <td>{{ entry.author.username }}</td>
         <td>{{ entry.course }}</td>
         <td>{{ entry.title }}</td>
