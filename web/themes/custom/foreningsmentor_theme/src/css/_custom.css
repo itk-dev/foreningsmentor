@@ -23,6 +23,7 @@
   --navy-light: #bfc4e3;
   --petroleum: #259799;
   --petroleum-light: #7ccdce;
+  --petroleum-dark: #1b6e70;
   --green: #008850;
   --green-light: #b2dbca;
   --yellow: #ffe13d;
@@ -34,6 +35,7 @@
 
   /* Set primary color */
   --primary: var(--petroleum);
+  --primary-dark: var(--petroleum-dark);
 
   /* Set secondary color */
   --secondary: var(--black);
@@ -53,6 +55,53 @@
 
   /* Font size base */
   --font-size-base: 1rem;
+}
+
+body {
+  font-family: var(--font-family-sans-serif);
+  color: var(--gray-900);
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+
+  &:hover {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+  }
+}
+
+.footer {
+  a {
+    color: var(--primary) !important;
+
+    &:hover {
+      color: var(--primary-dark) !important;
+    }
+  }
+}
+
+.btn {
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(37, 151, 153, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(37, 151, 153, 0.5);
+  }
+
+  &:active {
+    &:focus {
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(37, 151, 153, 0.5) !important;
+      box-shadow: 0 0 0 0.2rem rgba(37, 151, 153, 0.5) !important;
+    }
+  }
+}
+
+.border-primary {
+  border-color: var(--primary) !important;
 }
 
 .lead {
