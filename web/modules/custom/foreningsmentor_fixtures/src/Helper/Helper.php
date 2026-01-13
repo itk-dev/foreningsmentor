@@ -2,11 +2,14 @@
 
 namespace Drupal\foreningsmentor_fixtures\Helper;
 
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Extension\ExtensionPathResolver;
 use Drupal\Core\File\FileExists;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\file\FileRepository;
-use Drupal\Core\File\FileSystem;
+use Drupal\file\FileRepositoryInterface as FileRepository;
+use Drupal\Core\File\FileSystemInterface as FileSystem;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 /**
  * Helper class for fixtures.
@@ -14,33 +17,9 @@ use Drupal\Core\File\FileSystem;
 class Helper {
 
   /**
-   * The ExtensionPathResolver service.
-   *
-   * @var \Drupal\Core\Extension\ExtensionPathResolver
-   */
-  protected ExtensionPathResolver $pathResolver;
-
-  /**
-   * The FileRepository service.
-   *
-   * @var \Drupal\file\FileRepository
-   */
-  protected FileRepository $fileRepo;
-
-  /**
-   * The FileSystem service.
-   *
-   * @var \Drupal\Core\File\FileSystem
-   */
-  protected FileSystem $fileSystem;
-
-  /**
    * Constructor.
    */
-  public function __construct(ExtensionPathResolver $pathResolver, FileRepository $fileRepo, FileSystem $fileSystem) {
-    $this->pathResolver = $pathResolver;
-    $this->fileRepo = $fileRepo;
-    $this->fileSystem = $fileSystem;
+  public function __construct(protected ExtensionPathResolver $pathResolver, protected FileRepository $fileRepo, protected FileSystem $fileSystem, protected EntityTypeManagerInterface $entityTypeManager) {
   }
 
   /**
@@ -61,4 +40,112 @@ class Helper {
     return $images;
   }
 
+  /**
+   * @throws EntityStorageException
+   */
+  public function createIntranetMenu()
+  {
+    $items = [
+      'base_items' => [
+        'venteliste' => 'Venteliste',
+        'forlob' => 'Forløb',
+        'frivillige' => 'Frivillige',
+        'born' => 'Børn',
+        'foraeldre' => 'Forældre',
+        'foreninger' => 'Foreninger',
+        'mentor/forlob' => 'Mentorforløb',
+        'user' => 'Profil',
+        'user/logout' => 'Log ud',
+        'admin/content' => 'Admin'
+      ],
+      'admin_sub_items' => [
+        'admin/content' => 'Indhold',
+        'aktiviteter' => 'Aktivitetsforløb',
+        'admin/people' => 'Brugere',
+        'admin/config/regional/translate' => 'Oversættelser',
+        'admin/structure/taxonomy' => 'Taksonomier',
+        'admin/site-setup/general' => 'Sideindstillinger',
+        'admin/structure/menu/manage/main' => 'Menu'
+      ],
+      'page_settings_items' => [
+        'signup' => 'Tilmelding'
+      ]
+
+    ];
+
+    $menuLinkStorage = $this->entityTypeManager->getStorage('menu_link_content');
+    $intranetMenuIds = $menuLinkStorage->getQuery()->accessCheck()->condition('menu_name', 'intranet')->execute();
+    $menuLinks = $menuLinkStorage->loadMultiple($intranetMenuIds);
+    $menuLabels = array_map(fn($link) => $link->label(), $menuLinks);
+
+    // Create base menu items.
+    foreach ($items['base_items'] as $path => $title) {
+      if (in_array($title, $menuLabels)) {
+        break;
+      }
+
+      $menuItem = [
+        'title' => $title,
+        'link' => ['uri' => 'internal:/' . $path],
+        'menu_name' => 'intranet',
+        'expanded' => TRUE,
+      ];
+
+      $menu_link = MenuLinkContent::create($menuItem);
+      $menu_link->save();
+    }
+
+    // Determine admin menu parent.
+    $adminParentFetched = $menuLinkStorage->getQuery()
+      ->accessCheck()
+      ->condition('menu_name', 'intranet')
+      ->condition('link__uri', 'internal:/admin/content')
+      ->execute();
+
+    $adminParent = $menuLinkStorage->load(array_pop($adminParentFetched));
+
+    // Create admin menu items.
+    foreach ($items['admin_sub_items'] as $path => $title) {
+      if (in_array($title, $menuLabels)) {
+        break;
+      }
+
+      $menuItem = [
+        'title' => $title,
+        'link' => ['uri' => 'internal:/' . $path],
+        'menu_name' => 'intranet',
+        'expanded' => TRUE,
+        'parent' => 'menu_link_content:' . $adminParent->uuid()
+      ];
+
+      $menu_link = MenuLinkContent::create($menuItem);
+      $menu_link->save();
+    }
+
+    // Determine page settings parent.
+    $pageSettingsParentFetched = $menuLinkStorage->getQuery()
+      ->accessCheck()
+      ->condition('menu_name', 'intranet')
+      ->condition('link__uri', 'internal:/admin/site-setup/general')
+      ->execute();
+    $pageSettingsParent = $menuLinkStorage->load(array_pop($pageSettingsParentFetched));
+
+    // Create page settings menu items.
+    foreach ($items['page_settings_items'] as $path => $title) {
+      if (in_array($title, $menuLabels)) {
+        break;
+      }
+
+      $menuItem = [
+        'title' => $title,
+        'link' => ['uri' => 'internal:/' . $path],
+        'menu_name' => 'intranet',
+        'expanded' => TRUE,
+        'parent' => 'menu_link_content:' . $pageSettingsParent->uuid()
+      ];
+
+      $menu_link = MenuLinkContent::create($menuItem);
+      $menu_link->save();
+    }
+  }
 }
