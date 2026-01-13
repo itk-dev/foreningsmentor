@@ -45,6 +45,7 @@ class Helper {
    */
   public function createIntranetMenu()
   {
+    // Can't be done in a single loop because the parents are not created yet.
     $items = [
       'base_items' => [
         'venteliste' => 'Venteliste',
@@ -80,6 +81,7 @@ class Helper {
 
     // Create base menu items.
     foreach ($items['base_items'] as $path => $title) {
+      // Don't do anything if the menu item already exists.
       if (in_array($title, $menuLabels)) {
         break;
       }
@@ -106,6 +108,7 @@ class Helper {
 
     // Create admin menu items.
     foreach ($items['admin_sub_items'] as $path => $title) {
+      // Don't do anything if the menu item already exists.
       if (in_array($title, $menuLabels)) {
         break;
       }
@@ -132,6 +135,7 @@ class Helper {
 
     // Create page settings menu items.
     foreach ($items['page_settings_items'] as $path => $title) {
+      // Don't do anything if the menu item already exists.
       if (in_array($title, $menuLabels)) {
         break;
       }
