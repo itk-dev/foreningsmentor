@@ -1,17 +1,15 @@
-uuid: 301e10fc-32d2-4ebe-9f78-1054ae71939e
+uuid: 9d80cc98-cfe5-4e37-8e3f-7c86bf00901b
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_referer
-field_name: field_referer
+id: node.field_existing_parent
+field_name: field_existing_parent
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  target_type: node
 module: core
 locked: false
 cardinality: 1

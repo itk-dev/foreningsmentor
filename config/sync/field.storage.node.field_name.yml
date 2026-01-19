@@ -1,11 +1,11 @@
-uuid: 301e10fc-32d2-4ebe-9f78-1054ae71939e
+uuid: e3f594ad-a758-410f-96d6-f305713e404d
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_referer
-field_name: field_referer
+id: node.field_name
+field_name: field_name
 entity_type: node
 type: string
 settings:

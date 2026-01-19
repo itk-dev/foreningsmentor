@@ -12,6 +12,7 @@ use Drupal\foreningsmentor\Form\ActivityForm;
 use Drupal\foreningsmentor\Form\FinishCourseForm;
 use Drupal\foreningsmentor\Ajax\CopyToClipboardCommand;
 use Drupal\Core\Render\Markup;
+use Drupal\foreningsmentor\Helper\Helper;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\node\Entity\Node;
@@ -78,6 +79,10 @@ function foreningsmentor_preprocess_node(&$variables) {
     $variables['finish_course_form'] = \Drupal::formBuilder()
       ->getForm(FinishCourseForm::class,
         $variables['node']);
+  }
+
+  if ($nodeType == 'signup') {
+    Drupal::service(Helper::class)->showWarningOnSignupMatch($variables['node']);
   }
 }
 
@@ -471,7 +476,9 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
 /**
  * Implements hook_mail().
  */
-function foreningsmentor_mail($key, &$message, $params) {
+function foreningsmentor_mail($key, &$message, $params): void
+{
+  $params['directory'] = Drupal::service('extension.list.module')->getPath('foreningsmentor');
   if ('foreningsmentor_signup' === $key) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
 
@@ -481,8 +488,48 @@ function foreningsmentor_mail($key, &$message, $params) {
       'params' => $message['params'],
       // Needed to prevent notices when Twig debugging is enabled.
       'theme_hook_original' => 'not-applicable',
+      'directory' => $params['directory']
+    ]);
+
+    $message['body'][] = $mailContent;
+  }
+
+  if ('foreningsmentor_parent_signup' === $key) {
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+
+    // Ignore phpstan error: "Function twig_render_template not found.".
+    // @phpstan-ignore-next-line
+    $mailContent = twig_render_template(\Drupal::service('extension.list.module')->getPath('foreningsmentor') . '/templates/signup-email-body-parent.html.twig', [
+      'params' => $message['params'],
+      // Needed to prevent notices when Twig debugging is enabled.
+      'theme_hook_original' => 'not-applicable',
+      'directory' => $params['directory']
+    ]);
+
+    $message['body'][] = $mailContent;
+  }
+
+  if ('foreningsmentor_referer_signup' === $key) {
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+
+    // Ignore phpstan error: "Function twig_render_template not found.".
+    // @phpstan-ignore-next-line
+    $mailContent = twig_render_template(\Drupal::service('extension.list.module')->getPath('foreningsmentor') . '/templates/signup-email-body-referer.html.twig', [
+      'params' => $message['params'],
+      // Needed to prevent notices when Twig debugging is enabled.
+      'theme_hook_original' => 'not-applicable',
+      'directory' => $params['directory']
     ]);
 
     $message['body'][] = $mailContent;
   }
 }
+
+/**
+ * Implements hook_form_FORMID_alter().
+ */
+#[LegacyHook]
+function foreningsmentor_form_node_signup_edit_form_alter(&$form, FormStateInterface $form_state, $as) {
+  Drupal::service(Helper::class)->showWarningOnSignupMatch($form_state->getFormObject()->getEntity());
+}
+

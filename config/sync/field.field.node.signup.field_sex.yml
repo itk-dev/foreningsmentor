@@ -1,0 +1,21 @@
+uuid: a371343c-a4a8-47d5-ae15-d6f412840bb6
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sex
+    - node.type.signup
+  module:
+    - options
+id: node.signup.field_sex
+field_name: field_sex
+entity_type: node
+bundle: signup
+label: Køn
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

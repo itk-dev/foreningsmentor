@@ -44,7 +44,6 @@ module:
   link: 0
   locale: 0
   mailer_transport: 0
-  memcache: 0
   menu_ui: 0
   mysql: 0
   node: 0
