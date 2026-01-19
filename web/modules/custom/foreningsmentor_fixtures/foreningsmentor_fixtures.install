@@ -1,0 +1,11 @@
+<?php
+
+use Drupal\foreningsmentor_fixtures\Helper\Helper;
+
+/**
+ * Implements hook_install().
+ */
+function foreningsmentor_fixtures_install() {
+  // Add menu items if they don't exist.
+  return Drupal::service(Helper::class)->createIntranetMenu();
+}
