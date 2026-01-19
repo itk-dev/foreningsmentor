@@ -476,8 +476,7 @@ function foreningsmentor_views_pre_render(ViewExecutable $view) {
 /**
  * Implements hook_mail().
  */
-function foreningsmentor_mail($key, &$message, $params): void
-{
+function foreningsmentor_mail($key, &$message, $params): void {
   $params['directory'] = Drupal::service('extension.list.module')->getPath('foreningsmentor');
   if ('foreningsmentor_signup' === $key) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
@@ -488,7 +487,7 @@ function foreningsmentor_mail($key, &$message, $params): void
       'params' => $message['params'],
       // Needed to prevent notices when Twig debugging is enabled.
       'theme_hook_original' => 'not-applicable',
-      'directory' => $params['directory']
+      'directory' => $params['directory'],
     ]);
 
     $message['body'][] = $mailContent;
@@ -503,7 +502,7 @@ function foreningsmentor_mail($key, &$message, $params): void
       'params' => $message['params'],
       // Needed to prevent notices when Twig debugging is enabled.
       'theme_hook_original' => 'not-applicable',
-      'directory' => $params['directory']
+      'directory' => $params['directory'],
     ]);
 
     $message['body'][] = $mailContent;
@@ -518,7 +517,7 @@ function foreningsmentor_mail($key, &$message, $params): void
       'params' => $message['params'],
       // Needed to prevent notices when Twig debugging is enabled.
       'theme_hook_original' => 'not-applicable',
-      'directory' => $params['directory']
+      'directory' => $params['directory'],
     ]);
 
     $message['body'][] = $mailContent;
@@ -532,4 +531,3 @@ function foreningsmentor_mail($key, &$message, $params): void
 function foreningsmentor_form_node_signup_edit_form_alter(&$form, FormStateInterface $form_state, $as) {
   Drupal::service(Helper::class)->showWarningOnSignupMatch($form_state->getFormObject()->getEntity());
 }
-

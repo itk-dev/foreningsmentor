@@ -153,7 +153,7 @@ final class SignUpForm extends FormBase {
       '#suffix' => '</div>',
       '#type' => 'checkbox',
       '#title' => $this->t('I am a referring a child on behalf of someone else.'),
-      '#description' => $this->t('<small>Check this box if you are not the childs parent. This will allow you to provide the referer\'s contact information.</small>'),
+      '#description' => $this->t("<small>Check this box if you are not the childs parent. This will allow you to provide the referer's contact information.</small>"),
     ];
 
     $form['wrapper']['referer'] = [
@@ -331,7 +331,7 @@ final class SignUpForm extends FormBase {
     $params['area_id'] = $areaTerm->id();
     // Send mail to coordinators assigned to the neighborhood.
     $params['site_name'] = $this->config('system.site')->get('name');
-    $params['site_url'] = Url::fromUserInput('/',  array('absolute' => 'true'))->toString();
+    $params['site_url'] = Url::fromUserInput('/', ['absolute' => 'true'])->toString();
 
     $node = [
       'title' => $params['form_values']['child_name'],
@@ -361,7 +361,7 @@ final class SignUpForm extends FormBase {
       'field_archived' => FALSE,
     ];
 
-    $node =$this->entityTypeManager->getStorage('node')->create($node);
+    $node = $this->entityTypeManager->getStorage('node')->create($node);
     $node->save();
 
     $params['node_id'] = $node->id();

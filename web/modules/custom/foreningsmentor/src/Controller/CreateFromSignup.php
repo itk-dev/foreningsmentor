@@ -15,10 +15,10 @@ class CreateFromSignup extends ControllerBase {
   /**
    * Create something from a signup node.
    *
-   * @param NodeInterface $node
+   * @param \Drupal\node\NodeInterface $node
    *   The signup node.
    *
-   * @return RedirectResponse
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
    *   The redirect response.
    */
   public function add(NodeInterface $node) {
@@ -31,7 +31,8 @@ class CreateFromSignup extends ControllerBase {
       // Use exising parent entity or create a new one.
       if ($signup->field_existing_parent?->target_id) {
         $parent = $signup->field_existing_parent->entity;
-      } else {
+      }
+      else {
         $parent = $nodeStorage->create([
           'title' => $signup->field_parent_name->value,
           'type' => 'parent',
