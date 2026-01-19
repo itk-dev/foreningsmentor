@@ -1,11 +1,11 @@
 services:
   Drupal\foreningsmentor_fixtures\Helper\Helper:
     arguments:
-      - '@extension.path.resolver'
-      - '@file.repository'
-      - '@file_system'
+      - "@extension.path.resolver"
+      - "@file.repository"
+      - "@file_system"
   Drupal\foreningsmentor_fixtures\Fixture\UserFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\PageFixture:
@@ -23,39 +23,39 @@ services:
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\ParentFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\ChildFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\ClubFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\JournalFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
 
   Drupal\foreningsmentor_fixtures\Fixture\ActivityAndCourseFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\TermNeighborhoodFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\TermActivitytypeFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\TermActivityFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }
   Drupal\foreningsmentor_fixtures\Fixture\TermMentorFixture:
-    arguments: [ '@entity_type.manager' ]
+    arguments: ["@entity_type.manager"]
     tags:
       - { name: content_fixture }

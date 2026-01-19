@@ -103,7 +103,7 @@
         {% if node.field_existing_parent.value %}
           <details class="js-form-wrapper form-wrapper claro-details" open="open" data-once="details">
             <summary role="button" aria-expanded="true" class="claro-details__summary">
-              {{ 'Parent'|t([], {'context': 'signup'}) }}
+              {{ 'Parent'|t([], {context: 'signup'}) }}
             </summary>
             <div class="claro-details__wrapper details-wrapper">
               {{ content.field_existing_parent }}
@@ -116,7 +116,7 @@
     </div>
     {{ content|without('group_child', 'group_parent', 'group_referer') }}
   </div>
-  <a href="{{ path('foreningsmentor.create_from_signup', {'node': node.id}) }}" class="button">
+  <a href="{{ path('foreningsmentor.create_from_signup', {node: node.id}) }}" class="button">
     {{ 'Create child in system'|t }}
   </a>
 </article>
