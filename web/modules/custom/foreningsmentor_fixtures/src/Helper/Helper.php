@@ -2,7 +2,6 @@
 
 namespace Drupal\foreningsmentor_fixtures\Helper;
 
-use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ExtensionPathResolver;
 use Drupal\Core\File\FileExists;
@@ -18,7 +17,7 @@ class Helper {
   /**
    * Constructor.
    */
-  public function __construct(protected ExtensionPathResolver $pathResolver, protected FileRepositoryInterface $fileRepo, protected \Drupal\Core\File\FileSystemInterface $fileSystem, protected EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(protected ExtensionPathResolver $pathResolver, protected FileRepositoryInterface $fileRepo, protected FileSystemInterface $fileSystem, protected EntityTypeManagerInterface $entityTypeManager) {
   }
 
   /**
@@ -40,10 +39,11 @@ class Helper {
   }
 
   /**
-   * @throws EntityStorageException
+   * Create intranet menu.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function createIntranetMenu()
-  {
+  public function createIntranetMenu(): void {
     // Can't be done in a single loop because the parents are not created yet.
     $items = [
       'base_items' => [
@@ -56,7 +56,7 @@ class Helper {
         'mentor/forlob' => 'Mentorforløb',
         'user' => 'Profil',
         'user/logout' => 'Log ud',
-        'admin/content' => 'Admin'
+        'admin/content' => 'Admin',
       ],
       'admin_sub_items' => [
         'admin/content' => 'Indhold',
@@ -65,11 +65,11 @@ class Helper {
         'admin/config/regional/translate' => 'Oversættelser',
         'admin/structure/taxonomy' => 'Taksonomier',
         'admin/site-setup/general' => 'Sideindstillinger',
-        'admin/structure/menu/manage/main' => 'Menu'
+        'admin/structure/menu/manage/main' => 'Menu',
       ],
       'page_settings_items' => [
-        'signup' => 'Tilmelding'
-      ]
+        'signup' => 'Tilmelding',
+      ],
 
     ];
 
@@ -117,7 +117,7 @@ class Helper {
         'link' => ['uri' => 'internal:/' . $path],
         'menu_name' => 'intranet',
         'expanded' => TRUE,
-        'parent' => 'menu_link_content:' . $adminParent->uuid()
+        'parent' => 'menu_link_content:' . $adminParent->uuid(),
       ];
 
       $menu_link = MenuLinkContent::create($menuItem);
@@ -144,11 +144,12 @@ class Helper {
         'link' => ['uri' => 'internal:/' . $path],
         'menu_name' => 'intranet',
         'expanded' => TRUE,
-        'parent' => 'menu_link_content:' . $pageSettingsParent->uuid()
+        'parent' => 'menu_link_content:' . $pageSettingsParent->uuid(),
       ];
 
       $menu_link = MenuLinkContent::create($menuItem);
       $menu_link->save();
     }
   }
+
 }
