@@ -1,26 +1,8 @@
-<h1>Ny tilmelding</h1>
-<p>Der er kommet en ny tilmelding på {{ params.site_name }}.</p>
-<h2>Barnets information</h2>
-<h3>Navn</h3>
-<p>{{ params.form_values.child_name }}</p>
-<h3>Fødselsdag</h3>
-<p>{{ params.form_values.birth_date }}</p>
-<h3>Køn</h3>
-<p>{{ params.form_values.sex }}</p>
-<h3>Skole</h3>
-<p>{{ params.form_values.school }}</p>
-<h3>Klassetrin</h3>
-<p>{{ params.form_values.grade }}</p>
-<h2>Forælderinformation</h2>
-<h3>Navn</h3>
-<p>{{ params.form_values.parent_name }}</p>
-<h3>Telefonnummer</h3>
-<p>{{ params.form_values.phone_number }}</p>
-<h3>E-mail adresse</h3>
-<p>{{ params.form_values.mail }}</p>
-<h3>Adresse</h3>
-<p>{{ params.form_values.address }}</p>
-<h3>Aktivitet</h3>
-<p>{{ params.form_values.activity }}</p>
-<h3>Område</h3>
-<p>{{ params.form_values.area }}</p>
+<h1>{{ 'New signup'|t }}</h1>
+<p>{{ 'There is a new signup on @site_name in your area'|t({'@site_name': params.site_name}) }}</p>
+
+<p><a href="{{ params.site_url }}node/{{ params.node_id }}">{{ 'View signup'|t }}</a></p>
+
+<p><a href="{{ params.site_url }}admin/tilmeldinger?field_neighborhood_target_id={{ params.area_id }}">{{ 'View all new signups from @area'|t({'@area': params.form_values.area}) }}</a></p>
+
+<p>{{ 'Kind regards @site_name'|t({'@site_name': params.site_name}) }}</p>

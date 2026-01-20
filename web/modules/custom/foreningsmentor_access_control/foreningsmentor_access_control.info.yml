@@ -1,6 +1,6 @@
-name: 'Foreningsmentor Access Control'
+name: "Foreningsmentor Access Control"
 type: module
-description: 'Custom access rules for the Foreningsmentor intranet.'
+description: "Custom access rules for the Foreningsmentor intranet."
 core: 8.x
 core_version_requirement: ^10 || ^11
-package: 'Foreningsmentor'
+package: "Foreningsmentor"

@@ -1,0 +1,21 @@
+uuid: e0dd9920-1067-40d3-b0f5-8720a96e99e1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shool_class
+    - node.type.signup
+  module:
+    - options
+id: node.signup.field_shool_class
+field_name: field_shool_class
+entity_type: node
+bundle: signup
+label: Klassetrin
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

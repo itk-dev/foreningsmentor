@@ -1,0 +1,24 @@
+uuid: ffd027a4-4f0f-43ee-833e-ac0d854d7eae
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address
+    - node.type.signup
+  module:
+    - address_dawa
+id: node.signup.field_address
+field_name: field_address
+entity_type: node
+bundle: signup
+label: Adresse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  address_type: adresse
+  allow_non_unique_address: true
+  allow_non_danish_address: true
+field_type: address_dawa
