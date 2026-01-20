@@ -2,10 +2,29 @@ version: "3"
 
 dotenv: [".env.task", ".env"]
 
+includes:
+  translation:
+    taskfile: ./task/Taskfile.translation.yml
+    vars:
+      TRANSLATION_MODULES:
+        - itk_admin
+        - foreningsmentor
+
+      TRANSLATION_THEMES:
+        - foreningsmentor_intra
+
+      TRANSLATION_LANGUAGES:
+        - da
+
 vars:
   DOCKER_COMPOSE: '{{ .TASK_DOCKER_COMPOSE | default "docker compose" }}'
 
 tasks:
+  default:
+    cmds:
+      - task --list-all
+    silent: true
+
   compose:
     desc: Run docker compose or itkdev-docker-compose if TASK_DOCKER_COMPOSE is set in .task.env
     cmds:
@@ -49,3 +68,11 @@ tasks:
       - docker compose run --rm prettier '**/*.{yml,yaml}' --write
       - docker compose run --rm prettier 'web/themes/custom/**/css/**/*.{css,scss}' --write
       - docker run --rm --volume "$PWD:/md" itkdev/markdownlint '**/*.md' --fix
+
+  translations:import:
+    cmds:
+      - task compose -- exec phpfpm bash -c '(cd web && ../vendor/bin/drush locale:import --type=customized --override=all da ../translations/custom-translations.foreningsmentor_intra.da.po)'
+      - task drush -- locale:check
+      - task drush -- locale:update
+      - task drush -- cache:rebuild
+    silent: true

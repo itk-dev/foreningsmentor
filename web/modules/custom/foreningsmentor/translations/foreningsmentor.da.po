@@ -1,0 +1,353 @@
+# Danish translation of module foreningsmentor
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2026-01-20 08:31+0100\n"
+"PO-Revision-Date: 2026-01-20 08:31+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: da\n"
+
+msgid "-- Select action --"
+msgstr "-- Vælg handling --"
+
+#, fuzzy
+msgid ""
+"<small>Check this box if you are not the childs parent. This will "
+"allow you to provide the referer's contact information.</small>"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"<small>Select the area where you live. If in doubt select city "
+"covering.</small>"
+msgstr ""
+
+msgid "A1: Child is still active."
+msgstr "A1: Barnet er fortsat aktiv."
+
+msgid "A2: Child has stopped in the club during the mentor course."
+msgstr "A2: Barnet er stoppet i foreningen under mentorforløbet."
+
+msgid "A3: Mentor stops during the course."
+msgstr "A3: Mentor stopper undervejs."
+
+msgid "A4: Status unknown."
+msgstr "A4: Status ukendt."
+
+msgid "Activities"
+msgstr "Aktivitetsforløb"
+
+#, fuzzy
+msgid "Activity"
+msgstr ""
+
+#, fuzzy
+msgid "Activity headline"
+msgstr ""
+
+msgid "Add activity"
+msgstr "Tilføj aktivitetsforløb"
+
+msgid "Add child"
+msgstr "Tilføj barn"
+
+msgid "Add club"
+msgstr "Tilføj forening"
+
+msgid "Add course"
+msgstr "Tilføj forløb"
+
+msgid "Add journal entry"
+msgstr "Tilføj indlæg"
+
+msgid "Add new journal entry"
+msgstr "Tilføj nyt dagbogsindlæg"
+
+msgid "Add parent"
+msgstr "Tilføj forælder"
+
+#, fuzzy
+msgid "Added @title"
+msgstr ""
+
+#, fuzzy
+msgid "Address"
+msgstr ""
+
+#, fuzzy
+msgid "An error occurred while checking for existing content: @error"
+msgstr ""
+
+msgid "Anonymize entity"
+msgstr "Anonymiser"
+
+#, fuzzy
+msgid "Area"
+msgstr ""
+
+msgid "Available statuses:"
+msgstr "Mulige statuser:"
+
+#, fuzzy
+msgid "Boy"
+msgstr ""
+
+msgid "CSV export of @title"
+msgstr "Eksportér"
+
+#, fuzzy
+msgid "Child info"
+msgstr ""
+
+#, fuzzy
+msgid "Child's birth date"
+msgstr ""
+
+#, fuzzy
+msgid "Child's grade"
+msgstr ""
+
+#, fuzzy
+msgid "Child's name"
+msgstr ""
+
+#, fuzzy
+msgid "Child's school"
+msgstr ""
+
+#, fuzzy
+msgid "Child's sex"
+msgstr ""
+
+#, fuzzy
+msgid "Club"
+msgstr ""
+
+#, fuzzy
+msgid "Club contact email"
+msgstr ""
+
+#, fuzzy
+msgid "Club contact name"
+msgstr ""
+
+#, fuzzy
+msgid "Club contact phone number"
+msgstr ""
+
+#, fuzzy
+msgid "Contact consent"
+msgstr ""
+
+#, fuzzy
+msgid "Data consent"
+msgstr ""
+
+#, fuzzy
+msgid "Error creating child from signup: @error"
+msgstr ""
+
+msgid "Finish course"
+msgstr "Afslut forløb"
+
+msgid "Finish date"
+msgstr "Afslutningsdato"
+
+#, fuzzy
+msgid ""
+"Found content very similar to this signup. Check to prevent "
+"duplicates: @matchtype - <a href=\"/node/@nid\">@name</a>"
+msgstr ""
+
+#, fuzzy
+msgid "Girl"
+msgstr ""
+
+#, fuzzy
+msgid "Give contact consent"
+msgstr ""
+
+msgid "Go to activities"
+msgstr "Til aktivitetsforløb"
+
+msgid "Go to journal"
+msgstr "Til dagbog"
+
+#, fuzzy
+msgid "Headline"
+msgstr ""
+
+#, fuzzy
+msgid "I am a referring a child on behalf of someone else."
+msgstr ""
+
+#, fuzzy
+msgid "I give permission to store and process my data"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"I hereby consent that ForeningsMentor International may contact me in "
+"order to find a leisure activity for my child, and that "
+"ForeningsMentor International may contact me at a later point in time "
+"to know whether my child is participating in the activity or whether "
+"we need help finding another activity."
+msgstr ""
+
+#, fuzzy
+msgid "Kind regards @site_name"
+msgstr ""
+
+#, fuzzy
+msgid "Mailto link for mail client"
+msgstr ""
+
+#, fuzzy
+msgid "Mentor"
+msgstr ""
+
+msgid "Mentor @name removed from the course due to A3 status."
+msgstr "Mentor @name blev fjernet fra forløbet som følge af A3 status."
+
+msgid "Mentor end status"
+msgstr "Mentorafslutning"
+
+msgid "Mentor end status description"
+msgstr "Mentorafslutning beskrivelse"
+
+#, fuzzy
+msgid "New signup"
+msgstr ""
+
+msgid "No journal entries."
+msgstr "Ingen indlæg"
+
+#, fuzzy
+msgid "Parent e-mail address"
+msgstr ""
+
+#, fuzzy
+msgid "Parent info"
+msgstr ""
+
+#, fuzzy
+msgid "Parent name"
+msgstr ""
+
+#, fuzzy
+msgid "Parent phone number"
+msgstr ""
+
+#, fuzzy
+msgid "Referer e-mail"
+msgstr ""
+
+#, fuzzy
+msgid "Referer name"
+msgstr ""
+
+#, fuzzy
+msgid "Referer phone number"
+msgstr ""
+
+#, fuzzy
+msgid "Show only to coordinators"
+msgstr ""
+
+#, fuzzy
+msgid "Sign up"
+msgstr ""
+
+msgid "Start date"
+msgstr "Startdato"
+
+#, fuzzy
+msgid "Submit"
+msgstr ""
+
+msgid "System message: Mentor removed."
+msgstr "Systembesked: Mentoren er fjernet"
+
+#, fuzzy
+msgid "Thank you for signing up. You will be contacted by @site_name shortly."
+msgstr ""
+
+msgid "The activity"
+msgstr "Aktivitetsforløbet"
+
+msgid "The activity headline"
+msgstr "Overskrift"
+
+msgid "The club where the activity is at"
+msgstr "Foreningen aktivitetsforløbet forgår i"
+
+msgid "The date for the end of the course."
+msgstr "Afslutningsdato for forløbet."
+
+msgid "The day the activity starts"
+msgstr "Dagen hvor aktivitetsforløb starter"
+
+msgid "The email of the contact in the club"
+msgstr "Email på kontakt i foreningen"
+
+msgid "The journal entry"
+msgstr "Indlæg"
+
+msgid "The journal entry headline"
+msgstr "Overskrift"
+
+#, fuzzy
+msgid "The mentor for the activity."
+msgstr ""
+
+#, fuzzy
+msgid "The mentor's end status for the course."
+msgstr ""
+
+msgid "The name of the contact in the club"
+msgstr "Kontakt i foreningen"
+
+#, fuzzy
+msgid "The phone number is too short. Please enter a full phone number."
+msgstr ""
+
+msgid "The phone number of the contact in the club"
+msgstr "Telefon på kontakt i foreningen"
+
+msgid "The reasons for the given end status."
+msgstr "Begrundelse for valgt mentorafslutning."
+
+#, fuzzy
+msgid "There is a new signup on @site_name in your area"
+msgstr ""
+
+#, fuzzy
+msgid "View all new signups from @area"
+msgstr ""
+
+#, fuzzy
+msgid "View signup"
+msgstr ""
+
+#, fuzzy
+msgid "Whether or not this entry should be hidden from mentors"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"Would you like to be signed up as mentor? Fill out the form below and "
+"we will contact you as soon as possible."
+msgstr ""
+
+msgid "Written by <strong>@author_name</strong> on @date"
+msgstr "Skrevet af <strong>@author_name </strong>, den @date"
+
+msgid "Written by @author_name on @date"
+msgstr "Skrevet af @author_name, den @date"
+
