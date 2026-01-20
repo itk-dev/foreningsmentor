@@ -29,7 +29,7 @@ jobs:
           docker network create frontend
           task compose -- up --detach
           task composer -- install
-          task code-analysis
+          task compose -- exec phpfpm vendor/bin/phpstan analyse --configuration=phpstan.neon
 
   load-fixtures:
     name: Load fixtures
