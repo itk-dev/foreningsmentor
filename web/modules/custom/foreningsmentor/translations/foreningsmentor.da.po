@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2026-01-20 08:31+0100\n"
-"PO-Revision-Date: 2026-01-20 08:31+0100\n"
+"POT-Creation-Date: 2026-01-20 09:21+0100\n"
+"PO-Revision-Date: 2026-01-20 09:21+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -16,17 +16,19 @@ msgstr ""
 msgid "-- Select action --"
 msgstr "-- Vælg handling --"
 
-#, fuzzy
 msgid ""
 "<small>Check this box if you are not the childs parent. This will "
 "allow you to provide the referer's contact information.</small>"
 msgstr ""
+"<small>Sæt kryds her, hvis du ikke er barnets forælder. Dette vil "
+"gøre det muligt for dig at angive henviserens kontaktoplysninger.</small>"
 
-#, fuzzy
 msgid ""
 "<small>Select the area where you live. If in doubt select city "
 "covering.</small>"
 msgstr ""
+"<small>Vælg det område, hvor du bor. Hvis du er i tvivl, vælg "
+"bydækkende.</small>"
 
 msgid "A1: Child is still active."
 msgstr "A1: Barnet er fortsat aktiv."
@@ -43,13 +45,11 @@ msgstr "A4: Status ukendt."
 msgid "Activities"
 msgstr "Aktivitetsforløb"
 
-#, fuzzy
 msgid "Activity"
-msgstr ""
+msgstr "Aktivitet"
 
-#, fuzzy
 msgid "Activity headline"
-msgstr ""
+msgstr "Overskrift på aktivitet"
 
 msgid "Add activity"
 msgstr "Tilføj aktivitetsforløb"
@@ -72,86 +72,68 @@ msgstr "Tilføj nyt dagbogsindlæg"
 msgid "Add parent"
 msgstr "Tilføj forælder"
 
-#, fuzzy
 msgid "Added @title"
-msgstr ""
+msgstr "Tilføjede @title"
 
-#, fuzzy
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
-#, fuzzy
 msgid "An error occurred while checking for existing content: @error"
-msgstr ""
+msgstr "Der opstod en fejl under kontrol for eksisterende indhold: @error"
 
 msgid "Anonymize entity"
 msgstr "Anonymiser"
 
-#, fuzzy
 msgid "Area"
-msgstr ""
+msgstr "Område"
 
 msgid "Available statuses:"
 msgstr "Mulige statuser:"
 
-#, fuzzy
 msgid "Boy"
-msgstr ""
+msgstr "Dreng"
 
 msgid "CSV export of @title"
 msgstr "Eksportér"
 
-#, fuzzy
 msgid "Child info"
-msgstr ""
+msgstr "Information om barnet"
 
-#, fuzzy
 msgid "Child's birth date"
-msgstr ""
+msgstr "Barnets fødselsdato"
 
-#, fuzzy
 msgid "Child's grade"
-msgstr ""
+msgstr "Barnets klassetrin"
 
-#, fuzzy
 msgid "Child's name"
-msgstr ""
+msgstr "Barnets navn"
 
-#, fuzzy
 msgid "Child's school"
-msgstr ""
+msgstr "Barnets skole"
 
-#, fuzzy
 msgid "Child's sex"
-msgstr ""
+msgstr "Barnets køn"
 
-#, fuzzy
 msgid "Club"
-msgstr ""
+msgstr "Forening"
 
-#, fuzzy
 msgid "Club contact email"
-msgstr ""
+msgstr "Foreningens kontakt-e-mail"
 
-#, fuzzy
 msgid "Club contact name"
-msgstr ""
+msgstr "Foreningens kontaktperson"
 
-#, fuzzy
 msgid "Club contact phone number"
-msgstr ""
+msgstr "Foreningens kontakt-telefonnummer"
 
-#, fuzzy
 msgid "Contact consent"
-msgstr ""
+msgstr "Samtykke til kontakt"
 
-#, fuzzy
 msgid "Data consent"
-msgstr ""
+msgstr "Samtykke til data"
 
-#, fuzzy
 msgid "Error creating child from signup: @error"
-msgstr ""
+msgstr "Fejl ved oprettelse af barn fra tilmelding: @error"
 
 msgid "Finish course"
 msgstr "Afslut forløb"
@@ -159,19 +141,18 @@ msgstr "Afslut forløb"
 msgid "Finish date"
 msgstr "Afslutningsdato"
 
-#, fuzzy
 msgid ""
 "Found content very similar to this signup. Check to prevent "
 "duplicates: @matchtype - <a href=\"/node/@nid\">@name</a>"
 msgstr ""
+"Fandt indhold der minder meget om denne tilmelding. Tjek for at undgå "
+"dubletter: @matchtype - <a href=\"/node/@nid\">@name</a>"
 
-#, fuzzy
 msgid "Girl"
-msgstr ""
+msgstr "Pige"
 
-#, fuzzy
 msgid "Give contact consent"
-msgstr ""
+msgstr "Giv samtykke til kontakt"
 
 msgid "Go to activities"
 msgstr "Til aktivitetsforløb"
@@ -179,19 +160,15 @@ msgstr "Til aktivitetsforløb"
 msgid "Go to journal"
 msgstr "Til dagbog"
 
-#, fuzzy
 msgid "Headline"
-msgstr ""
+msgstr "Overskrift"
 
-#, fuzzy
 msgid "I am a referring a child on behalf of someone else."
-msgstr ""
+msgstr "Jeg henviser et barn på vegne af en anden."
 
-#, fuzzy
 msgid "I give permission to store and process my data"
-msgstr ""
+msgstr "Jeg giver tilladelse til at gemme og behandle mine data"
 
-#, fuzzy
 msgid ""
 "I hereby consent that ForeningsMentor International may contact me in "
 "order to find a leisure activity for my child, and that "
@@ -199,18 +176,20 @@ msgid ""
 "to know whether my child is participating in the activity or whether "
 "we need help finding another activity."
 msgstr ""
+"Jeg giver hermed samtykke til, at ForeningsMentor International må kontakte "
+"mig med henblik på at finde en fritidsaktivitet til mit barn, og at "
+"ForeningsMentor International må kontakte mig på et senere tidspunkt for at "
+"få at vide, om mit barn deltager i aktiviteten, eller om vi har brug for hjælp "
+"til at finde en anden aktivitet."
 
-#, fuzzy
 msgid "Kind regards @site_name"
-msgstr ""
+msgstr "Med venlig hilsen @site_name"
 
-#, fuzzy
 msgid "Mailto link for mail client"
-msgstr ""
+msgstr "Mailto-link til e-mail-klient"
 
-#, fuzzy
 msgid "Mentor"
-msgstr ""
+msgstr "Mentor"
 
 msgid "Mentor @name removed from the course due to A3 status."
 msgstr "Mentor @name blev fjernet fra forløbet som følge af A3 status."
@@ -221,62 +200,50 @@ msgstr "Mentorafslutning"
 msgid "Mentor end status description"
 msgstr "Mentorafslutning beskrivelse"
 
-#, fuzzy
 msgid "New signup"
-msgstr ""
+msgstr "Ny tilmelding"
 
 msgid "No journal entries."
 msgstr "Ingen indlæg"
 
-#, fuzzy
 msgid "Parent e-mail address"
-msgstr ""
+msgstr "Forælders e-mailadresse"
 
-#, fuzzy
 msgid "Parent info"
-msgstr ""
+msgstr "Information om forælder"
 
-#, fuzzy
 msgid "Parent name"
-msgstr ""
+msgstr "Forælders navn"
 
-#, fuzzy
 msgid "Parent phone number"
-msgstr ""
+msgstr "Forælders telefonnummer"
 
-#, fuzzy
 msgid "Referer e-mail"
-msgstr ""
+msgstr "Henvisers e-mail"
 
-#, fuzzy
 msgid "Referer name"
-msgstr ""
+msgstr "Henvisers navn"
 
-#, fuzzy
 msgid "Referer phone number"
-msgstr ""
+msgstr "Henvisers telefonnummer"
 
-#, fuzzy
 msgid "Show only to coordinators"
-msgstr ""
+msgstr "Vis kun til koordinatorer"
 
-#, fuzzy
 msgid "Sign up"
-msgstr ""
+msgstr "Tilmeld"
 
 msgid "Start date"
 msgstr "Startdato"
 
-#, fuzzy
 msgid "Submit"
-msgstr ""
+msgstr "Indsend"
 
 msgid "System message: Mentor removed."
 msgstr "Systembesked: Mentoren er fjernet"
 
-#, fuzzy
 msgid "Thank you for signing up. You will be contacted by @site_name shortly."
-msgstr ""
+msgstr "Tak for din tilmelding. Du vil blive kontaktet af @site_name snarest."
 
 msgid "The activity"
 msgstr "Aktivitetsforløbet"
@@ -302,20 +269,17 @@ msgstr "Indlæg"
 msgid "The journal entry headline"
 msgstr "Overskrift"
 
-#, fuzzy
 msgid "The mentor for the activity."
-msgstr ""
+msgstr "Mentoren for aktiviteten."
 
-#, fuzzy
 msgid "The mentor's end status for the course."
-msgstr ""
+msgstr "Mentorens afslutningsstatus for forløbet."
 
 msgid "The name of the contact in the club"
 msgstr "Kontakt i foreningen"
 
-#, fuzzy
 msgid "The phone number is too short. Please enter a full phone number."
-msgstr ""
+msgstr "Telefonnummeret er for kort. Indtast venligst et fuldt telefonnummer."
 
 msgid "The phone number of the contact in the club"
 msgstr "Telefon på kontakt i foreningen"
@@ -323,31 +287,27 @@ msgstr "Telefon på kontakt i foreningen"
 msgid "The reasons for the given end status."
 msgstr "Begrundelse for valgt mentorafslutning."
 
-#, fuzzy
 msgid "There is a new signup on @site_name in your area"
-msgstr ""
+msgstr "Der er en ny tilmelding på @site_name i dit område"
 
-#, fuzzy
 msgid "View all new signups from @area"
-msgstr ""
+msgstr "Se alle nye tilmeldinger fra @area"
 
-#, fuzzy
 msgid "View signup"
-msgstr ""
+msgstr "Se tilmelding"
 
-#, fuzzy
 msgid "Whether or not this entry should be hidden from mentors"
-msgstr ""
+msgstr "Hvorvidt dette indlæg skal skjules for mentorer"
 
-#, fuzzy
 msgid ""
 "Would you like to be signed up as mentor? Fill out the form below and "
 "we will contact you as soon as possible."
 msgstr ""
+"Vil du gerne tilmeldes som mentor? Udfyld formularen herunder, og vi "
+"kontakter dig hurtigst muligt."
 
 msgid "Written by <strong>@author_name</strong> on @date"
 msgstr "Skrevet af <strong>@author_name </strong>, den @date"
 
 msgid "Written by @author_name on @date"
 msgstr "Skrevet af @author_name, den @date"
-

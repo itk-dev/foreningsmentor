@@ -7,7 +7,7 @@ libraries:
   - foreningsmentor_intra/global-styling
 
 interface translation project: foreningsmentor_intra
-interface translation server pattern: modules/custom/foreningsmentor/translations/foreningsmentor_intra.%language.po
+interface translation server pattern: themes/custom/foreningsmentor_intra/translations/foreningsmentor_intra.%language.po
 
 regions:
   header: "Header"
