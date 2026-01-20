@@ -3,11 +3,11 @@
 namespace Drupal\foreningsmentor_fixtures\Helper;
 
 use Drupal\Core\Entity\EntityStorageException;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ExtensionPathResolver;
 use Drupal\Core\File\FileExists;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\file\FileRepository;
-use Drupal\Core\File\FileSystem;
+use Drupal\file\FileRepositoryInterface;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
@@ -16,33 +16,9 @@ use Drupal\menu_link_content\Entity\MenuLinkContent;
 class Helper {
 
   /**
-   * The ExtensionPathResolver service.
-   *
-   * @var \Drupal\Core\Extension\ExtensionPathResolver
-   */
-  protected ExtensionPathResolver $pathResolver;
-
-  /**
-   * The FileRepository service.
-   *
-   * @var \Drupal\file\FileRepository
-   */
-  protected FileRepository $fileRepo;
-
-  /**
-   * The FileSystem service.
-   *
-   * @var \Drupal\Core\File\FileSystem
-   */
-  protected FileSystem $fileSystem;
-
-  /**
    * Constructor.
    */
-  public function __construct(ExtensionPathResolver $pathResolver, FileRepository $fileRepo, FileSystem $fileSystem) {
-    $this->pathResolver = $pathResolver;
-    $this->fileRepo = $fileRepo;
-    $this->fileSystem = $fileSystem;
+  public function __construct(protected ExtensionPathResolver $pathResolver, protected FileRepositoryInterface $fileRepo, protected \Drupal\Core\File\FileSystemInterface $fileSystem, protected EntityTypeManagerInterface $entityTypeManager) {
   }
 
   /**
