@@ -5,10 +5,14 @@ dependencies:
   config:
     - core.entity_form_mode.node.inlineform
     - field.field.node.child.field_activity_wishes
+    - field.field.node.child.field_anonymized
+    - field.field.node.child.field_association
     - field.field.node.child.field_birthday
     - field.field.node.child.field_comments
     - field.field.node.child.field_courses
     - field.field.node.child.field_date_registered
+    - field.field.node.child.field_family_subsidy
+    - field.field.node.child.field_family_subsidy_plus
     - field.field.node.child.field_neighborhood
     - field.field.node.child.field_parents
     - field.field.node.child.field_referer
@@ -149,8 +153,10 @@ content:
 hidden:
   created: true
   field_anonymized: true
+  field_association: true
   field_courses: true
   field_family_subsidy: true
+  field_family_subsidy_plus: true
   langcode: true
   path: true
   promote: true

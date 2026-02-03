@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.signup.field_neighborhood
     - field.field.node.signup.field_parent_name
     - field.field.node.signup.field_phone
+    - field.field.node.signup.field_postal_code
     - field.field.node.signup.field_referer
     - field.field.node.signup.field_referer_email
     - field.field.node.signup.field_referer_phone
@@ -51,6 +52,7 @@ third_party_settings:
       children:
         - field_parent_name
         - field_address
+        - field_postal_code
         - field_phone
         - field_email
         - field_existing_parent
@@ -121,7 +123,7 @@ content:
     third_party_settings: {  }
   field_email:
     type: email_default
-    weight: 11
+    weight: 12
     region: content
     settings:
       placeholder: ''
@@ -129,7 +131,7 @@ content:
     third_party_settings: {  }
   field_existing_parent:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -161,9 +163,17 @@ content:
     third_party_settings: {  }
   field_phone:
     type: telephone_default
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_postal_code:
+    type: string_textfield
     weight: 10
     region: content
     settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_referer:

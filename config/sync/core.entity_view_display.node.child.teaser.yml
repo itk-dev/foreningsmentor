@@ -4,6 +4,24 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.child.field_activity_wishes
+    - field.field.node.child.field_anonymized
+    - field.field.node.child.field_association
+    - field.field.node.child.field_birthday
+    - field.field.node.child.field_comments
+    - field.field.node.child.field_courses
+    - field.field.node.child.field_date_registered
+    - field.field.node.child.field_family_subsidy
+    - field.field.node.child.field_family_subsidy_plus
+    - field.field.node.child.field_neighborhood
+    - field.field.node.child.field_parents
+    - field.field.node.child.field_referer
+    - field.field.node.child.field_referer_email
+    - field.field.node.child.field_referer_phone
+    - field.field.node.child.field_school
+    - field.field.node.child.field_sex
+    - field.field.node.child.field_shool_class
+    - field.field.node.child.field_siblings
     - node.type.child
   module:
     - user
@@ -21,12 +39,14 @@ hidden:
   field_activity: true
   field_activity_wishes: true
   field_anonymized: true
+  field_association: true
   field_birthday: true
   field_comments: true
   field_courses: true
   field_date_registered: true
   field_diary: true
   field_family_subsidy: true
+  field_family_subsidy_plus: true
   field_is_mentored: true
   field_mentor: true
   field_neighborhood: true

@@ -39,6 +39,7 @@ class CreateFromSignup extends ControllerBase {
           'field_email' => $signup->field_email->value,
           'field_phone' => $signup->field_phone->value,
           'field_address' => $signup->field_address->getValue()[0],
+          'field_postal_code' => $signup->field_postal_code->getValue()[0],
         ]);
 
         $parent->save();

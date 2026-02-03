@@ -19,6 +19,8 @@ function foreningsmentor_intra_preprocess_page_title(&$variables) {
  * Implements template_preprocess_node().
  */
 function foreningsmentor_intra_preprocess_node(&$variables) {
+  // Disable caching for all content types.
+  $variables['#cache']['max-age'] = 0;
   if ($variables['node']->getType() == 'journal_entry') {
     $variables['author_name'] = $variables['node']->getOwner()->name->value;
   }

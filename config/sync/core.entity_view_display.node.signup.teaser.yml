@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.signup.field_neighborhood
     - field.field.node.signup.field_parent_name
     - field.field.node.signup.field_phone
+    - field.field.node.signup.field_postal_code
     - field.field.node.signup.field_referer
     - field.field.node.signup.field_referer_email
     - field.field.node.signup.field_referer_phone
@@ -44,6 +45,7 @@ hidden:
   field_neighborhood: true
   field_parent_name: true
   field_phone: true
+  field_postal_code: true
   field_referer: true
   field_referer_email: true
   field_referer_phone: true

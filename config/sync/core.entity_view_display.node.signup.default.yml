@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.signup.field_neighborhood
     - field.field.node.signup.field_parent_name
     - field.field.node.signup.field_phone
+    - field.field.node.signup.field_postal_code
     - field.field.node.signup.field_referer
     - field.field.node.signup.field_referer_email
     - field.field.node.signup.field_referer_phone
@@ -53,6 +54,7 @@ third_party_settings:
       children:
         - field_parent_name
         - field_address
+        - field_postal_code
         - field_email
         - field_phone
       label: Forælder
@@ -129,7 +131,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: content
   field_existing_parent:
     type: entity_reference_label
@@ -169,7 +171,15 @@ content:
     settings:
       title: ''
     third_party_settings: {  }
-    weight: 14
+    weight: 15
+    region: content
+  field_postal_code:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 13
     region: content
   field_referer:
     type: string
