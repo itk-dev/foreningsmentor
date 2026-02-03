@@ -280,7 +280,7 @@ final class SignUpForm extends FormBase {
     $form['wrapper']['other']['consent_contact'] = [
       '#prefix' => '<div class="mb-3 col-md-6"><h5>' . $this->t('Samtykke til kontakt // Contact consent') . '</h5><small class="d-block mb-3">' . $this->t(
         'Jeg giver hermed tilladelse til at ForeningsMentor må kontakte mig i forbindelse med tilmelding til ForeningsMentor, samt at ForeningsMentor må kontakte mig senere med henblik på opfølgning på foreningsdeltagelse og deltagelse i ForeningsMentor. Jeg giver også samtykke til at ForeningsMentor må videregive personoplysninger til Aarhus Kommune og til det fritidstilbud, hvor mit barn skal begynde. <br>//</br> I hereby consent that ForeningsMentor may contact me in order to find a leisure activity for my child, and that ForeningsMentor may contact me at a later point in time to know whether my child is participating in the activity or whether we need help finding another activity. I also consent to ForeningsMentor sharing personal data with the Aarhus Kommune and with the leisure activity where my child will begin.'
-        ) . '</small>',
+      ) . '</small>',
       '#suffix' => '</div>',
       '#description' => '',
       '#type' => 'checkbox',
@@ -291,7 +291,7 @@ final class SignUpForm extends FormBase {
     $form['wrapper']['other']['consent_data'] = [
       '#prefix' => '<div class="mb-3 col-md-12"><h5>' . $this->t('Samtykke til data // Data consent') . '</h5><small class="d-block mb-3">' . $this->t(
           'Når du henviser dit barn til Aarhus Kommune behandler og opbevarer Aarhus Kommune de indtastede personoplysninger med det formål at få barnet i gang med en fritidsaktivitet. Når du udfylder denne formular, giver du samtykke til at videregive personoplysningerne til Aarhus Kommune og til det fritidstilbud, hvor barnet skal begynde. <br>//</br> When you refer your child to Aarhus Municipality, Aarhus Municipality processes and stores the entered personal information for the purpose of getting the child started with a leisure activity. When you fill out this form, you consent to sharing the personal information with Aarhus Municipality and with the recreational facility where the child will start.'
-        ) . '</small>',
+      ) . '</small>',
       '#suffix' => '</div>',
       '#type' => 'checkbox',
       '#required' => TRUE,
@@ -329,13 +329,15 @@ final class SignUpForm extends FormBase {
   private function getAreaOptions() {
     try {
       $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('neighborhood', 0, NULL, TRUE);
-    } catch (InvalidPluginDefinitionException|PluginNotFoundException $e) {
+    }
+    catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
       return [];
     }
 
     $areaOptions = [];
-    // Limit areas to the desired list. The Taxonomy may hold additional terms for historical reasons.
-    // To remove old terms we would have to migrate data.
+    // Limit areas to the desired list. The Taxonomy may hold additional terms
+    // for historical reasons. To remove old terms we would have to migrate
+    // data.
     $allowedAreas = [
       'Tilst',
       'Gellerup',
