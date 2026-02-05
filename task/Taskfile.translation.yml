@@ -78,5 +78,3 @@ tasks:
               ref: .TRANSLATION_THEMES
     vars:
       EXTRACT_COMMAND: task drush -- drupal_translation_extractor:translation:extract --dump-messages --force --sort=asc --output '%source_dir/translations/%project.%language.po' --no-fill {{.CLI_ARGS}}
-      # EXTRACT_COMMAND: task drush -- drupal_translation_extractor:translation:extract --dump-messages --force --sort=asc --output '%source_dir/translations/%project.%language.po' {{.CLI_ARGS}}
-      # EXTRACT_COMMAND: task drush -- drupal_translation_extractor:translation:extract --dump-messages --force --sort=asc --output '%source_dir/translations/%project.%language.po' --fill-from-string-storage {{.CLI_ARGS}}

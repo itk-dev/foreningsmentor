@@ -1,0 +1,21 @@
+uuid: 0d86780d-6aca-4d6d-9c4c-7f65e143b0d9
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_hide
+    - taxonomy.vocabulary.neighborhood
+id: taxonomy_term.neighborhood.field_hide
+field_name: field_hide
+entity_type: taxonomy_term
+bundle: neighborhood
+label: 'Skjul indsatsområde'
+description: 'Skjul dette område fra visning på Tilmeldingsformularen'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
