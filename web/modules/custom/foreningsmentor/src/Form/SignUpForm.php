@@ -335,22 +335,10 @@ final class SignUpForm extends FormBase {
     }
 
     $areaOptions = [];
-    // Limit areas to the desired list. The Taxonomy may hold additional terms
-    // for historical reasons. To remove old terms we would have to migrate
-    // data.
-    $allowedAreas = [
-      'Tilst',
-      'Gellerup',
-      'Skovgårdsparken',
-      'Bispehaven',
-      'Trige',
-      'Vandtårnsområdet – Vorrevangen - Vejlby Vest',
-      'Bydækkende – resten af Aarhus',
-      'International',
-    ];
 
     foreach ($terms as $term) {
-      if (in_array($term->getName(), $allowedAreas)) {
+      // Check if the term has the field_hide field set to true.
+      if ($term->hasField('field_hide') && !$term->get('field_hide')->value) {
         $areaOptions[$term->id()] = $term->getName();
       }
     }
