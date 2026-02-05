@@ -1,0 +1,11 @@
+uuid: 8a81fbc9-c4db-436a-9184-71748a71bc6e
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.signup
+id: node.signup
+target_entity_type_id: node
+target_bundle: signup
+default_langcode: site_default
+language_alterable: false

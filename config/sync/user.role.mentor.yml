@@ -44,7 +44,6 @@ permissions:
   - 'view any page content'
   - 'view any parent content'
   - 'view field_activity'
-  - 'view field_activity_wishes'
   - 'view field_available_activities'
   - 'view field_child'
   - 'view field_club'

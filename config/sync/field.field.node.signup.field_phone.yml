@@ -1,0 +1,21 @@
+uuid: 7194dc3d-4fe8-4e2b-9f55-e0b2986bab88
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone
+    - node.type.signup
+  module:
+    - telephone
+id: node.signup.field_phone
+field_name: field_phone
+entity_type: node
+bundle: signup
+label: Tlf
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

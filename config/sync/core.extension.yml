@@ -16,6 +16,7 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  drupal_translation_extractor: 0
   dynamic_page_cache: 0
   eck: 0
   editor: 0
@@ -44,7 +45,6 @@ module:
   link: 0
   locale: 0
   mailer_transport: 0
-  memcache: 0
   menu_ui: 0
   mysql: 0
   node: 0

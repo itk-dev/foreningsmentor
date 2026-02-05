@@ -5,6 +5,10 @@ core_version_requirement: ^10 || ^11
 base theme: claro
 libraries:
   - foreningsmentor_intra/global-styling
+
+interface translation project: foreningsmentor_intra
+interface translation server pattern: themes/custom/foreningsmentor_intra/translations/foreningsmentor_intra.%language.po
+
 regions:
   header: "Header"
   pre_content: "Pre-content"

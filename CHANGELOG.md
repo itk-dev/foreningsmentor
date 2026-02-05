@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+* [PR-47](https://github.com/itk-dev/foreningsmentor/pull/47)
+  * Add signup entity.
+  * Add signup -> child/parent conversion
+  * Add additional mails to be send on signup.
+  * Add referer to signup form
+
 ## [1.7.3] 2026-01-13
 
 * [PR-45](https://github.com/itk-dev/foreningsmentor/pull/45)
