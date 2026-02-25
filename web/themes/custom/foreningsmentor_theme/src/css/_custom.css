@@ -107,3 +107,9 @@ body {
 .lead {
   font-family: var(--font-family-serif), serif;
 }
+
+.form-checkbox {
+  float: left;
+  margin-top: .3rem;
+  margin-right: .5em;
+}

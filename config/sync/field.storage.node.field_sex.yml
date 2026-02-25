@@ -17,6 +17,9 @@ settings:
     -
       value: Pige
       label: Pige
+    -
+      value: Andet
+      label: Andet
   allowed_values_function: ''
 module: options
 locked: false

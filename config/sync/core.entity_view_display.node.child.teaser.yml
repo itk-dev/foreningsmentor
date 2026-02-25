@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.child.field_referer
     - field.field.node.child.field_referer_email
     - field.field.node.child.field_referer_phone
+    - field.field.node.child.field_referer_work_place
     - field.field.node.child.field_school
     - field.field.node.child.field_sex
     - field.field.node.child.field_shool_class
@@ -54,6 +55,7 @@ hidden:
   field_referer: true
   field_referer_email: true
   field_referer_phone: true
+  field_referer_work_place: true
   field_school: true
   field_sex: true
   field_shool_class: true

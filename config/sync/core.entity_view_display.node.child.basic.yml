@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.child.field_referer
     - field.field.node.child.field_referer_email
     - field.field.node.child.field_referer_phone
+    - field.field.node.child.field_referer_work_place
     - field.field.node.child.field_school
     - field.field.node.child.field_sex
     - field.field.node.child.field_shool_class
@@ -175,6 +176,7 @@ content:
 hidden:
   field_anonymized: true
   field_courses: true
+  field_referer_work_place: true
   field_siblings: true
   langcode: true
   links: true
