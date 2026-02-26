@@ -155,7 +155,7 @@ final class SignUpForm extends FormBase {
       '#suffix' => '</div>',
       '#type' => 'checkbox',
       '#title' => $this->t('Jeg henviser et barn på vegne af en anden. // I am a referring a child on behalf of someone else.'),
-      '#description' => $this->t("<small>Jeg henviser et barn på vegne af en forælder (det kan være fagpersoner, der i kontakt med børn og forældre, der har brug for hjælp til at starte til en fritidsaktivitet. Med fagpersoner mener vi f.eks. sundhedsplejersker, lærere, boligsociale medarbejdere, sagsbehandlere m.fl.)</small>"),
+      '#description' => $this->t('<small>Jeg henviser et barn på vegne af en forælder (det kan være fagpersoner, der i kontakt med børn og forældre, der har brug for hjælp til at starte til en fritidsaktivitet. Med fagpersoner mener vi f.eks. sundhedsplejersker, lærere, boligsociale medarbejdere, sagsbehandlere m.fl.)</small>'),
     ];
 
     $form['wrapper']['referer'] = [
@@ -208,7 +208,6 @@ final class SignUpForm extends FormBase {
         ],
       ],
     ];
-
 
     $form['wrapper']['referer']['referer_work_place'] = [
       '#type' => 'textfield',

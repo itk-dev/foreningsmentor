@@ -113,8 +113,8 @@ body {
 .form-item-consent-referer {
   .form-checkbox {
     float: left;
-    margin-top: .3rem;
-    margin-right: .5em;
+    margin-top: 0.3rem;
+    margin-right: 0.5em;
   }
 
   label {
