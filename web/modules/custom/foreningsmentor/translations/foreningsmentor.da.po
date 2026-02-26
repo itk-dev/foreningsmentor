@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2026-02-03 10:47+0100\n"
-"PO-Revision-Date: 2026-02-03 10:47+0100\n"
+"POT-Creation-Date: 2026-02-26 10:57+0100\n"
+"PO-Revision-Date: 2026-02-26 10:57+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -38,26 +38,71 @@ msgstr ""
 "kontaktoplysninger.</small>"
 
 msgid ""
+"<small>Jeg bekræfter hermed, at jeg har talt med forældrene/værge "
+"om at videregive barnets oplysninger til ForeningsMentor i Aarhus "
+"Kommune og til det fritidstilbud, hvor barnet skal begynde til en "
+"fritidsaktivitet. <br>//<br>I hereby confirm that I have spoken with "
+"the parents/guardian about sharing the child’s information with "
+"ForeningsMentor in Aarhus Kommune and with the leisure activity "
+"provider where the child will begin a leisure activity.</small>"
+msgstr ""
+"<small>Jeg bekræfter hermed, at jeg har talt med forældrene/værge "
+"om at videregive barnets oplysninger til ForeningsMentor i Aarhus "
+"Kommune og til det fritidstilbud, hvor barnet skal begynde til en "
+"fritidsaktivitet. <br>//<br>I hereby confirm that I have spoken with "
+"the parents/guardian about sharing the child’s information with "
+"ForeningsMentor in Aarhus Kommune and with the leisure activity "
+"provider where the child will begin a leisure activity.</small>"
+
+msgid ""
+"<small>Jeg giver hermed tilladelse til at ForeningsMentor må kontakte "
+"mig i forbindelse med tilmelding til foreningsmentor, samt at "
+"ForeningsMentor må kontakte mig senere med henblik på opfølgning "
+"på foreningsdeltagelse og deltagelse i Foreningsmentor. <br>//</br>I "
+"hereby consent that ForeningsMentor International may contact me in "
+"order to find a leisure activity for my child, and that "
+"ForeningsMentor International may contact me at a later point in time "
+"to know whether my child is participating in the activity or whether "
+"we need help finding another activity.</small>"
+msgstr ""
+"<small>Jeg giver hermed tilladelse til at ForeningsMentor må kontakte "
+"mig i forbindelse med tilmelding til foreningsmentor, samt at "
+"ForeningsMentor må kontakte mig senere med henblik på opfølgning "
+"på foreningsdeltagelse og deltagelse i Foreningsmentor. <br>//</br>I "
+"hereby consent that ForeningsMentor International may contact me in "
+"order to find a leisure activity for my child, and that "
+"ForeningsMentor International may contact me at a later point in time "
+"to know whether my child is participating in the activity or whether "
+"we need help finding another activity.</small>"
+
+msgid ""
+"<small>Jeg henviser et barn på vegne af en forælder (det kan være "
+"fagpersoner, der i kontakt med børn og forældre, der har brug for "
+"hjælp til at starte til en fritidsaktivitet. Med fagpersoner mener vi "
+"f.eks. sundhedsplejersker, lærere, boligsociale medarbejdere, "
+"sagsbehandlere m.fl.)</small>"
+msgstr ""
+"<small>Jeg henviser et barn på vegne af en forælder (det kan være "
+"fagpersoner, der i kontakt med børn og forældre, der har brug for "
+"hjælp til at starte til en fritidsaktivitet. Med fagpersoner mener vi "
+"f.eks. sundhedsplejersker, lærere, boligsociale medarbejdere, "
+"sagsbehandlere m.fl.)</small>"
+
+msgid ""
 "<small>Select the area where you live. If in doubt select city "
 "covering.</small>"
 msgstr ""
 "<small>Vælg det område, hvor du bor. Hvis du er i tvivl, vælg "
 "bydækkende.</small>"
 
-#, fuzzy
-msgid ""
-"<small>Sæt kryds her, hvis du ikke er barnets forælder. Dette vil "
-"gøre det muligt for dig at angive henviserens kontaktoplysninger. "
-"</br>//<br> Check this box if you are not the childs parent. This will "
-"allow you to provide the referer's contact information.</small>"
-msgstr ""
-
-#, fuzzy
 msgid ""
 "<small>Vælg det område, hvor du bor. Hvis du er i tvivl, vælg "
 "bydækkende. // Select the area where you live. If in doubt select "
 "city covering.</small>"
 msgstr ""
+"<small>Vælg det område, hvor du bor. Hvis du er i tvivl, vælg "
+"bydækkende. // Select the area where you live. If in doubt select "
+"city covering.</small>"
 
 msgid "A1: Child is still active."
 msgstr "A1: Barnet er fortsat aktiv."
@@ -107,13 +152,8 @@ msgstr "Tilføjede @title"
 msgid "Address"
 msgstr "Adresse"
 
-#, fuzzy
 msgid "Adresse // Address"
-msgstr ""
-
-#, fuzzy
-msgid "Aktivitet // Activity"
-msgstr ""
+msgstr "Adresse // Address"
 
 msgid "An error occurred while checking for existing content: @error"
 msgstr "Der opstod en fejl under kontrol for eksisterende indhold: @error"
@@ -127,25 +167,20 @@ msgstr "Område"
 msgid "Available statuses:"
 msgstr "Mulige statuser:"
 
-#, fuzzy
 msgid "Barnets fødselsdato // Child's birth date"
-msgstr ""
+msgstr "Barnets fødselsdato // Child's birth date"
 
-#, fuzzy
 msgid "Barnets klassetrin // Child's grade"
-msgstr ""
+msgstr "Barnets klassetrin // Child's grade"
 
-#, fuzzy
 msgid "Barnets køn // Child's sex"
-msgstr ""
+msgstr "Barnets køn // Child's sex"
 
-#, fuzzy
 msgid "Barnets navn // Child's name"
-msgstr ""
+msgstr "Barnets navn // Child's name"
 
-#, fuzzy
 msgid "Barnets skole // Child's school"
-msgstr ""
+msgstr "Barnets skole // Child's school"
 
 msgid "Best regards The ForeningsMentor Team"
 msgstr "Med venlig hilsen ForeningsMentor holdet"
@@ -201,17 +236,14 @@ msgstr "Afslut forløb"
 msgid "Finish date"
 msgstr "Afslutningsdato"
 
-#, fuzzy
 msgid "Forælders e-mailadresse // Parent e-mail address"
-msgstr ""
+msgstr "Forælders e-mailadresse // Parent e-mail address"
 
-#, fuzzy
 msgid "Forælders navn // Parent name"
-msgstr ""
+msgstr "Forælders navn // Parent name"
 
-#, fuzzy
 msgid "Forælders telefonnummer // Parent phone number"
-msgstr ""
+msgstr "Forælders telefonnummer // Parent phone number"
 
 msgid ""
 "Found content very similar to this signup. Check to prevent "
@@ -222,10 +254,6 @@ msgstr ""
 
 msgid "Girl"
 msgstr "Pige"
-
-#, fuzzy
-msgid "Giv samtykke til kontakt // Give contact consent"
-msgstr ""
 
 msgid "Give contact consent"
 msgstr "Giv samtykke til kontakt"
@@ -259,42 +287,18 @@ msgstr ""
 "aktiviteten, eller om vi har brug for hjælp til at finde en anden "
 "aktivitet."
 
-#, fuzzy
 msgid "Information om barnet // Child information"
-msgstr ""
+msgstr "Information om barnet // Child information"
 
-#, fuzzy
 msgid "Information om forælder // Parent info"
-msgstr ""
+msgstr "Information om forælder // Parent info"
 
-#, fuzzy
-msgid ""
-"Jeg giver hermed tilladelse til at ForeningsMentor må kontakte mig i "
-"forbindelse med tilmelding til ForeningsMentor, samt at "
-"ForeningsMentor må kontakte mig senere med henblik på opfølgning "
-"på foreningsdeltagelse og deltagelse i ForeningsMentor. Jeg giver "
-"også samtykke til at ForeningsMentor må videregive personoplysninger "
-"til Aarhus Kommune og til det fritidstilbud, hvor mit barn skal "
-"begynde. <br>//</br> I hereby consent that ForeningsMentor may contact "
-"me in order to find a leisure activity for my child, and that "
-"ForeningsMentor may contact me at a later point in time to know "
-"whether my child is participating in the activity or whether we need "
-"help finding another activity. I also consent to ForeningsMentor "
-"sharing personal data with the Aarhus Kommune and with the leisure "
-"activity where my child will begin."
-msgstr ""
-
-#, fuzzy
-msgid ""
-"Jeg giver tilladelse til at gemme og behandle mine data // I give "
-"permission to store and process my data"
-msgstr ""
-
-#, fuzzy
 msgid ""
 "Jeg henviser et barn på vegne af en anden. // I am a referring a "
 "child on behalf of someone else."
 msgstr ""
+"Jeg henviser et barn på vegne af en anden. // I am a referring a "
+"child on behalf of someone else."
 
 msgid "Kind regards @site_name"
 msgstr "Med venlig hilsen @site_name"
@@ -320,37 +324,36 @@ msgstr "Ny tilmelding"
 msgid "No journal entries."
 msgstr "Ingen indlæg"
 
-#, fuzzy
 msgid ""
-"Når du henviser dit barn til Aarhus Kommune behandler og opbevarer "
-"Aarhus Kommune de indtastede personoplysninger med det formål at få "
-"barnet i gang med en fritidsaktivitet. Når du udfylder denne "
-"formular, giver du samtykke til at videregive personoplysningerne til "
-"Aarhus Kommune og til det fritidstilbud, hvor barnet skal begynde. "
-"<br>//</br> When you refer your child to Aarhus Municipality, Aarhus "
-"Municipality processes and stores the entered personal information for "
-"the purpose of getting the child started with a leisure activity. When "
-"you fill out this form, you consent to sharing the personal "
-"information with Aarhus Municipality and with the recreational "
-"facility where the child will start."
-msgstr ""
-
-#, fuzzy
-msgid ""
-"Når du tilmelder dig, behandler vi de personoplysninger, du "
+"Når du tilmelder dit barn, behandler vi de personoplysninger, du "
 "indtaster, for at kunne håndtere din tilmelding og kommunikere med "
 "dig. Vi behandler dine oplysninger fortroligt og i overensstemmelse "
-"med gældende databeskyttelseslovgivning. Du kan læse mere her: "
-"[link]. </br>//</br> When you register, we process the personal "
+"med gældende databeskyttelseslovgivning. Du kan læse mere her: <a "
+"href=\"/brug-af-personoplysninger\">Brug af personoplysninger</a>. "
+"</br>//</br> When you register your child, we process the personal "
 "information you enter in order to handle your registration and "
 "communicate with you. We process your information confidentially and "
 "in accordance with applicable data protection legislation. You can "
-"read more here: [link]."
+"read more here: <a href=\"/brug-af-personoplysninger\">Use of personal "
+"data</a>."
 msgstr ""
+"Når du tilmelder dit barn, behandler vi de personoplysninger, du "
+"indtaster, for at kunne håndtere din tilmelding og kommunikere med "
+"dig. Vi behandler dine oplysninger fortroligt og i overensstemmelse "
+"med gældende databeskyttelseslovgivning. Du kan læse mere her: <a "
+"href=\"/brug-af-personoplysninger\">Brug af personoplysninger</a>. "
+"</br>//</br> When you register your child, we process the personal "
+"information you enter in order to handle your registration and "
+"communicate with you. We process your information confidentially and "
+"in accordance with applicable data protection legislation. You can "
+"read more here: <a href=\"/brug-af-personoplysninger\">Use of personal "
+"data</a>."
 
-#, fuzzy
 msgid "Område // Area"
-msgstr ""
+msgstr "Område // Area"
+
+msgid "Other"
+msgstr "Andet"
 
 msgid "Parent e-mail address"
 msgstr "Forælders e-mailadresse"
@@ -364,9 +367,8 @@ msgstr "Forælders navn"
 msgid "Parent phone number"
 msgstr "Forælders telefonnummer"
 
-#, fuzzy
 msgid "Postnr // Postal code"
-msgstr ""
+msgstr "Postnr // Postal code"
 
 msgid "Referer e-mail"
 msgstr "Henvisers e-mail"
@@ -377,13 +379,8 @@ msgstr "Henvisers navn"
 msgid "Referer phone number"
 msgstr "Henvisers telefonnummer"
 
-#, fuzzy
-msgid "Samtykke til data // Data consent"
-msgstr ""
-
-#, fuzzy
-msgid "Samtykke til kontakt // Contact consent"
-msgstr ""
+msgid "Referer work place"
+msgstr "Henviser arbejdssted"
 
 msgid "Show only to coordinators"
 msgstr "Vis kun til koordinatorer"
@@ -448,9 +445,8 @@ msgstr "Begrundelse for valgt mentorafslutning."
 msgid "There is a new signup on @site_name in your area"
 msgstr "Der er en ny tilmelding på @site_name i dit område"
 
-#, fuzzy
 msgid "Tilmeld // Signup"
-msgstr ""
+msgstr "Tilmeld // Signup"
 
 msgid "View all new signups from @area"
 msgstr "Se alle nye tilmeldinger fra @area"
@@ -473,4 +469,7 @@ msgstr "Skrevet af <strong>@author_name </strong>, den @date"
 
 msgid "Written by @author_name on @date"
 msgstr "Skrevet af @author_name, den @date"
+
+msgid "Ønsker til aktivitet // Activity wishes"
+msgstr "Ønsker til aktivitet // Activity wishes"
 

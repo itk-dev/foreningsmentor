@@ -108,8 +108,16 @@ body {
   font-family: var(--font-family-serif), serif;
 }
 
-.form-checkbox {
-  float: left;
-  margin-top: .3rem;
-  margin-right: .5em;
+.form-item-referer-check,
+.form-item-consent-parent,
+.form-item-consent-referer {
+  .form-checkbox {
+    float: left;
+    margin-top: .3rem;
+    margin-right: .5em;
+  }
+
+  label {
+    display: block;
+  }
 }
