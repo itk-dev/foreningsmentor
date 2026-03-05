@@ -127,7 +127,7 @@ final class SignUpForm extends FormBase {
       '#type' => 'textfield',
       '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t("Barnets skole // Child's school"),
+      '#title' => $this->t("Barnets skole/børnehave // Child's school/childcare"),
     ];
     $form['wrapper']['child']['grade'] = [
       '#type' => 'select',
@@ -145,7 +145,6 @@ final class SignUpForm extends FormBase {
         '10. klasse' => '10. klasse',
         'Andet' => 'Andet',
       ],
-      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t("Barnets klassetrin // Child's grade"),
     ];

@@ -2202,7 +2202,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Skole
+          label: Skole/Børnehave
           exclude: false
           alter:
             alter_text: false
@@ -2261,7 +2261,7 @@ display:
           id: field_association
           table: node__field_association
           field: field_association
-          relationship: none
+          relationship: field_child
           group_type: group
           admin_label: ''
           plugin_id: field
