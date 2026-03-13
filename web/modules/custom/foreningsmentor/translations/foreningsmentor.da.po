@@ -380,7 +380,7 @@ msgid "Referer phone number"
 msgstr "Henvisers telefonnummer"
 
 msgid "Referer work place"
-msgstr "Henviser arbejdssted"
+msgstr "Henvisers arbejdssted"
 
 msgid "Show only to coordinators"
 msgstr "Vis kun til koordinatorer"

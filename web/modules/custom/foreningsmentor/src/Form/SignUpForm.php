@@ -153,8 +153,8 @@ final class SignUpForm extends FormBase {
       '#prefix' => '<div class="border-bottom mb-3 pb-3">',
       '#suffix' => '</div>',
       '#type' => 'checkbox',
-      '#title' => $this->t('Jeg henviser et barn på vegne af en anden. // I am a referring a child on behalf of someone else.'),
-      '#description' => $this->t('<small>Jeg henviser et barn på vegne af en forælder (det kan være fagpersoner, der i kontakt med børn og forældre, der har brug for hjælp til at starte til en fritidsaktivitet. Med fagpersoner mener vi f.eks. sundhedsplejersker, lærere, boligsociale medarbejdere, sagsbehandlere m.fl.)</small>'),
+      '#title' => $this->t('Jeg henviser et barn på vegne af en anden. // I am referring a child on behalf of someone else.'),
+      '#description' => $this->t('<small>Jeg bekræfter hermed, at jeg har talt med forældrene/værge om at videregive barnets oplysninger til ForeningsMentor i Aarhus Kommune og til det fritidstilbud, hvor barnet skal begynde til en fritidsaktivitet. // I hereby confirm that I have spoken with the parents/guardian about sharing the child’s information with ForeningsMentor in Aarhus Kommune and with the leisure activity provider where the child will begin a leisure activity. </small>'),
     ];
 
     $form['wrapper']['referer'] = [
@@ -167,12 +167,6 @@ final class SignUpForm extends FormBase {
           ':input[name="referer_check"]' => ['checked' => TRUE],
         ],
       ],
-    ];
-
-    $form['wrapper']['referer']['text'] = [
-      '#type' => 'html_tag',
-      '#tag' => 'p',
-      '#value' => $this->t("<small>Before filling out the form, you must obtain consent from the child's parents/guardians to share information with Aarhus Municipality and the recreational facility where the child will start a leisure activity. After that, you are ready to fill out the form.</small>"),
     ];
 
     $form['wrapper']['referer']['referer_name'] = [
@@ -288,43 +282,12 @@ final class SignUpForm extends FormBase {
       '#description' => $this->t('<small>Vælg det område, hvor du bor. Hvis du er i tvivl, vælg bydækkende. // Select the area where you live. If in doubt select city covering.</small>'),
     ];
 
-    $form['wrapper']['other']['consent_parent'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('<small>Jeg giver hermed tilladelse til at ForeningsMentor må kontakte mig i forbindelse med tilmelding til foreningsmentor, samt at ForeningsMentor må kontakte mig senere med henblik på opfølgning på foreningsdeltagelse og deltagelse i Foreningsmentor. <br>//</br>I hereby consent that ForeningsMentor International may contact me in order to find a leisure activity for my child, and that ForeningsMentor International may contact me at a later point in time to know whether my child is participating in the activity or whether we need help finding another activity.</small>'),
-      '#states' => [
-        'visible' => [
-          ':input[name="referer_check"]' => ['checked' => FALSE],
-        ],
-      ],
-    ];
-
-    $form['wrapper']['other']['consent_referer'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('<small>Jeg bekræfter hermed, at jeg har talt med forældrene/værge om at videregive barnets oplysninger til ForeningsMentor i Aarhus Kommune og til det fritidstilbud, hvor barnet skal begynde til en fritidsaktivitet. <br>//<br>I hereby confirm that I have spoken with the parents/guardian about sharing the child’s information with ForeningsMentor in Aarhus Kommune and with the leisure activity provider where the child will begin a leisure activity.</small>'),
-      '#states' => [
-        'visible' => [
-          ':input[name="referer_check"]' => ['checked' => TRUE],
-        ],
-      ],
-    ];
-
     $form['wrapper']['actions']['#type'] = 'actions';
     $form['wrapper']['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Sign up'),
       '#attributes' => ['class' => ['btn', 'btn-primary']],
-      '#button_type' => 'primary',
-      '#states' => [
-        'enabled' => [
-          [
-            ':input[name="consent_parent"]' => ['checked' => TRUE],
-          ],
-          'or',
-          [
-            ':input[name="consent_referer"]' => ['checked' => TRUE],
-          ],
-        ],
-      ],
+      '#button_type' => 'primary'
     ];
 
     \Drupal::service('honeypot')->addFormProtection($form, $form_state, ['honeypot', 'time_restriction']);
