@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.parent.field_children
     - field.field.node.parent.field_email
     - field.field.node.parent.field_phone
+    - field.field.node.parent.field_postal_code
     - node.type.parent
   module:
     - address_dawa
@@ -48,6 +49,14 @@ content:
     weight: 3
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_postal_code:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   title:

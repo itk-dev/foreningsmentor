@@ -1,0 +1,21 @@
+uuid: cfd02089-ee26-4ba7-8c12-cde795bfa62e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_referer_phone
+    - node.type.signup
+  module:
+    - telephone
+id: node.signup.field_referer_phone
+field_name: field_referer_phone
+entity_type: node
+bundle: signup
+label: 'Henviser tlf'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

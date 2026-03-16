@@ -1,0 +1,23 @@
+uuid: d491eec4-c827-4dc4-a574-fd2cf17f52e1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_family_subsidy_plus
+    - node.type.child
+id: node.child.field_family_subsidy_plus
+field_name: field_family_subsidy_plus
+entity_type: node
+bundle: child
+label: 'Familien har fritidsplads plus'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

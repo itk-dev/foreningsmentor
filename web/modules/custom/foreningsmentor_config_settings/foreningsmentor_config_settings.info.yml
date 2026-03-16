@@ -1,6 +1,6 @@
 name: foreningsmentor admin
 type: module
-description: 'Provides config settings and admin interface for foreningsmentoren'
+description: "Provides config settings and admin interface for foreningsmentoren"
 core: 8.x
 core_version_requirement: ^10 || ^11
 package: foreningsmentor

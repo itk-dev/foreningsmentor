@@ -1,16 +1,16 @@
 # --- Administration pages routing --- #
 foreningsmentor_general.settings:
-  path: '/admin/site-setup/general'
+  path: "/admin/site-setup/general"
   defaults:
     _form: '\Drupal\foreningsmentor_config_settings\Form\ItkGeneralSettingsForm'
-    _title: 'General'
+    _title: "General"
   requirements:
-    _permission: 'access itk admin settings'
+    _permission: "access itk admin settings"
 
 foreningsmentor.frontpage:
-  path: '/frontpage'
+  path: "/frontpage"
   defaults:
     _controller: '\Drupal\foreningsmentor_config_settings\Controller\PageController::frontPage'
-    _title: 'Frontpage'
+    _title: "Frontpage"
   requirements:
-    _permission: 'access content'
+    _permission: "access content"

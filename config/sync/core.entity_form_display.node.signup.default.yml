@@ -1,0 +1,243 @@
+uuid: bca8d322-83ae-4bf9-83e7-8323224bb6ce
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.signup.field_activity_wishes
+    - field.field.node.signup.field_address
+    - field.field.node.signup.field_archived
+    - field.field.node.signup.field_birthday
+    - field.field.node.signup.field_email
+    - field.field.node.signup.field_existing_parent
+    - field.field.node.signup.field_name
+    - field.field.node.signup.field_neighborhood
+    - field.field.node.signup.field_parent_name
+    - field.field.node.signup.field_phone
+    - field.field.node.signup.field_postal_code
+    - field.field.node.signup.field_referer
+    - field.field.node.signup.field_referer_email
+    - field.field.node.signup.field_referer_phone
+    - field.field.node.signup.field_school
+    - field.field.node.signup.field_sex
+    - field.field.node.signup.field_shool_class
+    - node.type.signup
+  module:
+    - address_dawa
+    - datetime
+    - field_group
+    - telephone
+third_party_settings:
+  field_group:
+    group_child:
+      children:
+        - field_name
+        - field_birthday
+        - field_sex
+        - field_school
+        - field_shool_class
+      label: Barn
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+    group_parent:
+      children:
+        - field_parent_name
+        - field_address
+        - field_postal_code
+        - field_phone
+        - field_email
+        - field_existing_parent
+      label: Forælder
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+    group_referer:
+      children:
+        - field_referer
+        - field_referer_phone
+        - field_referer_email
+      label: Henviser
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+id: node.signup.default
+targetEntityType: node
+bundle: signup
+mode: default
+content:
+  field_activity_wishes:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_address:
+    type: address_dawa
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_archived:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_birthday:
+    type: datetime_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_email:
+    type: email_default
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_existing_parent:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_neighborhood:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_parent_name:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_phone:
+    type: telephone_default
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_postal_code:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_referer:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_referer_email:
+    type: email_default
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_referer_phone:
+    type: telephone_default
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_school:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sex:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shool_class:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

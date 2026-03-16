@@ -1,7 +1,16 @@
 foreningsmentor.sign_up_form:
-  path: '/signup'
+  path: "/signup"
   defaults:
-    _title: 'Sign up form'
+    _title: "Sign up form"
     _form: '\Drupal\foreningsmentor\Form\SignUpForm'
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
+
+foreningsmentor.create_from_signup:
+  path: "/foreningsmentor/create-from-signup/{node}"
+  defaults:
+    _controller: '\Drupal\foreningsmentor\Controller\CreateFromSignup::add'
+    _title: "Create from signup"
+  requirements:
+    _permission: "access content" # Or a specific permission
+    node: \d+ # Ensures the parameter is a number

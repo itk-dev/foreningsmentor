@@ -56,7 +56,8 @@
     "require-dev": {
         "drupal/content_fixtures": "^3.2",
         "drupal/core-dev": "^10.1",
-        "ergebnis/composer-normalize": "^2.44"
+        "ergebnis/composer-normalize": "^2.44",
+        "itk-dev/drupal_translation_extractor": "^1.0"
     },
     "conflict": {
         "drupal/drupal": "*"

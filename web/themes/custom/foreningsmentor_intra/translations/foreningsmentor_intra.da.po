@@ -1,0 +1,64 @@
+# Danish translation of theme foreningsmentor_intra
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2026-02-03 08:12+0100\n"
+"PO-Revision-Date: 2026-02-03 08:12+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: da\n"
+
+msgid "Active activities"
+msgstr "Aktive aktiviteter"
+
+msgid "Activities"
+msgstr "Aktiviteter"
+
+msgid "Author"
+msgstr "Forfatter"
+
+msgid "CSV export of @title"
+msgstr "CSV-eksport af @title"
+
+msgid "Course"
+msgstr "Forløb"
+
+msgid "Create child in system"
+msgstr "Opret barn i systemet"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Go to activities"
+msgstr "Gå til aktiviteter"
+
+msgid "Go to journal"
+msgstr "Gå til journal"
+
+msgid "Journal"
+msgstr "Journal"
+
+msgid "No journal entries."
+msgstr "Ingen journalnotater."
+
+msgid "Submitted by @author_name on @date"
+msgstr "Indsendt af @author_name den @date"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Written by @author_name on @date"
+msgstr "Skrevet af @author_name den @date"
+
+msgctxt "signup"
+msgid "Parent"
+msgstr "Forælder"
+

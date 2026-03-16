@@ -1,0 +1,24 @@
+uuid: 485f0b29-b394-44f0-8672-568dcdf3969d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.neighborhood.field_hide
+    - taxonomy.vocabulary.neighborhood
+  module:
+    - text
+id: taxonomy_term.neighborhood.default
+targetEntityType: taxonomy_term
+bundle: neighborhood
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_hide: true
+  langcode: true
