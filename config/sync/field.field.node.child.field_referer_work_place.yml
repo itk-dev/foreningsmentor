@@ -1,15 +1,15 @@
-uuid: a0ca77d8-da1a-4085-8658-478e2bac0f4b
+uuid: 32ffa110-96f1-4d68-99ca-fdccce37f782
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_school
+    - field.storage.node.field_referer_work_place
     - node.type.child
-id: node.child.field_school
-field_name: field_school
+id: node.child.field_referer_work_place
+field_name: field_referer_work_place
 entity_type: node
 bundle: child
-label: Skole/børnehave
+label: 'Henvisers arbejdsted'
 description: ''
 required: false
 translatable: false

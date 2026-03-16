@@ -81,6 +81,7 @@ permissions:
   - 'create page content'
   - 'create parent content'
   - 'create referenced_content entities'
+  - 'create signup content'
   - 'create terms in activities'
   - 'create terms in membership_fee_subsidy_type'
   - 'create terms in neighborhood'

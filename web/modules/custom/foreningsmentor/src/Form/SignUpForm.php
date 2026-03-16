@@ -89,7 +89,7 @@ final class SignUpForm extends FormBase {
 
     $form['wrapper']['data_text'] = [
       '#type' => 'item',
-      '#markup' => '<div class="mt-3 mb-3 small">' . t('Når du tilmelder dig, behandler vi de personoplysninger, du indtaster, for at kunne håndtere din tilmelding og kommunikere med dig. Vi behandler dine oplysninger fortroligt og i overensstemmelse med gældende databeskyttelseslovgivning. Du kan læse mere her: [link]. </br>//</br> When you register, we process the personal information you enter in order to handle your registration and communicate with you. We process your information confidentially and in accordance with applicable data protection legislation. You can read more here: [link].') . '</div>',
+      '#markup' => '<div class="mt-3 mb-3 small">' . t('Når du tilmelder dit barn, behandler vi de personoplysninger, du indtaster, for at kunne håndtere din tilmelding og kommunikere med dig. Vi behandler dine oplysninger fortroligt og i overensstemmelse med gældende databeskyttelseslovgivning. Du kan læse mere her: <a href="/brug-af-personoplysninger">Brug af personoplysninger</a>. </br>//</br> When you register your child, we process the personal information you enter in order to handle your registration and communicate with you. We process your information confidentially and in accordance with applicable data protection legislation. You can read more here: <a href="/brug-af-personoplysninger">Use of personal data</a>.') . '</div>',
     ];
 
     $form['wrapper']['child'] = [
@@ -118,7 +118,7 @@ final class SignUpForm extends FormBase {
     ];
     $form['wrapper']['child']['sex'] = [
       '#type' => 'select',
-      '#options' => ['Dreng' => t('Boy'), 'Pige' => t('Girl')],
+      '#options' => ['Dreng' => t('Boy'), 'Pige' => t('Girl'), 'Andet' => t('Other')],
       '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t("Barnets køn // Child's sex"),
@@ -127,7 +127,7 @@ final class SignUpForm extends FormBase {
       '#type' => 'textfield',
       '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t("Barnets skole // Child's school"),
+      '#title' => $this->t("Barnets skole/børnehave // Child's school/childcare"),
     ];
     $form['wrapper']['child']['grade'] = [
       '#type' => 'select',
@@ -145,7 +145,6 @@ final class SignUpForm extends FormBase {
         '10. klasse' => '10. klasse',
         'Andet' => 'Andet',
       ],
-      '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t("Barnets klassetrin // Child's grade"),
     ];
@@ -154,8 +153,8 @@ final class SignUpForm extends FormBase {
       '#prefix' => '<div class="border-bottom mb-3 pb-3">',
       '#suffix' => '</div>',
       '#type' => 'checkbox',
-      '#title' => $this->t('Jeg henviser et barn på vegne af en anden. // I am a referring a child on behalf of someone else.'),
-      '#description' => $this->t("<small>Sæt kryds her, hvis du ikke er barnets forælder. Dette vil gøre det muligt for dig at angive henviserens kontaktoplysninger. </br>//<br> Check this box if you are not the childs parent. This will allow you to provide the referer's contact information.</small>"),
+      '#title' => $this->t('Jeg henviser et barn på vegne af en anden. // I am referring a child on behalf of someone else.'),
+      '#description' => $this->t('<small>Jeg bekræfter hermed, at jeg har talt med forældrene/værge om at videregive barnets oplysninger til ForeningsMentor i Aarhus Kommune og til det fritidstilbud, hvor barnet skal begynde til en fritidsaktivitet. // I hereby confirm that I have spoken with the parents/guardian about sharing the child’s information with ForeningsMentor in Aarhus Kommune and with the leisure activity provider where the child will begin a leisure activity. </small>'),
     ];
 
     $form['wrapper']['referer'] = [
@@ -168,12 +167,6 @@ final class SignUpForm extends FormBase {
           ':input[name="referer_check"]' => ['checked' => TRUE],
         ],
       ],
-    ];
-
-    $form['wrapper']['referer']['text'] = [
-      '#type' => 'html_tag',
-      '#tag' => 'p',
-      '#value' => $this->t("<small>Before filling out the form, you must obtain consent from the child's parents/guardians to share information with Aarhus Municipality and the recreational facility where the child will start a leisure activity. After that, you are ready to fill out the form.</small>"),
     ];
 
     $form['wrapper']['referer']['referer_name'] = [
@@ -201,6 +194,17 @@ final class SignUpForm extends FormBase {
     $form['wrapper']['referer']['referer_phone'] = [
       '#type' => 'tel',
       '#title' => $this->t('Referer phone number'),
+      '#attributes' => ['class' => ['form-control', 'mb-3']],
+      '#states' => [
+        'required' => [
+          ':input[name="referer_check"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['wrapper']['referer']['referer_work_place'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Referer work place'),
       '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#states' => [
         'required' => [
@@ -265,7 +269,7 @@ final class SignUpForm extends FormBase {
       '#type' => 'textarea',
       '#required' => TRUE,
       '#attributes' => ['class' => ['form-control', 'mb-3']],
-      '#title' => $this->t('Aktivitet // Activity'),
+      '#title' => $this->t('Ønsker til aktivitet // Activity wishes'),
     ];
     $form['wrapper']['other']['area'] = [
       '#prefix' => '<div class="col-md-12">',
@@ -277,42 +281,13 @@ final class SignUpForm extends FormBase {
       '#options' => $this->getAreaOptions(),
       '#description' => $this->t('<small>Vælg det område, hvor du bor. Hvis du er i tvivl, vælg bydækkende. // Select the area where you live. If in doubt select city covering.</small>'),
     ];
-    $form['wrapper']['other']['consent_contact'] = [
-      '#prefix' => '<div class="mb-3 col-md-6"><h5>' . $this->t('Samtykke til kontakt // Contact consent') . '</h5><small class="d-block mb-3">' . $this->t(
-        'Jeg giver hermed tilladelse til at ForeningsMentor må kontakte mig i forbindelse med tilmelding til ForeningsMentor, samt at ForeningsMentor må kontakte mig senere med henblik på opfølgning på foreningsdeltagelse og deltagelse i ForeningsMentor. Jeg giver også samtykke til at ForeningsMentor må videregive personoplysninger til Aarhus Kommune og til det fritidstilbud, hvor mit barn skal begynde. <br>//</br> I hereby consent that ForeningsMentor may contact me in order to find a leisure activity for my child, and that ForeningsMentor may contact me at a later point in time to know whether my child is participating in the activity or whether we need help finding another activity. I also consent to ForeningsMentor sharing personal data with the Aarhus Kommune and with the leisure activity where my child will begin.'
-      ) . '</small>',
-      '#suffix' => '</div>',
-      '#description' => '',
-      '#type' => 'checkbox',
-      '#required' => TRUE,
-      '#title' => $this->t('Giv samtykke til kontakt // Give contact consent'),
-    ];
-
-    $form['wrapper']['other']['consent_data'] = [
-      '#prefix' => '<div class="mb-3 col-md-12"><h5>' . $this->t('Samtykke til data // Data consent') . '</h5><small class="d-block mb-3">' . $this->t(
-          'Når du henviser dit barn til Aarhus Kommune behandler og opbevarer Aarhus Kommune de indtastede personoplysninger med det formål at få barnet i gang med en fritidsaktivitet. Når du udfylder denne formular, giver du samtykke til at videregive personoplysningerne til Aarhus Kommune og til det fritidstilbud, hvor barnet skal begynde. <br>//</br> When you refer your child to Aarhus Municipality, Aarhus Municipality processes and stores the entered personal information for the purpose of getting the child started with a leisure activity. When you fill out this form, you consent to sharing the personal information with Aarhus Municipality and with the recreational facility where the child will start.'
-      ) . '</small>',
-      '#suffix' => '</div>',
-      '#type' => 'checkbox',
-      '#required' => TRUE,
-      '#title' => $this->t('Jeg giver tilladelse til at gemme og behandle mine data // I give permission to store and process my data'),
-    ];
 
     $form['wrapper']['actions']['#type'] = 'actions';
     $form['wrapper']['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Sign up'),
       '#attributes' => ['class' => ['btn', 'btn-primary']],
-      '#button_type' => 'primary',
-      '#states' => [
-        'enabled' => [
-          [
-            ':input[name="consent_contact"]' => ['checked' => TRUE],
-            'or' => 'or',
-            ':input[name="consent_data"]' => ['checked' => TRUE],
-          ],
-        ],
-      ],
+      '#button_type' => 'primary'
     ];
 
     \Drupal::service('honeypot')->addFormProtection($form, $form_state, ['honeypot', 'time_restriction']);
@@ -394,6 +369,7 @@ final class SignUpForm extends FormBase {
       'field_referer' => $params['form_values']['referer_name'],
       'field_referer_phone' => $params['form_values']['referer_phone'],
       'field_referer_email' => $params['form_values']['referer_mail'],
+      'field_referer_work_place' => $params['form_values']['referer_work_place'],
       'field_activity_wishes' => $params['form_values']['activity'],
       'field_neighborhood' => $area,
       'field_archived' => FALSE,

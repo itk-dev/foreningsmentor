@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.child.field_referer
     - field.field.node.child.field_referer_email
     - field.field.node.child.field_referer_phone
+    - field.field.node.child.field_referer_work_place
     - field.field.node.child.field_school
     - field.field.node.child.field_sex
     - field.field.node.child.field_shool_class
@@ -70,7 +71,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 15
+    weight: 16
     region: content
   field_date_registered:
     type: datetime_default
@@ -89,7 +90,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 16
+    weight: 17
     region: content
   field_family_subsidy_plus:
     type: boolean
@@ -99,7 +100,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 17
+    weight: 18
     region: content
   field_neighborhood:
     type: entity_reference_label
@@ -107,7 +108,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 14
+    weight: 15
     region: content
   field_parents:
     type: entity_reference_label
@@ -115,7 +116,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: content
   field_referer:
     type: string
@@ -139,6 +140,14 @@ content:
       title: ''
     third_party_settings: {  }
     weight: 10
+    region: content
+  field_referer_work_place:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
     region: content
   field_school:
     type: string
@@ -168,7 +177,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 13
     region: content
   links:
     settings: {  }
