@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.1] - 2026-04-17
+
 * [PR-49](https://github.com/itk-dev/foreningsmentor/pull/49)
   * Security update
 
@@ -130,7 +132,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First version
 
-[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.7.2...HEAD
+[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.8.1...HEAD
+[1.8.1]: https://github.com/itk-dev/foreningsmentor/compare/1.7.0...1.8.1
 [1.7.0]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.7.0
 [1.6.2]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.2
 [1.6.1]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.1
