@@ -287,7 +287,7 @@ final class SignUpForm extends FormBase {
       '#type' => 'submit',
       '#value' => $this->t('Sign up'),
       '#attributes' => ['class' => ['btn', 'btn-primary']],
-      '#button_type' => 'primary'
+      '#button_type' => 'primary',
     ];
 
     \Drupal::service('honeypot')->addFormProtection($form, $form_state, ['honeypot', 'time_restriction']);
