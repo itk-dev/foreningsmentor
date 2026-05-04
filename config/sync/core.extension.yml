@@ -73,6 +73,7 @@ module:
   web_accessibility_statement: 0
   menu_link_content: 1
   pathauto: 1
+  views_string_aggregation: 1
   views: 10
   minimal: 1000
 theme:

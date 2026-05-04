@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a15116ec82f6c0d200212fae3033d6b",
+    "content-hash": "b7c4122687c077fd5361da16324fe795",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3957,6 +3957,50 @@
             "homepage": "https://www.drupal.org/project/views_data_export",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_data_export"
+            }
+        },
+        {
+            "name": "drupal/views_string_aggregation",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_string_aggregation.git",
+                "reference": "1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_string_aggregation-1.0.2.zip",
+                "reference": "1.0.2",
+                "shasum": "e093a5b85b6f8764ff6145a1e905f5895d7c270a"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.2",
+                    "datestamp": "1758429565",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "davidwhthomas",
+                    "homepage": "https://www.drupal.org/user/151344"
+                }
+            ],
+            "description": "Provides Views database specific SQL level string aggregation support.",
+            "homepage": "https://www.drupal.org/project/views_string_aggregation",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_string_aggregation"
             }
         },
         {
@@ -15601,5 +15645,5 @@
         "php": "^8.3.0"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
