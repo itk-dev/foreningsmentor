@@ -46,6 +46,7 @@
         "drupal/views_add_button": "dev-3489089-drupal-11-upgrade#9db1327078097c88e4ceb41a1a67da0c7f796bf6",
         "drupal/views_bulk_operations": "^4.2",
         "drupal/views_data_export": "^1.0",
+        "drupal/views_string_aggregation": "^1.0",
         "drush/drush": "^13",
         "furf/jquery-ui-touch-punch": "dev-master",
         "itk-dev/itk_siteimprove": "^1.4",
