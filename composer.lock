@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0da24c9ae065fdca2ba3044486a8eaad",
+    "content-hash": "af0c2ce7fa6257f53d44445585b1bdfd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2033,17 +2033,17 @@
         },
         {
             "name": "drupal/eck",
-            "version": "2.1.0-beta1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eck.git",
-                "reference": "2.1.0-beta1"
+                "reference": "2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eck-2.1.0-beta1.zip",
-                "reference": "2.1.0-beta1",
-                "shasum": "700121bd34e08b3cdfc1fdc4d73f1b8901e1c868"
+                "url": "https://ftp.drupal.org/files/projects/eck-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "0ba56e3844114624b48cb31bd0027447c6a39e64"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10 || ^11"
@@ -2051,11 +2051,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.0-beta1",
-                    "datestamp": "1735231585",
+                    "version": "2.1.0",
+                    "datestamp": "1773924025",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -15584,7 +15584,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/cer": 10,
-        "drupal/eck": 10,
         "drupal/node_view_permissions": 20,
         "drupal/views_add_button": 20,
         "furf/jquery-ui-touch-punch": 20
