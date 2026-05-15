@@ -3328,6 +3328,7 @@ display:
         page_1: page_1
         default: '0'
       filename: forlob.csv
+      export_filesystem: public
     cache_metadata:
       max-age: -1
       contexts:
