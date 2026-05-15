@@ -43,7 +43,7 @@
         "drupal/redirect": "^1.6",
         "drupal/symfony_mailer": "^1.4",
         "drupal/upgrade_status": "^4.0",
-        "drupal/views_add_button": "^2.0",
+        "drupal/views_add_button": "^2.0.9-beta",
         "drupal/views_bulk_operations": "^4.2",
         "drupal/views_data_export": "^1.0",
         "drupal/views_string_aggregation": "^1.0",
@@ -66,10 +66,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://packages.drupal.org/8",
-            "exclude": [
-                "drupal/views_add_button"
-            ]
+            "url": "https://packages.drupal.org/8"
         },
         {
             "type": "package",
@@ -82,10 +79,6 @@
                     "url": "https://github.com/furf/jquery-ui-touch-punch/archive/refs/heads/master.zip"
                 }
             }
-        },
-        {
-            "type": "git",
-            "url": "https://git.drupalcode.org/issue/views_add_button-3489089.git"
         }
     ],
     "minimum-stability": "dev",
