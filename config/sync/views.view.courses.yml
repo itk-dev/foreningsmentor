@@ -895,6 +895,8 @@ display:
               secondary_label: 'Avancerede indstillinger'
               text_input_required: 'Vælg et filter og klik på Anvend for at se resultater'
               text_input_required_format: basic_html
+              autosubmit_breakpoint: ''
+              auto_submit_sort_only: false
             filter:
               title:
                 plugin_id: default
@@ -908,6 +910,10 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_neighborhood_target_id:
                 plugin_id: default
                 advanced:
@@ -920,6 +926,10 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_activity_type_target_id:
                 plugin_id: default
                 advanced:
@@ -932,6 +942,10 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_mentors_end_status_target_id:
                 plugin_id: default
                 advanced:
@@ -944,6 +958,10 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_coordinators_end_status_target_id:
                 plugin_id: default
                 advanced:
@@ -956,6 +974,10 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_date_start_value:
                 plugin_id: bef_datepicker
                 advanced:
@@ -968,6 +990,10 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
               field_date_start_value_1:
                 plugin_id: bef_datepicker
                 advanced:
@@ -980,6 +1006,10 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
                   hide_label: false
+                  field_classes: ''
+                  open_by_default: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
       access:
         type: role
         options:
