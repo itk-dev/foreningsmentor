@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 * Updated bundles and applied templates.
+* Cleaned up composer requirements and patches.
 
 ## [1.8.3] 2026-05-04
 
