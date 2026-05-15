@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af0c2ce7fa6257f53d44445585b1bdfd",
+    "content-hash": "80f12a68e1eed421229eb08ed76d3b98",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3724,14 +3724,14 @@
         },
         {
             "name": "drupal/views_add_button",
-            "version": "dev-3489089-drupal-11-upgrade",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/issue/views_add_button-3489089.git",
-                "reference": "9db1327078097c88e4ceb41a1a67da0c7f796bf6"
+                "reference": "fc5ccd031e4660add5b2f31ec46f7a07a78c7fac"
             },
             "require": {
-                "drupal/token": "^1.15"
+                "drupal/token": "~1.5"
             },
             "type": "drupal-module",
             "license": [
@@ -3742,7 +3742,7 @@
             "support": {
                 "issues": "https://www.drupal.org/project/issues/search/views_add_button"
             },
-            "time": "2024-11-26T03:25:40+00:00"
+            "time": "2023-07-18T13:11:46+00:00"
         },
         {
             "name": "drupal/views_bulk_operations",
@@ -15585,7 +15585,6 @@
     "stability-flags": {
         "drupal/cer": 10,
         "drupal/node_view_permissions": 20,
-        "drupal/views_add_button": 20,
         "furf/jquery-ui-touch-punch": 20
     },
     "prefer-stable": true,
