@@ -142,11 +142,7 @@
         "patcher": {
             "force-reset": true
         },
-        "patches": {
-            "drupal/core": {
-                "Add an Autowire trait for plugins (https://www.drupal.org/project/drupal/issues/3294266)": "https://www.drupal.org/files/issues/2023-08-18/3294266-24.patch"
-            }
-        }
+        "patches": {}
     },
     "scripts": {
         "pre-install-cmd": [
