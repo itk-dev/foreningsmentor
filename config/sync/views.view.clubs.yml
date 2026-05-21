@@ -20,6 +20,7 @@ dependencies:
     - user
     - views_add_button
     - views_data_export
+    - views_string_aggregation
 id: clubs
 label: Foreninger
 module: views
@@ -968,6 +969,7 @@ display:
         page_1: page_1
         default: '0'
       filename: foreninger.csv
+      export_filesystem: public
     cache_metadata:
       max-age: -1
       contexts:

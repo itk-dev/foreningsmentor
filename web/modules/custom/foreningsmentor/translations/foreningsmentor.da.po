@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2026-04-17 12:26+0200\n"
-"PO-Revision-Date: 2026-04-17 12:26+0200\n"
+"POT-Creation-Date: 2026-05-15 10:52+0200\n"
+"PO-Revision-Date: 2026-05-15 10:52+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -244,8 +244,14 @@ msgstr "Foreningens kontakt-telefonnummer"
 msgid "Contact consent"
 msgstr "Samtykke til kontakt"
 
+msgid "Copy failed."
+msgstr "Kopiering fejlede."
+
 msgid "Data consent"
 msgstr "Samtykke til data"
+
+msgid "Email addresses copied to clipboard."
+msgstr "Emailadresser kopieret til udklipsholder."
 
 msgid "Error creating child from signup: @error"
 msgstr "Fejl ved oprettelse af barn fra tilmelding: @error"
@@ -499,3 +505,4 @@ msgstr "Skrevet af @author_name, den @date"
 
 msgid "Ønsker til aktivitet // Activity wishes"
 msgstr "Ønsker til aktivitet // Activity wishes"
+

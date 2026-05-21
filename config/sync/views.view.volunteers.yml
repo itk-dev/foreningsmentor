@@ -23,6 +23,7 @@ dependencies:
     - views_add_button
     - views_bulk_operations
     - views_data_export
+    - views_string_aggregation
 id: volunteers
 label: Frivillige
 module: views
@@ -95,6 +96,8 @@ display:
           buttons: false
           action_title: Handling
           clear_on_exposed: false
+          show_multipage_selection_box: default
+          show_select_all: default
           selected_actions:
             -
               action_id: foreningsmentor_anonymize
@@ -1369,6 +1372,7 @@ display:
         page_1: page_1
         default: '0'
       filename: frivillige.csv
+      export_filesystem: public
     cache_metadata:
       max-age: -1
       contexts:
