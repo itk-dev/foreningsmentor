@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [Unreleased]
+
+## [1.8.4] 2026-05-21
 
 * Updated bundles and applied templates.
 * Cleaned up composer requirements and patches.
@@ -17,8 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.8.2] 2026-05-04
 
 * Fixed bug in views export
-
-## [Unreleased]
 
 ## [1.8.1] - 2026-04-17
 
@@ -145,12 +145,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First version
 
-[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.8.1...HEAD
+[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.8.4...HEAD
+[1.8.4]: https://github.com/itk-dev/foreningsmentor/compare/1.8.3...1.8.4
+[1.8.3]: https://github.com/itk-dev/foreningsmentor/compare/1.8.2...1.8.3
+[1.8.2]: https://github.com/itk-dev/foreningsmentor/compare/1.8.1...1.8.2
 [1.8.1]: https://github.com/itk-dev/foreningsmentor/compare/1.7.0...1.8.1
+[1.8.0]: https://github.com/itk-dev/foreningsmentor/compare/1.7.3...1.8.0
+[1.7.3]: https://github.com/itk-dev/foreningsmentor/compare/1.7.2...1.7.3
+[1.7.2]: https://github.com/itk-dev/foreningsmentor/compare/1.7.0...1.7.2
 [1.7.0]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.7.0
 [1.6.2]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.2
 [1.6.1]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.1
-[1.6.0]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.0
+[1.6.0]: https://github.com/itk-dev/foreningsmentor/compare/1.5.1...1.6.0
+[1.5.1]: https://github.com/itk-dev/foreningsmentor/compare/1.5.0...1.5.1
 [1.5.0]: https://github.com/itk-dev/foreningsmentor/compare/1.4.0...1.5.0
 [1.4.0]: https://github.com/itk-dev/foreningsmentor/compare/1.3.1...1.4.0
 [1.3.1]: https://github.com/itk-dev/foreningsmentor/compare/1.3.0...1.3.1
