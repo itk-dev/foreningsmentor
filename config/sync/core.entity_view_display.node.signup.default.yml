@@ -101,7 +101,7 @@ content:
     weight: 3
     region: content
   field_address:
-    type: address_adressevaelger
+    type: address_adressevaelger_clean
     label: above
     settings: {  }
     third_party_settings: {  }

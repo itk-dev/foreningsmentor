@@ -12,10 +12,8 @@ that the custom-forked `address_dawa` module provided.
 - A widget that renders a textfield with an Adressevælger-powered
   autocomplete; on selection it populates hidden inputs so the
   structured columns are saved alongside the raw text.
-- Two formatters:
-  - `address_adressevaelger` — wraps `value` in `<p class="dawa-address">`.
-  - `address_adressevaelger_clean` — outputs `value` in a bare
-    `<span translate="no">`.
+- A formatter (`address_adressevaelger_clean`) that outputs `value` wrapped
+  in `<span translate="no">`.
 - A settings form at `/admin/config/services/adressevaelger` for the API
   token.
 

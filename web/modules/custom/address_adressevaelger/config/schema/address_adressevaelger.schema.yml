@@ -62,12 +62,7 @@ field.widget.settings.address_adressevaelger:
       type: label
       label: 'Placeholder text'
 
-field.formatter.settings.address_adressevaelger:
-  type: mapping
-  label: 'Adressevælger formatter settings'
-  mapping: {}
-
 field.formatter.settings.address_adressevaelger_clean:
   type: mapping
-  label: 'Adressevælger clean formatter settings'
+  label: 'Adressevælger formatter settings'
   mapping: {}

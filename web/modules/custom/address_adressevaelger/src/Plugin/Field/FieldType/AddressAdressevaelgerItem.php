@@ -19,7 +19,7 @@ use Drupal\address_adressevaelger\AddressAdressevaelgerItemInterface;
  *   label = @Translation("Address (Adressevælger)"),
  *   description = @Translation("Stores a Danish address resolved via Klimadatastyrelsen Adressevælger."),
  *   default_widget = "address_adressevaelger",
- *   default_formatter = "address_adressevaelger",
+ *   default_formatter = "address_adressevaelger_clean",
  *   constraints = {"AddressAdressevaelger" = {}}
  * )
  */
