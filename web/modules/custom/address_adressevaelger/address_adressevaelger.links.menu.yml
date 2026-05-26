@@ -1,5 +1,5 @@
 address_adressevaelger.settings:
-  title: 'Adressevælger'
-  description: 'Configure the Adressevælger API token.'
+  title: "Adressevælger"
+  description: "Configure the Adressevælger API token."
   parent: system.admin_config_services
   route_name: address_adressevaelger.settings
