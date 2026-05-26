@@ -6,61 +6,72 @@
   'use strict';
 
   /**
-   * Look up the first matching hidden input within the widget wrapper.
+   * Write a value into every matching element in the scope. Targets both the
+   * widget's hidden inputs (inside .address-adressevaelger-widget) AND any
+   * sibling fields tagged via hook_form_alter on the same form.
    */
-  function pickInput(wrapper, className) {
-    if (!wrapper) {
-      return null;
+  function writeAll(scope, className, value) {
+    if (!scope) {
+      return;
     }
-    return wrapper.querySelector('.' + className);
+    var v = value === undefined || value === null ? '' : String(value);
+    scope.querySelectorAll('.' + className).forEach(function (el) {
+      el.value = v;
+    });
   }
 
   /**
-   * Best-effort extraction of structured fields from an Adressevaelger record.
-   * The upstream response shape isn't strictly versioned, so try several
-   * known paths and fall through to empty.
+   * Whether at least one element in the scope is non-empty.
+   */
+  function anyHasValue(scope, className) {
+    if (!scope) {
+      return false;
+    }
+    var els = scope.querySelectorAll('.' + className);
+    for (var i = 0; i < els.length; i++) {
+      if (els[i].value) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Extract structured fields from an Adressevaelger /adresser/{id} or
+   * /husnumre/{id} response. Both responses wrap the address-detail object
+   * one or two levels deep; normalize to a single shape first.
    */
   function extract(record) {
     if (!record) {
       return {};
     }
-    var vejnavn = record.vejnavn
-      || record.vej && record.vej.navn
-      || record.adgangsadresse && record.adgangsadresse.vejstykke && record.adgangsadresse.vejstykke.navn
+    var adresse = record.adresse || null;
+    var husnummer = (adresse && adresse.husnummer) || record.husnummer || null;
+    var id = (adresse && adresse.id_lokalid)
+      || (husnummer && husnummer.id_lokalid)
+      || record.id
       || '';
-    var husnr = record.husnummer
-      || record.husnr
-      || record.adgangsadresse && record.adgangsadresse.husnr
+    var text = (adresse && adresse.adressebetegnelse)
+      || (husnummer && husnummer.adgangsadressebetegnelse)
+      || record.titel
       || '';
-    var postal = (record.postnummer && record.postnummer.nr)
-      || (record.adgangsadresse && record.adgangsadresse.postnummer && record.adgangsadresse.postnummer.nr)
-      || '';
-    var city = (record.postnummer && record.postnummer.navn)
-      || (record.adgangsadresse && record.adgangsadresse.postnummer && record.adgangsadresse.postnummer.navn)
-      || '';
-
-    var lat = '', lng = '';
-    var wgs = record.adgangspunkt && (record.adgangspunkt.koordinater_wgs84 || record.adgangspunkt.koordinaterWGS84);
-    if (Array.isArray(wgs) && wgs.length >= 2) {
-      lng = wgs[0];
-      lat = wgs[1];
-    }
-    if (!lat && record.position) {
-      lng = record.position.x !== undefined ? record.position.x : (record.position[0] || '');
-      lat = record.position.y !== undefined ? record.position.y : (record.position[1] || '');
-    }
-
+    var vejnavn = (husnummer && husnummer.vejnavn) || '';
+    var husnr = (husnummer && husnummer.husnummertekst) || '';
     var street = [vejnavn, husnr].filter(Boolean).join(' ').trim();
-    var text = record.tekst || record.betegnelse || record.adressebetegnelse || '';
-
+    var postnummer = husnummer && husnummer.postnummer;
+    var postal = (postnummer && postnummer.postnr) || '';
+    var city = (postnummer && postnummer.navn) || '';
+    // Coordinates from adressevaelger are EPSG:25832 (UTM). We don't convert
+    // to WGS84 here — leave lat/lng blank for new rows. (Legacy DAWA rows
+    // keep their WGS84 values from before the migration.)
     return {
-      id: record.id || '',
+      id: id,
       text: text,
       street: street,
       postal_code: postal,
       city: city,
-      lat: lat === undefined || lat === null ? '' : String(lat),
-      lng: lng === undefined || lng === null ? '' : String(lng)
+      lat: '',
+      lng: ''
     };
   }
 
@@ -86,50 +97,41 @@
       wrapper.appendChild(input);
     }
 
-    var widget = input.closest('.address-adressevaelger-widget')
-      || input.closest('fieldset')
-      || input.parentNode;
+    // Broadcast updates to every matching element in the enclosing form.
+    // That hits the widget's hidden inputs *and* any sibling fields that
+    // hook_form_alter has tagged (e.g. a separate `field_postal_code`).
+    var scope = input.closest('form') || input.parentNode;
 
     adressevaelger.adressevaelger(input, {
       token: token,
       select: function (selected) {
         var data = extract(selected);
         input.value = data.text || input.value;
-        var assign = function (cls, value) {
-          var el = pickInput(widget, cls);
-          if (el) {
-            el.value = value || '';
-          }
-        };
-        assign('js-adressevaelger-id', data.id);
-        assign('js-adressevaelger-street', data.street);
-        assign('js-adressevaelger-postal-code', data.postal_code);
-        assign('js-adressevaelger-city', data.city);
-        assign('js-adressevaelger-lat', data.lat);
-        assign('js-adressevaelger-lng', data.lng);
-        var dataField = pickInput(widget, 'js-adressevaelger-data');
-        if (dataField) {
-          try {
-            dataField.value = JSON.stringify(selected);
-          } catch (e) {
-            dataField.value = '';
-          }
-        }
+        writeAll(scope, 'js-adressevaelger-id', data.id);
+        writeAll(scope, 'js-adressevaelger-street', data.street);
+        writeAll(scope, 'js-adressevaelger-postal-code', data.postal_code);
+        writeAll(scope, 'js-adressevaelger-city', data.city);
+        writeAll(scope, 'js-adressevaelger-lat', data.lat);
+        writeAll(scope, 'js-adressevaelger-lng', data.lng);
+        var dataJson = '';
+        try { dataJson = JSON.stringify(selected); } catch (e) { dataJson = ''; }
+        writeAll(scope, 'js-adressevaelger-data', dataJson);
       }
     });
 
-    // Clear structured fields if the user edits the text manually after
-    // selecting — otherwise stale ids/coords stick around.
+    // If the address widget owns a hidden id input and that id is populated
+    // (i.e. an address was previously resolved here), wipe the structured
+    // fields when the user edits the address text — keeping stale ids/
+    // coordinates would be misleading. On forms without a hidden id input
+    // (e.g. /signup), this is a no-op and the user's manually-typed postal
+    // code survives.
     input.addEventListener('input', function () {
-      var idField = pickInput(widget, 'js-adressevaelger-id');
-      if (idField && idField.value) {
-        ['id', 'street', 'postal-code', 'city', 'lat', 'lng', 'data'].forEach(function (cls) {
-          var el = pickInput(widget, 'js-adressevaelger-' + cls);
-          if (el) {
-            el.value = '';
-          }
-        });
+      if (!anyHasValue(scope, 'js-adressevaelger-id')) {
+        return;
       }
+      ['id', 'street', 'postal-code', 'city', 'lat', 'lng', 'data'].forEach(function (suffix) {
+        writeAll(scope, 'js-adressevaelger-' + suffix, '');
+      });
     });
   }
 

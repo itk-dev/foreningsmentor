@@ -11,6 +11,11 @@ declare(strict_types=1);
  * Implements hook_field_info_alter().
  */
 function address_adressevaelger_field_info_alter(array &$info): void {
+  // Hide the deprecated `address_dawa` field type from the "Add field" UI so
+  // admins can't pick it for new bundles. The plugin class is left loaded
+  // because the address_dawa module is kept installed for one release cycle
+  // after this migration; once it's uninstalled in the follow-up PR, this
+  // alter becomes a no-op and can be removed.
   if (isset($info['address_dawa'])) {
     $info['address_dawa']['no_ui'] = TRUE;
   }

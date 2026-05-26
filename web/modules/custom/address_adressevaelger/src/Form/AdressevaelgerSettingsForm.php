@@ -37,8 +37,8 @@ class AdressevaelgerSettingsForm extends ConfigFormBase {
     $form['api_token'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Adressevælger API token'),
-      '#description' => $this->t('Token issued by Klimadatastyrelsen for the Adressevælger service. Override per environment via settings.local.php if you prefer not to commit it.'),
-      '#default_value' => (string) $config->get('api_token'),
+      '#description' => $this->t('Token issued by Klimadatastyrelsen for the Adressevælger service. Falls back to the public default <code>adressevaelger123</code> if blank. Override per environment via settings.local.php if you prefer not to commit a real token.'),
+      '#default_value' => $config->get('api_token') ?? 'adressevaelger123',
       '#size' => 80,
     ];
 

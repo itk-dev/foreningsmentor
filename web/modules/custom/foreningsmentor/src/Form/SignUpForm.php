@@ -254,15 +254,21 @@ final class SignUpForm extends FormBase {
       '#suffix' => '</p></div>',
       '#type' => 'textfield',
       '#required' => TRUE,
-      '#attributes' => ['class' => ['form-control', 'mb-3']],
+      '#attributes' => [
+        'class' => ['form-control', 'mb-3', 'js-adressevaelger-element'],
+        'autocomplete' => 'off',
+      ],
       '#title' => $this->t('Adresse // Address'),
     ];
     $form['wrapper']['other']['postal_code'] = [
       '#type' => 'textfield',
       '#required' => TRUE,
-      '#attributes' => ['class' => ['form-control', 'mb-3']],
+      '#attributes' => ['class' => ['form-control', 'mb-3', 'js-adressevaelger-postal-code']],
       '#title' => $this->t('Postnr // Postal code'),
     ];
+    $form['#attached']['library'][] = 'address_adressevaelger/adressevaelger';
+    $form['#attached']['drupalSettings']['adressevaelger']['token'] =
+      (string) ($this->configFactory()->get('address_adressevaelger.settings')->get('api_token') ?? '');
     $form['wrapper']['other']['activity'] = [
       '#prefix' => '<div class="col-md-12">',
       '#suffix' => '</div>',

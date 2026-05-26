@@ -145,6 +145,20 @@ function foreningsmentor_form_alter(&$form, &$form_state, $form_id): void {
     $form['#attached']['library'][] = 'foreningsmentor/course_form';
   }
 
+  // Tag the standalone `field_postal_code` textfield on node bundles where
+  // the Adressevælger address widget also lives, so the JS behavior writes
+  // the resolved postnummer into it.
+  $tag_postal_code_forms = [
+    'node_parent_form',
+    'node_parent_edit_form',
+    'node_signup_form',
+    'node_signup_edit_form',
+  ];
+  if (in_array($form_id, $tag_postal_code_forms, TRUE)
+    && isset($form['field_postal_code']['widget'][0]['value']['#attributes'])) {
+    $form['field_postal_code']['widget'][0]['value']['#attributes']['class'][] = 'js-adressevaelger-postal-code';
+  }
+
   switch ($form_id) {
     case 'user_form':
       $currentUser = \Drupal::currentUser();
