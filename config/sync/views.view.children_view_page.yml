@@ -100,6 +100,8 @@ display:
           buttons: false
           action_title: Handling
           clear_on_exposed: false
+          show_multipage_selection_box: default
+          show_select_all: default
           selected_actions:
             -
               action_id: foreningsmentor_anonymize
@@ -109,8 +111,6 @@ display:
               action_id: foreningsmentor_get_mail_action
               preconfiguration:
                 label_override: 'Hent mailliste'
-          show_multipage_selection_box: default
-          show_select_all: default
         title:
           id: title
           table: node_field_data
@@ -1755,6 +1755,8 @@ display:
           buttons: false
           action_title: Handling
           clear_on_exposed: false
+          show_multipage_selection_box: default
+          show_select_all: default
           selected_actions:
             -
               action_id: foreningsmentor_anonymize
@@ -1764,8 +1766,6 @@ display:
               action_id: foreningsmentor_get_mail_action
               preconfiguration:
                 label_override: 'Hent mailliste'
-          show_multipage_selection_box: default
-          show_select_all: default
         title:
           id: title
           table: node_field_data
