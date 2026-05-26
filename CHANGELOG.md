@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+* [PR-54](https://github.com/itk-dev/foreningsmentor/pull/54)
+  * Replaced the deprecated DAWA address integration with Klimadatastyrelsen
+    Adressevælger.
+  * Added a new `address_adressevaelger` module providing a field type,
+    widget, formatters, settings form and a vendored Adressevælger JS bundle.
+  * Migrated `field_address` (node.club, node.parent, node.signup, user.user)
+    from `address_dawa` to `address_adressevaelger` in place via a SQL-only
+    `hook_install` migration; existing addresses preserved, new structured
+    columns (`street`, `postal_code`, `city`) added.
+  * Wired the address picker onto the public `/signup` form and the
+    parent/signup node edit forms so selecting an address auto-fills the
+    separate `field_postal_code` textfield.
+  * Kept the legacy `address_dawa` module installed and hidden from the
+    field-add UI; it will be uninstalled and removed in a follow-up PR.
+
 ## [1.8.4] 2026-05-21
 
 * Updated bundles and applied templates.
