@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.parent.field_postal_code
     - node.type.parent
   module:
-    - foreningsmentor
+    - address_adressevaelger
     - telephone
     - user
 id: node.parent.default
@@ -20,7 +20,7 @@ bundle: parent
 mode: default
 content:
   field_address:
-    type: address_dawa_clean
+    type: address_adressevaelger_clean
     label: above
     settings: {  }
     third_party_settings: {  }

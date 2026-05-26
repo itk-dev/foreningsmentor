@@ -1,0 +1,73 @@
+address_adressevaelger.settings:
+  type: config_object
+  label: 'Adressevælger settings'
+  mapping:
+    api_token:
+      type: string
+      label: 'Adressevælger API token'
+
+field.storage_settings.address_adressevaelger:
+  type: mapping
+  label: 'Adressevælger address field storage settings'
+  mapping: {}
+
+field.field_settings.address_adressevaelger:
+  type: mapping
+  label: 'Adressevælger address field settings'
+  mapping:
+    allow_non_unique_address:
+      type: boolean
+      label: 'Allow non-unique addresses'
+    allow_non_danish_address:
+      type: boolean
+      label: 'Allow non-Danish addresses'
+
+field.value.address_adressevaelger:
+  type: mapping
+  label: 'Default value'
+  mapping:
+    id:
+      type: string
+      label: 'Address UUID'
+    value:
+      type: string
+      label: 'Address text'
+    street:
+      type: string
+      label: 'Street'
+    postal_code:
+      type: string
+      label: 'Postal code'
+    city:
+      type: string
+      label: 'City'
+    lat:
+      type: float
+      label: 'Latitude'
+    lng:
+      type: float
+      label: 'Longitude'
+    data:
+      type: ignore
+      label: 'Raw payload'
+
+field.widget.settings.address_adressevaelger:
+  type: mapping
+  label: 'Adressevælger widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size of the address textfield'
+    placeholder:
+      type: label
+      label: 'Placeholder text'
+
+field.formatter.settings.address_adressevaelger:
+  type: mapping
+  label: 'Adressevælger formatter settings'
+  mapping: {}
+
+field.formatter.settings.address_adressevaelger_clean:
+  type: mapping
+  label: 'Adressevælger clean formatter settings'
+  mapping: {}

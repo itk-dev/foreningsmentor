@@ -1,0 +1,7 @@
+name: "Address Adressevælger"
+type: module
+description: "Address widget and formatters backed by Klimadatastyrelsen Adressevælger. Replaces the deprecated DAWA integration."
+core_version_requirement: ^10 || ^11
+package: "Foreningsmentor"
+dependencies:
+  - drupal:field

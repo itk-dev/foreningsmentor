@@ -16,6 +16,7 @@ dependencies:
     - taxonomy.vocabulary.neighborhood
     - user.role.coordinator
   module:
+    - address_adressevaelger
     - csv_serialization
     - datetime
     - foreningsmentor
@@ -413,7 +414,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: address_dawa_clean
+          type: address_adressevaelger_clean
           settings: {  }
           group_column: value
           group_columns: {  }
@@ -1617,7 +1618,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: address_dawa_clean
+          type: address_adressevaelger_clean
           settings: {  }
           group_column: value
           group_columns: {  }

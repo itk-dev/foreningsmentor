@@ -3,7 +3,7 @@ langcode: da
 status: true
 dependencies:
   module:
-    - address_dawa
+    - address_adressevaelger
     - field_permissions
     - user
 third_party_settings:
@@ -12,9 +12,9 @@ third_party_settings:
 id: user.field_address
 field_name: field_address
 entity_type: user
-type: address_dawa
+type: address_adressevaelger
 settings: {  }
-module: address_dawa
+module: address_adressevaelger
 locked: false
 cardinality: 1
 translatable: true

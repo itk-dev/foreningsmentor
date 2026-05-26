@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.club.field_phone
     - node.type.club
   module:
-    - foreningsmentor
+    - address_adressevaelger
     - link
     - telephone
     - user
@@ -20,7 +20,7 @@ bundle: club
 mode: default
 content:
   field_address:
-    type: address_dawa_clean
+    type: address_adressevaelger_clean
     label: above
     settings: {  }
     third_party_settings: {  }

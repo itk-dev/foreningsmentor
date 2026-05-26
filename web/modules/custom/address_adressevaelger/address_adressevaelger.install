@@ -1,0 +1,203 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for the address_adressevaelger module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Implements hook_install().
+ *
+ * Migrates `field_address` from address_dawa to address_adressevaelger when
+ * legacy DAWA storage is present. Idempotent: re-running on a clean install
+ * is a no-op.
+ */
+function address_adressevaelger_install(): void {
+  address_adressevaelger_migrate_field_address();
+}
+
+/**
+ * Migrate field_address from address_dawa to address_adressevaelger.
+ *
+ * Public function so it can also be invoked manually via drush after the
+ * module is already enabled (e.g. on a dev environment where hook_install
+ * already ran without the migration).
+ *
+ * The whole thing stays inside the database:
+ *   1. Snapshot each legacy field table into a *_dawa_backup table (DDL).
+ *   2. Delete the legacy FieldStorageConfig entities; force-purge so the
+ *      tables are dropped.
+ *   3. Create new FieldStorageConfig + FieldConfig entities of the new type.
+ *      Drupal creates the new (empty) tables with the new schema.
+ *   4. SQL-only INSERT … SELECT from each backup table into its new
+ *      counterpart, mapping the columns that still carry meaning.
+ *   5. Drop the backup tables.
+ *
+ * Safe to run on a fresh install (becomes a no-op since the legacy storage
+ * doesn't exist).
+ */
+function address_adressevaelger_migrate_field_address(): void {
+  $legacy = FieldStorageConfig::loadByName('node', 'field_address');
+  if (!$legacy || $legacy->getType() !== 'address_dawa') {
+    // Either no field_address (fresh install) or already migrated — no-op.
+    return;
+  }
+
+  $db = \Drupal::database();
+  $schema = $db->schema();
+  $tables = [
+    'node__field_address',
+    'node_revision__field_address',
+    'user__field_address',
+    'user_revision__field_address',
+  ];
+
+  // 1. Snapshot legacy tables.
+  foreach ($tables as $t) {
+    if (!$schema->tableExists($t)) {
+      continue;
+    }
+    $backup = $t . '_dawa_backup';
+    if ($schema->tableExists($backup)) {
+      $db->query("DROP TABLE {$backup}");
+    }
+    $db->query("CREATE TABLE {$backup} AS SELECT * FROM {$t}");
+  }
+
+  // 2. Delete legacy storages and purge.
+  foreach ([['node', 'field_address'], ['user', 'field_address']] as [$entity_type, $field_name]) {
+    $storage = FieldStorageConfig::loadByName($entity_type, $field_name);
+    if ($storage) {
+      $storage->delete();
+    }
+  }
+  $storage_repo = \Drupal::entityTypeManager()->getStorage('field_storage_config');
+  for ($i = 0; $i < 20; $i++) {
+    field_purge_batch(100);
+    if (empty($storage_repo->loadByProperties(['deleted' => TRUE]))) {
+      break;
+    }
+  }
+
+  // 3. Create new storages + per-bundle configs. UUIDs and settings match
+  //    the committed YAML in config/sync so a subsequent `drush cim` is a
+  //    no-op for these entities.
+  FieldStorageConfig::create([
+    'uuid' => '73c0a2d4-e5eb-48fc-aad0-9dee1bb4118f',
+    'field_name' => 'field_address',
+    'entity_type' => 'node',
+    'type' => 'address_adressevaelger',
+    'cardinality' => 1,
+    'translatable' => TRUE,
+  ])->save();
+  FieldStorageConfig::create([
+    'uuid' => '8b90e2fd-5183-4e9e-9997-902d811bf9e6',
+    'field_name' => 'field_address',
+    'entity_type' => 'user',
+    'type' => 'address_adressevaelger',
+    'cardinality' => 1,
+    'translatable' => TRUE,
+    'third_party_settings' => [
+      'field_permissions' => ['permission_type' => 'public'],
+    ],
+  ])->save();
+
+  $field_configs = [
+    [
+      'uuid' => '1bc0fe93-433d-41c5-9f21-1f71c6a97542',
+      'entity_type' => 'node',
+      'bundle' => 'club',
+      'label' => 'Adresse',
+      'translatable' => TRUE,
+    ],
+    [
+      'uuid' => '66bf63a5-8e08-4b41-b82c-ba93b5ff6663',
+      'entity_type' => 'node',
+      'bundle' => 'parent',
+      'label' => 'Adresse',
+      'translatable' => FALSE,
+    ],
+    [
+      'uuid' => 'ffd027a4-4f0f-43ee-833e-ac0d854d7eae',
+      'entity_type' => 'node',
+      'bundle' => 'signup',
+      'label' => 'Adresse',
+      'translatable' => FALSE,
+    ],
+    [
+      'uuid' => '38127b61-6f36-4162-a328-f3e9272ed888',
+      'entity_type' => 'user',
+      'bundle' => 'user',
+      'label' => 'Addresse',
+      'translatable' => FALSE,
+    ],
+  ];
+  foreach ($field_configs as $config) {
+    FieldConfig::create([
+      'uuid' => $config['uuid'],
+      'field_name' => 'field_address',
+      'entity_type' => $config['entity_type'],
+      'bundle' => $config['bundle'],
+      'label' => $config['label'],
+      'translatable' => $config['translatable'],
+      'settings' => [
+        'allow_non_unique_address' => TRUE,
+        'allow_non_danish_address' => TRUE,
+      ],
+    ])->save();
+  }
+
+  // 4. SQL-only copy from backup tables into the new tables.
+  $copy_pairs = [
+    'node__field_address' => 'node__field_address_dawa_backup',
+    'node_revision__field_address' => 'node_revision__field_address_dawa_backup',
+    'user__field_address' => 'user__field_address_dawa_backup',
+    'user_revision__field_address' => 'user_revision__field_address_dawa_backup',
+  ];
+  foreach ($copy_pairs as $dst => $src) {
+    if (!$schema->tableExists($src) || !$schema->tableExists($dst)) {
+      continue;
+    }
+    $db->query("
+      INSERT INTO {$dst} (
+        bundle,
+        deleted,
+        entity_id,
+        revision_id,
+        langcode,
+        delta,
+        field_address_id,
+        field_address_value,
+        field_address_lat,
+        field_address_lng,
+        field_address_data
+      )
+      SELECT
+        bundle,
+        deleted,
+        entity_id,
+        revision_id,
+        langcode,
+        delta,
+        field_address_id,
+        field_address_value,
+        field_address_lat,
+        field_address_lng,
+        field_address_data
+      FROM {$src}
+    ");
+  }
+
+  // 5. Drop backup tables.
+  foreach ($tables as $t) {
+    $backup = $t . '_dawa_backup';
+    if ($schema->tableExists($backup)) {
+      $db->query("DROP TABLE {$backup}");
+    }
+  }
+}

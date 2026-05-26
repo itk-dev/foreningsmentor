@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.user.field_address
   module:
-    - address_dawa
+    - address_adressevaelger
     - user
 id: user.user.field_address
 field_name: field_address
@@ -18,7 +18,6 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  address_type: adresse
   allow_non_unique_address: true
   allow_non_danish_address: true
-field_type: address_dawa
+field_type: address_adressevaelger

@@ -1,0 +1,12 @@
+adressevaelger:
+  version: 1.x
+  css:
+    component:
+      css/adressevaelger.css: {}
+  js:
+    js/adressevaelger.iife.js: { minified: true }
+    js/apply-adressevaelger.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupalSettings

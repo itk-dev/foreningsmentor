@@ -24,7 +24,7 @@ dependencies:
     - taxonomy.vocabulary.neighborhood
     - user.role.coordinator
   module:
-    - address_dawa
+    - address_adressevaelger
     - better_exposed_filters
     - csv_serialization
     - datetime
@@ -887,8 +887,6 @@ display:
           bef:
             general:
               autosubmit: false
-              auto_submit_sort_only: false
-              autosubmit_breakpoint: ''
               autosubmit_exclude_textfield: false
               autosubmit_textfield_minimum_length: 3
               autosubmit_hide: false
@@ -897,118 +895,120 @@ display:
               secondary_label: 'Avancerede indstillinger'
               text_input_required: 'Vælg et filter og klik på Anvend for at se resultater'
               text_input_required_format: basic_html
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
             filter:
               title:
                 plugin_id: default
                 advanced:
                   sort_options: false
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  open_by_default: false
                   is_secondary: false
                   hide_label: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  open_by_default: false
                   field_classes: ''
               field_neighborhood_target_id:
                 plugin_id: default
                 advanced:
                   sort_options: false
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  open_by_default: false
                   is_secondary: false
                   hide_label: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  open_by_default: false
                   field_classes: ''
               field_activity_type_target_id:
                 plugin_id: default
                 advanced:
                   sort_options: false
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  open_by_default: false
                   is_secondary: false
                   hide_label: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  open_by_default: false
                   field_classes: ''
               field_mentors_end_status_target_id:
                 plugin_id: default
                 advanced:
                   sort_options: false
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  open_by_default: false
                   is_secondary: false
                   hide_label: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  open_by_default: false
                   field_classes: ''
               field_coordinators_end_status_target_id:
                 plugin_id: default
                 advanced:
                   sort_options: false
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  open_by_default: false
                   is_secondary: false
                   hide_label: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  open_by_default: false
                   field_classes: ''
               field_date_start_value:
                 plugin_id: bef_datepicker
                 advanced:
                   sort_options: false
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  open_by_default: false
                   is_secondary: false
                   hide_label: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  open_by_default: false
                   field_classes: ''
               field_date_start_value_1:
                 plugin_id: bef_datepicker
                 advanced:
                   sort_options: false
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: true
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
-                  open_by_default: false
                   is_secondary: false
                   hide_label: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  open_by_default: false
                   field_classes: ''
       access:
         type: role
@@ -2649,7 +2649,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: address_dawa
+          type: address_adressevaelger
           settings: {  }
           group_column: value
           group_columns: {  }

@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Address Adressevælger module hooks.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_field_info_alter().
+ */
+function address_adressevaelger_field_info_alter(array &$info): void {
+  if (isset($info['address_dawa'])) {
+    $info['address_dawa']['no_ui'] = TRUE;
+  }
+}

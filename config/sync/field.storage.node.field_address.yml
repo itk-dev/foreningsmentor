@@ -3,14 +3,14 @@ langcode: da
 status: true
 dependencies:
   module:
-    - address_dawa
+    - address_adressevaelger
     - node
 id: node.field_address
 field_name: field_address
 entity_type: node
-type: address_dawa
+type: address_adressevaelger
 settings: {  }
-module: address_dawa
+module: address_adressevaelger
 locked: false
 cardinality: 1
 translatable: true

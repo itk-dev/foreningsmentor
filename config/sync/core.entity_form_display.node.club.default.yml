@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.club.field_phone
     - node.type.club
   module:
-    - address_dawa
+    - address_adressevaelger
     - link
     - path
     - telephone
@@ -26,7 +26,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_address:
-    type: address_dawa
+    type: address_adressevaelger
     weight: 123
     region: content
     settings:

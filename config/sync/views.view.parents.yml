@@ -9,6 +9,7 @@ dependencies:
     - node.type.parent
     - user.role.coordinator
   module:
+    - address_adressevaelger
     - csv_serialization
     - foreningsmentor
     - node
@@ -213,7 +214,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: address_dawa_clean
+          type: address_adressevaelger_clean
           settings: {  }
           group_column: value
           group_columns: {  }
@@ -778,7 +779,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: address_dawa_clean
+          type: address_adressevaelger_clean
           settings: {  }
           group_column: value
           group_columns: {  }

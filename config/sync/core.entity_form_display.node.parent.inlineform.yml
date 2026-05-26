@@ -12,7 +12,7 @@ dependencies:
     - field.field.node.parent.field_postal_code
     - node.type.parent
   module:
-    - address_dawa
+    - address_adressevaelger
     - telephone
 id: node.parent.inlineform
 targetEntityType: node
@@ -20,7 +20,7 @@ bundle: parent
 mode: inlineform
 content:
   field_address:
-    type: address_dawa
+    type: address_adressevaelger
     weight: 1
     region: content
     settings:

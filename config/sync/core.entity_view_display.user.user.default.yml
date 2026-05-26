@@ -17,8 +17,8 @@ dependencies:
     - field.field.user.user.field_start_interview
     - image.style.foreningsmentor_240x240
   module:
+    - address_adressevaelger
     - datetime
-    - foreningsmentor
     - image
     - options
     - telephone
@@ -37,7 +37,7 @@ content:
     weight: 3
     region: content
   field_address:
-    type: address_dawa_clean
+    type: address_adressevaelger_clean
     label: above
     settings: {  }
     third_party_settings: {  }

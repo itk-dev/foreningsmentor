@@ -4,7 +4,6 @@ status: false
 dependencies: {  }
 id: referenced_content
 label: Delindhold
-description: null
 uid: false
 created: false
 changed: false

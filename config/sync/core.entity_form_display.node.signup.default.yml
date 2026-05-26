@@ -22,7 +22,7 @@ dependencies:
     - field.field.node.signup.field_shool_class
     - node.type.signup
   module:
-    - address_dawa
+    - address_adressevaelger
     - datetime
     - field_group
     - telephone
@@ -101,7 +101,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_address:
-    type: address_dawa
+    type: address_adressevaelger
     weight: 9
     region: content
     settings:

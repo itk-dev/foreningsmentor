@@ -1,0 +1,7 @@
+address_adressevaelger.settings:
+  path: '/admin/config/services/adressevaelger'
+  defaults:
+    _form: '\Drupal\address_adressevaelger\Form\AdressevaelgerSettingsForm'
+    _title: 'Adressevælger settings'
+  requirements:
+    _permission: 'administer adressevaelger settings'

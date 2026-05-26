@@ -1,0 +1,4 @@
+administer adressevaelger settings:
+  title: 'Administer Adressevælger settings'
+  description: 'Configure the Adressevælger API token.'
+  restrict access: true
