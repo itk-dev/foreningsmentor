@@ -44,21 +44,21 @@
       return {};
     }
     const adresse = record.adresse || null;
-    const husnummer = (adresse && adresse.husnummer) || record.husnummer || null;
-    const id = (adresse && adresse.id_lokalid)
-      || (husnummer && husnummer.id_lokalid)
+    const husnummer = adresse?.husnummer || record.husnummer || null;
+    const id = adresse?.id_lokalid
+      || husnummer?.id_lokalid
       || record.id
       || '';
-    const text = (adresse && adresse.adressebetegnelse)
-      || (husnummer && husnummer.adgangsadressebetegnelse)
+    const text = adresse?.adressebetegnelse
+      || husnummer?.adgangsadressebetegnelse
       || record.titel
       || '';
-    const vejnavn = (husnummer && husnummer.vejnavn) || '';
-    const husnr = (husnummer && husnummer.husnummertekst) || '';
+    const vejnavn = husnummer?.vejnavn || '';
+    const husnr = husnummer?.husnummertekst || '';
     const street = [vejnavn, husnr].filter(Boolean).join(' ').trim();
-    const postnummer = husnummer && husnummer.postnummer;
-    const postal = (postnummer && postnummer.postnr) || '';
-    const city = (postnummer && postnummer.navn) || '';
+    const postnummer = husnummer?.postnummer;
+    const postal = postnummer?.postnr || '';
+    const city = postnummer?.navn || '';
     // Coordinates from adressevaelger are EPSG:25832 (UTM). We don't convert
     // to WGS84 here — leave lat/lng blank for new rows. (Legacy DAWA rows
     // keep their WGS84 values from before the migration.)
