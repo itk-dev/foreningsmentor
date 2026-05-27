@@ -43,8 +43,8 @@
     if (!record) {
       return {};
     }
-    const adresse = record.adresse || null;
-    const husnummer = adresse?.husnummer || record.husnummer || null;
+    const adresse = record.adresse;
+    const husnummer = adresse?.husnummer || record.husnummer;
     const id = adresse?.id_lokalid
       || husnummer?.id_lokalid
       || record.id
