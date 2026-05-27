@@ -14,7 +14,7 @@
     if (!scope) {
       return;
     }
-    var v = value === undefined || value === null ? '' : String(value);
+    const v = value === undefined || value === null ? '' : String(value);
     scope.querySelectorAll('.' + className).forEach(function (el) {
       el.value = v;
     });
@@ -27,13 +27,11 @@
     if (!scope) {
       return false;
     }
-    var els = scope.querySelectorAll('.' + className);
-    for (var i = 0; i < els.length; i++) {
-      if (els[i].value) {
-        return true;
-      }
-    }
-    return false;
+    const els = scope.querySelectorAll('.' + className);
+    // NodeList has forEach but not some(), so adapt via Array.from.
+    return Array.from(els).some(function (el) {
+      return Boolean(el.value);
+    });
   }
 
   /**
@@ -45,22 +43,22 @@
     if (!record) {
       return {};
     }
-    var adresse = record.adresse || null;
-    var husnummer = (adresse && adresse.husnummer) || record.husnummer || null;
-    var id = (adresse && adresse.id_lokalid)
+    const adresse = record.adresse || null;
+    const husnummer = (adresse && adresse.husnummer) || record.husnummer || null;
+    const id = (adresse && adresse.id_lokalid)
       || (husnummer && husnummer.id_lokalid)
       || record.id
       || '';
-    var text = (adresse && adresse.adressebetegnelse)
+    const text = (adresse && adresse.adressebetegnelse)
       || (husnummer && husnummer.adgangsadressebetegnelse)
       || record.titel
       || '';
-    var vejnavn = (husnummer && husnummer.vejnavn) || '';
-    var husnr = (husnummer && husnummer.husnummertekst) || '';
-    var street = [vejnavn, husnr].filter(Boolean).join(' ').trim();
-    var postnummer = husnummer && husnummer.postnummer;
-    var postal = (postnummer && postnummer.postnr) || '';
-    var city = (postnummer && postnummer.navn) || '';
+    const vejnavn = (husnummer && husnummer.vejnavn) || '';
+    const husnr = (husnummer && husnummer.husnummertekst) || '';
+    const street = [vejnavn, husnr].filter(Boolean).join(' ').trim();
+    const postnummer = husnummer && husnummer.postnummer;
+    const postal = (postnummer && postnummer.postnr) || '';
+    const city = (postnummer && postnummer.navn) || '';
     // Coordinates from adressevaelger are EPSG:25832 (UTM). We don't convert
     // to WGS84 here — leave lat/lng blank for new rows. (Legacy DAWA rows
     // keep their WGS84 values from before the migration.)
@@ -79,7 +77,7 @@
    * Initialize Adressevaelger on a single widget input.
    */
   function initWidget(input) {
-    var token = drupalSettings && drupalSettings.adressevaelger && drupalSettings.adressevaelger.token;
+    const token = drupalSettings && drupalSettings.adressevaelger && drupalSettings.adressevaelger.token;
     if (!token) {
       console.warn('Adressevaelger: no API token configured at /admin/config/services/adressevaelger.');
       return;
@@ -91,7 +89,7 @@
 
     // Wrap the input so the suggestions list anchors correctly.
     if (!input.closest('.autocomplete-container')) {
-      var wrapper = document.createElement('div');
+      const wrapper = document.createElement('div');
       wrapper.className = 'autocomplete-container';
       input.parentNode.replaceChild(wrapper, input);
       wrapper.appendChild(input);
@@ -100,7 +98,7 @@
     // Broadcast updates to every matching element in the enclosing form.
     // That hits the widget's hidden inputs *and* any sibling fields that
     // hook_form_alter has tagged (e.g. a separate `field_postal_code`).
-    var scope = input.closest('form') || input.parentNode;
+    const scope = input.closest('form') || input.parentNode;
 
     adressevaelger.adressevaelger(input, {
       token: token,
@@ -113,7 +111,7 @@
         writeAll(scope, 'js-adressevaelger-city', data.city);
         writeAll(scope, 'js-adressevaelger-lat', data.lat);
         writeAll(scope, 'js-adressevaelger-lng', data.lng);
-        var dataJson = '';
+        let dataJson = '';
         try { dataJson = JSON.stringify(selected); } catch (e) { dataJson = ''; }
         writeAll(scope, 'js-adressevaelger-data', dataJson);
       }
