@@ -44,21 +44,15 @@
       return {};
     }
     const adresse = record.adresse;
-    const husnummer = adresse?.husnummer || record.husnummer;
-    const id = adresse?.id_lokalid
-      || husnummer?.id_lokalid
-      || record.id
-      || '';
-    const text = adresse?.adressebetegnelse
-      || husnummer?.adgangsadressebetegnelse
-      || record.titel
-      || '';
-    const vejnavn = husnummer?.vejnavn || '';
-    const husnr = husnummer?.husnummertekst || '';
-    const street = [vejnavn, husnr].filter(Boolean).join(' ').trim();
-    const postnummer = husnummer?.postnummer;
-    const postal = postnummer?.postnr || '';
-    const city = postnummer?.navn || '';
+    const husnummer = adresse?.husnummer ?? record.husnummer;
+    const id = adresse?.id_lokalid ?? husnummer.id_lokalid ?? record.id ?? '';
+    const text = adresse?.adressebetegnelse ?? husnummer.adgangsadressebetegnelse ?? record.titel ?? '';
+    const vejnavn = husnummer.vejnavn ?? '';
+    const husnr = husnummer.husnummertekst ?? '';
+    const street = [vejnavn, husnr].join(' ').trim();
+    const postnummer = husnummer.postnummer;
+    const postal = postnummer?.postnr ?? '';
+    const city = postnummer?.navn ?? '';
     // Coordinates from adressevaelger are EPSG:25832 (UTM). We don't convert
     // to WGS84 here — leave lat/lng blank for new rows. (Legacy DAWA rows
     // keep their WGS84 values from before the migration.)
@@ -77,11 +71,13 @@
    * Initialize Adressevaelger on a single widget input.
    */
   function initWidget(input) {
-    const token = drupalSettings && drupalSettings.adressevaelger && drupalSettings.adressevaelger.token;
+    const token = drupalSettings?.adressevaelger?.token;
     if (!token) {
       console.warn('Adressevaelger: no API token configured at /admin/config/services/adressevaelger.');
       return;
     }
+    // `adressevaelger` is exposed as a global by the IIFE bundle
+    // `js/adressevaelger.iife.js` (loaded by this same library).
     if (typeof adressevaelger === 'undefined' || !adressevaelger.adressevaelger) {
       console.warn('Adressevaelger bundle not loaded.');
       return;
@@ -103,7 +99,7 @@
     adressevaelger.adressevaelger(input, {
       token: token,
       select: function (selected) {
-        var data = extract(selected);
+        const data = extract(selected);
         input.value = data.text || input.value;
         writeAll(scope, 'js-adressevaelger-id', data.id);
         writeAll(scope, 'js-adressevaelger-street', data.street);
