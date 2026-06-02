@@ -1,0 +1,14 @@
+{
+  "name": "address_dawa",
+  "private": true,
+  "description": "Build manifest for the address_dawa Drupal module. Webpack bundles assets/js/apply-adressevaelger.js together with its npm dependencies (proj4) into js/widget.bundle.js, which Drupal serves directly. See webpack.config.js for the build configuration.",
+  "scripts": {
+    "build": "webpack",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "proj4": "^2.15.0"
+  }
+}

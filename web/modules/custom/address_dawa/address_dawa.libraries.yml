@@ -4,9 +4,9 @@ widget:
     component:
       css/adressevaelger.css: {}
   js:
-    js/proj4.js: { minified: false }
     js/adressevaelger.iife.js: { minified: true }
-    js/apply-adressevaelger.js: {}
+    js/widget.bundle.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
+    - core/once
