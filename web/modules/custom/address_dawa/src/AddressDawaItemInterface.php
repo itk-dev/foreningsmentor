@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\adressevaelger;
+namespace Drupal\address_dawa;
 
 use Drupal\Core\Field\FieldItemInterface;
 

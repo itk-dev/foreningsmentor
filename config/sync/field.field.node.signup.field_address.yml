@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_address
     - node.type.signup
   module:
-    - adressevaelger
+    - address_dawa
 id: node.signup.field_address
 field_name: field_address
 entity_type: node

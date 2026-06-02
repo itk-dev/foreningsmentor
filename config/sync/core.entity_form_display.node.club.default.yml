@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.club.field_phone
     - node.type.club
   module:
-    - adressevaelger
+    - address_dawa
     - link
     - path
     - telephone

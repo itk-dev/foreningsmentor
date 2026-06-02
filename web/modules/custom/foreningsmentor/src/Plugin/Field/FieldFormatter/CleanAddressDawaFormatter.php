@@ -3,7 +3,7 @@
 namespace Drupal\foreningsmentor\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
-use Drupal\adressevaelger\AddressDawaItemInterface;
+use Drupal\address_dawa\AddressDawaItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
@@ -24,7 +24,7 @@ class CleanAddressDawaFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-    /** @var \Drupal\adressevaelger\AddressDawaItemInterface $item */
+    /** @var \Drupal\address_dawa\AddressDawaItemInterface $item */
     foreach ($items as $delta => $item) {
       $elements[$delta] = [
         '#prefix' => '<span translate="no">',
@@ -37,9 +37,9 @@ class CleanAddressDawaFormatter extends FormatterBase {
   }
 
   /**
-   * Builds a renderable array for a single address item.
+   * Builds a renderable array for a single dawa address item.
    *
-   * @param \Drupal\adressevaelger\AddressDawaItemInterface $item
+   * @param \Drupal\address_dawa\AddressDawaItemInterface $item
    *   The address.
    *
    * @return array

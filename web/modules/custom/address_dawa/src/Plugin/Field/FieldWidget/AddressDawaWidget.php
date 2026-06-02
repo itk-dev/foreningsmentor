@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\adressevaelger\Plugin\Field\FieldWidget;
+namespace Drupal\address_dawa\Plugin\Field\FieldWidget;
 
 use Drupal\Component\Utility\Crypt;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\adressevaelger\Plugin\Validation\Constraint\AddressDawaConstraint;
+use Drupal\address_dawa\Plugin\Validation\Constraint\AddressDawaConstraint;
 
 /**
  * Plugin implementation of the 'address_dawa' widget.
@@ -106,7 +106,7 @@ final class AddressDawaWidget extends WidgetBase {
       '#attributes' => ['class' => ['js-adressevaelger-payload']],
     ];
 
-    $element['#attached']['library'][] = 'adressevaelger/widget';
+    $element['#attached']['library'][] = 'address_dawa/widget';
     $element['#attached']['drupalSettings']['adressevaelger']['token'] = self::PUBLIC_TOKEN;
 
     return $element;

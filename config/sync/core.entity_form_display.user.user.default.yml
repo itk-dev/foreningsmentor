@@ -17,7 +17,7 @@ dependencies:
     - field.field.user.user.field_start_interview
     - image.style.thumbnail
   module:
-    - adressevaelger
+    - address_dawa
     - datetime
     - field_group
     - image

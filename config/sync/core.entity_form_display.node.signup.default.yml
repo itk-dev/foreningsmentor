@@ -22,7 +22,7 @@ dependencies:
     - field.field.node.signup.field_shool_class
     - node.type.signup
   module:
-    - adressevaelger
+    - address_dawa
     - datetime
     - field_group
     - telephone

@@ -1,13 +1,13 @@
-# Adressevælger
+# Address DAWA
 
 Drupal field type, widget, and formatter for Danish postal addresses, backed by
 [SDFI Adressevælger](https://confluence.sdfi.dk/display/ADV/).
 
-This module replaces the deprecated `address_dawa` module. It keeps the same
-field schema and the same plugin ids (`address_dawa` for the field type, widget,
-and formatter), so existing field configuration and data continue to work
-without migration. Only the underlying address-lookup service has changed:
-from DAWA (`dawa.aws.dk`) to Adressevælger (`adressevaelger.dk`).
+The module is named `address_dawa` and exposes plugin ids `address_dawa` (field
+type, widget, formatter) for historical reasons: it used to be backed by DAWA
+(`dawa.aws.dk`), and keeping the names lets existing field configuration and
+stored row data continue to work without migration. Only the underlying
+address-lookup service has changed.
 
 ## API token
 

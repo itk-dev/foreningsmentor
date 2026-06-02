@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\adressevaelger\Plugin\Field\FieldType;
+namespace Drupal\address_dawa\Plugin\Field\FieldType;
 
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\MapDataDefinition;
-use Drupal\adressevaelger\AddressDawaItemInterface;
+use Drupal\address_dawa\AddressDawaItemInterface;
 
 /**
  * Plugin implementation of the 'address_dawa' field type.

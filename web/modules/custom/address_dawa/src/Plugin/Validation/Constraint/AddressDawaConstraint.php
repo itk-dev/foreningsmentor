@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\adressevaelger\Plugin\Validation\Constraint;
+namespace Drupal\address_dawa\Plugin\Validation\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 

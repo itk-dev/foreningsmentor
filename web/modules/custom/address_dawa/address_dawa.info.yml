@@ -1,6 +1,7 @@
-name: "Address DAWA (deprecated)"
-description: "Deprecated. Replaced by the `adressevaelger` module, which provides the same `address_dawa` field type / widget / formatter plugin ids backed by SDFI Adressevælger. This stub remains on disk only so existing installations can run `drush pmu address_dawa` after importing the new config."
+name: "Address DAWA"
+description: "Field type, widget, and formatter for Danish postal addresses. Originally backed by DAWA; now backed by SDFI Adressevælger (adressevaelger.dk). The machine name and plugin ids are kept for historical reasons so existing field configuration and data continue to work without migration."
 type: module
 core_version_requirement: ^10 || ^11
 package: "Foreningsmentor"
-hidden: true
+dependencies:
+  - drupal:field
