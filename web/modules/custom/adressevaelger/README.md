@@ -9,11 +9,6 @@ and formatter), so existing field configuration and data continue to work
 without migration. Only the underlying address-lookup service has changed:
 from DAWA (`dawa.aws.dk`) to Adressevælger (`adressevaelger.dk`).
 
-## Vendored assets
-
-To upgrade, download the matching file from the linked release and overwrite
-the vendored copy.
-
 ## API token
 
 The widget uses the SDFI public token `adressevaelger123`. Per SDFI, real user
