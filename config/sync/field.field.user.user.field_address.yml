@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.user.field_address
   module:
-    - address_dawa
+    - adressevaelger
     - user
 id: user.user.field_address
 field_name: field_address

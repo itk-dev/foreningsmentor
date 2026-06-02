@@ -1,22 +1,22 @@
 <?php
 
-namespace Drupal\address_dawa\Plugin\Validation\Constraint;
+namespace Drupal\adressevaelger\Plugin\Validation\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 
 /**
- * Address DAWA constraint.
+ * Address constraint.
  *
  * @Constraint(
  *   id = "AddressDawa",
- *   label = @Translation("Address DAWA validation", context = "Validation"),
+ *   label = @Translation("Address validation", context = "Validation"),
  *   type = { "address_dawa" }
  * )
  */
 class AddressDawaConstraint extends Constraint {
 
   /**
-   * Address can not be resolved to an actual location via DAWA service.
+   * Address could not be resolved via the lookup service.
    *
    * @var array
    */
@@ -26,17 +26,7 @@ class AddressDawaConstraint extends Constraint {
   ];
 
   /**
-   * Address resolved to multiple locations.
-   *
-   * @var array
-   */
-  const ADDRESS_MULTIPLE_LOCATION = [
-    'error_code' => 2,
-    'message' => 'Address resolved to multiple locations @address.',
-  ];
-
-  /**
-   * Address is different from the configured type.
+   * Address is of a different type than configured.
    *
    * @var array
    */

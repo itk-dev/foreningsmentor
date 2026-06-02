@@ -1,0 +1,7 @@
+name: "Adressevælger"
+description: "Field type, widget, and formatter for Danish postal addresses, backed by SDFI Adressevælger (adressevaelger.dk)."
+type: module
+core_version_requirement: ^10 || ^11
+package: "Foreningsmentor"
+dependencies:
+  - drupal:field

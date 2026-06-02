@@ -24,7 +24,7 @@ dependencies:
     - taxonomy.vocabulary.neighborhood
     - user.role.coordinator
   module:
-    - address_dawa
+    - adressevaelger
     - better_exposed_filters
     - csv_serialization
     - datetime

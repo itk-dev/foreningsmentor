@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_address
     - node.type.parent
   module:
-    - address_dawa
+    - adressevaelger
 id: node.parent.field_address
 field_name: field_address
 entity_type: node
