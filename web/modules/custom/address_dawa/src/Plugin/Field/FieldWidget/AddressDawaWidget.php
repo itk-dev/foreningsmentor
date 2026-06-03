@@ -6,6 +6,7 @@ use Drupal\Component\Utility\Crypt;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
 use Drupal\address_dawa\Plugin\Validation\Constraint\AddressDawaConstraint;
 
 /**
@@ -22,14 +23,31 @@ use Drupal\address_dawa\Plugin\Validation\Constraint\AddressDawaConstraint;
 final class AddressDawaWidget extends WidgetBase {
 
   /**
-   * SDFI Adressevælger public token.
+   * SDFI Adressevælger public token (default).
    *
    * Per SDFI guidance, real user management arrives late 2026 / early 2027.
    * Until then any 10+ character string is accepted; the agency recommends
    * this exact value so applications can be swapped to a real token via a
-   * simple config change later.
+   * simple config change later. Override per environment by setting
+   * `$settings['address_dawa.public_token']` in settings.php (or
+   * settings.local.php); see ::publicToken().
    */
   const PUBLIC_TOKEN = 'adressevaelger123';
+
+  /**
+   * Resolve the SDFI Adressevælger token to attach to the widget.
+   *
+   * Reads `$settings['address_dawa.public_token']` if defined, otherwise
+   * falls back to the bundled default. Class constants can't call
+   * `Settings::get()` (compile-time expression only), so the lookup lives
+   * here.
+   *
+   * @return string
+   *   The token to ship to the browser via drupalSettings.
+   */
+  public static function publicToken(): string {
+    return Settings::get('address_dawa.public_token', self::PUBLIC_TOKEN);
+  }
 
   /**
    * {@inheritdoc}
@@ -107,7 +125,7 @@ final class AddressDawaWidget extends WidgetBase {
     ];
 
     $element['#attached']['library'][] = 'address_dawa/widget';
-    $element['#attached']['drupalSettings']['adressevaelger']['token'] = self::PUBLIC_TOKEN;
+    $element['#attached']['drupalSettings']['adressevaelger']['token'] = self::publicToken();
 
     return $element;
   }

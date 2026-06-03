@@ -11,11 +11,22 @@ address-lookup service has changed.
 
 ## API token
 
-The widget uses the SDFI public token `adressevaelger123`. Per SDFI, real user
-management is expected in late 2026 / early 2027; until then any 10+ character
-token works. The token is shipped to the browser via `drupalSettings` and sent
-directly from the browser to `https://adressevaelger.dk` — no server-side
-proxy is required.
+The widget ships the SDFI public token `adressevaelger123` by default. Per
+SDFI, real user management is expected in late 2026 / early 2027; until then
+any 10+ character token works. The token is shipped to the browser via
+`drupalSettings` and sent directly from the browser to
+`https://adressevaelger.dk` — no server-side proxy is required.
+
+Override per environment by setting `$settings['address_dawa.public_token']`
+in `settings.php` (or `settings.local.php`):
+
+```php
+$settings['address_dawa.public_token'] = 'real-token-from-sdfi';
+```
+
+The value is read via `\Drupal\Core\Site\Settings::get()` at form render
+time, so the change takes effect on the next request — no cache clear or
+config import needed.
 
 ## Coordinate reprojection
 
