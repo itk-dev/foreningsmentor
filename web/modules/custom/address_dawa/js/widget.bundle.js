@@ -1,8 +1,8 @@
-/******/ (() => { // webpackBootstrap
+  /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/set anonymous default export name */
 /******/ 	(() => {
@@ -11,7 +11,7 @@
 /******/ 			(Object.getOwnPropertyDescriptor(x, "name") || {}).writable || Object.defineProperty(x, "name", { value: "default", configurable: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 
 ;// ./node_modules/proj4/lib/global.js
@@ -398,7 +398,7 @@ class PROJJSONBuilderBase {
       case 'GEODCRS':
         result.type = node[0] === 'GEODCRS' ? 'GeodeticCRS' : 'GeographicCRS';
         result.name = node[1];
-      
+
         // Handle DATUM or ENSEMBLE
         const datumOrEnsembleNode = node.find(
           (child) => Array.isArray(child) && (child[0] === 'DATUM' || child[0] === 'ENSEMBLE')
@@ -418,12 +418,12 @@ class PROJJSONBuilderBase {
             }
           }
         }
-      
+
         result.coordinate_system = {
           type: 'ellipsoidal',
           axis: this.extractAxes(node),
         };
-      
+
         result.id = this.getId(node);
         break;
 
@@ -434,11 +434,11 @@ class PROJJSONBuilderBase {
           ? this.convert(node.find((child) => Array.isArray(child) && child[0] === 'ELLIPSOID'))
           : null;
         break;
-      
+
       case 'ENSEMBLE':
         result.type = 'DatumEnsemble';
         result.name = node[1];
-      
+
         // Extract ensemble members
         result.members = node
           .filter((child) => Array.isArray(child) && child[0] === 'MEMBER')
@@ -447,19 +447,19 @@ class PROJJSONBuilderBase {
             name: member[1],
             id: this.getId(member), // Extract ID as { authority, code }
           }));
-      
+
         // Extract accuracy
         const accuracyNode = node.find((child) => Array.isArray(child) && child[0] === 'ENSEMBLEACCURACY');
         if (accuracyNode) {
           result.accuracy = parseFloat(accuracyNode[1]);
         }
-      
+
         // Extract ellipsoid
         const ellipsoidNode = node.find((child) => Array.isArray(child) && child[0] === 'ELLIPSOID');
         if (ellipsoidNode) {
           result.ellipsoid = this.convert(ellipsoidNode); // Convert the ellipsoid node
         }
-      
+
         // Extract identifier for the ensemble
         result.id = this.getId(node);
         break;
@@ -565,14 +565,14 @@ class PROJJSONBuilderBase {
 
         result.id = this.getId(node);
         break;
-      
+
       case 'AXIS':
         if (!result.coordinate_system) {
           result.coordinate_system = { type: 'unspecified', axis: [] };
         }
         result.coordinate_system.axis.push(this.convertAxis(node));
         break;
-      
+
       case 'LENGTHUNIT':
         const unit = this.convertUnit(node, 'LinearUnit');
         if (result.coordinate_system && result.coordinate_system.axis) {
@@ -1203,7 +1203,7 @@ function transformPROJJSON(projjson, result = {}) {
           }
         }
         break;
-        
+
       case 'id':
         if (value.authority && value.code) {
           result.title = value.authority + ':' + value.code;
@@ -1267,7 +1267,7 @@ function transformPROJJSON(projjson, result = {}) {
     result.lat1 = result.latitude_of_1st_standard_parallel;
   }
   if (result.latitude_of_2nd_standard_parallel !== undefined) {
-    result.lat2 = result.latitude_of_2nd_standard_parallel; 
+    result.lat2 = result.latitude_of_2nd_standard_parallel;
   }
   if (result.latitude_of_projection_centre !== undefined) {
     result.lat0 = result.latitude_of_projection_centre;
@@ -1314,7 +1314,7 @@ function transformPROJJSON(projjson, result = {}) {
   if (result.scale_factor_at_projection_centre !== undefined) {
     result.k0 = result.scale_factor_at_projection_centre;
   }
-  if (result.scale_factor_on_pseudo_standard_parallel !== undefined) {  
+  if (result.scale_factor_on_pseudo_standard_parallel !== undefined) {
     result.k0 = result.scale_factor_on_pseudo_standard_parallel;
   }
   if (result.azimuth !== undefined) {

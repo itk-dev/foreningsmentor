@@ -47,21 +47,17 @@ class CleanAddressDawaFormatter extends FormatterBase {
    */
   protected function viewElement(AddressDawaItemInterface $item) {
     $data = $item->getData();
+    // Prefer the top-level `adressebetegnelse` from a full-address selection.
+    // For adgangsadresse selections (and legacy non-Danish-address rows) the
+    // raw payload doesn't carry that key, so fall back to the stored text
+    // value — populated by the widget JS as `adressebetegnelse ?? tekst ??
+    // typed input` and therefore always a scalar.
+    $text = $data['adressebetegnelse'] ?? $item->getTextValue() ?? '';
 
-    if (isset($data['adressebetegnelse'])) {
-      $value = [
-        $data['adressebetegnelse'],
-      ];
-    }
-    else {
-      $value = $data;
-    }
-
-    $element = [
+    return [
       '#type' => 'markup',
-      '#markup' => implode('', $value),
+      '#markup' => $text,
     ];
-    return $element;
   }
 
 }
