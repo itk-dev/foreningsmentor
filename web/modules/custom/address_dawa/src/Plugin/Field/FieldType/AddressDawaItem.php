@@ -14,8 +14,8 @@ use Drupal\address_dawa\AddressDawaItemInterface;
  *
  * @FieldType(
  *   id = "address_dawa",
- *   label = @Translation("Address DAWA"),
- *   description = @Translation("An entity field containing a postal address"),
+ *   label = @Translation("Address"),
+ *   description = @Translation("An entity field containing a Danish postal address."),
  *   default_widget = "address_dawa",
  *   default_formatter = "address_dawa",
  *   constraints = {"AddressDawa" = {}}
@@ -36,7 +36,7 @@ class AddressDawaItem extends FieldItemBase implements AddressDawaItemInterface 
         ],
         'id' => [
           'type' => 'varchar',
-          'description' => 'Address UUID',
+          'description' => 'Address identifier',
           'length' => 255,
         ],
         'status' => [
@@ -45,16 +45,16 @@ class AddressDawaItem extends FieldItemBase implements AddressDawaItemInterface 
         ],
         'value' => [
           'type' => 'varchar',
-          'description' => 'Address textual value form user input',
+          'description' => 'Address textual value from user input',
           'length' => 255,
         ],
         'lat' => [
           'type' => 'float',
-          'description' => 'Address latitude coordinate',
+          'description' => 'Address latitude coordinate (WGS84)',
         ],
         'lng' => [
           'type' => 'float',
-          'description' => 'Address longitude coordinate',
+          'description' => 'Address longitude coordinate (WGS84)',
         ],
         'data' => [
           'type' => 'blob',
@@ -122,8 +122,8 @@ class AddressDawaItem extends FieldItemBase implements AddressDawaItemInterface 
     $element = [];
     $element['address_type'] = [
       '#type' => 'select',
-      '#title' => $this->t('Dawa address type'),
-      '#description' => $this->t('Choose "Address" to get address data, or "Access address" to get Adgangsadresse'),
+      '#title' => $this->t('Address type'),
+      '#description' => $this->t('Choose "Address" to get a full address, or "Access address" to get an Adgangsadresse.'),
       '#options' => [
         'adresse' => $this->t('Address'),
         'adgangsadresse' => $this->t('Access address'),
@@ -131,20 +131,17 @@ class AddressDawaItem extends FieldItemBase implements AddressDawaItemInterface 
       '#default_value' => $this->getSetting('address_type'),
       '#multiple' => FALSE,
     ];
-    // Setting to disable ADDRESS_MULTIPLE_LOCATION constraint.
     $element['allow_non_unique_address'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Allow non-unique addresses.'),
-      '#description' => $this->t('This setting will disable Address multiple location constraint. You will be able to save addresses that might be resolved to multiple actual locations.'),
+      '#description' => $this->t('Retained for backward compatibility with the previous DAWA-backed widget. With Adressevælger every selection is already unique.'),
       '#default_value' => $this->getSetting('allow_non_unique_address'),
     ];
 
-    // Setting to store non-Danish addresses, by disabling
-    // ADDRESS_CAN_NOT_BE_FOUND constraint.
     $element['allow_non_danish_address'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Allow storing non Danish addresses.'),
-      '#description' => $this->t('This setting will allow you to store non Danish addresses. The address field will simply just be a textfield.'),
+      '#description' => $this->t('When enabled, the user can type any text and submit it as-is, even if it is not a recognised Danish address.'),
       '#default_value' => $this->getSetting('allow_non_danish_address'),
     ];
 

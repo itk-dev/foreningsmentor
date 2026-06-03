@@ -6,59 +6,47 @@ use Drupal\Component\Utility\Crypt;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Field\FieldDefinitionInterface;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\address_dawa\AddressDawaInterface;
+use Drupal\Core\Site\Settings;
 use Drupal\address_dawa\Plugin\Validation\Constraint\AddressDawaConstraint;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the 'address_dawa' widget.
  *
  * @FieldWidget(
  *   id = "address_dawa",
- *   label = @Translation("Address DAWA"),
+ *   label = @Translation("Address"),
  *   field_types = {
  *     "address_dawa"
  *   },
  * )
  */
-final class AddressDawaWidget extends WidgetBase implements ContainerFactoryPluginInterface {
+final class AddressDawaWidget extends WidgetBase {
 
   /**
-   * AddressDawa service.
+   * SDFI Adressevælger public token (default).
    *
-   * @var \Drupal\address_dawa\AddressDawaInterface
+   * Per SDFI guidance, real user management arrives late 2026 / early 2027.
+   * Until then any 10+ character string is accepted; the agency recommends
+   * this exact value so applications can be swapped to a real token via a
+   * simple config change later. Override per environment by setting
+   * `$settings['address_dawa.public_token']` in settings.php (or
+   * settings.local.php); see ::publicToken().
    */
-  protected $addressDawa;
+  const PUBLIC_TOKEN = 'adressevaelger123';
 
   /**
-   * {@inheritdoc}
+   * Resolve the SDFI Adressevælger token to attach to the widget.
+   *
+   * Reads `$settings['address_dawa.public_token']` if defined, otherwise
+   * falls back to the bundled default. Class constants can't call
+   * `Settings::get()` (compile-time expression only), so the lookup lives
+   * here.
+   *
+   * @return string
+   *   The token to ship to the browser via drupalSettings.
    */
-  public function __construct(
-    $plugin_id,
-    $plugin_definition,
-    FieldDefinitionInterface $field_definition,
-    array $settings,
-    array $third_party_settings,
-    AddressDawaInterface $address_dawa,
-  ) {
-    $this->addressDawa = $address_dawa;
-    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $third_party_settings);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $plugin_id,
-      $plugin_definition,
-      $configuration['field_definition'],
-      $configuration['settings'],
-      $configuration['third_party_settings'],
-      $container->get('address_dawa.address_dawa')
-    );
+  public static function publicToken(): string {
+    return Settings::get('address_dawa.public_token', self::PUBLIC_TOKEN);
   }
 
   /**
@@ -77,7 +65,7 @@ final class AddressDawaWidget extends WidgetBase implements ContainerFactoryPlug
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $element['size'] = [
       '#type' => 'number',
-      '#title' => $this->t('Size of DAWA address textfield'),
+      '#title' => $this->t('Size of address textfield'),
       '#default_value' => $this->getSetting('size'),
       '#required' => TRUE,
       '#min' => 1,
@@ -86,7 +74,7 @@ final class AddressDawaWidget extends WidgetBase implements ContainerFactoryPlug
       '#type' => 'textfield',
       '#title' => $this->t('Placeholder'),
       '#default_value' => $this->getSetting('placeholder'),
-      '#description' => $this->t('Text that will be shown inside the DAWA address field until a value is entered. This hint is usually a sample value or a brief description of the expected format.'),
+      '#description' => $this->t('Text shown inside the address field until a value is entered.'),
     ];
     return $element;
   }
@@ -97,7 +85,7 @@ final class AddressDawaWidget extends WidgetBase implements ContainerFactoryPlug
   public function settingsSummary() {
     $summary = [];
 
-    $summary[] = $this->t('DAWA address field size: @size', ['@size' => $this->getSetting('size')]);
+    $summary[] = $this->t('Address field size: @size', ['@size' => $this->getSetting('size')]);
     $placeholder = $this->getSetting('placeholder');
     if (!empty($placeholder)) {
       $summary[] = $this->t('Placeholder: @placeholder', ['@placeholder' => $placeholder]);
@@ -110,14 +98,34 @@ final class AddressDawaWidget extends WidgetBase implements ContainerFactoryPlug
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $element['address'] = $element + [
+    $item = $items[$delta] ?? NULL;
+    $existing_payload = '';
+    if ($item && !$item->isEmpty()) {
+      $data = $item->get('data')->getValue();
+      if (!empty($data)) {
+        $existing_payload = json_encode($data);
+      }
+    }
+
+    $element['#type'] = 'fieldset';
+    $element['address'] = [
       '#type' => 'textfield',
-      '#default_value' => $items[$delta]->value ?? NULL,
+      '#title' => $element['#title'] ?? $this->t('Address'),
+      '#title_display' => 'invisible',
+      '#default_value' => $item->value ?? NULL,
       '#size' => $this->getSetting('size'),
       '#placeholder' => $this->getSetting('placeholder'),
-      '#autocomplete_route_name' => $this->getFieldSetting('address_type') == 'adresse' ? 'fetch.dawa.adresse' : 'fetch.dawa.adgangsadresse',
       '#maxlength' => 255,
+      '#attributes' => ['class' => ['js-adressevaelger-element']],
     ];
+    $element['payload'] = [
+      '#type' => 'hidden',
+      '#default_value' => $existing_payload,
+      '#attributes' => ['class' => ['js-adressevaelger-payload']],
+    ];
+
+    $element['#attached']['library'][] = 'address_dawa/widget';
+    $element['#attached']['drupalSettings']['adressevaelger']['token'] = self::publicToken();
 
     return $element;
   }
@@ -130,54 +138,41 @@ final class AddressDawaWidget extends WidgetBase implements ContainerFactoryPlug
       if (empty($value['address'])) {
         continue;
       }
-      $options = [
-        'q' => $value['address'],
-      ];
+
       $address_type = $this->getFieldSetting('address_type');
-      $result = $this->addressDawa->fetchAddress($options, $address_type);
-      if (empty($result) && !$this->getFieldSetting('allow_non_danish_address')) {
-        // Address can not be found from DAWA.
-        $value += [
-          'type' => AddressDawaConstraint::ADDRESS_CAN_NOT_BE_FOUND['error_code'],
-          'value' => $value['address'],
-        ];
+      $payload = !empty($value['payload']) ? json_decode($value['payload'], TRUE) : NULL;
+
+      if (!is_array($payload)) {
+        if ($this->getFieldSetting('allow_non_danish_address')) {
+          $value += [
+            'type' => $address_type,
+            'id' => 'non_dawa_' . Crypt::hashBase64($value['address']),
+            'status' => 1,
+            'value' => $value['address'],
+            'lat' => 0,
+            'lng' => 0,
+            'data' => [$value['address']],
+          ];
+        }
+        else {
+          $value += [
+            'type' => AddressDawaConstraint::ADDRESS_CAN_NOT_BE_FOUND['error_code'],
+            'value' => $value['address'],
+          ];
+        }
         continue;
       }
 
-      // Enable ADDRESS_MULTIPLE_LOCATION constraint if configured to do so.
-      if (count($result) > 1 && !$this->getFieldSetting('allow_non_unique_address')) {
-        // Query results multiple addresses from DAWA.
-        $value += [
-          'type' => AddressDawaConstraint::ADDRESS_MULTIPLE_LOCATION['error_code'],
-          'value' => $value['address'],
-        ];
-        continue;
-      }
-
-      if (!empty($result)) {
-        $coordinate = $address_type == 'adresse' ? $result[0]->adgangsadresse->adgangspunkt->koordinater : $result[0]->adgangspunkt->koordinater;
-        $value += [
-          'type' => $address_type,
-          'id' => $result[0]->id,
-          'status' => (int) $result[0]->status,
-          'value' => $value['address'],
-          'lat' => (float) $coordinate[1],
-          'lng' => (float) $coordinate[0],
-          'data' => (array) $result[0],
-        ];
-      }
-      else {
-        $value += [
-          'type' => $address_type,
-          'id' => 'non_dawa_' . Crypt::hashBase64($value['address']),
-          'status' => 1,
-          'value' => $value['address'],
-          'lat' => 1,
-          'lng' => 1,
-          'data' => [$value['address']],
-        ];
-      }
-
+      $coords = $payload['_wgs84'] ?? [];
+      $value += [
+        'type' => $address_type,
+        'id' => $payload['id_lokalid'] ?? $payload['id'] ?? '',
+        'status' => (int) ($payload['status'] ?? 1),
+        'value' => $value['address'],
+        'lat' => (float) ($coords['lat'] ?? 0),
+        'lng' => (float) ($coords['lng'] ?? 0),
+        'data' => $payload,
+      ];
     }
     return $values;
   }

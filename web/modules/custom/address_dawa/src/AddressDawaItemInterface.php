@@ -5,7 +5,7 @@ namespace Drupal\address_dawa;
 use Drupal\Core\Field\FieldItemInterface;
 
 /**
- * Defines the interface for DAWA address.
+ * Defines the interface for an Adressevælger-backed address field item.
  */
 interface AddressDawaItemInterface extends FieldItemInterface {
 
@@ -18,10 +18,11 @@ interface AddressDawaItemInterface extends FieldItemInterface {
   public function getType();
 
   /**
-   * Get address UUID.
+   * Get address identifier.
    *
    * @return string
-   *   UUID.
+   *   The DAR id_lokalid for selections from Adressevælger, or a
+   *   `non_dawa_*` synthetic id for free-text non-Danish entries.
    */
   public function getId();
 
@@ -42,7 +43,7 @@ interface AddressDawaItemInterface extends FieldItemInterface {
   public function getTextValue();
 
   /**
-   * Get address latitude coordinate.
+   * Get address latitude coordinate (WGS84).
    *
    * @return string
    *   Latitude geo-coordinate.
@@ -50,7 +51,7 @@ interface AddressDawaItemInterface extends FieldItemInterface {
   public function getLat();
 
   /**
-   * Get address longitude coordinate.
+   * Get address longitude coordinate (WGS84).
    *
    * @return string
    *   Longitude geo-coordinate.
@@ -58,7 +59,7 @@ interface AddressDawaItemInterface extends FieldItemInterface {
   public function getLng();
 
   /**
-   * Get raw DAWA address data.
+   * Get raw address data from the lookup service.
    *
    * @return array
    *   Data.

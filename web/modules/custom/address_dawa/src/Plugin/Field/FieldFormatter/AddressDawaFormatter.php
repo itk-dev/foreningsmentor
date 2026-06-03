@@ -11,7 +11,7 @@ use Drupal\address_dawa\AddressDawaItemInterface;
  *
  * @FieldFormatter(
  *   id = "address_dawa",
- *   label = @Translation("Address DAWA"),
+ *   label = @Translation("Address"),
  *   field_types = {
  *     "address_dawa",
  *   },
@@ -38,7 +38,7 @@ class AddressDawaFormatter extends FormatterBase {
   }
 
   /**
-   * Builds a renderable array for a single dawa address item.
+   * Builds a renderable array for a single address item.
    *
    * @param \Drupal\address_dawa\AddressDawaItemInterface $item
    *   The address.

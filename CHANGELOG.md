@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+* Changed away from using dawa for address lookup.
+
 ## [1.8.4] 2026-05-21
 
 * Updated bundles and applied templates.

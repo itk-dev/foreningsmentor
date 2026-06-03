@@ -1,0 +1,12 @@
+widget:
+  version: 1.x
+  css:
+    component:
+      css/adressevaelger.css: {}
+  js:
+    js/adressevaelger.iife.js: { minified: true }
+    js/widget.bundle.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once
