@@ -1,8 +1,8 @@
-  /******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/set anonymous default export name */
 /******/ 	(() => {
@@ -11,7 +11,7 @@
 /******/ 			(Object.getOwnPropertyDescriptor(x, "name") || {}).writable || Object.defineProperty(x, "name", { value: "default", configurable: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 
 ;// ./node_modules/proj4/lib/global.js
@@ -398,7 +398,7 @@ class PROJJSONBuilderBase {
       case 'GEODCRS':
         result.type = node[0] === 'GEODCRS' ? 'GeodeticCRS' : 'GeographicCRS';
         result.name = node[1];
-
+      
         // Handle DATUM or ENSEMBLE
         const datumOrEnsembleNode = node.find(
           (child) => Array.isArray(child) && (child[0] === 'DATUM' || child[0] === 'ENSEMBLE')
@@ -418,12 +418,12 @@ class PROJJSONBuilderBase {
             }
           }
         }
-
+      
         result.coordinate_system = {
           type: 'ellipsoidal',
           axis: this.extractAxes(node),
         };
-
+      
         result.id = this.getId(node);
         break;
 
@@ -434,11 +434,11 @@ class PROJJSONBuilderBase {
           ? this.convert(node.find((child) => Array.isArray(child) && child[0] === 'ELLIPSOID'))
           : null;
         break;
-
+      
       case 'ENSEMBLE':
         result.type = 'DatumEnsemble';
         result.name = node[1];
-
+      
         // Extract ensemble members
         result.members = node
           .filter((child) => Array.isArray(child) && child[0] === 'MEMBER')
@@ -447,19 +447,19 @@ class PROJJSONBuilderBase {
             name: member[1],
             id: this.getId(member), // Extract ID as { authority, code }
           }));
-
+      
         // Extract accuracy
         const accuracyNode = node.find((child) => Array.isArray(child) && child[0] === 'ENSEMBLEACCURACY');
         if (accuracyNode) {
           result.accuracy = parseFloat(accuracyNode[1]);
         }
-
+      
         // Extract ellipsoid
         const ellipsoidNode = node.find((child) => Array.isArray(child) && child[0] === 'ELLIPSOID');
         if (ellipsoidNode) {
           result.ellipsoid = this.convert(ellipsoidNode); // Convert the ellipsoid node
         }
-
+      
         // Extract identifier for the ensemble
         result.id = this.getId(node);
         break;
@@ -565,14 +565,14 @@ class PROJJSONBuilderBase {
 
         result.id = this.getId(node);
         break;
-
+      
       case 'AXIS':
         if (!result.coordinate_system) {
           result.coordinate_system = { type: 'unspecified', axis: [] };
         }
         result.coordinate_system.axis.push(this.convertAxis(node));
         break;
-
+      
       case 'LENGTHUNIT':
         const unit = this.convertUnit(node, 'LinearUnit');
         if (result.coordinate_system && result.coordinate_system.axis) {
@@ -1203,7 +1203,7 @@ function transformPROJJSON(projjson, result = {}) {
           }
         }
         break;
-
+        
       case 'id':
         if (value.authority && value.code) {
           result.title = value.authority + ':' + value.code;
@@ -1267,7 +1267,7 @@ function transformPROJJSON(projjson, result = {}) {
     result.lat1 = result.latitude_of_1st_standard_parallel;
   }
   if (result.latitude_of_2nd_standard_parallel !== undefined) {
-    result.lat2 = result.latitude_of_2nd_standard_parallel;
+    result.lat2 = result.latitude_of_2nd_standard_parallel; 
   }
   if (result.latitude_of_projection_centre !== undefined) {
     result.lat0 = result.latitude_of_projection_centre;
@@ -1314,7 +1314,7 @@ function transformPROJJSON(projjson, result = {}) {
   if (result.scale_factor_at_projection_centre !== undefined) {
     result.k0 = result.scale_factor_at_projection_centre;
   }
-  if (result.scale_factor_on_pseudo_standard_parallel !== undefined) {
+  if (result.scale_factor_on_pseudo_standard_parallel !== undefined) {  
     result.k0 = result.scale_factor_on_pseudo_standard_parallel;
   }
   if (result.azimuth !== undefined) {
@@ -11185,6 +11185,13 @@ proj4_projs(lib_proj4);
  * subsequent keystroke so editors who change the text without picking a new
  * suggestion can be detected as "not selected from list".
  *
+ * Optional sibling: if the same form contains an input with the class
+ * `js-adressevaelger-postalcode`, the address field is watched and the
+ * first 4-digit Danish postal code parsed from its current text is mirrored
+ * into that input — both while the user types and after picking a
+ * suggestion (which fills the field with "Street 1, 8000 Aarhus C" or
+ * similar). This is opt-in: only forms that add the class get the sync.
+ *
  * This file is bundled by esbuild into `js/widget.bundle.js`. proj4 is
  * inlined into that bundle via the `import` above; the IIFE bundle
  * `js/adressevaelger.iife.js` is loaded separately and exposes the
@@ -11244,6 +11251,56 @@ proj4_projs(lib_proj4);
 
     const fieldset = input.closest('fieldset');
     const payload = fieldset?.querySelector('.js-adressevaelger-payload');
+    const form = input.closest('form');
+    const postalCodeInput = form?.querySelector('.js-adressevaelger-postalcode');
+
+    // Mirror a postal code into the sibling postal-code input. Either
+    // call with an explicit `postnr` (e.g. straight from the SDFI
+    // selection object) or with no argument to parse a 4-digit Danish
+    // code out of the address textfield's current value.
+    //
+    // Only writes when a postal code is present so users editing other
+    // parts of the line don't lose their existing value; clearing back
+    // to empty is intentional only when the address itself is cleared.
+    function syncPostalCode(postnr) {
+      if (!postalCodeInput) {
+        return;
+      }
+      if (postnr) {
+        postnr = String(postnr);
+        if (postalCodeInput.value !== postnr) {
+          postalCodeInput.value = postnr;
+          postalCodeInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        return;
+      }
+      const text = input.value;
+      if (!text) {
+        if (postalCodeInput.value !== '') {
+          postalCodeInput.value = '';
+          postalCodeInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        return;
+      }
+      const match = text.match(/\b\d{4}\b/);
+      if (!match) {
+        return;
+      }
+      if (postalCodeInput.value === match[0]) {
+        return;
+      }
+      postalCodeInput.value = match[0];
+      postalCodeInput.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    // Extract the postal code from an SDFI suggestion. The shape differs
+    // between `adresse` and `adgangsadresse` responses, hence the cascade.
+    function postalFromSelection(selected) {
+      return selected?.adresse?.postnummer?.nr
+        ?? selected?.postnummer?.nr
+        ?? selected?.adgangsadresse?.postnummer?.nr
+        ?? null;
+    }
 
     adressevaelger.adressevaelger(input, {
       token: token,
@@ -11268,6 +11325,18 @@ proj4_projs(lib_proj4);
         if (payload) {
           payload.value = JSON.stringify(enriched);
         }
+
+        // Read postal code straight from the structured selection so
+        // mouse picks work regardless of when SDFI internally writes
+        // back to `input.value`.
+        const postnr = postalFromSelection(selected);
+        if (postnr) {
+          syncPostalCode(postnr);
+        }
+        else {
+          // Fall back to parsing whatever ended up in the textfield.
+          syncPostalCode();
+        }
       }
     });
 
@@ -11278,6 +11347,7 @@ proj4_projs(lib_proj4);
       if (payload) {
         payload.value = '';
       }
+      syncPostalCode();
     });
   }
 

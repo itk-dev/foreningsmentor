@@ -2,8 +2,10 @@
 
 namespace Drupal\foreningsmentor\Form;
 
+use Drupal\address_dawa\Plugin\Field\FieldWidget\AddressDawaWidget;
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Component\Utility\Crypt;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Mail\MailManagerInterface;
@@ -250,17 +252,35 @@ final class SignUpForm extends FormBase {
     ];
 
     $form['wrapper']['other']['address'] = [
-      '#prefix' => '<div class="col-md-12"><p class="dawa-address" translate="no">',
-      '#suffix' => '</p></div>',
+      '#type' => 'fieldset',
+      '#title' => $this->t('Adresse // Address'),
+      '#attributes' => ['class' => ['col-md-12', 'mb-3', 'border-0', 'p-0']],
+      '#attached' => [
+        'library' => ['address_dawa/widget'],
+        'drupalSettings' => [
+          'adressevaelger' => [
+            'token' => AddressDawaWidget::publicToken(),
+          ],
+        ],
+      ],
+    ];
+    $form['wrapper']['other']['address']['address'] = [
       '#type' => 'textfield',
       '#required' => TRUE,
-      '#attributes' => ['class' => ['form-control', 'mb-3']],
       '#title' => $this->t('Adresse // Address'),
+      '#title_display' => 'invisible',
+      '#maxlength' => 255,
+      '#attributes' => ['class' => ['form-control', 'js-adressevaelger-element']],
+    ];
+    $form['wrapper']['other']['address']['payload'] = [
+      '#type' => 'hidden',
+      '#default_value' => '',
+      '#attributes' => ['class' => ['js-adressevaelger-payload']],
     ];
     $form['wrapper']['other']['postal_code'] = [
       '#type' => 'textfield',
       '#required' => TRUE,
-      '#attributes' => ['class' => ['form-control', 'mb-3']],
+      '#attributes' => ['class' => ['form-control', 'mb-3', 'js-adressevaelger-postalcode']],
       '#title' => $this->t('Postnr // Postal code'),
     ];
     $form['wrapper']['other']['activity'] = [
@@ -293,6 +313,51 @@ final class SignUpForm extends FormBase {
     \Drupal::service('honeypot')->addFormProtection($form, $form_state, ['honeypot', 'time_restriction']);
 
     return $form;
+  }
+
+  /**
+   * Build a field_address value from the SDFI Adressevælger widget input.
+   *
+   * Mirrors AddressDawaWidget::massageFormValues so the signup form stores
+   * the same structure as the field widget used elsewhere. When the user
+   * selected a suggestion from the autocomplete the hidden payload carries
+   * the full SDFI response (with reprojected WGS84 coordinates); otherwise
+   * a free-text fallback is stored so non-Danish addresses are still
+   * accepted.
+   *
+   * @param array $input
+   *   Raw values for the address fieldset, with `address` (textfield) and
+   *   `payload` (JSON string) keys.
+   *
+   * @return array
+   *   A value array matching the `address_dawa` field storage schema.
+   */
+  private function buildAddressFieldValue(array $input): array {
+    $addressText = (string) ($input['address'] ?? '');
+    $payload = !empty($input['payload']) ? json_decode($input['payload'], TRUE) : NULL;
+
+    if (!is_array($payload)) {
+      return [
+        'type' => 'adresse',
+        'id' => 'non_dawa_' . Crypt::hashBase64($addressText),
+        'status' => 1,
+        'value' => $addressText,
+        'lat' => 0,
+        'lng' => 0,
+        'data' => [$addressText],
+      ];
+    }
+
+    $coords = $payload['_wgs84'] ?? [];
+    return [
+      'type' => 'adresse',
+      'id' => $payload['id_lokalid'] ?? $payload['id'] ?? '',
+      'status' => (int) ($payload['status'] ?? 1),
+      'value' => $addressText,
+      'lat' => (float) ($coords['lat'] ?? 0),
+      'lng' => (float) ($coords['lng'] ?? 0),
+      'data' => $payload,
+    ];
   }
 
   /**
@@ -335,6 +400,10 @@ final class SignUpForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $params['form_values'] = $form_state->getValues();
+    $addressValue = $this->buildAddressFieldValue($params['form_values']['address'] ?? []);
+    // Flatten the textfield value back into form_values so templates and mail
+    // params keep their existing `params.form_values.address` string shape.
+    $params['form_values']['address'] = $addressValue['value'];
     $area = $params['form_values']['area'];
     $neighborhoodUsers = $this->entityTypeManager->getStorage('user')->loadByProperties(['field_neighborhood' => $area]);
     $areaTerm = $this->entityTypeManager->getStorage('taxonomy_term')->load($area);
@@ -356,15 +425,7 @@ final class SignUpForm extends FormBase {
       'field_parent_name' => $params['form_values']['parent_name'],
       'field_phone' => $params['form_values']['phone_number'],
       'field_email' => $params['form_values']['mail'],
-      'field_address' => [
-        'id' => '0',
-        'value' => $params['form_values']['address'],
-        'type' => 'adresse',
-        'data' => [],
-        'status' => 0,
-        'lat' => 0,
-        'lng' => 0,
-      ],
+      'field_address' => $addressValue,
       'field_postal_code' => $params['form_values']['postal_code'],
       'field_referer' => $params['form_values']['referer_name'],
       'field_referer_phone' => $params['form_values']['referer_phone'],

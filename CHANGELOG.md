@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 * Changed away from using dawa for address lookup.
+* Signup form now uses the SDFI Adressevælger widget for the address field and auto-fills the postal code from the selected address.
 
 ## [1.8.4] 2026-05-21
 
