@@ -11,7 +11,6 @@
     ],
     "require": {
         "php": "^8.3.0",
-        "chx/drupal-issue-fork": "^1.0",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
         "drupal/adminimal_theme": "^1.7",
@@ -90,7 +89,6 @@
     },
     "config": {
         "allow-plugins": {
-            "chx/drupal-issue-fork": true,
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
