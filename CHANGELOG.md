@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.5] 2026-10-14
+
+* [PR-55](https://github.com/itk-dev/foreningsmentor/pull/55)
+  * Security drupal core 10.6.9 => 10.6.19
+  * Removed chx/drupal-issue-fork
+
 ## [1.8.4] 2026-05-21
 
 * Updated bundles and applied templates.
