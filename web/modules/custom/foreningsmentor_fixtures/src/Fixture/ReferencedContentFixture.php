@@ -150,7 +150,7 @@ BODY,
         'format' => 'filtered_html',
       ],
       'field_testimonial_image' => ['target_id' => $this->getReference('file:p1.jpg')->id()],
-      'field_testimonial_author' => '- Fiona, 25 år'
+      'field_testimonial_author' => '- Fiona, 25 år',
     ]);
     $this->addReference('referenced_content:testimonial-1', $entity);
     $entity->save();
@@ -167,7 +167,7 @@ BODY,
         'format' => 'filtered_html',
       ],
       'field_testimonial_image' => ['target_id' => $this->getReference('file:p2.jpg')->id()],
-      'field_testimonial_author' => '- Jesper, 54 år'
+      'field_testimonial_author' => '- Jesper, 54 år',
     ]);
     $this->addReference('referenced_content:testimonial-2', $entity);
     $entity->save();
@@ -183,7 +183,7 @@ BODY,
         'format' => 'filtered_html',
       ],
       'field_testimonial_image' => ['target_id' => $this->getReference('file:p3.jpg')->id()],
-      'field_testimonial_author' => '- Alexander, 24 år'
+      'field_testimonial_author' => '- Alexander, 24 år',
     ]);
     $this->addReference('referenced_content:testimonial-3', $entity);
     $entity->save();

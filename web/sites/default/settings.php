@@ -795,6 +795,11 @@ $databases['default']['default'] = [
 ];
 
 /**
+ * Skip file system permissions hardening.
+ */
+$settings['skip_permissions_hardening'] = TRUE;
+
+/**
  * Allow local overrides.
  */
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {

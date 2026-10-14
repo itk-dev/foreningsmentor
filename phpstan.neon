@@ -1,0 +1,10 @@
+parameters:
+  paths:
+    - web/modules/custom
+  level: 0
+  customRulesetUsed: true
+  reportUnmatchedIgnoredErrors: false
+  ignoreErrors:
+        - message: '#\Drupal calls should be avoided in classes, use dependency injection instead#'
+        - '#Attribute class Hook does not exist.#'
+        - '#Attribute class LegacyHook does not exist.#'

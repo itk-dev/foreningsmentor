@@ -5,12 +5,11 @@ namespace Drupal\foreningsmentor\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
-use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 
 /**
- * Class JournalForm.
+ * Class for managing finish course form.
  */
 class FinishCourseForm extends FormBase {
 
@@ -27,7 +26,7 @@ class FinishCourseForm extends FormBase {
   public function buildForm(
     array $form,
     FormStateInterface $form_state,
-    $node = NULL
+    $node = NULL,
   ) {
     $form['finish_course'] = [
       '#type' => 'details',
@@ -56,7 +55,7 @@ class FinishCourseForm extends FormBase {
     $form['finish_course']['mentor_end_status'] = [
       '#type' => 'select',
       '#title' => $this->t('Mentor end status'),
-      '#description' => $this->t('The mentor\'s end status for the course.'),
+      '#description' => $this->t("The mentor's end status for the course."),
       '#weight' => '1',
       '#required' => TRUE,
       '#options' => $options,
@@ -68,17 +67,17 @@ class FinishCourseForm extends FormBase {
     $statusA4 = $this->t('A4: Status unknown.');
 
     $form['finish_course']['mentor_end_status_descriptions'] = [
-      '#markup' => implode("", [
-        "<div>" . $this->t('Available statuses:'),
-          "<ul>",
-            "<li>" . $statusA1 ."</li>",
-            "<li>" . $statusA2 ."</li>",
-            "<li>" . $statusA3 ."</li>",
-            "<li>" . $statusA4 ."</li>",
-          "</ul>",
-        "</div>"
-        ]),
-      '#weight' => '2'
+      '#markup' => implode('', [
+        '<div>' . $this->t('Available statuses:'),
+        '<ul>',
+        '<li>' . $statusA1 . '</li>',
+        '<li>' . $statusA2 . '</li>',
+        '<li>' . $statusA3 . '</li>',
+        '<li>' . $statusA4 . '</li>',
+        '</ul>',
+        '</div>',
+      ]),
+      '#weight' => '2',
     ];
 
     $form['finish_course']['mentor_end_status_text'] = [
@@ -101,15 +100,8 @@ class FinishCourseForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $parentNode = $form_state->getBuildInfo()["args"][0];
+    $parentNode = $form_state->getBuildInfo()['args'][0];
 
     // Bail out if parent is not a child.
     if (isset($parentNode) && $parentNode->getType() != 'course') {
@@ -151,4 +143,5 @@ class FinishCourseForm extends FormBase {
 
     $parentNode->save();
   }
+
 }

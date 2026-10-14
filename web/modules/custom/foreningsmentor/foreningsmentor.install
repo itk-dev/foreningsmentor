@@ -1,12 +1,17 @@
 <?php
 
 /**
+ * @file
+ * Hooks related to installing or updating this module.
+ */
+
+/**
  * Enables better_exposed_filters.
  */
 function foreningsmentor_update_8101(&$sandbox) {
-  $module_list = array(
-    'better_exposed_filters'
-  );
+  $module_list = [
+    'better_exposed_filters',
+  ];
   \Drupal::service('module_installer')->install($module_list);
 }
 
@@ -14,8 +19,8 @@ function foreningsmentor_update_8101(&$sandbox) {
  * Enables itk_siteimprove.
  */
 function foreningsmentor_update_8102(&$sandbox) {
-  $module_list = array(
-    'itk_siteimprove'
-  );
+  $module_list = [
+    'itk_siteimprove',
+  ];
   \Drupal::service('module_installer')->install($module_list);
 }

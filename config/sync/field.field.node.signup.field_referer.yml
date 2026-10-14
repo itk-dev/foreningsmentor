@@ -1,0 +1,19 @@
+uuid: 839e3662-9727-4c80-a06d-d70a11b12c00
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_referer
+    - node.type.signup
+id: node.signup.field_referer
+field_name: field_referer
+entity_type: node
+bundle: signup
+label: Henviser
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

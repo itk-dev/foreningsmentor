@@ -1,7 +1,9 @@
 global-styling:
-  version: VERSION
   css:
-    base:
-      build/app.css: {}
+    theme:
+      src/libs/bootstrap.min.css: {}
+      src/css/app.css: {}
   js:
-      build/app.js: {}
+    src/libs/bootstrap.bundle.min.js: {}
+  dependencies:
+    - core/jquery

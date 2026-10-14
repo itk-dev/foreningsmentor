@@ -5,10 +5,9 @@ namespace Drupal\foreningsmentor_config_settings\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
-use Drupal\Core\Url;
 
 /**
- * Class ItkGeneralSettingsForm.
+ * Supply a settings form for general site settings.
  *
  * @package Drupal\itk_admin\Form
  */

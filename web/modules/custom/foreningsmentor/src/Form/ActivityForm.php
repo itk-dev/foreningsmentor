@@ -8,7 +8,7 @@ use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 
 /**
- * Class ActivityForm.
+ * Class for managing activities form.
  */
 class ActivityForm extends FormBase {
 
@@ -25,7 +25,7 @@ class ActivityForm extends FormBase {
   public function buildForm(
     array $form,
     FormStateInterface $form_state,
-    $node = NULL
+    $node = NULL,
   ) {
     $form['add_activity'] = [
       '#type' => 'details',
@@ -87,7 +87,7 @@ class ActivityForm extends FormBase {
     $options = [];
     $ids = \Drupal::entityQuery('node')
       ->accessCheck()
-      ->condition('type','club')
+      ->condition('type', 'club')
       ->execute();
     foreach ($ids as $id) {
       $node = Node::load($id);
@@ -151,9 +151,12 @@ class ActivityForm extends FormBase {
    * Ajax callback from selecting club.
    *
    * @param array $form
+   *   The form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The state of the form.
    *
    * @return array
+   *   The changed form
    */
   public function changeClub(array &$form, FormStateInterface $form_state) : array {
     return $form['add_activity']['field_activity'];
@@ -162,15 +165,8 @@ class ActivityForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $parentNode = $form_state->getBuildInfo()["args"][0];
+    $parentNode = $form_state->getBuildInfo()['args'][0];
 
     // Bail out if parent is not a child.
     if (isset($parentNode) && $parentNode->getType() != 'course') {
@@ -208,4 +204,5 @@ class ActivityForm extends FormBase {
     $parentNode->field_activities[] = $node;
     $parentNode->save();
   }
+
 }

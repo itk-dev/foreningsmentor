@@ -21,6 +21,9 @@ use Drupal\views_bulk_operations\Action\ViewsBulkOperationsActionBase;
 class AnonymizeAction extends ViewsBulkOperationsActionBase {
   use StringTranslationTrait;
 
+  /**
+   * Anonymize a user.
+   */
   private function anonymizeUser(User $entity) {
     $entity->set('field_address', NULL);
     $entity->set('field_active', FALSE);
@@ -44,6 +47,9 @@ class AnonymizeAction extends ViewsBulkOperationsActionBase {
     $entity->save();
   }
 
+  /**
+   * Anonymize a user entry.
+   */
   private function anonymizeJournalEntry($entity) {
     $entity->setTitle(uniqid());
     $entity->set('body', '-');
@@ -51,6 +57,9 @@ class AnonymizeAction extends ViewsBulkOperationsActionBase {
     $entity->save();
   }
 
+  /**
+   * Anonymize a course.
+   */
   private function anonymizeCourse($entity) {
     $entity->setTitle(uniqid());
     $entity->set('field_course_type_text', '-');
@@ -70,6 +79,9 @@ class AnonymizeAction extends ViewsBulkOperationsActionBase {
     $entity->save();
   }
 
+  /**
+   * Anonymize a child.
+   */
   private function anonymizeChild($entity) {
     $entity->setTitle(uniqid());
     $entity->set('field_activity_wishes', '-');
@@ -106,10 +118,10 @@ class AnonymizeAction extends ViewsBulkOperationsActionBase {
     if ($entity instanceof User) {
       $this->anonymizeUser($entity);
     }
-    else if ($entity instanceof Node && $entity->getType() == 'child') {
+    elseif ($entity instanceof Node && $entity->getType() == 'child') {
       $this->anonymizeChild($entity);
     }
-    else if ($entity instanceof Node && $entity->getType() == 'course') {
+    elseif ($entity instanceof Node && $entity->getType() == 'course') {
       $this->anonymizeCourse($entity);
     }
   }
@@ -117,7 +129,7 @@ class AnonymizeAction extends ViewsBulkOperationsActionBase {
   /**
    * {@inheritdoc}
    */
-  public function access($object, AccountInterface $account = NULL, $return_as_object = FALSE) {
+  public function access($object, ?AccountInterface $account = NULL, $return_as_object = FALSE) {
     if ($object->getEntityType() === 'node') {
       $access = $object->access('update', $account, TRUE)
         ->andIf($object->status->access('edit', $account, TRUE));

@@ -1,0 +1,17 @@
+uuid: 24d1528c-78ac-4926-807e-f6424fcc11e6
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Tilmelding
+type: signup
+description: null
+help: null
+new_revision: false
+preview_mode: 0
+display_submitted: false

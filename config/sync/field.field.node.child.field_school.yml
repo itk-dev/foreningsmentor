@@ -9,7 +9,7 @@ id: node.child.field_school
 field_name: field_school
 entity_type: node
 bundle: child
-label: Skole
+label: Skole/børnehave
 description: ''
 required: false
 translatable: false

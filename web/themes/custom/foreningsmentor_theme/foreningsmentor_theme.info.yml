@@ -1,13 +1,12 @@
 name: Foreningsmentor
 type: theme
-description: 'Foreningsmentor custom theme'
-core: '8.x'
-core_version_requirement: ^8 || ^9 || ^10
+description: "Foreningsmentor custom theme"
+core_version_requirement: ^10 || ^11
 base theme: false
 libraries:
   - foreningsmentor_theme/global-styling
 regions:
-  pagetop: 'Page top'
-  content: 'Content'
-  pagefooter: 'Pagefooter'
-  footer: 'Page footer'
+  pagetop: "Page top"
+  content: "Content"
+  pagefooter: "Pagefooter"
+  footer: "Page footer"

@@ -7,5 +7,5 @@ dependencies:
 id: taxonomy_term.coordinators_end_status
 target_entity_type_id: taxonomy_term
 target_bundle: coordinators_end_status
-default_langcode: site_default
+default_langcode: und
 language_alterable: false

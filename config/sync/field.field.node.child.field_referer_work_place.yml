@@ -1,0 +1,19 @@
+uuid: 32ffa110-96f1-4d68-99ca-fdccce37f782
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_referer_work_place
+    - node.type.child
+id: node.child.field_referer_work_place
+field_name: field_referer_work_place
+entity_type: node
+bundle: child
+label: 'Henvisers arbejdsted'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

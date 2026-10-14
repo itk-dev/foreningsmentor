@@ -48,12 +48,12 @@
 {%
   set title_classes = [
     'field__label',
-    'foreningsmentor-intra--activity-headline'
+    'foreningsmentor-intra--activity-headline',
   ]
 %}
 
 <div{{ attributes.addClass(classes) }}>
-  <div{{ title_attributes.addClass(title_classes) }}>{{ 'Active activities' | trans }}</div>
+  <div{{ title_attributes.addClass(title_classes) }}>{{ 'Active activities'|trans }}</div>
   <ul class="foreningsmentor-intra--activity-ul">
   {% for item in items %}
     <li class="field__item">

@@ -3,7 +3,6 @@
 namespace Drupal\foreningsmentor_config_settings\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Routing\TrustedRedirectResponse;
 use Drupal\Core\Url;
 use Drupal\itk_admin\State\BaseConfig;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -12,7 +11,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * Page controller.
  */
-class PageController extends ControllerBase {
+final class PageController extends ControllerBase {
   /**
    * The configuration.
    *

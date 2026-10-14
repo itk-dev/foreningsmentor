@@ -2,15 +2,12 @@
 
 namespace Drupal\foreningsmentor_fixtures\Fixture;
 
-
-
 /**
  * Area term fixture.
  *
  * @package Drupal\foreningsmentor_fixtures\Fixture
  */
-class TermMentorFixture extends TaxonomyTermFixture
-{
+class TermMentorFixture extends TaxonomyTermFixture {
   /**
    * {@inheritdoc}
    */
@@ -23,6 +20,7 @@ class TermMentorFixture extends TaxonomyTermFixture
     'A1',
     'A2',
     'A3',
-    'A4'
+    'A4',
   ];
+
 }

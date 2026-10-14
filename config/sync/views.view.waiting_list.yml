@@ -29,6 +29,7 @@ dependencies:
     - user
     - views_add_button
     - views_data_export
+    - views_string_aggregation
 id: waiting_list
 label: Venteliste
 module: views
@@ -1164,7 +1165,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -1854,6 +1854,7 @@ display:
         page_1: page_1
         default: '0'
       filename: venteliste.csv
+      export_filesystem: public
     cache_metadata:
       max-age: -1
       contexts:
@@ -1861,7 +1862,6 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
-        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
@@ -1888,7 +1888,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.roles
       tags:

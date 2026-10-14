@@ -7,6 +7,63 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.4] 2026-05-21
+
+* Updated bundles and applied templates.
+* Cleaned up composer requirements and patches.
+
+## [1.8.3] 2026-05-04
+
+* Disabled translation extractor module
+
+## [1.8.2] 2026-05-04
+
+* Fixed bug in views export
+
+## [1.8.1] - 2026-04-17
+
+* [PR-49](https://github.com/itk-dev/foreningsmentor/pull/49)
+  * Security update
+
+## [1.8.0] 2026-03-16
+
+* [PR-47](https://github.com/itk-dev/foreningsmentor/pull/47)
+  * Add signup entity.
+  * Add signup -> child/parent conversion
+  * Add additional mails to be send on signup.
+  * Add referer to signup form
+
+## [1.7.3] 2026-01-13
+
+* [PR-45](https://github.com/itk-dev/foreningsmentor/pull/45)
+  * Enable memcache module.
+  * Reverted mail twig rendering code refactor.
+
+## [1.7.2] 2025-11-17
+
+* [PR-42](https://github.com/itk-dev/foreningsmentor/pull/42)
+  * Ran composer update.
+  * Simplified javascript and css handling in Foreningsmentor theme.
+  * Replaced scss with css and added bootstrap libraries to codebase instead of importing with yarn.
+
+## [release/1.7.1] 2025-07-07 (not tagged)
+
+* [PR-40](https://github.com/itk-dev/foreningsmentor/pull/40)
+  * Prepare for drupal 11 in custom and contrib modules
+  * Add ITK-dev template for github actions
+
+## [1.7.0] 2025-04-01
+
+* [PR-39](https://github.com/itk-dev/foreningsmentor/pull/39)
+   Upgrade Drupal to 10.4.5
+
+## [1.6.2] - 2025-03-12
+
+* [PR-36](https://github.com/itk-dev/foreningsmentor/pull/36)
+  Add labels to Woodpecker workflow
+
+## [1.6.1] - 2025-02-20
+
 * [PR-35](https://github.com/itk-dev/foreningsmentor/pull/35)
   Feature/security update
 
@@ -18,10 +75,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Upgrade php (8.3)
 * Upgrade docker setup
 
+## [1.5.1]
+
+* Upgrade Drupal to 10.1.6
+
 ## [1.5.0] 2023-10-05
 
 * Upgrade Drupal to 10.1.3
-* Update config to match drupal version 
+* Update config to match drupal version
 * Move Address dawa to custom modules for the time being.
 
 ## [1.4.0] - 2023-09-01
@@ -84,8 +145,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First version
 
-[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.6.0...HEAD
-[1.6.0]: https://github.com/itk-dev/foreningsmentor/compare/1.5.0...1.6.0
+[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.8.4...HEAD
+[1.8.4]: https://github.com/itk-dev/foreningsmentor/compare/1.8.3...1.8.4
+[1.8.3]: https://github.com/itk-dev/foreningsmentor/compare/1.8.2...1.8.3
+[1.8.2]: https://github.com/itk-dev/foreningsmentor/compare/1.8.1...1.8.2
+[1.8.1]: https://github.com/itk-dev/foreningsmentor/compare/1.7.0...1.8.1
+[1.8.0]: https://github.com/itk-dev/foreningsmentor/compare/1.7.3...1.8.0
+[1.7.3]: https://github.com/itk-dev/foreningsmentor/compare/1.7.2...1.7.3
+[1.7.2]: https://github.com/itk-dev/foreningsmentor/compare/1.7.0...1.7.2
+[1.7.0]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.7.0
+[1.6.2]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.2
+[1.6.1]: https://github.com/itk-dev/foreningsmentor/releases/tag/1.6.1
+[1.6.0]: https://github.com/itk-dev/foreningsmentor/compare/1.5.1...1.6.0
+[1.5.1]: https://github.com/itk-dev/foreningsmentor/compare/1.5.0...1.5.1
 [1.5.0]: https://github.com/itk-dev/foreningsmentor/compare/1.4.0...1.5.0
 [1.4.0]: https://github.com/itk-dev/foreningsmentor/compare/1.3.1...1.4.0
 [1.3.1]: https://github.com/itk-dev/foreningsmentor/compare/1.3.0...1.3.1

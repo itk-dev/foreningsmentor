@@ -22,14 +22,14 @@ class ForeningsmentorGetMailAddressesAction extends ViewsBulkOperationsActionBas
   /**
    * {@inheritdoc}
    */
-  public function executeMultiple(array $objects) {
+  public function executeMultiple(array $objects):void {
     $result = '';
 
     $last_key = array_search(end($objects), $objects);
     foreach ($objects as $key => $object) {
       $name = $object->get('field_name')->value;
 
-      $result = $result . '"' . ($name ?: $object->getEmail()) . '"' . '<' . $object->getEmail() . '>';
+      $result = $result . '"' . ($name ?: $object->getEmail()) . '"<' . $object->getEmail() . '>';
       if ($key != $last_key) {
         $result .= '; ';
       }
@@ -42,13 +42,13 @@ class ForeningsmentorGetMailAddressesAction extends ViewsBulkOperationsActionBas
    * {@inheritdoc}
    */
   public function execute($entity = NULL) {
-    return $this->t('');
+    return '';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function access($object, AccountInterface $account = NULL, $return_as_object = FALSE) {
+  public function access($object, ?AccountInterface $account = NULL, $return_as_object = FALSE) {
     if ($object->getEntityType() === 'node') {
       $access = $object->access('update', $account, TRUE)
         ->andIf($object->status->access('edit', $account, TRUE));

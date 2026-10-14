@@ -1,0 +1,55 @@
+uuid: 0bc0208b-2d1d-4a20-b458-e86a75a8e79f
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.signup.field_activity_wishes
+    - field.field.node.signup.field_address
+    - field.field.node.signup.field_archived
+    - field.field.node.signup.field_birthday
+    - field.field.node.signup.field_email
+    - field.field.node.signup.field_existing_parent
+    - field.field.node.signup.field_name
+    - field.field.node.signup.field_neighborhood
+    - field.field.node.signup.field_parent_name
+    - field.field.node.signup.field_phone
+    - field.field.node.signup.field_postal_code
+    - field.field.node.signup.field_referer
+    - field.field.node.signup.field_referer_email
+    - field.field.node.signup.field_referer_phone
+    - field.field.node.signup.field_school
+    - field.field.node.signup.field_sex
+    - field.field.node.signup.field_shool_class
+    - node.type.signup
+  module:
+    - user
+id: node.signup.teaser
+targetEntityType: node
+bundle: signup
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_activity_wishes: true
+  field_address: true
+  field_archived: true
+  field_birthday: true
+  field_email: true
+  field_existing_parent: true
+  field_name: true
+  field_neighborhood: true
+  field_parent_name: true
+  field_phone: true
+  field_postal_code: true
+  field_referer: true
+  field_referer_email: true
+  field_referer_phone: true
+  field_school: true
+  field_sex: true
+  field_shool_class: true
+  langcode: true

@@ -1,0 +1,23 @@
+uuid: cc09f952-f2dc-4d8b-b9f7-fca6d0a8de57
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_archived
+    - node.type.signup
+id: node.signup.field_archived
+field_name: field_archived
+entity_type: node
+bundle: signup
+label: Arkiveret
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Arkiveret
+  off_label: 'Ikke arkiveret'
+field_type: boolean

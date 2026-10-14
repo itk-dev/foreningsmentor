@@ -1,0 +1,19 @@
+uuid: e2f8d54b-26f0-4322-8f19-c35bc04bf2c0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_referer_email
+    - node.type.signup
+id: node.signup.field_referer_email
+field_name: field_referer_email
+entity_type: node
+bundle: signup
+label: 'Henviser e-mail'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

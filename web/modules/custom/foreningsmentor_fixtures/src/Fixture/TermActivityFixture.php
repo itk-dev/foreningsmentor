@@ -7,8 +7,7 @@ namespace Drupal\foreningsmentor_fixtures\Fixture;
  *
  * @package Drupal\foreningsmentor_fixtures\Fixture
  */
-class TermActivityFixture extends TaxonomyTermFixture
-{
+class TermActivityFixture extends TaxonomyTermFixture {
   /**
    * {@inheritdoc}
    */
@@ -19,6 +18,7 @@ class TermActivityFixture extends TaxonomyTermFixture
    */
   protected static $terms = [
     'activity1',
-    'activity2'
+    'activity2',
   ];
+
 }

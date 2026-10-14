@@ -1,6 +1,5 @@
 _core:
   default_config_hash: b2cssrj-lOmATIbdehfCqfCFgVR0qCdxxWhwqa2KBVQ
-langcode: da
 cache:
   page:
     max_age: 0
@@ -16,6 +15,5 @@ fast_404:
 js:
   preprocess: false
   gzip: false
-stale_file_threshold: 2592000
 response:
   gzip: false

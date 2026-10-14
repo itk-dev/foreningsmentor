@@ -1,3 +1,21 @@
+/*
+Assumes a relationship between terms in activity type and end statuses
+
+Example:
+
+If #edit-field-activity-type has these options:
+ - "Swimming"
+ - "Football"
+And #edit-field-mentors-end-status has these options:
+ - "Swimming - Completed"
+ - "Swimming - In Progress"
+ - "Football - Completed"
+ - "Football - Dropped Out"
+
+ When you select "Swimming" in activity type, only options starting with
+ "Swimming" will show in the other dropdowns ("Swimming - Completed", "Swimming - In Progress").
+ */
+
 (function ($, Drupal) {
   Drupal.behaviors.courseForm = {
     attach: function (context, settings) {

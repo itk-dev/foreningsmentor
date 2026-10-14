@@ -1,0 +1,19 @@
+uuid: 99457c84-0668-44b4-9548-9ee1e68aa7bc
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_association
+    - node.type.child
+id: node.child.field_association
+field_name: field_association
+entity_type: node
+bundle: child
+label: Forening
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

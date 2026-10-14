@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.parent.field_children
     - field.field.node.parent.field_email
     - field.field.node.parent.field_phone
+    - field.field.node.parent.field_postal_code
     - node.type.parent
   module:
     - address_dawa
@@ -53,6 +54,7 @@ hidden:
   body: true
   created: true
   field_children: true
+  field_postal_code: true
   langcode: true
   path: true
   promote: true

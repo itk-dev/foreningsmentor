@@ -14,7 +14,7 @@ use Drupal\node\NodeInterface;
  */
 function foreningsmentor_access_control_help(
   $route_name,
-  RouteMatchInterface $route_match
+  RouteMatchInterface $route_match,
 ) {
   $output = '';
   switch ($route_name) {
@@ -65,7 +65,7 @@ function foreningsmentor_access_control_node_access_records(NodeInterface $node)
  */
 function foreningsmentor_access_control_node_grants(
   AccountInterface $account,
-  $op
+  $op,
 ) {
   $grants = &drupal_static(__FUNCTION__);
   if (!is_null($grants)) {
@@ -77,7 +77,7 @@ function foreningsmentor_access_control_node_grants(
   $all_access_roles = ['coordinator'];
 
   if (array_intersect($all_access_roles, $account->getRoles())) {
-    // For 'all access' roles we give the general '0' GID
+    // For 'all access' roles we give the general '0' GID.
     $grants['foreningsmentor_access_control'][] = 0;
   }
   elseif (in_array('mentor', $account->getRoles(), TRUE)) {
@@ -87,7 +87,6 @@ function foreningsmentor_access_control_node_grants(
     // Disable access check to avoid triggering infinite loop, since access
     // checks apply to entity queries.
     // Only give access to courses where the mentor is set.
-
     // Give access to courses where mentor is current user.
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
@@ -131,7 +130,7 @@ function foreningsmentor_access_control_node_grants(
       $journal_entry_ids = $query->execute();
     }
 
-    // Assign NID's as grant ID's
+    // Assign NID's as grant ID's.
     $grants['foreningsmentor_access_control'] = array_merge($child_ids, $journal_entry_ids, $course_ids, $activity_ids);
   }
 
