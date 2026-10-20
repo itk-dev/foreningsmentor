@@ -284,7 +284,6 @@ msgstr ""
 msgid "Get a list of all mails"
 msgstr "Få en liste af alle mails"
 
-
 msgid "Girl"
 msgstr "Pige"
 
