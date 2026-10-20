@@ -229,6 +229,9 @@ msgstr "Barnets skole"
 msgid "Child's sex"
 msgstr "Barnets køn"
 
+msgid "Clean Address DAWA"
+msgstr "Ren Dawa adresse"
+
 msgid "Club"
 msgstr "Forening"
 
@@ -277,6 +280,9 @@ msgid ""
 msgstr ""
 "Fandt indhold der minder meget om denne tilmelding. Tjek for at undgå "
 "dubletter: @matchtype - <a href=\"/node/@nid\">@name</a>"
+
+msgid "Get a list of all mails"
+msgstr "Få en liste af alle mails"
 
 msgid "Girl"
 msgstr "Pige"
