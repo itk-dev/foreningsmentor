@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+* [PR-58](https://github.com/itk-dev/foreningsmentor/pull/58)
+  * Drupal contrib module update
+
 ## [1.8.5] 2026-10-14
 
 * [PR-55](https://github.com/itk-dev/foreningsmentor/pull/55)
