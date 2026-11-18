@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * [PR-61](https://github.com/itk-dev/foreningsmentor/pull/61)
   * Prepared the Drupal core security update ([PSA-2026-11-16](https://www.drupal.org/psa-2026-11-16))
+  * Security update drupal/field_permissions 1.5.0 => 1.6.0 (SA-CONTRIB-2026-288, SA-CONTRIB-2026-289)
 
 ## [1.8.7] 2026-11-03
 
