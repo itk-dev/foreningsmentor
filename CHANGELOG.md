@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.8] 2026-11-18
+
+* [PR-61](https://github.com/itk-dev/foreningsmentor/pull/61)
+  * Security update drupal/core 10.6.19 => 10.6.22 ([PSA-2026-11-16](https://www.drupal.org/psa-2026-11-16),
+    SA-CORE-2026-017, SA-CORE-2026-018)
+  * Updated symfony/* packages that drupal/core-recommended 10.6.22 requires
+  * Security update drupal/field_permissions 1.5.0 => 1.6.0 (SA-CONTRIB-2026-288, SA-CONTRIB-2026-289)
+
 ## [1.8.7] 2026-11-03
 
 * Switched to the maintained nginx/nginx-unprivileged image (replaces archived nginxinc/nginx-unprivileged).
@@ -160,7 +168,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First version
 
-[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.8.7...HEAD
+[Unreleased]: https://github.com/itk-dev/foreningsmentor/compare/1.8.8...HEAD
+[1.8.8]: https://github.com/itk-dev/foreningsmentor/compare/1.8.7...1.8.8
 [1.8.7]: https://github.com/itk-dev/foreningsmentor/compare/1.8.6...1.8.7
 [1.8.6]: https://github.com/itk-dev/foreningsmentor/compare/1.8.5...1.8.6
 [1.8.5]: https://github.com/itk-dev/foreningsmentor/compare/1.8.4...1.8.5
